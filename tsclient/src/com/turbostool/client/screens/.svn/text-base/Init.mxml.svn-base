@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BaseScreen
+        xmlns="com.turbostool.client.screens.*"
+        xmlns:mx="http://www.adobe.com/2006/mxml" currentState="loadingConfig"
+        xmlns:ns1="com.turbostool.client.loaderScreen.*"
+        horizontalScrollPolicy="off"
+        verticalScrollPolicy="off">
+
+    <states>
+        <mx:State name="loadingConfig">
+        </mx:State>
+        <mx:State name="connectingServer">
+        </mx:State>
+        <mx:State name="processingVkontakte">
+        </mx:State>
+        <mx:State name="initialized">
+        </mx:State>
+        <mx:State name="failedToInitialize">
+            <mx:SetProperty target="{label1}" name="text">
+                <mx:value>Произошла ошибка, попробуйте обновить страницу браузера</mx:value>
+            </mx:SetProperty>
+        </mx:State>
+        <mx:State name="vkontakteAdd">
+            <mx:SetStyle name="backgroundColor" value="#FFFFFF"/>
+            <mx:AddChild position="lastChild">
+                <mx:Text fontSize="20" color="#09313A" width="342" height="31" horizontalCenter="0"
+                         verticalCenter="12"
+                         textAlign="center" htmlText="И ГОНКА СРАЗУ ЗАГРУЗИТСЯ!" id="text2">
+                </mx:Text>
+            </mx:AddChild>
+            <mx:AddChild position="lastChild">
+                <mx:Text fontSize="20" color="#09313A" width="132" height="31" horizontalCenter="0"
+                         verticalCenter="51"
+                         textAlign="center" htmlText="УДАЧИ!">
+                </mx:Text>
+            </mx:AddChild>
+            <mx:AddChild relativeTo="{text2}" position="before">
+                <mx:Text fontSize="20" color="#09313A" width="528" height="35" horizontalCenter="0"
+                         verticalCenter="-107" textAlign="center">
+                    <mx:htmlText>ДОБАВЬТЕ ИГРУ К СЕБЕ НА СТРАНИЦУ</mx:htmlText>
+                </mx:Text>
+            </mx:AddChild>
+            <mx:AddChild position="lastChild">
+                <mx:Image horizontalCenter="0"
+                          source="@Embed('/assets/gui/screens/vkontakte/addApplicationText.png')" verticalCenter="-42"/>
+            </mx:AddChild>
+            <mx:RemoveChild target="{cPreloaderScreen}"/>
+            <mx:RemoveChild target="{image1}"/>
+            <mx:RemoveChild target="{label1}"/>
+        </mx:State>
+    </states>
+
+    <ns1:LoaderScreen x="0" y="0" id="cPreloaderScreen"/>
+    
+    <mx:Image source="@Embed('/assets/gui/progress/connectingText.png')" id="image1" x="283" y="527"/>
+    <mx:Label verticalCenter="10" horizontalCenter="0" fontSize="18" fontStyle="normal" id="label1" color="#FD2B08"
+              fontFamily="Arial" fontWeight="bold"/>
+
+    <mx:Script><![CDATA[
+        import com.turbostool.client.controllers.InitController;
+        import com.turbostool.client.event.EventManager;
+        import com.turbostool.client.event.StateChangedEvent;
+
+        import mx.events.FlexEvent;
+
+        // контролы созданы
+        public override function onInitialize(event: FlexEvent): void
+        {
+            EventManager.instance.addEventListener(StateChangedEvent.STATE_CHANGED_EVENT, onStateChanged);
+
+            super.onInitialize(event);
+        }
+
+        private function onStateChanged(event: StateChangedEvent): void
+        {
+            if (event.sm == Client.instance.controller.initController)
+            {
+                if (event.state == InitController.FAILER_TO_INITIALIZE && Client.instance.controller.initController.reason == InitController.REASON_ADD_APPLICATION)
+                {
+                    currentState = "vkontakteAdd";
+                } else
+                {
+                    currentState = event.state;
+                }
+            }
+        }
+
+        ]]></mx:Script>
+
+</BaseScreen>

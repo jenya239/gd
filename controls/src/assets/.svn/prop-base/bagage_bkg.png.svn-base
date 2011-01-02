@@ -1,0 +1,13 @@
+K 13
+svn:mergeinfo
+V 299
+/branches/cars/controls/src/assets/bagage_bkg.png:2457-2606
+/branches/chat/controls/src/assets/bagage_bkg.png:2364-2390
+/branches/ratingSystem/controls/src/assets/bagage_bkg.png:1580-1662
+/branches/vapi/controls/src/assets/bagage_bkg.png:2205-2311
+/trunk/controls/src/assets/bagage_bkg.png:1891-2199
+K 13
+svn:mime-type
+V 24
+application/octet-stream
+END

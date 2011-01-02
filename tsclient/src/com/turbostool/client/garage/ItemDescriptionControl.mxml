@@ -1,0 +1,139 @@
+<?xml version="1.0" ?>
+<screens:BaseScreen
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        xmlns:screens="com.turbostool.client.screens.*" xmlns:controls="com.turbostool.controls.*"
+        backgroundColor="#a23636"
+        verticalScrollPolicy="off"
+        horizontalScrollPolicy="off"
+        creationComplete="onComplete()"
+        >
+    <screens:states>
+        <mx:State name="nitro">
+            <mx:RemoveChild target="{label1}"/>
+            <mx:RemoveChild target="{label2}"/>
+            <mx:RemoveChild target="{label3}"/>
+            <mx:RemoveChild target="{label4}"/>
+            <mx:SetProperty target="{description}" name="y" value="81"/>
+            <mx:AddChild position="lastChild">
+                <mx:Label x="42" y="38" text="{str('charges') + ': ' + itemInfo.usingCount}" color="#DA7F22"
+                          fontSize="12" fontFamily="Arial" fontWeight="bold"/>
+            </mx:AddChild>
+        </mx:State>
+        <mx:State name="shop">
+            <mx:SetProperty target="{description}" name="y" value="122"/>
+            <mx:AddChild relativeTo="{label3}" position="before">
+                <mx:Label x="42" y="106"
+                          text="{str('durability') + ': ' + Utils.round(itemInfo.currentDurability)}/{Utils.round(itemInfo.durabilityMax)}"
+                          color="#DA7F22" fontSize="12" fontFamily="Arial" fontWeight="bold" id="label0"/>
+            </mx:AddChild>
+            <mx:SetProperty target="{rectangle1}" name="y" value="62"/>
+            <mx:SetProperty target="{smartimage1}" name="y" value="63"/>
+            <mx:SetProperty target="{label4}" name="y" value="55"/>
+            <mx:SetProperty target="{label1}" name="y" value="94"/>
+            <mx:SetProperty target="{label3}" name="y" value="68"/>
+            <mx:SetProperty target="{label2}" name="y" value="81"/>
+            <mx:AddChild position="lastChild">
+                <mx:Text y="38" htmlText="{str('price') + ': ' + Utils.calcSellPrice(itemInfo, modelsStorage, isBuying)}"
+                         color="{itemInfo.realPrice > 0 ? 0xD7A50E : 0x719B2F}" fontSize="12" fontFamily="Arial"
+                         fontStyle="normal" fontWeight="bold"/>
+            </mx:AddChild>
+        </mx:State>
+        <mx:State name="shopNitro" basedOn="shop">
+            <mx:RemoveChild target="{label4}"/>
+            <mx:RemoveChild target="{label3}"/>
+            <mx:RemoveChild target="{label2}"/>
+            <mx:RemoveChild target="{label1}"/>
+            <mx:RemoveChild target="{label0}"/>
+            <mx:SetProperty target="{description}" name="y" value="98"/>
+            <mx:AddChild position="lastChild">
+                <mx:Label x="42" y="55" text="{str('charges') + ': ' +itemInfo.usingCount}" color="#DA7F22"
+                          fontSize="12" fontFamily="Arial" fontWeight="bold"/>
+            </mx:AddChild>
+        </mx:State>
+    </screens:states>
+
+    <mx:Script><![CDATA[
+        import com.turbostool.client.model.ItemInfo;
+        import com.turbostool.client.shop.ShopItemPopup;
+        import com.turbostool.client.utils.Utils;
+
+        import mx.binding.utils.BindingUtils;
+
+        [Bindable]
+        public var available: Boolean = true;
+
+        [Bindable]
+        public var isShop: Boolean = false;
+
+        [Bindable]
+        public var isBuying: Boolean = false;
+
+        private var _itemInfo: ItemInfo;
+
+        [Bindable]
+        public function get itemInfo():ItemInfo
+        {
+            return _itemInfo;
+        }
+
+        public function set itemInfo(value:ItemInfo):void
+        {
+            _itemInfo = value;
+            BindingUtils.bindSetter(setIsNitro, _itemInfo, "isNitro");
+        }
+
+        public function setIsNitro(value: Boolean): void
+        {
+            updateCurrentState();
+        }
+
+        public function updateCurrentState(): void
+        {
+            var state: String = "";
+            if (_itemInfo != null)
+            {
+                if (isShop)
+                    if (!_itemInfo.isNitro)
+                        state = "shop";
+                    else
+                        state = "shopNitro";
+                else
+                    if (!_itemInfo.isNitro)
+                        state = "";
+                    else
+                        state = "nitro";
+            }
+
+            currentState = state;
+        }
+
+        public function onComplete():void
+        {
+            updateCurrentState();
+        }
+        ]]></mx:Script>
+
+    <controls:Rectangle y="45" height="36" width="36" cornerRadius="5" backgroundColor2="#4f484f"
+                        borderColor2="#ffffff" borderAlpha="1.0" borderWidth="1" id="rectangle1"/>
+
+    <controls:SmartImage source="{itemInfo.imageSource}" y="46" height="35" width="35" x="1" id="smartimage1"/>
+    <mx:Label text="{itemInfo.name}" color="#FFFFFF" fontWeight="bold" fontSize="12" fontFamily="Arial"/>
+    <mx:Label text="{str('availableFromLevel', [itemInfo.minLevel])}" color="{!available?0xFF4444:0xFFFFFF}" fontWeight="bold"
+              fontSize="12" fontFamily="Arial" top="19"/>
+
+    <mx:Label x="42" y="38"
+              text="{str('acceleration') + ': ' + (itemInfo.power >= 0 ? '+' + itemInfo.power : '-' + itemInfo.power)}" color="#DA7F22"
+              fontSize="12" fontFamily="Arial" fontWeight="bold" id="label4"/>
+    <mx:Label x="42" y="77"
+              text="{str('braking') + ': ' + (itemInfo.braking >= 0 ? '+' + itemInfo.braking : '-' + itemInfo.braking)}"
+              color="#DA7F22" fontSize="12" fontFamily="Arial" fontWeight="bold" id="label1"/>
+    <mx:Label x="42" y="51"
+              text="{str('maxSpeed') + ': ' + (itemInfo.speed >= 0 ? '+' + itemInfo.speed : '-' + itemInfo.speed)}" color="#DA7F22"
+              fontSize="12" fontFamily="Arial" fontWeight="bold" id="label3"/>
+    <mx:Label x="42" y="64"
+              text="{str('controllability') + ': ' + (itemInfo.controllability >= 0 ? '+' + itemInfo.controllability : '-' + itemInfo.controllability)}"
+              color="#DA7F22" fontSize="12" fontFamily="Arial" fontWeight="bold" id="label2"/>
+
+    <mx:Text width="100%" id="description" y="93" text="{itemInfo.description}" fontSize="12" color="#DA7F22"
+             leading="0" left="0" fontFamily="Arial" fontWeight="bold"/>
+</screens:BaseScreen>

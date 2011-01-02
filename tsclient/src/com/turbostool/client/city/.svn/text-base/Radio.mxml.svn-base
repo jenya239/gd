@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml"
+           creationComplete="onCreationComplete()">
+    <mx:Style source="/styles.css"/>
+    <mx:CheckBox id="soundControll" styleName="soundCheck" click="switchSound()" selected="false"/>
+
+    <mx:Script>
+    <![CDATA[
+        import flash.media.Sound;
+        import flash.media.SoundLoaderContext;
+        import flash.media.SoundTransform;
+	import flash.media.SoundChannel;
+        import flash.net.URLRequest;
+	import com.turbostool.client.Config;
+        import mx.controls.Alert;
+	import flash.net.SharedObject;
+
+        private var s:Sound;
+	private var sch:SoundChannel;
+	private var so:SharedObject = SharedObject.getLocal("gdsound");
+
+        private function switchSound():void {
+            if (sch != null) {
+	        closeAll();
+		trySwitchAudio(false);
+            } else {
+                start();
+		trySwitchAudio(true);
+            }
+        }
+	
+	private function closeAll():void{
+	         if (sch != null){ 
+		  try{
+		    sch.stop();
+		    s.close();
+		  }catch(e:*){}
+		  sch = null;
+		}
+	}
+	
+	private function trySwitchAudio(soundOn:Boolean):void{
+	      try{
+	         so.data.sound = soundOn;
+		 so.flush();
+	      }catch(e:*){}
+	}
+	
+	private function start():void{
+	   s = new Sound(new URLRequest(Config.instance.radio + "?" + (Math.random()) ),
+	                  new SoundLoaderContext(5000));
+	   sch = s.play();
+	   sch.soundTransform = new SoundTransform(0.5,0);
+	}
+
+        private function onCreationComplete(): void
+        {   
+	    if ( so.data.sound != null) soundControll.selected = so.data.sound;
+	    if( soundControll.selected ) start();
+        }
+    
+    ]]>
+    </mx:Script>
+</mx:Canvas>

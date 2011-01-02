@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas
+        xmlns="com.turbostool.client.lobbies.*"
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        width="205" height="19"
+        verticalScrollPolicy="off"
+        horizontalScrollPolicy="off" backgroundAlpha="1.0"
+        backgroundColor="#DE8A05"
+        themeColor="#44F348"
+        click="linkHandler();">
+
+    <mx:Script><![CDATA[
+        import com.turbostool.client.event.EventManager;
+        import com.turbostool.client.event.NickClickEvent;
+        import com.turbostool.client.model.ClientInfo;
+
+     private function linkHandler():void
+    {
+       var userID:Number = data.userID as Number;
+       if (userID == 0)
+          userID = Client.instance.modelsStorage.userInfo.id;
+       EventManager.instance.dispatchEvent(new NickClickEvent("", userID));
+    }
+
+     private function createNickLink(chatInfo:Object):String
+    {
+        return (isNaN(data.userID) || data.userID < 0) ? String(chatInfo.displayName) : "<a href='event:nick'><u>" + String(chatInfo.displayName) + "</u></a>";
+    }
+     ]]></mx:Script>
+
+    <mx:Style source="/styles.css"/>
+
+    <mx:Label x="0" y="1" fontFamily="Arial"
+              fontSize="11" color="#FFFFFF" fontWeight="bold" width="104"
+              text="{data.displayName}"/>
+    <mx:Label x="109" y="1" fontFamily="Arial" fontSize="11" color="#FFFFFF" fontWeight="bold" width="96"
+              text="{data.loadingProgress}%"/>
+</mx:Canvas>

@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<screens:BaseScreen
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        xmlns:screens="com.turbostool.client.screens.*"
+        xmlns:controls="com.turbostool.controls.*" width="433" height="340" backgroundAlpha="0">
+	<mx:Label x="6" y="17" text="{str('mailList')}" color="#FFFFFF" fontWeight="bold" fontFamily="Arial" fontSize="11"/>
+    <mx:List rowHeight="21"
+             itemClick="onItemClick(event.currentTarget.selectedItem as PostMessageInfo)"
+             dataProvider="{modelsStorage.inbox}"
+             itemRenderer="com.turbostool.client.bank.PostBoxListRenderer"
+             bottom="0" top="42" left="0" right="2"
+             backgroundAlpha="0"
+             borderThickness="0"
+             backgroundColor="#ffffff"/>
+
+    <mx:HRule y="36" height="1" right="0" left="0"/>
+
+    <mx:Script><![CDATA[
+        import com.turbostool.client.game.view.ModalManager;
+        import com.turbostool.client.model.PostMessageInfo;
+
+        private function onItemClick(postMessageInfo: PostMessageInfo):void
+        {
+            var postBoxPopUp: PostBoxPopUp = new PostBoxPopUp();
+            postBoxPopUp.postMessage = postMessageInfo;
+            postBoxPopUp.modelsStorage = modelsStorage;
+            ModalManager.instance.addModalWindow(postBoxPopUp, "modalClose");
+       }
+
+]]></mx:Script>
+
+</screens:BaseScreen>

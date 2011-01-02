@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<controls:ItemBaseRenderer xmlns:mx="http://www.adobe.com/2006/mxml"
+                           xmlns:controls="com.turbostool.controls.*"
+                           horizontalScrollPolicy="off"
+                           verticalScrollPolicy="off"
+                           height="44"
+                           width="44">
+    <controls:Rectangle backgroundColor2="#FFFFFF" borderColor2="#4a3c46" backgroundAlpha="1.0"
+                        cornerRadius="5" left="1" top="1" bottom="0" right="0"/>
+    <controls:SmartImage source="{data != null ? data.imageSource : null}"
+                         verticalCenter="10"
+                         top="1" bottom="0"
+                         left="1" right="0" glow="true"/>
+</controls:ItemBaseRenderer>

@@ -1,0 +1,56 @@
+<erl>
+
+-record(vapiTest,
+    {
+        key,
+        value
+    }
+).
+    out(Request)->
+        case yaws_api:queryvar(Request, "api_id") of
+            {ok, "468346"} -> ok;
+            {ok, "1509618"} -> ok
+        end,
+        {ok, "2.0"} = yaws_api:queryvar(Request, "v"),
+        case yaws_api:queryvar(Request, "method") of
+            {ok, "isAppUser"} ->
+                {html, "<response>1</response>"};
+            {ok, "putVariable"} ->
+                {ok, UID} = yaws_api:queryvar(Request, "user_id"),
+                {ok, Key} = yaws_api:queryvar(Request, "key"),
+                {ok, Value} = yaws_api:queryvar(Request, "value"),
+                {atomic, ok} = mnesia:transaction(fun() -> mnesia:write(#vapiTest{key={UID, Key}, value=Value}) end),
+                {html, "<response></response>"};
+            {ok, "getVariable"} ->
+                {ok, VID} = yaws_api:queryvar(Request, "viewer_id"),
+                {ok, Key} = yaws_api:queryvar(Request, "key"),
+                case mnesia:transaction(fun() -> mnesia:read({vapiTest, {VID, Key}}) end) of
+                    {atomic, [Value]} ->
+                        {html, "<response>" ++ Value#vapiTest.value ++ "</response>"};
+                    {atomic, []} ->
+                        case Key of
+                            "1281" ->
+                                {html, "<response>First Last    </response>"};
+                            _Other ->
+                                {html, "<response>0</response>"}
+                        end
+                end;
+            {ok, "getAppFriends"} ->
+                {html, "<response><uid>1</uid><uid>2</uid><uid>3</uid><uid>4</uid><uid>5</uid><uid>6</uid><uid>7</uid><uid>8</uid><uid>9</uid></response>"};
+            {ok, "getProfiles"} ->
+                timer:sleep(1000),
+                {html, "<response>
+                            <user><uid>1</uid><first_name>First1</first_name><last_name>Last1</last_name><photo_medium>http://cs552.vkontakte.ru/u39495/c_fc52bb8d.jpg</photo_medium></user>
+                            <user><uid>2</uid><first_name>First2</first_name><last_name>Last2</last_name><photo_medium>http://cs4473.vkontakte.ru/u177017/c_56b68eaf.jpg</photo_medium></user>
+                            <user><uid>3</uid><first_name>First3</first_name><last_name>Last3</last_name><photo_medium>http://cs568.vkontakte.ru/u858649/b_71b9a079.jpg</photo_medium></user>
+                            <user><uid>4</uid><first_name>First1</first_name><last_name>Last1</last_name><photo_medium>http://cs552.vkontakte.ru/u39495/c_fc52bb8d.jpg</photo_medium></user>
+                            <user><uid>5</uid><first_name>First2</first_name><last_name>Last2</last_name><photo_medium>http://cs4473.vkontakte.ru/u177017/c_56b68eaf.jpg</photo_medium></user>
+                            <user><uid>6</uid><first_name>First3</first_name><last_name>Last3</last_name><photo_medium>http://cs568.vkontakte.ru/u858649/b_71b9a079.jpg</photo_medium></user>
+                            <user><uid>7</uid><first_name>First1</first_name><last_name>Last1</last_name><photo_medium>http://cs552.vkontakte.ru/u39495/c_fc52bb8d.jpg</photo_medium></user>
+                            <user><uid>8</uid><first_name>First2</first_name><last_name>Last2</last_name><photo_medium>http://cs4473.vkontakte.ru/u177017/c_56b68eaf.jpg</photo_medium></user>
+                            <user><uid>9</uid><first_name>First3</first_name><last_name>Last3</last_name><photo_medium>http://cs568.vkontakte.ru/u858649/b_71b9a079.jpg</photo_medium></user>
+                        </response>"};
+            _ ->
+                {html, "<error><error_msg>Error on test server</error_msg></error>"}
+        end.
+</erl>

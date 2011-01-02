@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<screens:BaseScreen
+        xmlns="com.turbostool.client.*"
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        xmlns:screens="com.turbostool.client.screens.*"
+        xmlns:controls="com.turbostool.controls.*"
+        width="607" height="390" creationComplete="onCreationComplete()" backgroundColor="#20291E"
+        horizontalScrollPolicy="off" verticalScrollPolicy="off"
+        currentState="{lobbiesController.league == 4 ? 'duel' : (modelsStorage.userInfo.currentCity == 3 ? 'team' : '')}">
+        <screens:states>
+                <mx:State name="duel">
+                        <mx:RemoveChild target="{cbPlayers}"/>
+                        <mx:AddChild position="lastChild">
+                                <mx:VBox x="82.5" y="168" >
+                                </mx:VBox>
+                        </mx:AddChild>
+                        <mx:AddChild position="lastChild">
+                                <mx:Label text="{str('bet')}"
+                                	visible="{lobbiesController.league == 4}"
+                                	fontFamily="Arial" fontWeight="bold" color="#f7fae5" fontSize="11" x="85.5" y="134"/>
+                        </mx:AddChild>
+                        <mx:AddChild position="lastChild">
+                                <mx:TextInput id="tiStake" text="50" visible="{lobbiesController.league == 4}"  x="83.5" y="160"/>
+                        </mx:AddChild>
+                        <mx:RemoveChild target="{label2}"/>
+                </mx:State>
+                <mx:State name="team">
+                        <mx:SetProperty target="{cbPlayers}" name="dataProvider" value="{teamProvider}"/>
+                </mx:State>
+        </screens:states>
+        <mx:Binding source="(lobbiesController.state == LobbyInfo.STATUS_HALL)" destination="visible" /> 
+    <mx:Script>
+    <![CDATA[
+        import com.turbostool.client.event.EventManager;
+        import com.turbostool.client.lobbies.events.CreateLobbyCommand;
+        import com.turbostool.client.model.CarInfo;
+        import com.turbostool.client.model.RouteInfo;
+        import com.turbostool.client.net.messages.CreateLobbyRequest;
+        import com.turbostool.client.utils.Utils;
+	import com.turbostool.client.model.LobbyInfo;
+        
+	[Bindable]
+	private var stake:int=50;
+	
+        [Bindable]
+        public var lobbiesController:LobbiesController; 
+
+        public function randomParams():void
+        {
+            //cbReverse.selected = (int(Math.random()*100)%2) == 1;
+            cbRoutes.selectedIndex = int(Math.random()*100) % cbRoutes.dataProvider.length;
+            if (modelsStorage.userInfo.currentCity < 3)
+            {
+                cbPlayers.selectedIndex = 3;
+            } else
+            {
+                cbPlayers.selectedIndex = 4;
+            }
+        }
+
+        private function onRouteChange(): void
+        {
+            //imgRoute.source = ;
+        }
+
+        private function onCreationComplete(): void
+        {
+            onRouteChange();
+        }
+
+        private function onCreateLobbyClick(): void
+        {
+            var createLobbyCommand: CreateLobbyCommand = new CreateLobbyCommand(
+                    new CreateLobbyRequest(
+                            RouteInfo(cbRoutes.selectedItem).id,
+                            (lobbiesController.league == 4) ? 3 : int(cbNumberOfLaps.selectedItem.data),
+                            cbReverse.selected ? "back" : "forward",
+                            CarInfo(cbCars.selectedItem).id,
+                            (lobbiesController.league == 4) ? 2 : int(cbPlayers.selectedItem.data),
+                            30000,
+                            lobbiesController.league,
+			    (lobbiesController.league == 4) ? stake : 0));
+
+            EventManager.lobbyRaceChannel.dispatchEvent(createLobbyCommand);
+        }
+    ]]>
+    </mx:Script>
+    <mx:Style source="/styles.css"/>
+    <mx:Image x="18.5" y="-60" source="@Embed(source='/assets/gui/screens/create_competition/create_lobby_bkg.jpg')"/>
+    <mx:Label text="{str('route')}"
+    	visible="{lobbiesController.league == 4}"
+    	fontFamily="Arial" fontWeight="bold" color="#f7fae5" fontSize="11" x="85.5" y="77"/>
+    <mx:Label text="{str('participants2')}"
+    	visible="{lobbiesController.league == 4}"
+    	fontFamily="Arial" fontWeight="bold" color="#f7fae5" fontSize="11" x="85.5" y="132" id="label2"/>
+
+    <!-- Routes -->
+
+    <mx:ComboBox x="82.5" y="101"
+                 dataProvider="{Client.instance.modelsStorage.availableRoutes}"
+                 styleName="raceCreationCombo"
+                 labelField="displayName2"
+                 id="cbRoutes"
+                 width="230" height="20">
+    </mx:ComboBox>
+
+    <!-- Game type -->
+    <!--mx:ComboBox x="82.5" y="135"
+                 dataProvider="{null}"
+                 styleName="raceCreationCombo"
+                 labelField="@name"
+                 id="cbGameType"
+                 width="177" height="14" enabled="false">
+    </mx:ComboBox-->
+
+    <!-- Cars -->
+    <mx:ComboBox x="82.5" y="168"
+                 dataProvider="{Utils.insertElement(Client.instance.modelsStorage.cars, CarInfo.create(-1, str('any')))}"
+                 styleName="raceCreationCombo"
+                 labelField="displayName"
+                 id="cbCars" visible="false"
+                 width="230" height="14">
+    </mx:ComboBox>
+
+	<mx:Array id="raceProvider">
+                <mx:Object label="1 {str('participant', null, 1)}" data="1"/>
+                <mx:Object label="2 {str('participant', null, 2)}" data="2"/>
+                <mx:Object label="3 {str('participant', null, 3)}" data="3"/>
+                <mx:Object label="5 {str('participant', null, 5)}" data="5"/>
+                <mx:Object label="10 {str('participant', null, 10)}" data="10"/>
+            </mx:Array>
+            
+            <mx:Array id="teamProvider">
+                <mx:Object label="1 x 1 {str('participant', null, 1)}" data="2"/>
+                <mx:Object label="2 x 2 {str('participant', null, 2)}" data="4"/>
+                <mx:Object label="3 x 3 {str('participant', null, 3)}" data="6"/>
+                <mx:Object label="4 x 4 {str('participant', null, 4)}" data="8"/>
+                <mx:Object label="5 x 5 {str('participant', null, 5)}" data="10"/>
+            </mx:Array>
+
+    <!-- Max Players -->
+    <mx:ComboBox x="81.5" y="158"
+                 styleName="raceCreationCombo"
+                 id="cbPlayers"
+                 width="230" height="20"
+		         visible="{lobbiesController.league != 4}"
+                 dataProvider="{raceProvider}"
+            >
+    </mx:ComboBox>
+    <mx:Binding source="int(tiStake.text)" destination="stake"/>
+    <!-- Number of laps -->
+    <mx:ComboBox x="342.5" y="233"
+                 styleName="raceCreationCombo"
+                 id="cbNumberOfLaps"
+                 width="80" height="20" paddingLeft="0" paddingRight="0"
+		 visible="{lobbiesController.league != 4}"
+                 selectedIndex="1"
+            >
+        <mx:dataProvider>
+            <mx:Array>
+                <mx:Object label="1 {str('lap', null, 1)}" data="1"/>
+                <mx:Object label="3 {str('lap', null, 3)}" data="3"/>
+                <mx:Object label="5 {str('lap', null, 5)}" data="5"/>
+            </mx:Array>
+        </mx:dataProvider>
+    </mx:ComboBox>
+
+    <mx:CheckBox id="cbReverse" styleName="btnCheck" horizontalCenter="204" visible="true" top="223" />
+
+    <mx:Button label="{str('exit')}" styleName="default" fontFamily="Arial" fontWeight="bold" fontSize="11"
+               height="22" icon="@Embed(source='/assets/gui/common/exitIcon.png')" textAlign="left"
+               textIndent="5" click="this.visible = false;" x="485.5" y="10"/>
+    <mx:Button label="{str('create')}" styleName="default" fontFamily="Arial" fontWeight="bold" fontSize="15"
+               height="33" textAlign="center" textIndent="5" click="onCreateLobbyClick()" x="199" y="290" width="186" color="#FFFFFF"/>
+    <controls:SmartImage id="imgRoute" x="301.5" y="88" width="257" height="140"
+                         source="{(RouteInfo(cbRoutes.selectedItem).imageURL)}"/>
+    <mx:Label text="{str('reverse')}"
+    	visible="{lobbiesController.league == 4}"
+    	fontFamily="Arial" fontWeight="bold" color="#f7fae5" x="438.5" y="234" id="label1" fontSize="11"/>
+
+</screens:BaseScreen>

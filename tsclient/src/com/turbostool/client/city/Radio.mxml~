@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml"
+           creationComplete="onCreationComplete()">
+    <mx:Style source="/styles.css"/>
+    <mx:CheckBox id="soundControll" styleName="soundCheck" click="switchSound()" selected="true"/>
+
+    <mx:Script>
+    <![CDATA[
+        import flash.media.Sound;
+        import flash.media.SoundLoaderContext;
+        import flash.media.SoundTransform;
+	import flash.media.SoundChannel;
+        import flash.net.URLRequest;
+	import com.turbostool.client.Config;
+        import mx.controls.Alert;
+
+        private var s:Sound;
+	private var sch:SoundChannel;
+
+        private function switchSound():void {
+            if (sch != null) {
+	        closeAll();
+            } else {
+                start();
+            }
+        }
+	
+	private function closeAll():void{
+	         if (sch != null){
+		  sch.stop();
+		  //s.close();
+		  sch = null;
+		}
+	}
+	
+	private function start():void{
+	   sch = s.play();
+	   sch.soundTransform = new SoundTransform(0.5,0);
+	}
+
+        private function onCreationComplete(): void
+        {   	    
+	    s = new Sound();
+            var req:URLRequest = new URLRequest(Config.instance.radio + "?" + (Math.random()) );
+            s.load(req);
+            start();
+	    //Alert.show("radio ON");
+        }
+    
+    ]]>
+    </mx:Script>
+</mx:Canvas>

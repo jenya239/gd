@@ -1,0 +1,102 @@
+<?xml version="1.0" ?>
+<screens:BaseScreen
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        xmlns:screens="com.turbostool.client.screens.*"
+        xmlns:lobbies="com.turbostool.client.lobbies.*" width="607" height="390"
+        creationComplete="onInit()"
+        >
+
+    <mx:Metadata>
+        [Event(name="screenSelected", type="com.turbostool.client.city.ScreenSelectedCommand")]
+    </mx:Metadata>    
+
+    <mx:Script><![CDATA[
+        import com.turbostool.client.Tracker;
+        import com.turbostool.client.city.ScreenSelectedCommand;
+        import com.turbostool.client.model.LobbyInfo;
+
+        import mx.binding.utils.BindingUtils;
+
+        private function onScreenSelected(event: ScreenSelectedCommand): void
+        {
+            dispatchEvent(event);
+        }
+
+        private function onInit(): void
+        {
+            onLobbyState(_lobbyState);
+        }
+
+        [Bindable]
+        private var _lobbiesController: LobbiesController;
+        private var _lobbyState: String;
+
+        private function onLobbyState(value: String): void {
+            switch (value)
+                    {
+                case LobbyInfo.STATUS_NONE:
+                    lobbiesScreens.selectedChild = lobbiesList;
+                    lobbiesList.cnvRaceCreationScreen.visible = false;
+                    Tracker.instance.trackPageview('/city/arena/lobbies');
+                    break;
+                case LobbyInfo.STATUS_HALL:
+                    lobbiesScreens.selectedChild = hall;
+                    if(lobbiesController.league == 4)
+                        Tracker.instance.trackPageview('/city/arena/duelhall');
+                    else {
+                        if(lobbiesController.lobbyInfo.type == LobbyInfo.LOBBY_TYPE_NORMAL)
+                            Tracker.instance.trackPageview('/city/arena/lobbyhall');
+                        else if(lobbiesController.lobbyInfo.type == LobbyInfo.LOBBY_TYPE_TEAM) {
+                            Tracker.instance.trackPageview('/city/arena/teamhall');
+                        }
+                    }
+                    break;
+                case LobbyInfo.STATUS_RACING:
+                    lobbiesScreens.selectedChild = racing;
+                    Tracker.instance.trackPageview('/city/arena/racing');
+                    break;
+            }
+        }
+
+        public function setLobbyState(value: String): void
+        {
+            if (lobbiesScreens != null) {
+                onLobbyState(value);
+            }
+
+            if (value != _lobbyState)
+            {
+                if (value == LobbyInfo.STATUS_RACING)
+                {
+                    if (racing.initialized)
+                    {
+                        racing.onCreationComplete();
+                    }
+                }
+
+                _lobbyState = value;
+            }
+        }
+
+        [Bindable]
+        public function set lobbiesController(value: LobbiesController): void
+        {
+            _lobbiesController = value;
+
+            BindingUtils.bindSetter(setLobbyState, value, "state");
+        }
+
+        public function get lobbiesController():LobbiesController
+        {
+            return _lobbiesController;
+        }
+
+        ]]></mx:Script>
+
+    <mx:ViewStack id="lobbiesScreens" top="0" left="0" right="0" bottom="0">
+        <lobbies:LobbiesListScreen id="lobbiesList" lobbiesController="{lobbiesController}" screenSelected="onScreenSelected(event)" modelsStorage="{modelsStorage}"/>
+        <lobbies:HallWrapperScreen id="hall" lobbiesController="{lobbiesController}" modelsStorage="{modelsStorage}" />
+        <lobbies:LobbyRacingScreen id="racing" lobbiesController="{lobbiesController}"/>
+    </mx:ViewStack>
+
+</screens:BaseScreen>

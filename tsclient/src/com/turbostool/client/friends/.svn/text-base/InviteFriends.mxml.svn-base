@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<screens:BaseScreen xmlns:mx="http://www.adobe.com/2006/mxml"
+                    xmlns:city="com.turbostool.client.city.*" xmlns:screens="com.turbostool.client.screens.*"
+                    currentState="{modelsStorage.userInfo.tutorialStage >= 5 || isNaN(modelsStorage.userInfo.tutorialStage) ? (modelsStorage.invitesInfo.active >= 5 ? 'done': '') : 'tutorial'}"
+                    verticalScrollPolicy="off"
+                    horizontalScrollPolicy="off"
+        >
+    <screens:states>
+        <mx:State name="done">
+            <mx:RemoveChild target="{text1}"/>
+            <mx:RemoveChild target="{text2}"/>
+            <mx:SetProperty target="{image1}" name="width"/>
+            <mx:SetProperty target="{image1}" name="height"/>
+            <mx:SetProperty target="{image1}" name="y"/>
+            <mx:SetStyle target="{image1}" name="verticalCenter" value="0"/>
+        </mx:State>
+        <mx:State name="tutorial">
+            <mx:RemoveChild target="{text1}"/>
+            <mx:RemoveChild target="{text2}"/>
+            <mx:RemoveChild target="{image1}"/>
+            <mx:AddChild position="lastChild">
+                <city:SkipTutorial
+                        width="114"
+                        y="12"
+                        modelsStorage="{modelsStorage}"/>
+            </mx:AddChild>
+        </mx:State>
+    </screens:states>
+
+    <mx:Script><![CDATA[
+        
+]]></mx:Script>
+
+    <mx:Text
+            text="{str('inviteFriendsAndGetBonus')}"
+            fontFamily="Arial" fontWeight="bold" fontSize="11" textAlign="center" color="#D58926" width="142"
+            height="99" letterSpacing="0" leading="0" y="0" horizontalCenter="0" id="text1"/>
+    <mx:Image y="90" source="@Embed('/assets/gui/screens/friends/friends.png')" width="60" height="50"
+              scaleContent="true" horizontalAlign="center" horizontalCenter="0" id="image1"/>
+    <mx:Text fontFamily="Arial" fontWeight="bold" fontSize="14" textAlign="center" color="#D58926" width="142"
+             text="{str('friendInvitesLeft', [5-modelsStorage.invitesInfo.active])}"
+             leading="0" y="138" horizontalCenter="0" id="text2"/>
+</screens:BaseScreen>

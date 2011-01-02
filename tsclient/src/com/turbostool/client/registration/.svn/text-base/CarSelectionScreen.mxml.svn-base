@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<BaseScreen
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        xmlns="com.turbostool.client.screens.*"
+        xmlns:car="com.turbostool.client.screens.car.*"
+        xmlns:controls="com.turbostool.controls.*"
+        backgroundAlpha="1.0"
+
+        backgroundColor="#151D12"
+        creationComplete="registrationController = registrationController;">
+
+    <mx:Metadata>
+        [Event(name="nextScreen", type="com.turbostool.client.registration.NextScreenCommand")]
+    </mx:Metadata>
+
+    <mx:Style source="/styles.css"/>
+
+
+    <mx:Script><![CDATA[
+        import com.turbostool.client.Config;
+        import com.turbostool.controls.LoadingIndicator;
+
+        import mx.controls.Alert;
+        import mx.controls.Button;
+        import mx.utils.StringUtil;
+
+        private function onNextClick(): void
+        {
+            if (registrationController.colorIndex < 1)
+                Alert.show("Выберите цвет");
+            else
+            {
+                nick.text = StringUtil.trim(nick.text);
+                registrationController.nickname = nick.text;
+                registrationController.carIndex = cars.carIndex;
+                registrationController.colorIndex = colors.colorIndex;
+                dispatchEvent(new NextScreenCommand(this));
+            }
+        }
+
+        [Bindable]
+        public var registrationController: RegistrationController;
+
+        ]]></mx:Script>
+
+    <controls:Rectangle width="545" height="270" backgroundAlpha="0.0" borderColor2="#222F1E" left="13" top="11"/>
+    <controls:Rectangle width="545" height="34" backgroundAlpha="0.0" borderColor2="#222F1E" left="13" top="285"/>
+
+    <car:ColorChooser id="colors"
+                      colorIndex="{registrationController.colorIndex}"
+                      y="278.5" left="90" right="7.5"/>
+    <car:CarSelection y="20" horizontalCenter="0" id="cars" height="260" width="450"
+                      carIndex="{registrationController.carIndex}"
+                      carList="{registrationController.cars}"
+                      colorIndex="{colors.colorIndex}"/>
+    <car:CarParams id="carParams" top="10" right="10"
+                   carInfo="{cars.currentCar}"/>
+
+
+    <mx:Button fontFamily="Verdana" id="btnSubmit" x="490" width="100" label="ДАЛЬШЕ"
+               click="onNextClick()" height="50" styleName="Registration" color="#FFFFFF" fontWeight="bold" y="370"/>
+    <mx:Label x="13.5" y="282" text="2/" color="#FFFFFF" fontSize="27" fontWeight="bold" fontFamily="Arial"/>
+    <mx:Label x="38" y="296" text="{str('chooseColor')}" color="#DB8413" fontWeight="bold" fontSize="11" fontFamily="Arial"/>
+
+    <mx:Label x="13.5" y="381" text="4/" color="#FFFFFF" fontSize="27" fontWeight="bold" fontFamily="Arial"/>
+    <mx:Label x="39" y="395" text="{str('clickNextIfFinished')}" color="#DB8413"
+              fontWeight="bold" fontSize="11" fontFamily="Arial"/>
+    <mx:Label x="13.5" y="7" text="1/" color="#FFFFFF" fontSize="27" fontWeight="bold" fontFamily="Arial"/>
+
+    <mx:Label x="38" y="21" text="{str('chooseCar')}" color="#DB8413" fontWeight="bold" fontSize="11"
+              fontFamily="Arial"/>
+    <mx:Label x="13.5" y="332" text="3/" color="#FFFFFF" fontSize="27" fontWeight="bold" fontFamily="Arial"/>
+    <mx:Label x="39" y="346" text="ВЫБЕРИ НИК:" color="#DB8413"
+              fontWeight="bold" fontSize="11" fontFamily="Arial"/>
+    <mx:TextInput id="nick" x="125" y="343" text="{registrationController.nickname}" fontWeight="bold" fontSize="13"
+                  fontFamily="Arial" color="#633F10" width="308" maxChars="35"/>
+
+</BaseScreen>

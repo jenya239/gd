@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/2550/trunk/gdserver/lib/eunit/ebin
+END
+eunit_data.beam
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/2550/trunk/gdserver/lib/eunit/ebin/eunit_data.beam
+END
+eunit_autoexport.beam
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/2550/trunk/gdserver/lib/eunit/ebin/eunit_autoexport.beam
+END
+code_monitor.beam
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/2550/trunk/gdserver/lib/eunit/ebin/code_monitor.beam
+END
+eunit_test.beam
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/2550/trunk/gdserver/lib/eunit/ebin/eunit_test.beam
+END
+eunit_serial.beam
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/2550/trunk/gdserver/lib/eunit/ebin/eunit_serial.beam
+END
+eunit_tty.beam
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/2550/trunk/gdserver/lib/eunit/ebin/eunit_tty.beam
+END
+eunit.beam
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/2550/trunk/gdserver/lib/eunit/ebin/eunit.beam
+END
+file_monitor.beam
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/2550/trunk/gdserver/lib/eunit/ebin/file_monitor.beam
+END
+eunit_striptests.beam
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/2550/trunk/gdserver/lib/eunit/ebin/eunit_striptests.beam
+END
+eunit.app
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/2550/trunk/gdserver/lib/eunit/ebin/eunit.app
+END
+eunit.appup
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/2550/trunk/gdserver/lib/eunit/ebin/eunit.appup
+END
+eunit_tests.beam
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/2550/trunk/gdserver/lib/eunit/ebin/eunit_tests.beam
+END
+eunit_proc.beam
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/2550/trunk/gdserver/lib/eunit/ebin/eunit_proc.beam
+END
+autoload.beam
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/2550/trunk/gdserver/lib/eunit/ebin/autoload.beam
+END
+eunit_server.beam
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/2550/trunk/gdserver/lib/eunit/ebin/eunit_server.beam
+END
+eunit_lib.beam
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/2550/trunk/gdserver/lib/eunit/ebin/eunit_lib.beam
+END

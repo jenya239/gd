@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/2991/trunk/tsclient/src/assets/gui/screens/lobby
+END
+changeButton_over.png
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1479/trunk/tsclient/src/assets/gui/screens/lobby/changeButton_over.png
+END
+teamLobbyBkg_.jpg
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/2991/trunk/tsclient/src/assets/gui/screens/lobby/teamLobbyBkg_.jpg
+END
+teamLobbyBkg.jpg
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/2991/trunk/tsclient/src/assets/gui/screens/lobby/teamLobbyBkg.jpg
+END
+usertable_user_mask.png
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/1479/trunk/tsclient/src/assets/gui/screens/lobby/usertable_user_mask.png
+END
+usertable_user_over.png
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/1479/trunk/tsclient/src/assets/gui/screens/lobby/usertable_user_over.png
+END
+hallListBkg.png
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/2991/trunk/tsclient/src/assets/gui/screens/lobby/hallListBkg.png
+END
+teamListElementBkg.png
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/2991/trunk/tsclient/src/assets/gui/screens/lobby/teamListElementBkg.png
+END
+lobby_decor.png
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/2647/trunk/tsclient/src/assets/gui/screens/lobby/lobby_decor.png
+END
+changeButton_up.png
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/1479/trunk/tsclient/src/assets/gui/screens/lobby/changeButton_up.png
+END
+lobby_Background.png
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/1548/trunk/tsclient/src/assets/gui/screens/lobby/lobby_Background.png
+END
+changeButton_disabled.png
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/1479/trunk/tsclient/src/assets/gui/screens/lobby/changeButton_disabled.png
+END
+changeButton_down.png
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1479/trunk/tsclient/src/assets/gui/screens/lobby/changeButton_down.png
+END
+usertable_user_up.png
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1479/trunk/tsclient/src/assets/gui/screens/lobby/usertable_user_up.png
+END
+usertable_user_down.png
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/1479/trunk/tsclient/src/assets/gui/screens/lobby/usertable_user_down.png
+END

@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<screens:BaseScreen xmlns:mx="http://www.adobe.com/2006/mxml"
+                    xmlns:screens="com.turbostool.client.screens.*"
+                    width="607" height="390"
+                    currentState="{transferController.userState.userTransferState.type == StartTransferCommand.TRAIN ? '' : 'plane'}"
+                    verticalScrollPolicy="off" horizontalScrollPolicy="off"
+                    >
+    
+    <mx:Metadata>
+        [Event(name="screenSelected", type="com.turbostool.client.city.ScreenSelectedCommand")]
+    </mx:Metadata>
+
+	<screens:states>
+		<mx:State name="plane">
+			<mx:SetProperty target="{image1}" name="source" value="@Embed('/assets/gui/screens/station/plane.jpg')"/>
+			<mx:SetProperty target="{label1}" name="text" value="ТРАНСПОРТНЫЙ САМОЛЕТ"/>
+			<mx:SetStyle target="{label1}" name="horizontalCenter" value="-144"/>
+		</mx:State>
+	</screens:states>
+    
+	<mx:Image source="@Embed('/assets/gui/screens/station/train.jpg')" horizontalCenter="0" top="36" id="image1"/>
+	<mx:Label text="{str('desertExpress')}" fontFamily="Arial" fontWeight="bold" fontSize="18" color="#FFFFFF" horizontalCenter="-155" top="40" id="label1"/>
+    <mx:Label x="30" y="314" text="{str('timeLeft')}"
+              color="#F2FCE3" fontSize="12" fontFamily="Arial" fontWeight="bold" styleName="default"/>
+    <mx:Label x="34" y="330"
+              height="65"
+              fontSize="38" fontFamily="Arial" fontWeight="bold"
+              text="{transferController.timeLeftString()}"
+              color="#FFFFFF" styleName="default" id="label2" width="138" textAlign="center"/>
+    <mx:Script><![CDATA[
+        import com.turbostool.client.city.ScreenSelectedCommand;
+
+        private function screenCommand(screenName: String): void {
+            dispatchEvent(new ScreenSelectedCommand(screenName));
+        }
+
+        [Bindable]
+        public var transferController: TransferController;
+        ]]></mx:Script>
+</screens:BaseScreen>

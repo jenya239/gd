@@ -1,0 +1,28 @@
+K 10
+svn:ignore
+V 92
+tmp
+db
+*.dump
+.project
+*.log
+bin
+.settings
+backup
+goroddorog.access
+ebin
+.idea
+gdserver.iml
+
+K 13
+svn:mergeinfo
+V 298
+/branches/chat/gdserver:2366-2387
+/branches/items/gdserver:1872-1893
+/branches/mneser/gdserver:2337-2351
+/branches/otpApplication/gdserver:1717-1875
+/branches/ticket818/gdserver:2345-2368
+/branches/twoCities/gdserver:1903-2197
+/branches/upgrades/gdserver:1921-1938
+/branches/vapi/gdserver:2205-2311
+END

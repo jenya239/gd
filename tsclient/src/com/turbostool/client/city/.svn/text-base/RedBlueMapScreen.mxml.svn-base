@@ -1,0 +1,246 @@
+<?xml version="1.0" ?>
+<BaseScreen xmlns:mx="http://www.adobe.com/2006/mxml"
+            xmlns="com.turbostool.client.screens.*" xmlns:controls="com.turbostool.controls.*" height="390"
+            currentState="{getStateIfExists(modelsStorage.userInfo.tutorialStageStr)}"
+        >
+    <states>
+        <mx:State name="tutorialStage1">
+            <mx:RemoveChild target="{imagestack1}"/>
+            <mx:RemoveChild target="{imagestack2}"/>
+            <mx:RemoveChild target="{imagestack3}"/>
+            <mx:RemoveChild target="{imagestack4}"/>
+            <mx:RemoveChild target="{imagestack5}"/>
+            <mx:AddChild position="lastChild">
+                <controls:PointingArrowUp currentState="{modelsStorage.userInfo.homeCity == 1 ? '': 'blue'}"
+                                          horizontalCenter="-22" verticalCenter="55"/>
+            </mx:AddChild>
+            <mx:AddChild position="lastChild">
+                <controls:BackgroundedLabel labelText="{str('tutorialStage1Message')}" borderColor2="0xFFFFFF"
+                                            backgroundColor2="{modelsStorage.userInfo.homeCity == 1 ? 0xb52319: 0x198bb5}"
+                                            borderWidth="1" backgroundAlpha2="1.0" horizontalCenter="-18"
+                                            verticalCenter="100" id="backgroundedlabel1"/>
+            </mx:AddChild>
+            <mx:RemoveChild target="{imagestack9}"/>
+            <mx:RemoveChild target="{imagestack8}"/>
+        </mx:State>
+        <mx:State name="tutorialStage2" basedOn="tutorialStage1">
+            <mx:SetProperty target="{backgroundedlabel1}" name="labelText" value="{str('tutorialStage2Message')}" />
+            <mx:SetStyle target="{backgroundedlabel1}" name="verticalCenter" value="105"/>
+        </mx:State>
+        <mx:State name="tutorialStage3">
+            <mx:RemoveChild target="{imagestack5}"/>
+            <mx:RemoveChild target="{imagestack4}"/>
+            <mx:RemoveChild target="{imagestack2}"/>
+            <mx:RemoveChild target="{imagestack1}"/>
+            <mx:AddChild position="lastChild">
+                <controls:PointingArrowUp currentState="{modelsStorage.userInfo.homeCity == 1 ? '': 'blue'}"
+                                          horizontalCenter="106" verticalCenter="105"/>
+            </mx:AddChild>
+            <mx:AddChild position="lastChild">
+                <controls:BackgroundedLabel borderColor2="0xFFFFFF"
+                                            backgroundColor2="{modelsStorage.userInfo.homeCity == 1 ? 0xb52319: 0x198bb5}"
+                                            borderWidth="1" backgroundAlpha2="1.0" horizontalCenter="110"
+                                            verticalCenter="156" id="backgroundedlabel0" labelText="{str('tutorialStage3Message')}" />
+            </mx:AddChild>
+            <mx:RemoveChild target="{imagestack9}"/>
+            <mx:RemoveChild target="{imagestack8}"/>
+        </mx:State>
+        <mx:State name="tutorialStage4">
+            <mx:AddChild position="lastChild">
+                <controls:PointingArrowUp currentState="{modelsStorage.userInfo.homeCity == 1 ? '': 'blue'}" y="209.4"
+                                          horizontalCenter="-151"/>
+            </mx:AddChild>
+        </mx:State>
+    </states>
+
+    <mx:Metadata>
+        [Event(name="screenSelected", type="com.turbostool.client.city.ScreenSelectedCommand")]
+    </mx:Metadata>
+
+    <mx:Glow id="houseGlow"
+             color="0xffffff"
+             alphaFrom="0.1" alphaTo="0.7"
+             duration="300"
+             blurXFrom="0" blurYFrom="0"
+             blurXTo="15" blurYTo="15"/>
+
+    <mx:Glow id="houseGlowIn"
+             color="0xffffff"
+             alphaFrom="0.1" alphaTo="0.7"
+             duration="300"
+             blurXFrom="0" blurYFrom="0"
+             blurXTo="15" blurYTo="15"/>
+
+    <mx:Glow id="houseGlowOut"
+             color="0xffffff"
+             alphaFrom="0.7" alphaTo="0.1"
+             duration="300"
+             blurXFrom="15" blurYFrom="15"
+             blurXTo="0" blurYTo="0"/>
+
+    <controls:ImageStack y="35" horizontalCenter="0" selectedIndex="{modelsStorage.userInfo.homeCity-1}" id="imagestack7">
+        <mx:Image id="map1" source="@Embed(source='/assets/gui/screens/city/map1_bkg.jpg')"/>
+        <mx:Image id="map2" source="@Embed(source='/assets/gui/screens/city/map2_bkg.jpg')"/>
+
+        <controls:ImageStack y="6" horizontalCenter="29"
+                             selectedIndex="{modelsStorage.userInfo.homeCity-1}"
+                             rollOverEffect="{houseGlowIn}" rollOutEffect="{houseGlowOut}"
+                             click="screenCommand('gas')"
+                             rollOver="showToolTip(event)"
+                             rollOut="hideToolTip(event)"
+                             data="{str('fuel')}"
+                             id="imagestack1">
+            <mx:Image id="gas1" source="@Embed(source='/assets/gui/screens/city/gas1.png')"/>
+            <mx:Image id="gas2" source="@Embed(source='/assets/gui/screens/city/gas2.png')"/>
+        </controls:ImageStack>
+
+        <controls:ImageStack y="28"
+                             selectedIndex="{modelsStorage.userInfo.homeCity-1}"
+                             rollOverEffect="{houseGlowIn}" rollOutEffect="{houseGlowOut}"
+                             click="screenCommand('garage')" x="384"
+                             rollOver="showToolTip(event)"
+                             rollOut="hideToolTip(event)"
+                             data="{str('garage')}"
+                             id="imagestack2">
+            <mx:Image id="house1" source="@Embed(source='/assets/gui/screens/city/house1.png')"/>
+            <mx:Image id="house2" source="@Embed(source='/assets/gui/screens/city/house2.png')"/>
+        </controls:ImageStack>
+
+        <controls:ImageStack y="99" horizontalCenter="110"
+                             selectedIndex="{modelsStorage.userInfo.homeCity-1}"
+                             rollOverEffect="{houseGlowIn}" rollOutEffect="{houseGlowOut}"
+                             click="screenCommand('shop')"
+                             rollOver="showToolTip(event)"
+                             rollOut="hideToolTip(event)"
+                             data="{str('shop')}"
+                             id="imagestack3">
+            <mx:Image id="shop1" source="@Embed(source='/assets/gui/screens/city/shop1.png')"/>
+            <mx:Image id="shop2" source="@Embed(source='/assets/gui/screens/city/shop2.png')"/>
+        </controls:ImageStack>
+
+        <controls:ImageStack y="10" horizontalCenter="-121"
+                             selectedIndex="{modelsStorage.userInfo.homeCity-1}"
+                             rollOverEffect="{houseGlowIn}" rollOutEffect="{houseGlowOut}"
+                             click="screenCommand('arena')"
+                             rollOver="showToolTip(event)"
+                             rollOut="hideToolTip(event)"
+                             data="{str('arena')}"
+                             id="imagestack6">
+            <mx:Image id="arena1" source="@Embed(source='/assets/gui/screens/city/arena1.png')"/>
+            <mx:Image id="arena2" source="@Embed(source='/assets/gui/screens/city/arena2.png')"/>
+        </controls:ImageStack>
+        
+        <controls:ImageStack y="181"
+                             selectedIndex="{modelsStorage.userInfo.homeCity-1}"
+                             rollOverEffect="{houseGlowIn}" rollOutEffect="{houseGlowOut}"
+                             click="screenCommand('carShop')" x="242"
+                             rollOver="showToolTip(event)"
+                             rollOut="hideToolTip(event)"
+                             data="{str('carShop')}"
+                             id="imagestack4">
+            <mx:Image id="carshop1" source="@Embed(source='/assets/gui/screens/city/carshop1.png')"/>
+            <mx:Image id="carshop2" source="@Embed(source='/assets/gui/screens/city/carshop2.png')"/>
+        </controls:ImageStack>
+
+        <controls:ImageStack y="151"
+                             selectedIndex="{modelsStorage.userInfo.homeCity-1}"
+                             rollOverEffect="{houseGlowIn}" rollOutEffect="{houseGlowOut}"
+                             click="screenCommand('bank')"
+                             rollOver="showToolTip(event)"
+                             rollOut="hideToolTip(event)"
+                             data="{str('bank')}"
+                             x="144" id="imagestack5">
+            <mx:Image id="bank1" source="@Embed(source='/assets/gui/screens/city/bank1.png')"/>
+            <mx:Image id="bank2" source="@Embed(source='/assets/gui/screens/city/bank2.png')"/>
+        </controls:ImageStack>
+
+        <controls:ImageStack y="175"
+                             selectedIndex="{modelsStorage.userInfo.homeCity-1}"
+                             rollOverEffect="{houseGlowIn}" rollOutEffect="{houseGlowOut}"
+                             click="screenCommand('station')"
+                             rollOver="showToolTip(event)"
+                             rollOut="hideToolTip(event)"
+                             data="{str('station')}"
+                             x="413" id="imagestack9">
+            <mx:Image id="station1" source="@Embed(source='/assets/gui/screens/city/station1.png')"/>
+            <mx:Image id="station2" source="@Embed(source='/assets/gui/screens/city/station2.png')"/>
+        </controls:ImageStack>
+        
+        <controls:ImageStack y="287"
+                             selectedIndex="{modelsStorage.userInfo.homeCity-1}"
+                             rollOverEffect="{houseGlowIn}" rollOutEffect="{houseGlowOut}"
+                             click="screenCommand('score')"
+                             rollOver="showToolTip(event)"
+                             rollOut="hideToolTip(event)"
+                             data="{str('cityWarScore2')}"
+                             x="377" id="imagestack8">
+            <mx:Image id="scoreBoard1" source="@Embed(source='/assets/gui/screens/city/scoreBoard1.png')"/>
+            <mx:Image id="scoreBoard2" source="@Embed(source='/assets/gui/screens/city/scoreBoard2.png')"/>
+            <mx:Label x="1" y="3" text="{modelsStorage.citiesCollection.getItemAt(0).score}" fontSize="18"
+                      fontWeight="bold" fontFamily="Arial" color="#128BB8" width="57" textAlign="center"/>
+            <mx:Label x="52.5" y="3" text=":" fontSize="18" fontWeight="bold" fontFamily="Arial" color="#300500"/>
+            <mx:Label x="58" y="3" text="{modelsStorage.citiesCollection.getItemAt(1).score}" fontSize="18"
+                      fontWeight="bold" fontFamily="Arial" color="#B72F1F" width="57" textAlign="center"/>
+        </controls:ImageStack>
+
+    </controls:ImageStack>
+
+    <mx:Image id="help" y="40" source="@Embed(source='/assets/gui/screens/city/help.png')"
+              rollOverEffect="{houseGlowIn}"
+              rollOutEffect="{houseGlowOut}"
+              click="screenCommand('help')" horizontalCenter="-234"/>
+
+    <mx:Script><![CDATA[
+
+        import flash.text.AntiAliasType;
+        import flash.text.GridFitType;
+
+        import mx.controls.ToolTip;
+        import mx.core.Application;
+        import mx.core.Container;
+        import mx.core.ScrollPolicy;
+        import mx.core.UITextFormat;
+        import mx.effects.easing.Sine;
+        import mx.managers.ToolTipManager;
+
+        private var _toolTip: ToolTip;
+
+        private function hideToolTip(event: MouseEvent): void
+        {
+            ToolTipManager.destroyToolTip(_toolTip);
+        }
+
+        private function showToolTip(event: MouseEvent): void
+        {
+
+            var comp: Container = ImageStack(event.currentTarget);
+            var pt:Point = event.currentTarget.contentToGlobal(new Point(0, 0));
+
+            var text: String = String(comp.data);
+            var tf: UITextFormat = new UITextFormat(Application.application.systemManager);
+            tf.antiAliasType = AntiAliasType.NORMAL;
+            tf.gridFitType = GridFitType.PIXEL;
+            tf.bold = true;
+            var tlm: TextLineMetrics = tf.measureText(text);
+            _toolTip = ToolTipManager.createToolTip(text, pt.x + (comp.width - tlm.width) / 2, pt.y - tlm.height) as ToolTip;
+            _toolTip.setStyle("fontWeight", "bold");
+            _toolTip.setStyle("color", 0xffffff);
+
+            if (modelsStorage.userInfo.homeCity == 1)
+            {
+                _toolTip.setStyle("backgroundColor", 0xb52319);
+            }
+            else
+            {
+                _toolTip.setStyle("backgroundColor", 0x198bb5);
+            }
+        }
+
+        private function screenCommand(screenName: String): void
+        {
+            dispatchEvent(new ScreenSelectedCommand(screenName));
+        }
+
+        ]]></mx:Script>
+
+</BaseScreen>

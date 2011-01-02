@@ -1,0 +1,647 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/3140/trunk/tsclient/src/com/turbostool/client/net/messages
+END
+ServerRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/ServerRequest.as
+END
+SetPropertyResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/1870/trunk/tsclient/src/com/turbostool/client/net/messages/SetPropertyResponse.as
+END
+SendItemRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/2693/trunk/tsclient/src/com/turbostool/client/net/messages/SendItemRequest.as
+END
+BuyFuelRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/BuyFuelRequest.as
+END
+SendItemResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/SendItemResponse.as
+END
+ServerResponseEvent.as
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/ServerResponseEvent.as
+END
+ServerTimeMessage.as
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/1664/trunk/tsclient/src/com/turbostool/client/net/messages/ServerTimeMessage.as
+END
+SetCarRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/2617/trunk/tsclient/src/com/turbostool/client/net/messages/SetCarRequest.as
+END
+AddClientMessage.as
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/2617/trunk/tsclient/src/com/turbostool/client/net/messages/AddClientMessage.as
+END
+RestartGameResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/3080/trunk/tsclient/src/com/turbostool/client/net/messages/RestartGameResponse.as
+END
+SellItemResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/2884/trunk/tsclient/src/com/turbostool/client/net/messages/SellItemResponse.as
+END
+LevelUpPrizeRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/3110/trunk/tsclient/src/com/turbostool/client/net/messages/LevelUpPrizeRequest.as
+END
+IChanneledMessage.as
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/1540/trunk/tsclient/src/com/turbostool/client/net/messages/IChanneledMessage.as
+END
+LapTimeMessage.as
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/2617/trunk/tsclient/src/com/turbostool/client/net/messages/LapTimeMessage.as
+END
+JoinLobbyRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/1870/trunk/tsclient/src/com/turbostool/client/net/messages/JoinLobbyRequest.as
+END
+RepairResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/RepairResponse.as
+END
+ExchangeMoneyRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/ExchangeMoneyRequest.as
+END
+SkipTutorialRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/2961/trunk/tsclient/src/com/turbostool/client/net/messages/SkipTutorialRequest.as
+END
+UseCarUpgradeRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/UseCarUpgradeRequest.as
+END
+SellCarResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/2884/trunk/tsclient/src/com/turbostool/client/net/messages/SellCarResponse.as
+END
+ProcessPostMessageResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/ProcessPostMessageResponse.as
+END
+ExchangeVkontakteVotesResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/2884/trunk/tsclient/src/com/turbostool/client/net/messages/ExchangeVkontakteVotesResponse.as
+END
+StartWorkRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/StartWorkRequest.as
+END
+CreateLobbyResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/CreateLobbyResponse.as
+END
+ChangeTriggerMessage.as
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/3110/trunk/tsclient/src/com/turbostool/client/net/messages/ChangeTriggerMessage.as
+END
+RaceResultMessage.as
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/1664/trunk/tsclient/src/com/turbostool/client/net/messages/RaceResultMessage.as
+END
+StartWorkResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/StartWorkResponse.as
+END
+CleanCarRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/3121/trunk/tsclient/src/com/turbostool/client/net/messages/CleanCarRequest.as
+END
+ReadinessRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/1664/trunk/tsclient/src/com/turbostool/client/net/messages/ReadinessRequest.as
+END
+BuyItemRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/BuyItemRequest.as
+END
+CleanCarResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/3121/trunk/tsclient/src/com/turbostool/client/net/messages/CleanCarResponse.as
+END
+FinishWorkMessage.as
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/FinishWorkMessage.as
+END
+DeleteItemRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/DeleteItemRequest.as
+END
+EndTransferResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/2991/trunk/tsclient/src/com/turbostool/client/net/messages/EndTransferResponse.as
+END
+RegisterRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/2313/trunk/tsclient/src/com/turbostool/client/net/messages/RegisterRequest.as
+END
+RepaintCarRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/2734/trunk/tsclient/src/com/turbostool/client/net/messages/RepaintCarRequest.as
+END
+ChatSystemMessageRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/2759/trunk/tsclient/src/com/turbostool/client/net/messages/ChatSystemMessageRequest.as
+END
+RegisterResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/1870/trunk/tsclient/src/com/turbostool/client/net/messages/RegisterResponse.as
+END
+CreateLobbyRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/2882/trunk/tsclient/src/com/turbostool/client/net/messages/CreateLobbyRequest.as
+END
+CheatGiftRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/3066/trunk/tsclient/src/com/turbostool/client/net/messages/CheatGiftRequest.as
+END
+RepaintCarResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/2884/trunk/tsclient/src/com/turbostool/client/net/messages/RepaintCarResponse.as
+END
+AuthorizeVkontakteRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/2766/trunk/tsclient/src/com/turbostool/client/net/messages/AuthorizeVkontakteRequest.as
+END
+RemoveCarUpgradeResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/RemoveCarUpgradeResponse.as
+END
+QuitLobbyMessage.as
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/QuitLobbyMessage.as
+END
+CarRepairRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/2670/trunk/tsclient/src/com/turbostool/client/net/messages/CarRepairRequest.as
+END
+StartTransferResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/3140/trunk/tsclient/src/com/turbostool/client/net/messages/StartTransferResponse.as
+END
+EndTransferRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/2991/trunk/tsclient/src/com/turbostool/client/net/messages/EndTransferRequest.as
+END
+RestartGameRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/3080/trunk/tsclient/src/com/turbostool/client/net/messages/RestartGameRequest.as
+END
+SellItemRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/SellItemRequest.as
+END
+ChatMessageMessage.as
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/3037/trunk/tsclient/src/com/turbostool/client/net/messages/ChatMessageMessage.as
+END
+RepairRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/RepairRequest.as
+END
+DisconnectRaceRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/1664/trunk/tsclient/src/com/turbostool/client/net/messages/DisconnectRaceRequest.as
+END
+BuyCarRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/3068/trunk/tsclient/src/com/turbostool/client/net/messages/BuyCarRequest.as
+END
+DeleteItemResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/DeleteItemResponse.as
+END
+LevelUpInfoRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/3134/trunk/tsclient/src/com/turbostool/client/net/messages/LevelUpInfoRequest.as
+END
+CancelWorkRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/CancelWorkRequest.as
+END
+RemoveClientMessage.as
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/1664/trunk/tsclient/src/com/turbostool/client/net/messages/RemoveClientMessage.as
+END
+JoinRaceRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1664/trunk/tsclient/src/com/turbostool/client/net/messages/JoinRaceRequest.as
+END
+ExchangeVkontakteVotesRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/ExchangeVkontakteVotesRequest.as
+END
+RemoveCarUpgradeRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/RemoveCarUpgradeRequest.as
+END
+OtherInviteMessage.as
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1664/trunk/tsclient/src/com/turbostool/client/net/messages/OtherInviteMessage.as
+END
+LevelUpPrizeResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/3134/trunk/tsclient/src/com/turbostool/client/net/messages/LevelUpPrizeResponse.as
+END
+CarStateDataMessage.as
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/2801/trunk/tsclient/src/com/turbostool/client/net/messages/CarStateDataMessage.as
+END
+ReduceNitroCountRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/1664/trunk/tsclient/src/com/turbostool/client/net/messages/ReduceNitroCountRequest.as
+END
+LoadingProgressMessage.as
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/1664/trunk/tsclient/src/com/turbostool/client/net/messages/LoadingProgressMessage.as
+END
+LevelUpInfoResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/3134/trunk/tsclient/src/com/turbostool/client/net/messages/LevelUpInfoResponse.as
+END
+CancelWorkResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/CancelWorkResponse.as
+END
+DisconnectResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1870/trunk/tsclient/src/com/turbostool/client/net/messages/DisconnectResponse.as
+END
+NYGiftRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/3066/trunk/tsclient/src/com/turbostool/client/net/messages/NYGiftRequest.as
+END
+ExchangeMoneyResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/2884/trunk/tsclient/src/com/turbostool/client/net/messages/ExchangeMoneyResponse.as
+END
+SkipTutorialResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/2961/trunk/tsclient/src/com/turbostool/client/net/messages/SkipTutorialResponse.as
+END
+UseCarUpgradeResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/UseCarUpgradeResponse.as
+END
+LevelMessage.as
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/1664/trunk/tsclient/src/com/turbostool/client/net/messages/LevelMessage.as
+END
+LevelUpRewardsRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/3110/trunk/tsclient/src/com/turbostool/client/net/messages/LevelUpRewardsRequest.as
+END
+JoinRequestMessage.as
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1664/trunk/tsclient/src/com/turbostool/client/net/messages/JoinRequestMessage.as
+END
+GetFriendInfosRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/2641/trunk/tsclient/src/com/turbostool/client/net/messages/GetFriendInfosRequest.as
+END
+ReasonedResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/1870/trunk/tsclient/src/com/turbostool/client/net/messages/ReasonedResponse.as
+END
+GetLobbyRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1664/trunk/tsclient/src/com/turbostool/client/net/messages/GetLobbyRequest.as
+END
+SwitchHomeCityResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/3072/trunk/tsclient/src/com/turbostool/client/net/messages/SwitchHomeCityResponse.as
+END
+LevelUpRewardsResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/3110/trunk/tsclient/src/com/turbostool/client/net/messages/LevelUpRewardsResponse.as
+END
+QuitLobbyRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/QuitLobbyRequest.as
+END
+ChanneledMessage.as
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/ChanneledMessage.as
+END
+ChangeTriggerResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/2749/trunk/tsclient/src/com/turbostool/client/net/messages/ChangeTriggerResponse.as
+END
+LobbyRaceResultsMessage.as
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/2991/trunk/tsclient/src/com/turbostool/client/net/messages/LobbyRaceResultsMessage.as
+END
+AuthorizeResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/AuthorizeResponse.as
+END
+RewardMessage.as
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/1870/trunk/tsclient/src/com/turbostool/client/net/messages/RewardMessage.as
+END
+BuyFuelResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/BuyFuelResponse.as
+END
+OtherLapTime.as
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/1664/trunk/tsclient/src/com/turbostool/client/net/messages/OtherLapTime.as
+END
+LoadedMessage.as
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/1664/trunk/tsclient/src/com/turbostool/client/net/messages/LoadedMessage.as
+END
+GetPropertyRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/2991/trunk/tsclient/src/com/turbostool/client/net/messages/GetPropertyRequest.as
+END
+BuyItemResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/2884/trunk/tsclient/src/com/turbostool/client/net/messages/BuyItemResponse.as
+END
+ConnectRaceRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1664/trunk/tsclient/src/com/turbostool/client/net/messages/ConnectRaceRequest.as
+END
+GetUserStateResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/2991/trunk/tsclient/src/com/turbostool/client/net/messages/GetUserStateResponse.as
+END
+SellCarRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/2617/trunk/tsclient/src/com/turbostool/client/net/messages/SellCarRequest.as
+END
+ShowIntroMessage.as
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/1870/trunk/tsclient/src/com/turbostool/client/net/messages/ShowIntroMessage.as
+END
+PingMessage.as
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/1870/trunk/tsclient/src/com/turbostool/client/net/messages/PingMessage.as
+END
+ProcessPostMessageRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/ProcessPostMessageRequest.as
+END
+GetPropertyResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/2991/trunk/tsclient/src/com/turbostool/client/net/messages/GetPropertyResponse.as
+END
+ConnectRaceResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/1664/trunk/tsclient/src/com/turbostool/client/net/messages/ConnectRaceResponse.as
+END
+BuyCarResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/3068/trunk/tsclient/src/com/turbostool/client/net/messages/BuyCarResponse.as
+END
+JoinLobbyResponse.as
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/2200/trunk/tsclient/src/com/turbostool/client/net/messages/JoinLobbyResponse.as
+END
+LobbyRaceEventMessage.as
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/1864/trunk/tsclient/src/com/turbostool/client/net/messages/LobbyRaceEventMessage.as
+END
+BanRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/2391/trunk/tsclient/src/com/turbostool/client/net/messages/BanRequest.as
+END
+SetPropertyRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1664/trunk/tsclient/src/com/turbostool/client/net/messages/SetPropertyRequest.as
+END
+GetSecureUserInfoRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/2396/trunk/tsclient/src/com/turbostool/client/net/messages/GetSecureUserInfoRequest.as
+END
+StartTransferRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/2991/trunk/tsclient/src/com/turbostool/client/net/messages/StartTransferRequest.as
+END
+SwitchHomeCityRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/3072/trunk/tsclient/src/com/turbostool/client/net/messages/SwitchHomeCityRequest.as
+END

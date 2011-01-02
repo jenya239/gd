@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TachometerMain xmlns="com.turbostool.client.game.view.*" xmlns:mx="http://www.adobe.com/2006/mxml"
+                horizontalScrollPolicy="off" verticalScrollPolicy="off"
+                width="170" height="106"
+        >
+
+    <mx:Image x="0" y="0" source="@Embed('/assets/gui/screens/gameplay/tahometer_bkg.png')"/>
+    <mx:Image x="40" y="90" width="30" height="16" source="@Embed('/assets/gui/screens/gameplay/kmhText.png')"
+              scaleContent="false"/>
+    <mx:Label id="lSpeed" x="32" y="76" text="076" color="#FFFFFF" fontWeight="bold" fontFamily="Arial" fontSize="12"
+              width="32" height="17" fontStyle="italic"/>
+    <mx:Label id="lGear" x="135" y="15" text="2" width="25" height="22" fontFamily="Arial" color="#3D2944" fontSize="18"
+              fontWeight="bold" fontThickness="20" fontStyle="italic"/>
+    <mx:Canvas id="cnvTachometerScale" x="0" y="0" width="107" height="106.4"/>
+    <mx:Image id="iSpeedArrow" x="90" y="50" source="@Embed('/assets/gui/screens/gameplay/tahometer_arrow.png')"
+              scaleContent="false"/>
+    <mx:Image id="iRPMArrow" x="42" y="41" source="@Embed('/assets/gui/screens/gameplay/tahometer_arrow.png')"
+              scaleContent="false"/>
+
+</TachometerMain>

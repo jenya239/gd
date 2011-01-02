@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="onCreationComplete()">
+
+    <mx:Script>
+<![CDATA[
+	import com.turbostool.client.utils.test.UtilsTestSuite;
+
+        import flexunit.framework.*;
+        import flexunit.textui.TestRunner;
+
+        //import com.turbostool.client.game.net.test.GameNetTestSuite;
+
+        private function onCreationComplete():void {
+            var testResult:TestResult = TestRunner.run(createSuite());
+        }
+
+        private function createSuite():TestSuite {
+            var ts:TestSuite = new TestSuite();
+            //ts.addTest(new GeomTestSuite());
+            //ts.addTest(new UtilsTestSuite());
+            //ts.addTest(new CarTestSuite());
+            //ts.addTest(new EngineTestSuite());
+            ts.addTest(new UtilsTestSuite());
+            /* ts.addTest(new NetTestSuite());
+             ts.addTest(new GameNetTestSuite());
+             ts.addTest(new GameTestSuite());
+             ts.addTest(new NetChatTestSuite());
+             ///*/
+            //
+            //
+            //	  ts.addTest(new GameStrongholdTestSuite());
+            //	  ts.addTest(new GraphicTestSuite());
+            //	  ts.addTest(HashMapTest.suite());
+            //	  ts.addTest(TraceQueueTest.suite());
+            //	  ts.addTest(CarTraceInfoTest.suite());
+            //	  ts.addTest(PlotTest.suite());
+            return ts;
+        }
+	 
+]]>
+</mx:Script>
+</mx:Application>

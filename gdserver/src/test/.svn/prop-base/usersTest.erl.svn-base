@@ -1,0 +1,16 @@
+K 13
+svn:mergeinfo
+V 700
+/branches/cars/gdserver/src/test/usersTest.erl:2458-2606
+/branches/chat/gdserver/src/test/usersTest.erl:2366-2387
+/branches/duel/gdserver/src/test/usersTest.erl:2793-2880
+/branches/items/gdserver/src/test/usersTest.erl:1872-1893
+/branches/mneser/gdserver/src/test/usersTest.erl:2337-2351
+/branches/otp/gdserver/src/test/usersTest.erl:2229-2310
+/branches/otpApplication/gdserver/src/test/usersTest.erl:1717-1875
+/branches/ticket818/gdserver/src/test/usersTest.erl:2345-2368
+/branches/twoCities/gdserver/src/test/usersTest.erl:1903-2197
+/branches/upgrades/gdserver/src/test/usersTest.erl:1921-1938
+/branches/vapi/gdserver/src/test/usersTest.erl:2205-2311
+/trunk/gdserver/src/test/usersTest.erl:653-1241
+END

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<controls:TileListWithRoundSelection xmlns:mx="http://www.adobe.com/2006/mxml"
+             xmlns:controls="com.turbostool.controls.*"
+           width="424" height="382"
+           verticalScrollBarStyleName="myVScrollBar2"
+           horizontalScrollPolicy="off" verticalScrollPolicy="off"
+           styleName="items"
+           columnWidth="44" rowHeight="44"
+           cornerRadius="3"
+           minHeight="0"
+        >
+           
+    <mx:Style source="../../../styles.css"/>
+
+</controls:TileListWithRoundSelection>

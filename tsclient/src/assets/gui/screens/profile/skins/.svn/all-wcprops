@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/1226/trunk/tsclient/src/assets/gui/screens/profile/skins
+END
+viewCarButton_up.png
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1226/trunk/tsclient/src/assets/gui/screens/profile/skins/viewCarButton_up.png
+END
+viewCarButton_disabled.png
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/1226/trunk/tsclient/src/assets/gui/screens/profile/skins/viewCarButton_disabled.png
+END
+viewCarButton_down.png
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/1226/trunk/tsclient/src/assets/gui/screens/profile/skins/viewCarButton_down.png
+END
+viewCarButton_over.png
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/1226/trunk/tsclient/src/assets/gui/screens/profile/skins/viewCarButton_over.png
+END

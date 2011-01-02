@@ -1,0 +1,11 @@
+K 13
+svn:mergeinfo
+V 686
+/branches/cars/tsclient/src/com/turbostool/client/net/messages/ChatMessageMessage.as:2459-2606
+/branches/chat/tsclient/src/com/turbostool/client/net/messages/ChatMessageMessage.as:2365-2390
+/branches/ratingSystem/tsclient/src/com/turbostool/client/net/messages/ChatMessageMessage.as:1580-1600
+/branches/ticket818/tsclient/src/com/turbostool/client/net/messages/ChatMessageMessage.as:2346-2368
+/branches/twoCities/tsclient/src/com/turbostool/client/net/messages/ChatMessageMessage.as:1904-2199
+/branches/upgrades/tsclient/src/com/turbostool/client/net/messages/ChatMessageMessage.as:1922-1938
+/branches/vapi/tsclient/src/com/turbostool/client/net/messages/ChatMessageMessage.as:2205-2311
+END

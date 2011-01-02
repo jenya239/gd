@@ -1,0 +1,15 @@
+K 13
+svn:mergeinfo
+V 610
+/branches/cars/gdserver/src/ftest/futil.hrl:2458-2606
+/branches/chat/gdserver/src/ftest/futil.hrl:2366-2387
+/branches/items/gdserver/src/ftest/futil.hrl:1872-1893
+/branches/mneser/gdserver/src/ftest/futil.hrl:2337-2351
+/branches/otp/gdserver/src/ftest/futil.hrl:2229-2310
+/branches/otpApplication/gdserver/src/ftest/futil.hrl:1717-1875
+/branches/ticket818/gdserver/src/ftest/futil.hrl:2345-2368
+/branches/twoCities/gdserver/src/ftest/futil.hrl:1903-2197
+/branches/upgrades/gdserver/src/ftest/futil.hrl:1921-1938
+/branches/vapi/gdserver/src/ftest/futil.hrl:2205-2311
+/trunk/gdserver/src/ftest/futil.hrl:653-1568
+END

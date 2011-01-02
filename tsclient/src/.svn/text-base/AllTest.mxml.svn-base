@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="onCreationComplete()">
+    <mx:Script>
+<![CDATA[
+	import com.turbostool.client.Config;
+        import com.turbostool.client.chatRoom.test.ChatRoomTestSuite;
+        import com.turbostool.client.dynamicEngine.test.*;
+        import com.turbostool.client.event.ConfigLoadedEvent;
+        import com.turbostool.client.game.components.car.test.*;
+        import com.turbostool.client.game.route.test.*;
+        import com.turbostool.client.game.test.*;
+        import com.turbostool.client.game.view.test.*;
+        import com.turbostool.client.geom.test.*;
+        import com.turbostool.client.net.test.NetTestSuite;
+        import com.turbostool.client.newGraphic.test.NGTestSuite;
+        import com.turbostool.client.utils.collections.test.*;
+        import com.turbostool.client.utils.test.UtilsTestSuite;
+
+        import flexunit.framework.*;
+        import flexunit.textui.TestRunner;
+
+        private function onCreationComplete():void {
+            Config.instance.addEventListener(ConfigLoadedEvent.CONFIG_LOADED, onConfig);
+            Config.instance.loadConfig("config.xml");
+        }
+
+        private function onConfig(e: Event): void {
+            var testResult:TestResult = TestRunner.run(createSuite());
+        }
+
+        private function createSuite():TestSuite {
+            var ts:TestSuite = new TestSuite();
+            ts.addTest(new ChatRoomTestSuite());
+            ts.addTest(new CollectionsTestSuite());
+            ts.addTest(new UtilsTestSuite());
+            ts.addTest(new GameTestSuite());
+            ts.addTest(new ViewTestSuite());
+            ts.addTest(new GeomTestSuite());
+            ts.addTest(new EngineTestSuite());
+            ts.addTest(new NetTestSuite());
+            //ts.addTest(new NetChatTestSuit());
+            ts.addTest(new CarTestSuite());
+            ts.addTest(new NGTestSuite());
+            ts.addTest(new RouteTestSuite());
+            return ts;
+        }
+
+]]>
+</mx:Script>
+</mx:Application>

@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<screens:BaseScreen xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:screens="com.turbostool.client.screens.*">
+    <mx:Panel width="563" height="248" layout="absolute" id="panel1" backgroundColor="#928D89"
+              alpha="0.95" borderColor="#989191" horizontalCenter="0">
+        <mx:Text color="#3CD235" fontSize="23" width="100%" id="text1" verticalCenter="0" x="0">
+            <mx:htmlText>
+                <![CDATA[<p align='center'>Пропало соединение с сервером. <br />Пожалуйста, обновите страницу в браузере.</p>]]></mx:htmlText>
+        </mx:Text>
+    </mx:Panel>
+
+</screens:BaseScreen>

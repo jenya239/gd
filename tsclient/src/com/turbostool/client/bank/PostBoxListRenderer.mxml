@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas
+        xmlns="com.turbostool.client.lobbies.*"
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        xmlns:controls="com.turbostool.controls.*"
+        height="25"
+        verticalScrollPolicy="off"
+        horizontalScrollPolicy="off"
+        themeColor="#44F348"
+        backgroundColor="#de8a04" backgroundAlpha="0" cornerRadius="6" width="400"
+        currentState="{data.sellPrice > 0?'sellPrice': data.money >0?'money':''}"
+        >
+    <mx:states>
+        <mx:State name="money">
+            <mx:AddChild>
+                <mx:Label fontFamily="Arial" fontSize="12" fontWeight="bold" left="96" verticalCenter="0"
+                          color="#FFFFFF"
+                          text="{str('money') + ': ' + Utils.formatPrice(data.money, false, 2)}"
+                        />
+            </mx:AddChild>
+        </mx:State>
+        <mx:State name="sellPrice">
+            <mx:AddChild>
+                <mx:Label fontFamily="Arial" fontSize="12" fontWeight="bold" left="96" verticalCenter="0"
+                          color="#A23636"
+                          text="{str('price') + ': ' + Utils.formatPrice(data.sellPrice, false, 2)}"
+                        />
+            </mx:AddChild>
+        </mx:State>
+    </mx:states>
+
+    <mx:Style source="/styles.css"/>
+
+    <controls:Rectangle left="0" top="0" right="0" bottom="0" cornerRadius="6" backgroundAlpha="1"
+                        backgroundColor2="#de8a04"/>
+
+    <mx:Label text="{data.timeStampDateString}" fontFamily="Arial" fontSize="12" fontWeight="bold" color="#000000"
+              left="4" verticalCenter="0"/>
+    <mx:Image source="@Embed('/assets/gui/screens/bank/box.png')" width="12" visible="{data.firstItemInfo != null}"
+              left="76" verticalCenter="0"/>
+    <mx:Label text="{data.fromNick}" fontFamily="Arial" right="4" fontSize="12" fontWeight="bold" color="#000000"
+              verticalCenter="0"/>
+
+    <mx:Script><![CDATA[
+        import com.turbostool.client.utils.Utils;
+
+        public function str(name: String, params: * = null): String
+        {
+            return Client.instance.str(name, params);
+        }
+        
+        ]]></mx:Script>
+
+</mx:Canvas>

@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml"
+           width="100" height="250">
+
+    <mx:VBox>
+        <mx:Label text="{str('warnUsersAbout')}" color="#FFFFFF" id="lbl"
+                  fontWeight="bold" fontFamily="Arial"
+                  fontStyle="normal" fontSize="12"/>
+
+        <mx:Button label="15 мин РЕСТАРТ" styleName="default" fontFamily="Arial" fontWeight="bold" fontSize="11"
+                   height="22" textAlign="left" width="80"
+                   textIndent="5" click="restartMessage15()" y="20"/>
+
+        <mx:Button label="1 час РЕСТАРТ" styleName="default" fontFamily="Arial" fontWeight="bold" fontSize="11"
+                   height="22" textAlign="left" width="80"
+                   textIndent="5" click="restartMessage60()" y="49"/>
+
+        <mx:Button label="{str('changeCity')}" styleName="default" fontFamily="Arial" fontWeight="bold" fontSize="11"
+                   height="22" textAlign="left" width="80"
+                   textIndent="5" click="switchCity()" y="78"/>
+        
+    </mx:VBox>
+
+    <mx:Script><![CDATA[
+        import com.turbostool.client.event.EventManager;
+        import com.turbostool.client.model.UserInfo;
+        import com.turbostool.client.net.SessionSocket;
+        import com.turbostool.client.net.messages.ChatSystemMessageRequest;
+        import com.turbostool.client.net.messages.ServerResponseEvent;
+        import com.turbostool.client.net.messages.SwitchHomeCityRequest;
+        import com.turbostool.client.net.messages.SwitchHomeCityResponse;
+
+        private function str(name: String, params: * = null): String {
+            return Client.instance.str(name, params);
+        }
+
+        private function onSwitchHomeCity(event: ServerResponseEvent):void {
+            EventManager.instance.removeEventListener(SwitchHomeCityResponse.SWITCH_HOME_CITY, onSwitchHomeCity);
+
+            var response: SwitchHomeCityResponse = SwitchHomeCityResponse(event.response);
+            Client.instance.modelsStorage.userInfo = response.userInfo;
+        }
+
+        private function switchCity(): void {
+            SessionSocket.instance.sendMessage(new SwitchHomeCityRequest());
+            EventManager.instance.addEventListener(SwitchHomeCityResponse.SWITCH_HOME_CITY, onSwitchHomeCity);
+        }
+
+        private function restartMessage15(): void {
+            SessionSocket.instance.sendMessage(new ChatSystemMessageRequest("ВНИМАНИЕ! СЕРВЕР БУДЕТ ОСТАНОВЛЕН ДЛЯ ОБНОВЛЕНИЯ НА 15 МИНУТ!"));
+        }
+
+        private function restartMessage60(): void {
+            SessionSocket.instance.sendMessage(new ChatSystemMessageRequest("ВНИМАНИЕ! СЕРВЕР БУДЕТ ОСТАНОВЛЕН ДЛЯ ОБНОВЛЕНИЯ НА 1 ЧАС!"));
+        }
+
+        [Bindable]
+        public var userInfo: UserInfo;
+
+        ]]></mx:Script>
+</mx:Canvas>

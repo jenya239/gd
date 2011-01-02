@@ -1,0 +1,117 @@
+<?xml version="1.0" ?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml"
+           xmlns:car="com.turbostool.client.screens.car.*"
+           backgroundColor="#a23636"
+           width="326"
+           horizontalScrollPolicy="off"
+           verticalScrollPolicy="off"
+           creationComplete="onCreationComplete()">
+    <mx:Script><![CDATA[
+        import com.turbostool.client.model.CarInfo;
+        import com.turbostool.client.utils.Utils;
+
+        import mx.controls.Alert;
+
+        private var _carInfo:CarInfo;
+
+        public var sellFun:Function = function(id:Number):void{};
+
+        [Bindable]
+        public var isSell:Boolean=true;
+
+        [Bindable]
+        public function get carInfo():CarInfo {
+            return _carInfo;
+        }
+
+        public function set carInfo(val:CarInfo):void {
+            _carInfo = val;
+            setDurability();
+        }
+
+        [Bindable]
+        public var showDurability:Boolean = true;
+
+        private function onSell():void
+        {
+            //Alert.show("sell car");
+            sellFun(carInfo.id);
+        }
+
+        private function setDurability(): void
+        {
+            if (durability != null && _carInfo != null)
+                durability.setProgress(_carInfo.currentDurability, _carInfo.durabilityMax);
+        }
+
+        private function onCreationComplete(): void
+        {
+             setDurability();
+        }
+
+        private function get buttonName(): String
+        {
+            return isSell ? str("sell"): str("repair");
+        }
+
+        private function get text(): String
+        {
+            return isSell
+                    ? str("sellCarConfirmation", [priceStr])
+                    :  ( (Utils.round(carInfo.capitalRepairPrice) == 0) 
+		                ? str("noNeedToRepairCar")
+		                : str("fullRepairConfirmation", [priceStr]))
+        }
+
+        private function get priceStr():String
+        {
+            return isSell
+                    ? Utils.formatPrice(carInfo.sellPrice, false)
+                    : Utils.formatPrice(carInfo.capitalRepairPrice, true)
+        }
+
+        private function str(name: String, params: * = null): String {
+            return Client.instance.str(name, params);
+        }
+
+        ]]></mx:Script>
+  <mx:Label x="4" y="2"
+            text="{str('price') + ': ' + priceStr}"
+            color="#FFFFFF" fontSize="12" fontFamily="Arial"
+              fontStyle="normal" fontWeight="bold"/>
+  <mx:Button id="close1" y="3" label="x" styleName="gray"
+               click="dispatchEvent(new Event('modalClose'))" right="5" height="19" textAlign="center" width="21"/>
+
+  <mx:HRule y="23" left="5" right="5" strokeWidth="1"/>
+
+  <mx:VBox paddingBottom="5" paddingLeft="5" paddingRight="5" paddingTop="5" left="0" right="0" top="30">
+        <mx:Label textAlign="center" width="100%" 
+                  text="{carInfo.displayName}"
+                  color="#FFFFFF" fontSize="20" fontFamily="Arial" fontStyle="normal" fontWeight="bold"/>
+        <mx:HBox>
+             <car:CarRenderer data="{carInfo}" width="44" height="44"/>
+             <car:CarParams carInfo="{carInfo}"/>
+        </mx:HBox>
+
+        <mx:HBox width="100%" visible="{showDurability}">
+            <mx:ProgressBar id="durability" height="11" trackHeight="11"
+                            label=" " minimum="0" maximum="100"
+                            mode="manual" trackColors="[#0, #0]" borderColor="#DC8D14" barColor="#eeeeee"
+                            indeterminate="false" visible="{showDurability}"/>
+            <mx:Label text="{Utils.round(carInfo.currentDurability)}/{Utils.round(carInfo.durabilityMax)}"
+                      visible="{showDurability}" color="#FFFFFF"
+                      fontSize="12"  fontFamily="Arial" fontWeight="bold"/>
+        </mx:HBox>
+        <mx:Text width="100%"  color="#FFFFFF" fontSize="16"
+                 text="{text}"/>
+        <mx:Canvas width="100%">
+            <mx:Button label="{buttonName}" left="5" textAlign="center" styleName="default"
+                       fontSize="12" enabled="{(Utils.round(carInfo.capitalRepairPrice) > 0) || isSell}"
+                       click="onSell()" fontFamily="Verdana"/>
+             <mx:Button label="{str('cancel')}" right="5" textAlign="center" styleName="default"
+                   fontSize="12"
+                   click="dispatchEvent(new Event('modalClose'))" fontFamily="Verdana"/>
+        </mx:Canvas>
+    </mx:VBox>
+
+</mx:Canvas>

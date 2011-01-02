@@ -1,0 +1,1 @@
+erl -sname dev -setcookie VCIDRFLOBQJQQLXCSJMN -pa ebin -mnesia dir '"./db/dev"' -s statAll start

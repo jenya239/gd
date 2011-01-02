@@ -1,0 +1,17 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="jq.css" type="text/css" media="print, projection, screen" />
+  <script type="text/javascript" src="jquery-1.3.2.min.js"></script>
+	<script type="text/javascript" src="jquery.tablesorter.min.js"></script>
+	<erl>
+    out(Arg) -> {ehtml,statistic:generateStatJS(Arg)}.
+    </erl>
+</head>
+<body>
+    <h1>Gorod Dorog Statistic</h1>
+    <erl>
+    out(Arg) -> {ehtml,statistic:authCount(Arg)}.
+    </erl>
+</body>
+</html>

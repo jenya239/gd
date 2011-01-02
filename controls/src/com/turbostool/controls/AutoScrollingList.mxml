@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<mx:List
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        creationComplete="onCreationComplete()"
+        >
+    <mx:Script><![CDATA[
+
+        private function onCreationComplete():void
+        {
+            callLater(autoscroll);
+        }
+
+        private var _needAutoScroll: Boolean = true;
+
+        protected override function collectionChangeHandler(e: Event): void
+        {
+            _needAutoScroll = verticalScrollPosition == maxVerticalScrollPosition;
+            super.collectionChangeHandler(e);
+            callLater(autoscroll);
+        }
+
+        private function autoscroll(): void
+        {
+            if (_needAutoScroll && verticalScrollPosition != maxVerticalScrollPosition)
+            {
+                verticalScrollPosition = maxVerticalScrollPosition;
+                callLater(autoscroll);
+            }
+        }
+
+        ]]></mx:Script>
+</mx:List>

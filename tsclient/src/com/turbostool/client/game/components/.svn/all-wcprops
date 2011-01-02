@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/2871/trunk/tsclient/src/com/turbostool/client/game/components
+END
+CarTraceInfo.as
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1870/trunk/tsclient/src/com/turbostool/client/game/components/CarTraceInfo.as
+END
+WheelTrace.as
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/1870/trunk/tsclient/src/com/turbostool/client/game/components/WheelTrace.as
+END
+WheelTraceModel.as
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1870/trunk/tsclient/src/com/turbostool/client/game/components/WheelTraceModel.as
+END

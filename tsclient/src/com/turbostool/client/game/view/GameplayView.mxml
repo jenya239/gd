@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        xmlns:view="com.turbostool.client.game.view.*"
+        xmlns:messages="com.turbostool.client.game.view.messages.*"
+        color="#37A9C1"
+        width="607" height="390"
+        backgroundColor="#FFFFFF"
+        horizontalScrollPolicy="off" verticalScrollPolicy="off"
+        xmlns:chat="com.turbostool.client.net.chat.*">
+
+    <mx:Style source="/styles.css"/>
+
+    <mx:Canvas x="0" y="0" width="100%" height="100%" id="cnvRender" horizontalScrollPolicy="off"
+               verticalScrollPolicy="off">
+    </mx:Canvas>
+    <view:Minimap
+            id="cMinimap" horizontalScrollPolicy="off" verticalScrollPolicy="off"
+            raceModel="{raceController.raceModel}"
+            camera="{raceController.camera}"
+            right="13" top="12"/>
+
+    <view:Tachometer id="cTachometer" carModel="{raceController.raceModel.localCar.carModel}" bottom="0" left="7"/>
+
+    <mx:Fade id="fadeIn" alphaFrom="0" alphaTo="1" duration="2000"/>
+    <mx:Fade id="fadeOut" alphaFrom="1" alphaTo="0" duration="1000"/>
+
+    <mx:Blur id="unblur" duration="1000"
+             blurXFrom="30.0" blurXTo="0.0"
+             blurYFrom="3.0" blurYTo="0.0"/>
+
+    <mx:Blur id="blur" duration="1000"
+             blurXFrom="0.0" blurXTo="40.0"
+             blurYFrom="0.0" blurYTo="3.0"/>
+    
+    <view:Nitro right="10" bottom="9" carController="{raceController.raceModel.localCar.getController()}"/>
+
+    <mx:Script><![CDATA[
+        import com.turbostool.client.ModelsStorage;
+        import com.turbostool.client.game.BaseRaceController;
+
+        [Bindable]
+        public var raceController: BaseRaceController;
+        [Bindable]
+        public var modelsStorage: ModelsStorage;
+
+        ]]></mx:Script>
+
+</mx:Canvas>

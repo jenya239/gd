@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas
+        xmlns="com.turbostool.client.screens.*"
+        xmlns:controls="com.turbostool.controls.*"
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        xmlns:messages="com.turbostool.client.game.view.messages.*"
+        xmlns:lobbies="com.turbostool.client.lobbies.*"
+        horizontalScrollPolicy="off"
+        verticalScrollPolicy="off"
+
+        width="607" height="390"
+        backgroundColor="#20291E">
+    <mx:Script><![CDATA[
+        import com.turbostool.client.model.LobbyInfo;
+
+        [Bindable]
+        public var lobbiesController: LobbiesController;
+
+        public function refresh():void
+        {
+            tip.refresh();
+        }
+
+        ]]>
+    </mx:Script>
+    <lobbies:Tip id="tip" x="30" top="35"/>
+    <mx:Label color="#DE8A04" fontSize="13" fontWeight="bold" width="301" textAlign="center"
+              text="{lobbiesController.lobbyInfo.routeInfo}" left="30" top="232"/>
+
+    <lobbies:LobbyState left="30" top="252" width="301"
+                        lobbiesController="{lobbiesController}" currentState="{lobbiesController.lobbyInfo.type == LobbyInfo.LOBBY_TYPE_NORMAL &amp;&amp; lobbiesController.lobbyInfo.league != 4 ? 'normalHall' : ''}" />
+
+    <mx:Image top="29" left="364" bottom="17" right="8" maintainAspectRatio="false"
+              source="@Embed(source='/assets/gui/screens/lobby/hallListBkg.png', scaleGridTop='8', scaleGridBottom='9', scaleGridLeft='4', scaleGridRight='5')"/>
+
+    <mx:List id="clients" width="226"
+             dataProvider="{lobbiesController.clients}"
+             itemRenderer="com.turbostool.client.lobbies.TeamListRenderer"
+             right="15" top="35" bottom="19"
+             rowHeight="40"
+             themeColor="#000000"
+             borderThickness="0"
+             backgroundColor="#290a05"
+             selectable="false"
+             selectionColor="#290a05"
+             paddingLeft="1"
+             paddingRight="1"
+             paddingTop="0"
+             paddingBottom="2"
+             verticalScrollBarStyleName="myScrollStyle"
+             verticalScrollPolicy="on"
+             horizontalScrollPolicy="off"
+            />
+
+</mx:Canvas>

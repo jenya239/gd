@@ -1,0 +1,19 @@
+
+=INFO REPORT==== 27-May-2010::20:15:46 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 27-May-2010::20:15:47 ===
+    application: gdserver
+    exited: {shutdown,{gdapp,start,[normal,["./cfg/"]]}}
+    type: temporary
+
+=ERROR REPORT==== 27-May-2010::20:16:01 ===
+Yaws process died: {{badmatch,{error,eacces}},
+                    [{yaws_compile,new_out_file,4},
+                     {yaws_compile,compile_file,7},
+                     {yaws_compile,'-compile_file/1-fun-0-',3},
+                     {global,trans,4},
+                     {yaws_server,do_yaws,4},
+                     {yaws_server,aloop,3},
+                     {yaws_server,acceptor0,2},
+                     {proc_lib,init_p_do_apply,3}]}

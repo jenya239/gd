@@ -1,0 +1,1 @@
+erl -pa ebin -mnesia dir '"db/dev"' -noshell -s crypto start -s migrator migrateToCurrentVersion -s init stop

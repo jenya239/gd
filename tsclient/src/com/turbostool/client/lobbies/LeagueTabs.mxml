@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<screens:BaseScreen xmlns:mx="http://www.adobe.com/2006/mxml"
+         xmlns:screens="com.turbostool.client.screens.*"
+         creationComplete="onComplete()">
+<mx:Style source="/styles.css"/>
+    <mx:Script><![CDATA[
+        import com.turbostool.client.model.LeagueInfo;
+
+        import mx.controls.Button;
+
+        [Bindable]
+        public var lobbiesController: LobbiesController;
+
+        private function onFilterButton(event: MouseEvent): void
+        {
+            setButtonSelected(event.target as Button);
+        }
+
+        private function setButtonSelected(b:Button):void
+        {
+            lobbiesController.league = b.data as Number;
+            novice.selected = false;
+            racer.selected = false;
+          //  expert.selected = false;
+	    duel.selected = false;
+            b.selected = true;
+        }
+
+        private function onComplete():void
+        {
+            var lig:LeagueInfo = new LeagueInfo();
+            //Alert.show(""+lig);
+            var level: Number = Client.instance.modelsStorage.userInfo.level;
+            var ligues:Array = Client.instance.modelsStorage.leagues;
+            ligues.forEach(function(liga: LeagueInfo, index: int, array: Array): void
+            {
+                var b:Button = getButton(liga.id);
+                if (liga.minLevel <= level )
+                {
+                   if(liga.id < 3)   setButtonSelected(b);
+		   if(liga.id == 2)  getButton(1).enabled=false;
+                }
+                else
+                {
+                    b.enabled = false;
+                }
+            });
+        }
+
+        private function getButton(ind:Number):Button
+        {
+            switch (ind as Number)
+                    {
+                case 1:
+                    return novice;
+                case 2:
+                    return racer;
+               // case 3:
+               //     return expert;
+		case 4:
+                    return duel;    
+                default:
+                    return new Button();
+            }
+        }
+
+        ]]></mx:Script>
+
+    <mx:HBox height="20" horizontalGap="1" verticalAlign="middle"
+             horizontalAlign="left" verticalScrollPolicy="off" horizontalScrollPolicy="off">
+        <mx:Button id="novice" label="{str('newbies')}" data="1" click="onFilterButton(event)" styleName="leagueTab"/>
+        <mx:Button id="racer"  label="{str('racers')}" data="2" click="onFilterButton(event)" styleName="leagueTab"/>
+        <!--mx:Button id="expert" label="{str('experts')}" data="3" click="onFilterButton(event)" styleName="leagueTab"/-->
+        <mx:Button id="duel" label="{str('duels')}" data="4" click="onFilterButton(event)" styleName="leagueTab"/>
+    </mx:HBox>
+</screens:BaseScreen>

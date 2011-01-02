@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<BaseScreen xmlns:mx="http://www.adobe.com/2006/mxml"
+            xmlns:garage="com.turbostool.client.garage.*"
+            xmlns="com.turbostool.client.screens.*"
+            width="607" height="390">
+    <mx:Script><![CDATA[
+        import com.turbostool.client.Tracker;
+        import com.turbostool.client.city.ScreenSelectedCommand;
+        import com.turbostool.client.model.UserInfo;
+
+        private function screenCommand(screenName: String):void {
+            dispatchEvent(new ScreenSelectedCommand(screenName));
+        }
+
+        [Bindable]
+        public var userInfo:UserInfo;
+
+        public function switchView():void {
+            if(garageTabs.selectedChild == recolor) {
+                garageTabs.selectedChild = garageMain;
+                Tracker.instance.trackPageview("/city/garage");
+            } else {
+                garageTabs.selectedChild = recolor;
+                Tracker.instance.trackPageview("/city/garage/recolor");
+            }
+        }
+
+        protected override function onBackClick(): void
+        {
+            if(garageTabs.selectedChild == recolor) {
+                garageTabs.selectedChild = garageMain;
+                Tracker.instance.trackPageview("/city/garage");
+            } else {
+                super.onBackClick();
+            }
+        }
+
+        ]]></mx:Script>
+
+    <mx:Metadata>
+        [Event(name="screenSelected", type="com.turbostool.client.city.ScreenSelectedCommand")]
+    </mx:Metadata>
+    
+    <mx:ViewStack id="garageTabs" width="100%" height="100%">
+        <garage:Garage id="garageMain" width="100%" height="100%" modelsStorage="{modelsStorage}" userInfo="{userInfo}"
+                       backgroundAlpha="0" screenSelected="screenCommand(event.screenName)" />
+        <garage:Recolor id="recolor" width="100%" height="100%" modelsStorage="{modelsStorage}" userInfo="{userInfo}"
+                        carInfo="{garageMain.carInfo}" screenSelected="screenCommand(event.screenName)" />
+    </mx:ViewStack>
+    
+    <mx:Button label="{str('toCity')}" styleName="default"
+               icon="@Embed(source='/assets/gui/common/exitIcon.png')"
+               click="onBackClick()" top="11" horizontalCenter="236" height="21"/>
+</BaseScreen>

@@ -1,0 +1,73 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+    <h1>Топ счета</h1>
+
+    <erl>
+        out(Arg) ->
+            
+            CurDateTime = {CurDate, _} = calendar:universal_time(),
+            D = calendar:day_of_the_week(CurDate),
+            Top = case yaws_api:getvar(Arg, "top") of 
+                {ok, Top_} -> 
+                    list_to_integer(Top_);
+                undefined ->
+                    10
+            end,
+
+            From = case yaws_api:getvar(Arg, "from") of 
+                {ok, From_} -> 
+                    {list_to_integer(string:substr(From_, 1, 4)), list_to_integer(string:substr(From_, 5, 2)), list_to_integer(string:substr(From_, 7, 2))};
+                undefined ->
+                    {From_, _} = utils:subtractDays(CurDateTime, D+6),
+                    From_
+            end,
+
+            To = case yaws_api:getvar(Arg, "to") of 
+                {ok, To_} -> 
+                    {list_to_integer(string:substr(To_, 1, 4)), list_to_integer(string:substr(To_, 5, 2)), list_to_integer(string:substr(To_, 7, 2))};
+                undefined ->
+                    {To_, _} = utils:subtractDays(CurDateTime, D),
+                    To_
+            end,
+
+            {T1, T2, T3} = To,
+            {F1, F2, F3} = From,
+            DateRange = utils:fmt("~w-~w-~w - ~w-~w-~w", [F1, F2, F3, T1, T2, T3]),
+
+            TopBlue1 = dbUserDailyScore:topScore(From, To, 1),
+            TopBlue = lists:sublist(lists:reverse(lists:keysort(2, TopBlue1)), Top),
+            %TopBlue = lists:reverse(lists:keysort(2, TopBlue1)),
+            TopRed1 = dbUserDailyScore:topScore(From, To, 2),
+            TopRed = lists:sublist(lists:reverse(lists:keysort(2, TopRed1)), Top),
+            %TopRed = lists:reverse(lists:keysort(2, TopRed1)),
+
+            TopAll1 = dbUserDailyScore:topScore(From, To, 1) ++ dbUserDailyScore:topScore(From, To, 2),
+            TopAll = lists:sublist(lists:reverse(lists:keysort(2, TopAll1)), Top),
+            
+
+%|-
+%| 10 || Димкa Хд || ''' 3164 ''' ||   04 Янв
+%|}            
+
+            TableHeader = "{| <br /> |+ <br />|- <br />| Место !! Имя !! Очки <br />",
+
+            BlueHtml = lists:foldl(fun(Elem, Html) ->
+                Html ++ "|- <br/ >|&nbsp;&nbsp; || " ++ element(3, Elem) ++ " || " ++ integer_to_list(element(2, Elem)) ++ "<br />"
+            end, "", TopBlue) ++ "|}",
+
+            RedHtml = lists:foldl(fun(Elem, Html) ->
+                Html ++ "|- <br/ >|&nbsp;&nbsp; || " ++ element(3, Elem) ++ " || " ++ integer_to_list(element(2, Elem)) ++ "<br />"
+            end, "", TopRed) ++ "|}",
+
+            AllHtml = lists:foldl(fun(Elem, Html) ->
+                Html ++ "|- <br/ >|&nbsp;&nbsp; || " ++ element(3, Elem) ++ " || " ++ integer_to_list(element(2, Elem)) ++ "<br />"
+            end, "", TopAll) ++ "|}",
+
+            {ehtml, [{p,[],DateRange}, {p,[],"All"}, {p, [], TableHeader ++ AllHtml}, {p,[],"Blue"}, {p, [], TableHeader ++ BlueHtml}, {p,[],"Red"}, {p, [], TableHeader ++ RedHtml}]}.
+    </erl>
+
+</body>
+</html>

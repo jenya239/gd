@@ -1,0 +1,65 @@
+<carParameters>
+  <color>7405772</color>
+  <hullLength>4.855</hullLength>
+  <hullWidth>2.1</hullWidth>
+  <chassisLength>2.889</chassisLength>
+  <rearPinWidth>1.58</rearPinWidth>
+  <frontPinWidth>1.58</frontPinWidth>
+  <carMass>1720</carMass>
+  <momentOfInertia>1200</momentOfInertia>
+  <minTurnRadius>6.2</minTurnRadius>
+  <rearRelative>1</rearRelative>
+  <absOn>false</absOn>
+  <espOn>false</espOn>
+  <massCenterHeight>1.3</massCenterHeight>
+  <frontAxleWeightPercent>44.00000000000001</frontAxleWeightPercent>
+  <gearCoefs>
+    <item>
+      <id>0</id>
+      <coef>3.5</coef>
+    </item>
+    <item>
+      <id>1</id>
+      <coef>3.99</coef>
+    </item>
+    <item>
+      <id>2</id>
+      <coef>2.65</coef>
+    </item>
+    <item>
+      <id>3</id>
+      <coef>1.81</coef>
+    </item>
+    <item>
+      <id>4</id>
+      <coef>1.39</coef>
+    </item>
+    <item>
+      <id>5</id>
+      <coef>1.16</coef>
+    </item>
+    <item>
+      <id>6</id>
+      <coef>1</coef>
+    </item>
+    <item>
+      <id>7</id>
+      <coef>0.83</coef>
+    </item>
+  </gearCoefs>
+  <suspensionMoments>1000 600</suspensionMoments>
+  <damping>8000 8000</damping>
+  <stiffness>100000</stiffness>
+  <brakeMoment>8000</brakeMoment>
+  <handMoment>4500</handMoment>
+  <cutArea>0.35</cutArea>
+  <pressingCoef>0</pressingCoef>
+  <rudderVel>1</rudderVel>
+  <accelerationVel>4</accelerationVel>
+  <rudderReturnVelocity>4.1887902047863905</rudderReturnVelocity>
+  <baseGear>3.62</baseGear>
+  <engineParameters endMaxMomentVelocity="7250.000000000001" endTorque="430" maxTorque="5200" maxVelocity="7999.999999999999" startMaxMomentVelocity="1200" startTorque="460"/>
+  <slidingFriction>1.3</slidingFriction>
+  <staticFriction>1.4</staticFriction>
+  <retardingVelocity>6</retardingVelocity>
+</carParameters>

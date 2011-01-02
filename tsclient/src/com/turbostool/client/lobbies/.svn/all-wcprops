@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/3196/trunk/tsclient/src/com/turbostool/client/lobbies
+END
+CreationScreen.mxml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/3196/trunk/tsclient/src/com/turbostool/client/lobbies/CreationScreen.mxml
+END
+LobbyState.mxml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/3196/trunk/tsclient/src/com/turbostool/client/lobbies/LobbyState.mxml
+END
+LobbiesController.as
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/3196/trunk/tsclient/src/com/turbostool/client/lobbies/LobbiesController.as
+END
+TeamListRenderer.mxml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/3196/trunk/tsclient/src/com/turbostool/client/lobbies/TeamListRenderer.mxml
+END
+LobbiesListScreen.mxml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/3196/trunk/tsclient/src/com/turbostool/client/lobbies/LobbiesListScreen.mxml
+END
+LeagueTabs.mxml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/3196/trunk/tsclient/src/com/turbostool/client/lobbies/LeagueTabs.mxml
+END
+LobbiesScreen.mxml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/3196/trunk/tsclient/src/com/turbostool/client/lobbies/LobbiesScreen.mxml
+END
+HallScreen.mxml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/3196/trunk/tsclient/src/com/turbostool/client/lobbies/HallScreen.mxml
+END
+HallWrapperScreen.mxml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/3196/trunk/tsclient/src/com/turbostool/client/lobbies/HallWrapperScreen.mxml
+END
+ClientsListRenderer.mxml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/3196/trunk/tsclient/src/com/turbostool/client/lobbies/ClientsListRenderer.mxml
+END
+TeamHallScreen.mxml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/3196/trunk/tsclient/src/com/turbostool/client/lobbies/TeamHallScreen.mxml
+END
+DuelHallScreen.mxml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/3196/trunk/tsclient/src/com/turbostool/client/lobbies/DuelHallScreen.mxml
+END
+LobbyRacingScreen.mxml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/3196/trunk/tsclient/src/com/turbostool/client/lobbies/LobbyRacingScreen.mxml
+END
+Tip.mxml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/3196/trunk/tsclient/src/com/turbostool/client/lobbies/Tip.mxml
+END
+DuelHeader.mxml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/3196/trunk/tsclient/src/com/turbostool/client/lobbies/DuelHeader.mxml
+END
+LobbiesListRenderer.mxml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/3196/trunk/tsclient/src/com/turbostool/client/lobbies/LobbiesListRenderer.mxml
+END

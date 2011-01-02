@@ -1,0 +1,900 @@
+/* CSS file */
+
+.selected {
+    color: #EEEEEE;
+}
+
+Button.leagueTab {   
+   upSkin:   Embed(source = "/assets/gui/screens/lobby/tabScreen/button_off.png");
+   overSkin: Embed(source = "/assets/gui/screens/lobby/tabScreen/button_off.png");
+   downSkin: Embed(source = "/assets/gui/screens/lobby/tabScreen/button_off.png");
+ 
+   selectedUpSkin:   Embed(source = "/assets/gui/screens/lobby/tabScreen/button_on.png");
+   selectedOverSkin: Embed(source = "/assets/gui/screens/lobby/tabScreen/button_on.png");
+   selectedDownSkin: Embed(source = "/assets/gui/screens/lobby/tabScreen/button_on.png");
+ 
+   disabledSkin: Embed(source = "/assets/gui/screens/lobby/tabScreen/button_locked.png");
+   
+    color: #262626;
+    fontFamily: Arial;
+    fontSize: 11;
+    fontWeight: bold;    
+    labelPlacement: center;
+    letterSpacing: 0.5;
+    paddingLeft: 1;
+    paddingRight: 1;
+    paddingTop: 1;
+    textRollOverColor: #000000;
+    highlightAlphas: 0, 0;
+    disabledColor: #4b4a46;
+    textAlign: center; 
+}
+
+Button.Registration {
+    upSkin: Embed(source = "/assets/gui/screens/registration/button.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+    overSkin: Embed(source = "/assets/gui/screens/registration/button.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+    downSkin: Embed(source = "/assets/gui/screens/registration/button.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+    disabledSkin: Embed(source = "/assets/gui/screens/registration/button.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+    selectedUpSkin: Embed(source = "/assets/gui/screens/registration/button.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+    selectedOverSkin: Embed(source = "/assets/gui/screens/registration/button.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+    selectedDownSkin: Embed(source = "/assets/gui/screens/registration/button.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+    selectedDisabledSkin: Embed(source = "/assets/gui/screens/registration/button.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.redBlack {
+    upSkin: Embed(source = "/assets/gui/common/buttonRedBlack.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+    overSkin: Embed(source = "/assets/gui/common/buttonRedBlack.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+    downSkin: Embed(source = "/assets/gui/common/buttonRedBlack.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+    disabledSkin: Embed(source = "/assets/gui/common/buttonRedBlack.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+    selectedUpSkin: Embed(source = "/assets/gui/common/buttonRedBlack.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+    selectedOverSkin: Embed(source = "/assets/gui/common/buttonRedBlack.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+    selectedDownSkin: Embed(source = "/assets/gui/common/buttonRedBlack.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+    selectedDisabledSkin: Embed(source = "/assets/gui/common/buttonRedBlack.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.redWhite {
+    upSkin: Embed(source = "/assets/gui/common/buttonRedWhite.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+    overSkin: Embed(source = "/assets/gui/common/buttonRedWhite.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+    downSkin: Embed(source = "/assets/gui/common/buttonRedWhite.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+    disabledSkin: Embed(source = "/assets/gui/common/buttonRedWhite.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+    selectedUpSkin: Embed(source = "/assets/gui/common/buttonRedWhite.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+    selectedOverSkin: Embed(source = "/assets/gui/common/buttonRedWhite.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+    selectedDownSkin: Embed(source = "/assets/gui/common/buttonRedWhite.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+    selectedDisabledSkin: Embed(source = "/assets/gui/common/buttonRedWhite.png", scaleGridLeft = "8", scaleGridTop = "9", scaleGridRight = "11", scaleGridBottom = "10");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+
+    color: #EFEFEF;
+}
+
+ProgressBar.nitroBar {
+    barColor: #de3805;
+    trackHeight: 6;
+    verticalGap: 8;
+    borderColor: #FFFFFF;
+    border-style: none;
+    fill-alphas: 1.0, 1.0;
+    trackColors: #f7fae4, #f7fae4;
+    disabledColor: #FFFFFF;
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+
+}
+
+ComboBox.raceCreationCombo {
+    color: #EEF0DB;
+    disabledColor: #f8e6b8;
+
+    fontFamily: Arial;
+    cornerRadius: 6;
+    fillAlphas: 1.0, 1.0;
+    fillColors: #ECCB17, #ECCB17;
+    fontSize: 12;
+    themeColor: #F3B612;
+    paddingLeft: 5;
+    paddingTop: -3;
+    paddingBottom: -3;
+    borderColor: #EEB631;
+    textAlign: left;
+    dropdownStyleName: comboBoxDropdown;
+    upSkin: Embed(source = "/assets/gui/common/dropdownSkin/dropdown_header_up.png", scaleGridRight = "161", scaleGridLeft = "3", scaleGridTop = "3", scaleGridBottom = "11");
+    overSkin: Embed(source = "/assets/gui/common/dropdownSkin/dropdown_header_over.png", scaleGridRight = "161", scaleGridLeft = "3", scaleGridTop = "3", scaleGridBottom = "11");
+    downSkin: Embed(source = "/assets/gui/common/dropdownSkin/dropdown_header_over.png", scaleGridRight = "161", scaleGridLeft = "3", scaleGridTop = "3", scaleGridBottom = "11");
+    disabledSkin: Embed(source = "/assets/gui/common/dropdownSkin/dropdown_header_disabled.png", scaleGridRight = "161", scaleGridLeft = "3", scaleGridTop = "3", scaleGridBottom = "11");
+    disabledColor: #DE8A05;
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.raceCreationRandom {
+    upSkin: Embed(source = "/assets/gui/screens/competition/skins/randomButton_up.png");
+    overSkin: Embed(source = "/assets/gui/screens/competition/skins/randomButton_over.png");
+    downSkin: Embed(source = "/assets/gui/screens/competition/skins/randomButton_over.png");
+    disabledSkin: Embed(source = "/assets/gui/screens/competition/skins/randomButton_disabled.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+.comboBoxDropdown {
+    borderStyle: solid;
+    backgroundColor: #DE8A05;
+    fontFamily: arial;
+    verticalScrollBarStyleName: listBaseVerticalScrollBar;
+    fontSize: 12;
+    fontWeight: bold;
+    selectionColor: #DE3805;
+    rollOverColor: #FAA522;
+    color: #F7FAE4;
+    corner-radius: 4;
+    borderColor: #F7FAE4;
+    borderThickness: 1;
+    textRollOverColor: #F7FAE4;
+    textSelectedColor: #F7FAE4;
+    padding-top: -3;
+    disabledColor: #DE8A05;
+    selectionDisabledColor: #DE3805;
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+.listBaseVerticalScrollBar {
+    trackSkin: Embed(source = "/assets/gui/common/dropdownScroll/scroll_background.png");
+    thumbUpSkin: Embed(source = "/assets/gui/common/dropdownScroll/thumb.png");
+    thumbOverSkin: Embed(source = "/assets/gui/common/dropdownScroll/thumb.png");
+    thumbDownSkin: Embed(source = "/assets/gui/common/dropdownScroll/thumb.png");
+    downArrowUpSkin: Embed(source = "/assets/gui/common/dropdownScroll/arrow_lower.png");
+    downArrowOverSkin: Embed(source = "/assets/gui/common/dropdownScroll/arrow_lower.png");
+    downArrowDownSkin: Embed(source = "/assets/gui/common/dropdownScroll/arrow_lower.png");
+    downArrowDisabledSkin: Embed(source = "/assets/gui/common/dropdownScroll/arrow_lower.png");
+    upArrowUpSkin: Embed(source = "/assets/gui/common/dropdownScroll/arrow_upper.png");
+    upArrowOverSkin: Embed(source = "/assets/gui/common/dropdownScroll/arrow_upper.png");
+    upArrowDownSkin: Embed(source = "/assets/gui/common/dropdownScroll/arrow_upper.png");
+    upArrowDisabledSkin: Embed(source = "/assets/gui/common/dropdownScroll/arrow_upper.png");
+}
+
+Button.btnCreateRace {
+    upSkin: Embed(source = "/assets/gui/screens/competition/skins/createRaceButton_up.png");
+    overSkin: Embed(source = "/assets/gui/screens/competition/skins/createRaceButton_over.png");
+    downSkin: Embed(source = "/assets/gui/screens/competition/skins/createRaceButton_over.png");
+    disabledSkin: Embed(source = "/assets/gui/screens/competition/skins/createRaceButton_disabled.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.btnRacelistConnect {
+    upSkin: Embed(source = "/assets/gui/screens/competition/skins/joinButton_up.png");
+    overSkin: Embed(source = "/assets/gui/screens/competition/skins/joinButton_over.png");
+    downSkin: Embed(source = "/assets/gui/screens/competition/skins/joinButton_over.png");
+    disabledSkin: Embed(source = "/assets/gui/screens/competition/skins/joinButton_disabled.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.btnRacelistQuickStart {
+    upSkin: Embed(source = "/assets/gui/screens/competition/skins/quickStrtButton_up.png");
+    overSkin: Embed(source = "/assets/gui/screens/competition/skins/quickStrtButton_over.png");
+    downSkin: Embed(source = "/assets/gui/screens/competition/skins/quickStrtButton_down.png");
+    disabledSkin: Embed(source = "/assets/gui/screens/competition/skins/quickStrtButton_disabled.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.btnRacelistCreate {
+    upSkin: Embed(source = "/assets/gui/screens/competition/skins/createButton_up.png");
+    overSkin: Embed(source = "/assets/gui/screens/competition/skins/createButton_over.png");
+    downSkin: Embed(source = "/assets/gui/screens/competition/skins/createButton_down.png");
+    disabledSkin: Embed(source = "/assets/gui/screens/competition/skins/createButton_disabled.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.btnRacelistRefresh {
+    upSkin: Embed(source = "/assets/gui/screens/competition/skins/refrButton_up.png");
+    overSkin: Embed(source = "/assets/gui/screens/competition/skins/refrButton_over.png");
+    downSkin: Embed(source = "/assets/gui/screens/competition/skins/refrButton_down.png");
+    disabledSkin: Embed(source = "/assets/gui/screens/competition/skins/refrButton_disabled.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.btnRacelistBack {
+    upSkin: Embed(source = "/assets/gui/screens/competition/skins/backButton_up.png");
+    overSkin: Embed(source = "/assets/gui/screens/competition/skins/backButton_over.png");
+    downSkin: Embed(source = "/assets/gui/screens/competition/skins/backButton_down.png");
+    disabledSkin: Embed(source = "/assets/gui/screens/competition/skins/backButton_disabled.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.btnLogin {
+    upSkin: Embed(source = "/assets/gui/screens/login/skins/loginButton_up.png");
+    overSkin: Embed(source = "/assets/gui/screens/login/skins/loginButton_over.png");
+    downSkin: Embed(source = "/assets/gui/screens/login/skins/loginButton_down.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.btnNoReg {
+    upSkin: Embed(source = "/assets/gui/screens/login/skins/noRegButton_up.png");
+    overSkin: Embed(source = "/assets/gui/screens/login/skins/noRegButton_over.png");
+    downSkin: Embed(source = "/assets/gui/screens/login/skins/noRegButton_down.png");
+    disabledSkin: Embed(source = "/assets/gui/screens/login/skins/noRegButton_disabled.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.btnPrev {
+    upSkin: Embed(source = "/assets/gui/common/skins/prevButton_up.png");
+    overSkin: Embed(source = "/assets/gui/common/skins/prevButton_over.png");
+    downSkin: Embed(source = "/assets/gui/common/skins/prevButton_down.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.btnNext {
+    upSkin: Embed(source = "/assets/gui/common/skins/nextButton_up.png");
+    overSkin: Embed(source = "/assets/gui/common/skins/nextButton_over.png");
+    downSkin: Embed(source = "/assets/gui/common/skins/nextButton_down.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.btnNextSmall {
+    upSkin: Embed(source = "/assets/gui/common/skins/nextSmallButton_up.png");
+    overSkin: Embed(source = "/assets/gui/common/skins/nextSmallButton_over.png");
+    downSkin: Embed(source = "/assets/gui/common/skins/nextSmallButton_down.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.btnPrevSmall {
+    upSkin: Embed(source = "/assets/gui/common/skins/prevSmallButton_up.png");
+    overSkin: Embed(source = "/assets/gui/common/skins/prevSmallButton_over.png");
+    downSkin: Embed(source = "/assets/gui/common/skins/prevSmallButton_down.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+TextInput.txtGameplayChat {
+    borderStyle: none;
+    color: #FFFFFF;
+    fontFamily: Arial;
+    paddingTop: 0;
+    paddingLeft: 6;
+    fontSize: 11;
+    fontWeight: normal;
+    backgroundAlpha: 0.0;
+    backgroundSize: auto;
+    borderThickness: 0;
+    focusSkin: Embed(source = "/assets/gui/screens/gameplay/chatInput_bkg.png");
+}
+
+TextInput.txtChatRoomChat {
+    borderStyle: none;
+    borderSkin: ClassReference("mx.skins.Border");
+    focus-skin: Embed(source = "/assets/gui/screens/chatRoom/inputText_bkg2.png");
+}
+
+Button.btnDropDown {
+    upSkin: Embed(source = "/assets/gui/screens/chatRoom/skins/smallTriangle_up.png");
+    overSkin: Embed(source = "/assets/gui/screens/chatRoom/skins/smallTriangle_over.png");
+    downSkin: Embed(source = "/assets/gui/screens/chatRoom/skins/smallTriangle_down.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+.topMenuItem {
+    upSkin: Embed(source = "/assets/gui/screens/main/skins/topMenuItem_up.png");
+    overSkin: Embed(source = "/assets/gui/screens/main/skins/topMenuItem_over.png");
+    selectedDownSkin: Embed(source = "/assets/gui/screens/main/skins/topMenuItem_down.png");
+    selectedUpSkin: Embed(source = "/assets/gui/screens/main/skins/topMenuItem_down.png");
+    selectedOverSkin: Embed(source = "/assets/gui/screens/main/skins/topMenuItem_down.png");
+    disabled-skin: Embed(source = "/assets/gui/screens/main/skins/topMenuItem_disabled.png");
+
+    paddingTop: "-1";
+    paddingLeft: "3";
+
+    selection-color: "#FFFFFF";
+    SelectionColor: "#FFFFFF";
+    textRollOverColor: "#FFFFFF";
+    textSelectedColor: "#FFFFFF";
+}
+
+.topMenuSelectedItem {
+    color: #FFFFFF;
+    SelectionColor: "#FFFFFF";
+    textRollOverColor: "#FFFFFF";
+    textSelectedColor: "#FFFFFF";
+    backgroundColor: "#FFFFFF";
+}
+
+Button.btnCloseCross {
+    upSkin: Embed(source = "/assets/gui/screens/main/skins/closeCrossButton_up.png");
+    overSkin: Embed(source = "/assets/gui/screens/main/skins/closeCrossButton_over.png");
+    downSkin: Embed(source = "/assets/gui/screens/main/skins/closeCrossButton_down.png");
+    disabledSkin: Embed(source = "/assets/gui/screens/main/skins/closeCrossButton_up.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.btnRegister {
+    up-skin: Embed(source = "/assets/gui/screens/login/skins/registerButton_up.png");
+    over-skin: Embed(source = "/assets/gui/screens/login/skins/registerButton_over.png");
+    down-skin: Embed(source = "/assets/gui/screens/login/skins/registerButton_down.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.btnRegister2 {
+    up-skin: Embed(source = "/assets/gui/screens/registration/skins/registerButton_up.png");
+    over-skin: Embed(source = "/assets/gui/screens/registration/skins/registerButton_over.png");
+    down-skin: Embed(source = "/assets/gui/screens/registration/skins/registerButton_down.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.btnMore {
+    up-skin: Embed(source = "/assets/gui/common/skins/continueButton_up.png");
+    over-skin: Embed(source = "/assets/gui/common/skins/continueButton_over.png");
+    down-skin: Embed(source = "/assets/gui/common/skins/continueButton_down.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.btnRefresh {
+    up-skin: Embed(source = "/assets/gui/common/skins/refreshButton_up.png");
+    over-skin: Embed(source = "/assets/gui/common/skins/refreshButton_over.png");
+    down-skin: Embed(source = "/assets/gui/common/skins/refreshButton_down.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.btnBack {
+    up-skin: Embed(source = "/assets/gui/common/skins/backButton_up.png");
+    over-skin: Embed(source = "/assets/gui/common/skins/backButton_over.png");
+    down-skin: Embed(source = "/assets/gui/common/skins/backButton_down.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.btnCheck {
+    upIcon: Embed(source = "/assets/gui/screens/routes/skins/checkbox_no.png");
+    overIcon: Embed(source = "/assets/gui/screens/routes/skins/checkbox_no.png");
+    downIcon: Embed(source = "/assets/gui/screens/routes/skins/checkbox_yes.png");
+    disabledIcon: Embed(source = "/assets/gui/screens/routes/skins/checkbox_no.png");
+    selectedUpIcon: Embed(source = "/assets/gui/screens/routes/skins/checkbox_yes.png");
+    selectedOverIcon: Embed(source = "/assets/gui/screens/routes/skins/checkbox_yes.png");
+    selectedDownIcon: Embed(source = "/assets/gui/screens/routes/skins/checkbox_yes.png");
+    selectedDisabledIcon: Embed(source = "/assets/gui/screens/routes/skins/checkbox_yes.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.soundCheck {
+    upIcon: Embed(source = "/assets/gui/screens/city/radio_off.png");
+    overIcon: Embed(source = "/assets/gui/screens/city/radio_off.png");
+    downIcon: Embed(source = "/assets/gui/screens/city/radio_on.png");
+    disabledIcon: Embed(source = "/assets/gui/screens/city/radio_off.png");
+    selectedUpIcon: Embed(source = "/assets/gui/screens/city/radio_on.png");
+    selectedOverIcon: Embed(source = "/assets/gui/screens/city/radio_on.png");
+    selectedDownIcon: Embed(source = "/assets/gui/screens/city/radio_on.png");
+    selectedDisabledIcon: Embed(source = "/assets/gui/screens/city/radio_on.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.btnInviteFriends {
+    upSkin: Embed(source = "/assets/gui/screens/sendInvitation/skins/invite_up.png");
+    overSkin: Embed(source = "/assets/gui/screens/sendInvitation/skins/invite_over.png");
+    downSkin: Embed(source = "/assets/gui/screens/sendInvitation/skins/invite_down.png");
+    disabledSkin: Embed(source = "/assets/gui/screens/sendInvitation/skins/sendinvitation_disabled.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.btnSendInvitations {
+    upSkin: Embed(source = "/assets/gui/screens/sendInvitation/skins/sendinvitation_up.png");
+    overSkin: Embed(source = "/assets/gui/screens/sendInvitation/skins/sendinvitation_over.png");
+    downSkin: Embed(source = "/assets/gui/screens/sendInvitation/skins/sendinvitation_down.png");
+    disabledSkin: Embed(source = "/assets/gui/screens/sendInvitation/skins/sendinvitation_disabled.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.btnSendMessage {
+    up-skin: Embed(source = "/assets/gui/screens/chatRoom/skins/sendButton_up.png");
+    over-skin: Embed(source = "/assets/gui/screens/chatRoom/skins/sendButton_over.png");
+    down-skin: Embed(source = "/assets/gui/screens/chatRoom/skins/sendButton_down.png");
+    horizontalGap: 2;
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.btnSelectCar {
+    up-skin: Embed(source = "/assets/gui/screens/garage/skins/selectCarButton_up.png");
+    over-skin: Embed(source = "/assets/gui/screens/garage/skins/selectCarButton_over.png");
+    down-skin: Embed(source = "/assets/gui/screens/garage/skins/selectCarButton_down.png");
+    disabled-skin: Embed(source = "/assets/gui/screens/garage/skins/selectCarButton_up.png");
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.btnSelectRoute {
+    up-skin: Embed(source = "/assets/gui/screens/routes/skins/startButton_up.png");
+    over-skin: Embed(source = "/assets/gui/screens/routes/skins/startButton_over.png");
+    down-skin: Embed(source = "/assets/gui/screens/routes/skins/startButton_down.png");
+    disabled-skin: Embed(source = "/assets/gui/screens/routes/skins/startButton_disabled.png");
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+.myScrollStyle {
+    downArrowUpSkin: Embed(source = "/assets/gui/screens/scores/skins/listScrollArrow_up.png");
+    downArrowDownSkin: Embed(source = "/assets/gui/screens/scores/skins/listScrollArrow_down.png");
+    downArrowOverSkin: Embed(source = "/assets/gui/screens/scores/skins/listScrollArrow_over.png");
+
+    upArrowUpSkin: Embed(source = "/assets/gui/screens/scores/skins/listScrollArrow_up.png");
+    upArrowDownSkin: Embed(source = "/assets/gui/screens/scores/skins/listScrollArrow_down.png");
+    upArrowOverSkin: Embed(source = "/assets/gui/screens/scores/skins/listScrollArrow_over.png");
+
+    downArrowDisabledSkin: Embed(source = "/assets/gui/screens/scores/skins/listScrollArrow_up.png");
+    upArrowDisabledSkin: Embed(source = "/assets/gui/screens/scores/skins/listScrollArrow_up.png");
+
+    thumbUpSkin: Embed(source = "/assets/gui/screens/scores/skins/listScrollThumb_up.png");
+    thumbDownSkin: Embed(source = "/assets/gui/screens/scores/skins/listScrollThumb_down.png");
+    thumbOverSkin: Embed(source = "/assets/gui/screens/scores/skins/listScrollThumb_over.png");
+
+    trackSkin: Embed(source = "/assets/gui/screens/scores/skins/listScroll_bkg.png");
+}
+
+.EmptyBorder {
+    borderSkin: ClassReference("mx.skins.Border");
+}
+
+Button.noIcon {
+    skin: Embed(source = "/assets/gui/common/button.png", scaleGridLeft = "3", scaleGridTop = "3", scaleGridRight = "4", scaleGridBottom = "4");
+    disabledSkin: Embed(source = "/assets/gui/common/buttonDisabled.png", scaleGridLeft = "3", scaleGridTop = "3", scaleGridRight = "4", scaleGridBottom = "4");
+    downSkin: Embed(source = "/assets/gui/common/buttonDown.png", scaleGridLeft = "3", scaleGridTop = "3", scaleGridRight = "4", scaleGridBottom = "4");
+    color: #262626;
+    fontFamily: Arial;
+    fontWeight: bold;
+    fontSize: 11;
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.alert {
+    skin: Embed(source = "/assets/gui/common/button.png", scaleGridLeft = "3", scaleGridTop = "3", scaleGridRight = "4", scaleGridBottom = "4");
+    disabledSkin: Embed(source = "/assets/gui/common/buttonDisabled.png", scaleGridLeft = "3", scaleGridTop = "3", scaleGridRight = "4", scaleGridBottom = "4");
+    downSkin: Embed(source = "/assets/gui/common/buttonDown.png", scaleGridLeft = "3", scaleGridTop = "3", scaleGridRight = "4", scaleGridBottom = "4");    color: #262626;
+    fontFamily: Arial;
+    fontWeight: bold;
+    fontSize: 11;
+    mouseUpEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+@font-face {
+    src:url("/assets/fonts/days.otf");
+    fontFamily: Days;
+    font-weight: normal;
+    advancedAntiAliasing: true;
+}
+
+Button.default {
+    skin: Embed(source = "/assets/gui/common/button.png", scaleGridLeft = "3", scaleGridTop = "3", scaleGridRight = "4", scaleGridBottom = "4");
+    disabledSkin: Embed(source = "/assets/gui/common/buttonDisabled.png", scaleGridLeft = "3", scaleGridTop = "3", scaleGridRight = "4", scaleGridBottom = "4");
+    downSkin: Embed(source = "/assets/gui/common/buttonDown.png", scaleGridLeft = "3", scaleGridTop = "3", scaleGridRight = "4", scaleGridBottom = "4");
+    color: #262626;
+    fontFamily: Arial;
+    fontSize: 11;
+    fontWeight: bold;
+    horizontalGap: -4;
+    labelPlacement: right;
+    letterSpacing: 0.5;
+    paddingLeft: 1;
+    paddingRight: 0;
+    paddingTop: 1;
+    textRollOverColor: #000000;
+    highlightAlphas: 0, 0;
+    disabledColor: #F5E0B5;
+    textAlign: left;
+    leading: -0.5;
+    textIndent: 5;
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.gray {
+    borderColor: #777777;
+    color: #EEEEEE;
+    cornerRadius: 4;
+    fillAlphas: 1.0, 1.0;
+    fillColors: #777777, #777777;
+    fontFamily: Arial;
+    fontSize: 11;
+    fontWeight: bold;
+    themeColor: #777777;
+    labelPlacement: right;
+    letterSpacing: 0.5;
+    paddingLeft: 0;
+    paddingRight: 0;
+    paddingTop: 0;
+    textRollOverColor: #EEEEEE;
+    text-align: center;
+    highlightAlphas: 0, 0;
+    textAlign: left;
+    leading: -0.5;
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.vkontakte {
+    height: 21;
+    borderColor: #315266;
+    color: #ffffff;
+    cornerRadius: 4;
+    fillAlphas: 1.0, 1.0;
+    fillColors: #4b7c9c, #4b7c9c;
+    fontFamily: Arial;
+    fontSize: 10;
+    fontWeight: bold;
+    horizontalGap: 0;
+    themeColor: #4b7c9c;
+    labelPlacement: right;
+    letterSpacing: -1;
+    paddingLeft: 3;
+    paddingRight: 4;
+    paddingTop: 2;
+    horizontalGap: 0;
+    textRollOverColor: #ffffff;
+    highlightAlphas: 0, 0;
+    disabledColor: #F5E0B5;
+    textAlign: center;
+    height: 21;
+    leading: -0.5;
+
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+}
+
+Button.engine {
+    downSkin: Embed(source="/assets/gui/screens/shop/buttons/engine_button.png");
+	upSkin: Embed(source="/assets/gui/screens/shop/buttons/engine_button.png");
+	overSkin: Embed(source="/assets/gui/screens/shop/buttons/engine_button.png");
+	disabledSkin: Embed(source="/assets/gui/screens/shop/buttons/engine_button_on.png");
+	selectedUpSkin: Embed(source="/assets/gui/screens/shop/buttons/engine_button_on.png");
+	selectedDownSkin: Embed(source="/assets/gui/screens/shop/buttons/engine_button_on.png");
+	selectedOverSkin: Embed(source="/assets/gui/screens/shop/buttons/engine_button_on.png");
+	selectedDisabledSkin: Embed(source="/assets/gui/screens/shop/buttons/engine_button_on.png");
+    color: #262626;
+    fontFamily: Days;
+    fontSize: 12;
+    horizontalGap: -4;
+    labelPlacement: left;
+    letterSpacing: 0.5;
+    paddingLeft: 0;
+    paddingRight: 0;
+    textRollOverColor: #000000;
+    highlightAlphas: 0, 0;
+    disabledColor: #F5E0B5;
+    textAlign: left;
+    leading: -0.5;
+    textIndent: 5;
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+	paddingBottom: 0;
+	paddingTop: 15;
+}
+
+Button.brakes {
+    downSkin: Embed(source="/assets/gui/screens/shop/buttons/brakes_button.png");
+	upSkin: Embed(source="/assets/gui/screens/shop/buttons/brakes_button.png");
+	overSkin: Embed(source="/assets/gui/screens/shop/buttons/brakes_button.png");
+	disabledSkin: Embed(source="/assets/gui/screens/shop/buttons/brakes_button_on.png");
+	selectedUpSkin: Embed(source="/assets/gui/screens/shop/buttons/brakes_button_on.png");
+	selectedDownSkin: Embed(source="/assets/gui/screens/shop/buttons/brakes_button_on.png");
+	selectedOverSkin: Embed(source="/assets/gui/screens/shop/buttons/brakes_button_on.png");
+	selectedDisabledSkin: Embed(source="/assets/gui/screens/shop/buttons/brakes_button_on.png");
+    color: #262626;
+    fontFamily: Days;
+    fontSize: 12;
+    horizontalGap: -4;
+    labelPlacement: left;
+    letterSpacing: 0.5;
+    paddingLeft: 0;
+    paddingRight: 0;
+    textRollOverColor: #000000;
+    highlightAlphas: 0, 0;
+    disabledColor: #F5E0B5;
+    textAlign: left;
+    leading: -0.5;
+    textIndent: 5;
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+	paddingBottom: 0;
+	paddingTop: 15;
+}
+
+Button.wheels {
+    downSkin: Embed(source="/assets/gui/screens/shop/buttons/wheels_button.png");
+	upSkin: Embed(source="/assets/gui/screens/shop/buttons/wheels_button.png");
+	overSkin: Embed(source="/assets/gui/screens/shop/buttons/wheels_button.png");
+	disabledSkin: Embed(source="/assets/gui/screens/shop/buttons/wheels_button_on.png");
+	selectedUpSkin: Embed(source="/assets/gui/screens/shop/buttons/wheels_button_on.png");
+	selectedDownSkin: Embed(source="/assets/gui/screens/shop/buttons/wheels_button_on.png");
+	selectedOverSkin: Embed(source="/assets/gui/screens/shop/buttons/wheels_button_on.png");
+	selectedDisabledSkin: Embed(source="/assets/gui/screens/shop/buttons/wheels_button_on.png");
+    color: #262626;
+    fontFamily: Days;
+    fontSize: 12;
+    horizontalGap: -4;
+    labelPlacement: left;
+    letterSpacing: 0.5;
+    paddingLeft: 0;
+    paddingRight: 0;
+    textRollOverColor: #000000;
+    highlightAlphas: 0, 0;
+    disabledColor: #F5E0B5;
+    textAlign: left;
+    leading: -0.5;
+    textIndent: 5;
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+	paddingBottom: 0;
+	paddingTop: 15;
+}
+
+Button.hull {
+    downSkin: Embed(source="/assets/gui/screens/shop/buttons/hull_button.png");
+	upSkin: Embed(source="/assets/gui/screens/shop/buttons/hull_button.png");
+	overSkin: Embed(source="/assets/gui/screens/shop/buttons/hull_button.png");
+	disabledSkin: Embed(source="/assets/gui/screens/shop/buttons/hull_button_on.png");
+	selectedUpSkin: Embed(source="/assets/gui/screens/shop/buttons/hull_button_on.png");
+	selectedDownSkin: Embed(source="/assets/gui/screens/shop/buttons/hull_button_on.png");
+	selectedOverSkin: Embed(source="/assets/gui/screens/shop/buttons/hull_button_on.png");
+	selectedDisabledSkin: Embed(source="/assets/gui/screens/shop/buttons/hull_button_on.png");
+    color: #262626;
+    fontFamily: Days;
+    fontSize: 12;
+    horizontalGap: -4;
+    labelPlacement: left;
+    letterSpacing: 0.5;
+    paddingLeft: 0;
+    paddingRight: 0;
+    textRollOverColor: #000000;
+    highlightAlphas: 0, 0;
+    disabledColor: #F5E0B5;
+    textAlign: left;
+    leading: -0.5;
+    textIndent: 5;
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+	paddingBottom: 0;
+	paddingTop: 15;
+}
+
+Button.tailPipe {
+    downSkin: Embed(source="/assets/gui/screens/shop/buttons/tailpipe_button.png");
+	upSkin: Embed(source="/assets/gui/screens/shop/buttons/tailpipe_button.png");
+	overSkin: Embed(source="/assets/gui/screens/shop/buttons/tailpipe_button.png");
+	disabledSkin: Embed(source="/assets/gui/screens/shop/buttons/tailpipe_button_on.png");
+	selectedUpSkin: Embed(source="/assets/gui/screens/shop/buttons/tailpipe_button_on.png");
+	selectedDownSkin: Embed(source="/assets/gui/screens/shop/buttons/tailpipe_button_on.png");
+	selectedOverSkin: Embed(source="/assets/gui/screens/shop/buttons/tailpipe_button_on.png");
+	selectedDisabledSkin: Embed(source="/assets/gui/screens/shop/buttons/tailpipe_button_on.png");
+    color: #262626;
+    fontFamily: Days;
+    fontSize: 12;
+    horizontalGap: -4;
+    labelPlacement: left;
+    letterSpacing: 0.5;
+    paddingLeft: 0;
+    paddingRight: 0;
+    textRollOverColor: #000000;
+    highlightAlphas: 0, 0;
+    disabledColor: #F5E0B5;
+    textAlign: left;
+    leading: -0.5;
+    textIndent: 5;
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+	paddingBottom: 0;
+	paddingTop: 15;
+}
+
+Button.turbo {
+    downSkin: Embed(source="/assets/gui/screens/shop/buttons/turbo_button.png");
+	upSkin: Embed(source="/assets/gui/screens/shop/buttons/turbo_button.png");
+	overSkin: Embed(source="/assets/gui/screens/shop/buttons/turbo_button.png");
+	disabledSkin: Embed(source="/assets/gui/screens/shop/buttons/turbo_button_on.png");
+	selectedUpSkin: Embed(source="/assets/gui/screens/shop/buttons/turbo_button_on.png");
+	selectedDownSkin: Embed(source="/assets/gui/screens/shop/buttons/turbo_button_on.png");
+	selectedOverSkin: Embed(source="/assets/gui/screens/shop/buttons/turbo_button_on.png");
+	selectedDisabledSkin: Embed(source="/assets/gui/screens/shop/buttons/turbo_button_on.png");
+    color: #262626;
+    fontFamily: Days;
+    fontSize: 12;
+    horizontalGap: -4;
+    labelPlacement: left;
+    letterSpacing: 0.5;
+    paddingLeft: 0;
+    paddingRight: 0;
+    textRollOverColor: #000000;
+    highlightAlphas: 0, 0;
+    disabledColor: #F5E0B5;
+    textAlign: left;
+    leading: -0.5;
+    textIndent: 5;
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+	paddingBottom: 0;
+	paddingTop: 15;
+}
+
+Button.nitro {
+    downSkin: Embed(source="/assets/gui/screens/shop/buttons/nitro_button.png");
+	upSkin: Embed(source="/assets/gui/screens/shop/buttons/nitro_button.png");
+	overSkin: Embed(source="/assets/gui/screens/shop/buttons/nitro_button.png");
+	disabledSkin: Embed(source="/assets/gui/screens/shop/buttons/nitro_button_on.png");
+	selectedUpSkin: Embed(source="/assets/gui/screens/shop/buttons/nitro_button_on.png");
+	selectedDownSkin: Embed(source="/assets/gui/screens/shop/buttons/nitro_button_on.png");
+	selectedOverSkin: Embed(source="/assets/gui/screens/shop/buttons/nitro_button_on.png");
+	selectedDisabledSkin: Embed(source="/assets/gui/screens/shop/buttons/nitro_button_on.png");
+    color: #262626;
+    fontFamily: Days;
+    fontSize: 12;
+    horizontalGap: -4;
+    labelPlacement: left;
+    letterSpacing: 0.5;
+    paddingLeft: 0;
+    paddingRight: 0;
+    textRollOverColor: #000000;
+    highlightAlphas: 0, 0;
+    disabledColor: #F5E0B5;
+    textAlign: left;
+    leading: -0.5;
+    textIndent: 5;
+    rollOverEffect: buttonGlowIn;
+    rollOutEffect: buttonGlowOut;
+    mouseDownEffect: buttonGlowIn2;
+	paddingBottom: 0;
+	paddingTop: 15;
+}
+
+Label.screenCaption {
+    color: #FFFFFF;
+    fontFamily: Days;
+    fontSize: 27;
+    letterSpacing: 1;
+
+    creationCompleteEffect: buttonGlowIn;
+}
+
+Label.tableHeader {
+    color: #dddddd;
+    font-size: 10;
+    font-weight: bold;
+    creationCompleteEffect: buttonGlowIn;
+}
+
+Label.tableCell {
+    color: #1d160c;
+    font-family: Arial;
+    font-size: 11;
+    font-weight: bold;
+    letterSpacing: 0;
+}
+
+Label.tableCellLobby {
+    color: #FFFFFF;
+    font-family: Arial;
+    font-size: 11;
+    font-weight: bold;
+    textAlign:center;
+}
+
+Label.white {
+    color: #EFEFEF;
+    fontSize: 12;
+    fontFamily: Days;
+}
+
+Label.glowWhite {
+    color: #EFEFEF;
+    fontFamily: Days;
+    creationCompleteEffect: buttonGlowIn;
+}
+
+Label.halfGlowWhite {
+    color: #EFEFEF;
+    fontFamily: Days;
+    creationCompleteEffect: buttonHalfGlowIn;
+}
+
+Label.duelResult {
+    color: #f7fae5;
+    font-size: 32;
+    fontWeight: bold;
+    creationCompleteEffect: buttonGlowIn;
+}

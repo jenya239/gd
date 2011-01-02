@@ -1,0 +1,147 @@
+<?xml version="1.0" ?>
+<screens:BaseScreen xmlns:mx="http://www.adobe.com/2006/mxml"
+                    xmlns:screens="com.turbostool.client.screens.*"
+                    width="607" height="390"
+        >
+    <mx:Metadata>
+        [Event(name="screenSelected", type="com.turbostool.client.city.ScreenSelectedCommand")]
+    </mx:Metadata>
+
+    <mx:Image source="@Embed(source='/assets/gui/screens/station/bkg.jpg')" horizontalCenter="0" top="35"/>
+    <mx:Label text="{str('station')}" fontFamily="Arial" fontWeight="bold" fontSize="18" color="#FFFFFF" horizontalCenter="-232"
+              top="38"/>
+    
+    <mx:Button label="{str('fly')}" styleName="Registration" color="#EFEFEF"
+               top="349" horizontalCenter="-41" width="91" height="30"
+               click="onTransitClick(StartTransferCommand.PLANE)"/>
+    <mx:Button label="{str('go')}" styleName="Registration" color="#EFEFEF"
+               top="349" horizontalCenter="222" width="91" height="30"
+               click="onTransitClick(StartTransferCommand.TRAIN)"/>
+    <mx:Label text="{modelsStorage.citiesCollection.getItemAt(0).score}" fontSize="30"
+              fontWeight="bold" fontFamily="Arial" color="#128BB8" width="92" textAlign="center" horizontalCenter="-50"
+              top="84"/>
+    <mx:Label text="{modelsStorage.citiesCollection.getItemAt(1).score}" fontSize="30"
+              fontWeight="bold" fontFamily="Arial" color="#B72F1F" width="92" textAlign="center" horizontalCenter="47"
+              top="84"/>
+    <mx:Button label="{str('toCity')}" styleName="default"
+               icon="@Embed(source='/assets/gui/common/exitIcon.png')"
+               click="onBackClick()" top="11" horizontalCenter="237" height="21"/>
+    <mx:Label x="279" y="85" text=":" color="#FFFFFF" fontFamily="Arial" fontWeight="bold" fontSize="32"
+              textAlign="center"/>
+    <mx:List
+            dataProvider="{modelsStorage.getTopScoresByCity(1)}"
+            verticalScrollPolicy="off" horizontalScrollPolicy="off"
+            width="215" height="150"
+            backgroundAlpha="0"
+            borderStyle="none"
+            horizontalCenter="-108"
+            useRollOver="false"
+            borderSides=""
+            itemRenderer="com.turbostool.client.station.ActiveUsersListRenderer"
+            paddingTop="0"
+            paddingBottom="0"
+            paddingLeft="0"
+            rowHeight="15"
+            itemClick="onItemClick(event)"
+            top="123"
+            id="bluList"
+            borderThickness="0"
+            selectionColor="#290a05"
+            themeColor="#000000"
+            />
+    <mx:List
+            dataProvider="{modelsStorage.getTopScoresByCity(2)}"
+            verticalScrollPolicy="off" horizontalScrollPolicy="off"
+            width="215" height="150"
+            backgroundAlpha="0"
+            borderStyle="none"
+            horizontalCenter="107"
+            useRollOver="false"
+            borderSides=""
+            itemRenderer="com.turbostool.client.station.ActiveUsersListRenderer"
+            paddingTop="0"
+            paddingBottom="0"
+            paddingLeft="0"
+            rowHeight="15"
+            itemClick="onItemClick(event)"
+            top="123"
+            id="redList"
+            borderThickness="0"
+            selectionColor="#290a05"
+            themeColor="#000000"
+            />
+    <mx:Label text="{str('planeFor', [Utils.formatPrice(modelsStorage.globalInfo.transferPricePlane, true)])}" color="#FFFFFF" fontFamily="Arial"
+              fontSize="12" fontWeight="bold" horizontalCenter="-146" top="348"/>
+    <mx:Label text="({formatTime(modelsStorage.globalInfo.transferTimePlane)})" color="#FFFFFF" fontFamily="Arial"
+              fontSize="12" fontWeight="bold" horizontalCenter="-150" top="362"/>
+    <mx:Label text="{str('trainFor', [Utils.formatPrice(modelsStorage.globalInfo.transferPriceTrain)])}" color="#FFFFFF" fontFamily="Arial"
+              fontSize="12" fontWeight="bold" horizontalCenter="112" top="348"/>
+    <mx:Label text="({formatTime(modelsStorage.globalInfo.transferTimeTrain)})" color="#FFFFFF" fontFamily="Arial"
+              fontSize="12" fontWeight="bold" horizontalCenter="110" top="362"/>
+    <mx:Label y="68" text="{str('cityWarScore')}" color="#FFFFFF" fontFamily="Arial" fontWeight="bold" fontSize="17"
+              horizontalCenter="0"/>
+    <mx:Script><![CDATA[
+        import com.turbostool.client.city.ScreenSelectedCommand;
+        import com.turbostool.client.event.EventManager;
+        import com.turbostool.client.event.NickClickEvent;
+        import com.turbostool.client.model.UserDailyScoreInfo;
+        import com.turbostool.client.model.UserInfo;
+
+        import com.turbostool.client.utils.Utils;
+
+        import mx.events.ListEvent;
+
+        private function screenCommand(screenName: String): void {
+            dispatchEvent(new ScreenSelectedCommand(screenName));
+        }
+
+        private function formatTime(secs: Number): String
+        {
+            var minutes: int = secs / 60;
+            var seconds: int = secs % 60;
+            var str: String = "";
+
+            if (minutes > 0)
+            {
+                str = minutes + " " + this.str("min") + ". ";
+            }
+            if (seconds > 0)
+            {
+                str += seconds + " " + this.str("sec") + ". ";
+            }
+            return str;
+
+        }
+
+        private function onTransitClick(type:String):void {
+            var cityDst: Number;
+            var citySrc: Number;
+            if (modelsStorage.userInfo.currentCity == 3) {
+                citySrc = 3;
+                cityDst = modelsStorage.userInfo.homeCity;
+            } else {
+                citySrc = modelsStorage.userInfo.currentCity;
+                cityDst = 3;
+            }
+
+            EventManager.instance.dispatchEvent(new StartTransferCommand(type, citySrc, cityDst));            
+        }
+
+        private function onPrevDay():void
+        {
+        }
+
+        private function onNextDay():void
+        {
+        }
+
+        [Bindable]
+        public var userInfo: UserInfo;
+
+        private function onItemClick(event: ListEvent): void
+        {
+             var userScore: UserDailyScoreInfo  = event.currentTarget.selectedItem;
+             EventManager.instance.dispatchEvent(new NickClickEvent("link", userScore.userID));
+        }
+        ]]></mx:Script>
+</screens:BaseScreen>

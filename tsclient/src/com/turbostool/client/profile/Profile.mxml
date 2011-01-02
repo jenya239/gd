@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BaseScreen
+        xmlns="com.turbostool.client.screens.*"
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        xmlns:controls="com.turbostool.controls.*"
+        xmlns:profile="com.turbostool.client.profile.*"
+        color="#37A9C1"
+        backgroundColor="#151d12"
+        xmlns:ns1="com.turbostool.client.popUps.*"
+        >
+
+    <mx:Style source="/styles.css"/>
+
+    <mx:Script><![CDATA[
+        import com.turbostool.client.Tracker;
+        import com.turbostool.client.event.EventManager;
+        import com.turbostool.client.game.view.ModalManager;
+        import com.turbostool.client.model.FriendInfo;
+        import com.turbostool.client.model.UserInfo;
+        import com.turbostool.client.model.VkontakteInfo;
+        import com.turbostool.client.net.SessionSocket;
+        import com.turbostool.client.net.messages.CleanCarRequest;
+        import com.turbostool.client.net.messages.CleanCarResponse;
+        import com.turbostool.client.net.messages.ExchangeVkontakteVotesRequest;
+        import com.turbostool.client.net.messages.ExchangeVkontakteVotesResponse;
+        import com.turbostool.client.net.messages.GetPropertyRequest;
+        import com.turbostool.client.net.messages.GetPropertyResponse;
+        import com.turbostool.client.net.messages.GetSecureUserInfoRequest;
+        import com.turbostool.client.net.messages.RestartGameRequest;
+        import com.turbostool.client.net.messages.RestartGameResponse;
+        import com.turbostool.client.net.messages.ServerResponseEvent;
+        import com.turbostool.client.utils.Utils;
+
+        import mx.collections.ArrayCollection;
+        import mx.controls.Alert;
+        import mx.events.CloseEvent;
+        import mx.managers.PopUpManager;
+
+        [Bindable]
+        public var isCarClean: Boolean;
+
+        private function cleanCar(): void {
+            EventManager.instance.addEventListener(CleanCarResponse.CLEAN_CAR, onCleanCarResponse);
+            SessionSocket.instance.sendMessage(new CleanCarRequest(_userInfo.id));
+
+            showLoadingIndicator();
+        }
+
+        private function onCleanCarResponse(event: ServerResponseEvent):void {
+            hideLoadingIndicator();
+            EventManager.instance.removeEventListener(CleanCarResponse.CLEAN_CAR, onCleanCarResponse);
+
+            var response: CleanCarResponse = CleanCarResponse(event.response);
+
+            if (response.isOK) {
+                isCarClean = true;
+                Tracker.instance.trackEvent("Miscellaneous", "" + modelsStorage.userInfo.level, "carCleaning");
+                Alert.show("Машина помыта. Вы заработали " + modelsStorage.globalInfo.washCarMoney + "р.");
+            } else {
+                Alert.show(response.message);
+            }
+        }
+
+        private function updateCarClean(id: Number, friends: ArrayCollection): void {
+            if (id == modelsStorage.userInfo.id) {
+                isCarClean = modelsStorage.userInfo.isWashed;
+                return;
+            }
+
+            for each(var friend: FriendInfo in friends) {
+                if (friend.userID == id) {
+                    isCarClean = friend.isWashed;
+                    return;
+                }
+            }
+
+            isCarClean = true;
+        }
+
+        private var _deltaVotes: Number;
+        private var _goldChange: Number;
+
+        private function onRestartGameResponse(event: ServerResponseEvent):void {
+            EventManager.instance.removeEventListener(RestartGameResponse.RESTART_GAME, onRestartGameResponse);
+
+            var response: RestartGameResponse = RestartGameResponse(event.response);
+            if (response.isOK) {
+                Alert.show("Обновите страницу. Нажмите F5.");
+                Tracker.instance.trackTrans("RestartGame", "Miscellaneous", 0, modelsStorage.globalInfo.restartGameCost);
+            } else {
+                Alert.show("Ошибка: " + response.message);
+            }
+        }
+
+        private function onRestart():void {
+            Alert.yesLabel = str("yes");
+            Alert.noLabel = str("no");
+            Alert.show(str("areSureToRestartGame"), "", Alert.YES | Alert.NO, null, restartAlertHandler);
+            Alert.yesLabel = "Yes";
+            Alert.noLabel = "No";
+
+            function restartAlertHandler(e: CloseEvent): void {
+                if (e.detail == Alert.YES) {
+                    if (modelsStorage.userInfo.realMoney >= modelsStorage.globalInfo.restartGameCost) {
+                        requestRestartGame();
+                    } else {
+                        if (!Client.instance.isAPIWrapper) {
+                            Alert.show(str("notEnoughGoldGoToBank"));
+                        } else {
+                            EventManager.instance.addEventListener(GetPropertyResponse.GET_VKONTAKTEINFO_RESPONSE, onVkontakteInfo);
+                            SessionSocket.instance.sendMessage(new GetPropertyRequest(GetPropertyRequest.VKONTAKTE_INFO));
+                            PopUpManager.addPopUp(loadingIndicator, this, true);
+                            PopUpManager.centerPopUp(loadingIndicator);
+                            PopUpManager.bringToFront(loadingIndicator);
+                        }
+                    }
+                }
+            }
+        }
+
+        private function onVkontakteInfo(event: ServerResponseEvent): void
+        {
+            EventManager.instance.removeEventListener(GetPropertyResponse.GET_VKONTAKTEINFO_RESPONSE, onVkontakteInfo);
+            PopUpManager.removePopUp(loadingIndicator);
+            ModalManager.instance.closeAllWindows();
+            var response: GetPropertyResponse = event.response as GetPropertyResponse;
+            if (response.isOK)
+            {
+                modelsStorage.vkontakteInfo = response.property as VkontakteInfo;
+                var deltaGold: Number = Utils.roundToGreater(modelsStorage.globalInfo.restartGameCost - modelsStorage.userInfo.realMoney);
+                _deltaVotes = Utils.roundToGreater(deltaGold / modelsStorage.globalInfo.vkontakteExchangeRate);
+                _goldChange = _deltaVotes * modelsStorage.globalInfo.vkontakteExchangeRate - deltaGold;
+                if (modelsStorage.vkontakteInfo.userAppBalance >= _deltaVotes)
+                {
+                    sendWithdrawRequest();
+                }
+                else
+                {
+                    Client.instance.wrapper.addEventListener("onBalanceChanged", onBalanceChanged);
+                    Client.instance.wrapper.external.showPaymentBox(_deltaVotes);
+                }
+            }
+            else
+            {
+                Alert.show(str("error") + ": " + response.message);
+            }
+        }
+
+        private function sendWithdrawRequest():void {
+            EventManager.instance.addEventListener(ExchangeVkontakteVotesResponse.EXCHANGE_VKONTAKTE_VOTES, onExchangeResponse);
+            SessionSocket.instance.sendMessage(new ExchangeVkontakteVotesRequest(_deltaVotes));
+            PopUpManager.addPopUp(loadingIndicator, this, true);
+            PopUpManager.centerPopUp(loadingIndicator);
+            PopUpManager.bringToFront(loadingIndicator);
+        }
+
+        private function onExchangeResponse(event: ServerResponseEvent): void {
+            EventManager.instance.removeEventListener(ExchangeVkontakteVotesResponse.EXCHANGE_VKONTAKTE_VOTES, onExchangeResponse);
+            PopUpManager.removePopUp(loadingIndicator);
+            var response: ExchangeVkontakteVotesResponse = event.response as ExchangeVkontakteVotesResponse;
+            ModalManager.instance.closeAllWindows();
+            if (response.isOK)
+            {
+                Tracker.instance.trackEvent("exchangeVotes", "successful", "" + response.votes, response.votes);
+
+                requestRestartGame();
+            }
+            else
+            {
+                Alert.show(str("exchangeError") + ": " + response.message);
+
+                Tracker.instance.trackEvent("exchangeVotes", "failure", response.message);
+            }
+        }
+
+        private function onBalanceChanged(e: Object):void
+        {
+            Client.instance.wrapper.removeEventListener("onBalanceChanged", onBalanceChanged);
+            sendWithdrawRequest();
+        }
+
+        private function requestRestartGame(): void {
+            EventManager.instance.addEventListener(RestartGameResponse.RESTART_GAME, onRestartGameResponse);
+            SessionSocket.instance.sendMessage(new RestartGameRequest());
+        }
+
+        [Bindable]
+        public var back:Function = onBackClick;
+
+        private var _userInfo: UserInfo;
+
+        [Bindable]
+        public function get userInfo():UserInfo
+        {
+            return _userInfo;
+        }
+
+        public function set userInfo(value:UserInfo):void
+        {
+            _userInfo = value;
+            showAdminPanel = (_userInfo.id != Client.instance.modelsStorage.userInfo.id) && Client.instance.modelsStorage.userInfo.hasRole('admin');
+            showDevPanel = (_userInfo.id == Client.instance.modelsStorage.userInfo.id) && Client.instance.modelsStorage.userInfo.hasRole('dev');
+            showRestartButton = _userInfo.id == Client.instance.modelsStorage.userInfo.id;
+
+            if (modelsStorage != null)
+                updateCarClean(userInfo.id, modelsStorage.friends);
+        }
+
+        [Bindable]
+        public var showAdminPanel: Boolean;
+
+        [Bindable]
+        public var showDevPanel: Boolean;
+
+        [Bindable]
+        public var showRestartButton: Boolean;
+
+
+        public function loadUserInfo(userID:Number): void
+        {
+            EventManager.instance.addEventListener(GetPropertyResponse.GET_SECUREUSERINFO_RESPONSE, onSecureUserInfoResponse);
+            SessionSocket.instance.sendMessage(new GetSecureUserInfoRequest(userID));
+
+            PopUpManager.addPopUp(loadingIndicator, this, true);
+            PopUpManager.centerPopUp(loadingIndicator);
+            PopUpManager.bringToFront(loadingIndicator);
+
+        }
+
+        private function onSecureUserInfoResponse(event: ServerResponseEvent):void
+        {
+            PopUpManager.removePopUp(loadingIndicator);
+            EventManager.instance.removeEventListener(GetPropertyResponse.GET_SECUREUSERINFO_RESPONSE, onSecureUserInfoResponse);
+            var response: GetPropertyResponse = event.response as GetPropertyResponse;
+            if (response.isOK)
+            {
+                userInfo = UserInfo(response.property);
+            }
+            else
+            {
+                Alert.show(response.message);
+            }
+        }
+
+        ]]></mx:Script>
+
+    <mx:Metadata>
+        [Event(name="screenSelected", type="com.turbostool.client.city.ScreenSelectedCommand")]
+    </mx:Metadata>
+    <profile:DuelPanel userInfo="{userInfo}" top="25" left="11" width="100%"/>
+    <mx:Label text="{str('nextLevel')}" color="#DC8D14" fontSize="10" fontWeight="normal" fontStyle="normal"
+              fontFamily="Arial" top="333" left="97"/>
+    <mx:Label text="{userInfo.experience}/{userInfo.expNextLevel}" color="#DC8D14" fontSize="10" fontWeight="normal"
+              fontStyle="normal" fontFamily="Arial" top="333" left="241"/>
+
+    <profile:AdminPanel x="8" y="130" id="adminPanel" userInfo="{userInfo}" visible="{showAdminPanel}"/>
+    <profile:DevPanel x="8" y="130" id="devPanel" userInfo="{userInfo}" visible="{showDevPanel}"/>
+    <mx:Button id="btnBack" label="{str('exit')}" styleName="default"
+               icon="@Embed(source='/assets/gui/common/exitIcon.png')"
+               click="{back()}" color="#262626" right="11" top="11"/>
+
+    <mx:Button visible="{showRestartButton}"
+               label="{str('restartGame') + ' (' + str('price') + ': ' + Utils.formatPrice(modelsStorage.globalInfo.restartGameCost, true) + ')'}"
+               styleName="Registration" click="onRestart()" color="#EFEFEF"
+               fontFamily="Arial" fontWeight="normal" top="321" right="10"/>
+
+    <mx:Button id="btnDuel" label="{str('duel')}" styleName="default" textAlign="center" enabled="false" color="#262626"
+               right="98" top="324" width="65" visible="false"/>
+
+    <mx:Image id="city1"
+              source="@Embed(source='/assets/gui/screens/registration/city1.png')"
+              visible="{userInfo.homeCity == 1}" right="29" top="54"/>
+    <mx:Image id="city2"
+              source="@Embed('/assets/gui/screens/registration/city2.png')"
+              visible="{userInfo.homeCity == 2}" right="29" top="54"/>
+
+    <mx:Image x="119" y="104" source="@Embed(source='/assets/gui/screens/profile/podium.png')"/>
+    <controls:SmartImage id="carImage" source="{userInfo.imageURL}" x="165" y="117" width="278" height="169"
+                         flip="true"/>
+
+    <mx:Label text="{str('profile')}" top="5" left="7" styleName="screenCaption"/>
+
+    <controls:ProgressBarBindable id="experience" x="99" y="354" height="11" trackHeight="11" width="410"
+                                  label=" " minimum="{userInfo.expPrevLevel}" maximum="{userInfo.expNextLevel}"
+                                  progress2="{userInfo.experience}"
+                                  mode="manual" trackColors="[#0, #0]" borderColor="#DC8D14" barColor="#eeeeee"
+                                  indeterminate="false"/>
+
+    <mx:Image id="dirtImage" x="205" y="127" width="230" height="121"
+              visible="{!isCarClean &amp;&amp; carImage.isLoaded}" toolTip="Помыть машину"
+              source="@Embed(source='/assets/gui/screens/profile/dirt.png')" click="cleanCar()"/>
+
+</BaseScreen>

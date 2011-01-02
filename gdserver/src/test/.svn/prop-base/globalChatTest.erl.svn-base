@@ -1,0 +1,15 @@
+K 13
+svn:mergeinfo
+V 698
+/branches/cars/gdserver/src/test/globalChatTest.erl:2458-2606
+/branches/chat/gdserver/src/test/globalChatTest.erl:2366-2387
+/branches/items/gdserver/src/test/globalChatTest.erl:1872-1893
+/branches/mneser/gdserver/src/test/globalChatTest.erl:2337-2351
+/branches/otp/gdserver/src/test/globalChatTest.erl:2229-2310
+/branches/otpApplication/gdserver/src/test/globalChatTest.erl:1717-1875
+/branches/ticket818/gdserver/src/test/globalChatTest.erl:2345-2368
+/branches/twoCities/gdserver/src/test/globalChatTest.erl:1903-2197
+/branches/upgrades/gdserver/src/test/globalChatTest.erl:1921-1938
+/branches/vapi/gdserver/src/test/globalChatTest.erl:2205-2311
+/trunk/gdserver/src/test/globalChatTest.erl:653-1055
+END

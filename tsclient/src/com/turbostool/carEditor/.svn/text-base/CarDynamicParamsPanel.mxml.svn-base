@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<CarDynamicParamsPanelBase xmlns:mx="http://www.adobe.com/2006/mxml" xmlns="com.turbostool.carEditor.*"
+                           backgroundColor="0xFFFFFF">
+    <mx:Label id="lblVelocity" text="lllllllll" fontFamily="courier"/>
+    <mx:Label id="lblClutch" text="jkjk" fontFamily="courier"/>
+</CarDynamicParamsPanelBase>

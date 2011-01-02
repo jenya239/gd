@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/2546/trunk/gdserver/lib/json
+END
+.hgignore
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/2546/trunk/gdserver/lib/json/.hgignore
+END
+.hg_archival.txt
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/2546/trunk/gdserver/lib/json/.hg_archival.txt
+END
+.hgtags
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/2546/trunk/gdserver/lib/json/.hgtags
+END

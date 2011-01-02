@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<screens:BaseScreen xmlns="com.turbostool.client.loaderScreen.*"
+                    xmlns:mx="http://www.adobe.com/2006/mxml"
+                    xmlns:screens="com.turbostool.client.screens.*"
+                    horizontalScrollPolicy="off"
+                    verticalScrollPolicy="off">
+
+    <mx:Image x="0" y="0" source="@Embed('/assets/gui/progress/bkg.jpg')"/>
+
+    <mx:Text text="{Client.instance.startupInfoMessage}" x="10" y="115" visible="false" fontFamily="Arial" color="#FFFFFF"
+             fontWeight="bold" fontSize="14" width="528.95" height="296.65" id="lblTip">
+    </mx:Text>
+    <mx:Label id="lblPercent" text="{percent}" fontFamily="Arial" fontSize="14" color="#FFFFFF"
+              width="38" height="24"
+              textAlign="center" fontWeight="bold" enabled="true" left="542" top="529"/>
+
+    <mx:SWFLoader source="@Embed(source='/assets/gui/progress/roundingCircle.swf')" right="10" bottom="10"/>
+
+
+    <mx:Script><![CDATA[
+
+        [Bindable]
+        public var percent: String;
+
+        [Bindable]
+        public var info: String;
+
+        ]]></mx:Script>
+
+</screens:BaseScreen>

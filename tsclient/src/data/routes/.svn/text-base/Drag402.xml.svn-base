@@ -1,0 +1,3825 @@
+<route>	<polygon roadWidth='10'>
+		<vertex>546.629917 24.531899</vertex>
+		<vertex>546.702614 28.452006</vertex>
+		<vertex>548.922054 28.442615</vertex>
+		<vertex>548.893688 24.476922</vertex>
+	</polygon>
+<graphics path="vehicles\Toon\rcar_10_6.png169" start="app:/MapEditor.swf175">
+
+	<item type="polygon" name="vehicles\Toon\rcar_10_6.png169" obstacle="false" blocked="false">
+		<filename>vehicles\Toon\rcar_10_6.png</filename>
+		<center>-647.538301 914.286206</center>
+		<angle>-19.888445</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>2.2 4.4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>546.629917 24.531899</vertex>
+			<vertex>546.702614 28.452006</vertex>
+			<vertex>548.922054 28.442615</vertex>
+			<vertex>548.893688 24.476922</vertex>
+		</polygon>
+		<meo>
+			<vertex>546.629917 24.531899</vertex>
+			<vertex>546.702614 28.452006</vertex>
+			<vertex>548.922054 28.442615</vertex>
+			<vertex>548.893688 24.476922</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="muha_cut_02\grass.png170" obstacle="false" blocked="false">
+		<filename>muha_cut_02\grass.png</filename>
+		<center>0 0</center>
+		<angle>0</angle>
+		<height>0</height>
+		<layer>10</layer>
+		<textureRectangle>5 5</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-452.228183 537.453529</vertex>
+			<vertex>-287.77354 537.440925</vertex>
+			<vertex>-287.524592 -142.454929</vertex>
+			<vertex>-452.316554 -142.565936</vertex>
+		</polygon>
+		<meo>
+			<vertex>-452.228183 537.453529</vertex>
+			<vertex>-287.77354 537.440925</vertex>
+			<vertex>-287.524592 -142.454929</vertex>
+			<vertex>-452.316554 -142.565936</vertex>
+		</meo>
+	</item>
+
+	<item type="rectangle" name="Marks\striped_treangle.jpg171" blocked="false">
+		<filename>Marks\striped_treangle.jpg</filename>
+		<center>-349.903169 244.428214</center>
+		<angle>0</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<rectangle>4 402</rectangle>
+	</item>
+
+	<item type="polygon" name="Ground\road_cover_asphalt_vosst_Sh.jpg172" obstacle="false" blocked="false">
+		<filename>Ground\road_cover_asphalt_vosst_Sh.jpg</filename>
+		<center>-1.288682 -33.666395</center>
+		<angle>0</angle>
+		<height>0</height>
+		<layer>15</layer>
+		<textureRectangle>5 5</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-385.980529 -43.55625</vertex>
+			<vertex>-386.107234 540.844623</vertex>
+			<vertex>-351.435374 540.484396</vertex>
+			<vertex>-351.580612 -43.640979</vertex>
+		</polygon>
+		<meo>
+			<vertex>-385.980529 -43.55625</vertex>
+			<vertex>-386.107234 540.844623</vertex>
+			<vertex>-351.435374 540.484396</vertex>
+			<vertex>-351.580612 -43.640979</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\Borders\RED\D_box_red.png173" obstacle="true" blocked="false">
+		<filename>Misc\Borders\RED\D_box_red.png</filename>
+		<center>-367.818482 80.057009</center>
+		<angle>-12.56652</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>1 4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>14.494233 -158.006395</vertex>
+			<vertex>14.489253 421.976059</vertex>
+			<vertex>15.498857 421.984553</vertex>
+			<vertex>15.495497 -158.014589</vertex>
+		</polygon>
+		<meo>
+			<vertex>14.494233 -158.006395</vertex>
+			<vertex>14.489253 421.976059</vertex>
+			<vertex>15.498857 421.984553</vertex>
+			<vertex>15.495497 -158.014589</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\Borders\RED\D_box_red.png174" obstacle="true" blocked="false">
+		<filename>Misc\Borders\RED\D_box_red.png</filename>
+		<center>-402.376838 80.255067</center>
+		<angle>-12.56652</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>1 4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>14.494233 -158.006395</vertex>
+			<vertex>14.498019 421.97114</vertex>
+			<vertex>15.488338 421.976215</vertex>
+			<vertex>15.495497 -158.014589</vertex>
+		</polygon>
+		<meo>
+			<vertex>14.494233 -158.006395</vertex>
+			<vertex>14.498019 421.97114</vertex>
+			<vertex>15.488338 421.976215</vertex>
+			<vertex>15.495497 -158.014589</vertex>
+		</meo>
+	</item>
+
+	<item type="rectangle" name="app:/MapEditor.swf175" blocked="false">
+		<filename>app:/MapEditor.swf</filename>
+		<center>-369.753599 445.459412</center>
+		<angle>0</angle>
+		<height>0</height>
+		<layer>1</layer>
+		<rectangle>40 2</rectangle>
+	</item>
+
+	<item type="polygon" name="muha_cut_02\road_marks_4_2.png176" obstacle="false" blocked="false">
+		<filename>muha_cut_02\road_marks_4_2.png</filename>
+		<center>-0.089021 -0.928366</center>
+		<angle>0</angle>
+		<height>0</height>
+		<layer>16</layer>
+		<textureRectangle>5 1</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-386.888544 445.974288</vertex>
+			<vertex>-386.898803 446.360454</vertex>
+			<vertex>-352.648608 446.379838</vertex>
+			<vertex>-352.607829 445.981798</vertex>
+		</polygon>
+		<meo>
+			<vertex>-386.888544 445.974288</vertex>
+			<vertex>-386.898803 446.360454</vertex>
+			<vertex>-352.648608 446.379838</vertex>
+			<vertex>-352.607829 445.981798</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\Borders\RED\big_barier_red_2.png177" obstacle="true" blocked="false">
+		<filename>Misc\Borders\RED\big_barier_red_2.png</filename>
+		<center>-385.124621 81.241969</center>
+		<angle>-12.56652</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>1 4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>14.494233 -158.006395</vertex>
+			<vertex>14.489359 421.989231</vertex>
+			<vertex>15.488561 421.98938</vertex>
+			<vertex>15.495497 -158.014589</vertex>
+		</polygon>
+		<meo>
+			<vertex>14.494233 -158.006395</vertex>
+			<vertex>14.489359 421.989231</vertex>
+			<vertex>15.488561 421.98938</vertex>
+			<vertex>15.495497 -158.014589</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="muha_cut_02\road_marks_4_2.png178" obstacle="false" blocked="false">
+		<filename>muha_cut_02\road_marks_4_2.png</filename>
+		<center>-0.117034 -402.836257</center>
+		<angle>0</angle>
+		<height>0</height>
+		<layer>16</layer>
+		<textureRectangle>5 1</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-386.888544 445.974288</vertex>
+			<vertex>-386.898803 446.360454</vertex>
+			<vertex>-352.648608 446.379838</vertex>
+			<vertex>-352.607829 445.981798</vertex>
+		</polygon>
+		<meo>
+			<vertex>-386.888544 445.974288</vertex>
+			<vertex>-386.898803 446.360454</vertex>
+			<vertex>-352.648608 446.379838</vertex>
+			<vertex>-352.607829 445.981798</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="muha_cut_02\road_marks_2_1.png179" obstacle="true" blocked="false">
+		<filename>muha_cut_02\road_marks_2_1.png</filename>
+		<center>-367.443391 80.001287</center>
+		<angle>-12.56652</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>5 5</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>13.045764 -158.01311</vertex>
+			<vertex>12.813946 420.869727</vertex>
+			<vertex>13.072389 420.869766</vertex>
+			<vertex>13.295397 -158.027635</vertex>
+		</polygon>
+		<meo>
+			<vertex>13.045764 -158.01311</vertex>
+			<vertex>12.813946 420.869727</vertex>
+			<vertex>13.072389 420.869766</vertex>
+			<vertex>13.295397 -158.027635</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="muha_cut_02\road_marks_2_1.png180" obstacle="true" blocked="false">
+		<filename>muha_cut_02\road_marks_2_1.png</filename>
+		<center>-399.059752 80.431983</center>
+		<angle>-12.56652</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>5 5</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>13.045764 -158.01311</vertex>
+			<vertex>13.014883 421.279997</vertex>
+			<vertex>13.230252 421.280029</vertex>
+			<vertex>13.295397 -158.027635</vertex>
+		</polygon>
+		<meo>
+			<vertex>13.045764 -158.01311</vertex>
+			<vertex>13.014883 421.279997</vertex>
+			<vertex>13.230252 421.280029</vertex>
+			<vertex>13.295397 -158.027635</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_2.png181" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_2.png</filename>
+		<center>-126.60658 434.822164</center>
+		<angle>-5.781737</angle>
+		<height>3</height>
+		<layer>20</layer>
+		<textureRectangle>6 6</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-242.97 14.977</vertex>
+			<vertex>-242.912 20.967</vertex>
+			<vertex>-237.058 20.986</vertex>
+			<vertex>-237.038 14.919</vertex>
+		</polygon>
+		<meo>
+			<vertex>-242.97 14.977</vertex>
+			<vertex>-242.912 20.967</vertex>
+			<vertex>-237.058 20.986</vertex>
+			<vertex>-237.038 14.919</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_2.png182" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_2.png</filename>
+		<center>-159.139086 349.055436</center>
+		<angle>-6.330552</angle>
+		<height>3</height>
+		<layer>20</layer>
+		<textureRectangle>6 6</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-242.97 14.977</vertex>
+			<vertex>-242.912 20.967</vertex>
+			<vertex>-237.058 20.986</vertex>
+			<vertex>-237.038 14.919</vertex>
+		</polygon>
+		<meo>
+			<vertex>-242.97 14.977</vertex>
+			<vertex>-242.912 20.967</vertex>
+			<vertex>-237.058 20.986</vertex>
+			<vertex>-237.038 14.919</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\flash_light_big.png183" obstacle="false" blocked="false">
+		<filename>Misc\flash_light_big.png</filename>
+		<center>-347.384721 258.689738</center>
+		<angle>0.682401</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>10 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>114.999635 147.309523</vertex>
+			<vertex>108.265636 151.074375</vertex>
+			<vertex>105.327649 147.080819</vertex>
+			<vertex>108.155486 142.389677</vertex>
+			<vertex>114.903991 146.257674</vertex>
+		</polygon>
+		<meo>
+			<vertex>114.999635 147.309523</vertex>
+			<vertex>108.265636 151.074375</vertex>
+			<vertex>105.327649 147.080819</vertex>
+			<vertex>108.155486 142.389677</vertex>
+			<vertex>114.903991 146.257674</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\flash_light_big.png184" obstacle="false" blocked="false">
+		<filename>Misc\flash_light_big.png</filename>
+		<center>-207.42176 485.263025</center>
+		<angle>-3.83151</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>10 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>114.999635 147.309523</vertex>
+			<vertex>108.265636 151.074375</vertex>
+			<vertex>105.327649 147.080819</vertex>
+			<vertex>108.155486 142.389677</vertex>
+			<vertex>114.903991 146.257674</vertex>
+		</polygon>
+		<meo>
+			<vertex>114.999635 147.309523</vertex>
+			<vertex>108.265636 151.074375</vertex>
+			<vertex>105.327649 147.080819</vertex>
+			<vertex>108.155486 142.389677</vertex>
+			<vertex>114.903991 146.257674</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\light2.png185" obstacle="false" blocked="false">
+		<filename>Misc\light2.png</filename>
+		<center>-369.330561 36.214116</center>
+		<angle>0</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>10 10</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>17.040876 225.72831</vertex>
+			<vertex>14.391832 233.33085</vertex>
+			<vertex>23.114293 235.075342</vertex>
+			<vertex>24.578805 226.331345</vertex>
+		</polygon>
+		<meo>
+			<vertex>17.040876 225.72831</vertex>
+			<vertex>14.391832 233.33085</vertex>
+			<vertex>23.114293 235.075342</vertex>
+			<vertex>24.578805 226.331345</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\light2.png186" obstacle="false" blocked="false">
+		<filename>Misc\light2.png</filename>
+		<center>-410.548323 36.804098</center>
+		<angle>0</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>10 10</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>17.040876 225.72831</vertex>
+			<vertex>14.391832 233.33085</vertex>
+			<vertex>23.114293 235.075342</vertex>
+			<vertex>24.578805 226.331345</vertex>
+		</polygon>
+		<meo>
+			<vertex>17.040876 225.72831</vertex>
+			<vertex>14.391832 233.33085</vertex>
+			<vertex>23.114293 235.075342</vertex>
+			<vertex>24.578805 226.331345</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\light2.png187" obstacle="false" blocked="false">
+		<filename>Misc\light2.png</filename>
+		<center>-369.441742 28.303212</center>
+		<angle>0</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>10 10</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>17.040876 225.72831</vertex>
+			<vertex>14.391832 233.33085</vertex>
+			<vertex>23.114293 235.075342</vertex>
+			<vertex>24.578805 226.331345</vertex>
+		</polygon>
+		<meo>
+			<vertex>17.040876 225.72831</vertex>
+			<vertex>14.391832 233.33085</vertex>
+			<vertex>23.114293 235.075342</vertex>
+			<vertex>24.578805 226.331345</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\light2.png188" obstacle="false" blocked="false">
+		<filename>Misc\light2.png</filename>
+		<center>-410.698057 28.513013</center>
+		<angle>0</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>10 10</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>17.040876 225.72831</vertex>
+			<vertex>14.391832 233.33085</vertex>
+			<vertex>23.114293 235.075342</vertex>
+			<vertex>24.578805 226.331345</vertex>
+		</polygon>
+		<meo>
+			<vertex>17.040876 225.72831</vertex>
+			<vertex>14.391832 233.33085</vertex>
+			<vertex>23.114293 235.075342</vertex>
+			<vertex>24.578805 226.331345</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\Banners\Banner_base_2.png189" obstacle="false" blocked="false">
+		<filename>Misc\Banners\Banner_base_2.png</filename>
+		<center>-471.041244 -100.999521</center>
+		<angle>-6.28816</angle>
+		<height>2</height>
+		<layer>20</layer>
+		<textureRectangle>25 3</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>119.229767 141.311983</vertex>
+			<vertex>80.773264 141.292353</vertex>
+			<vertex>80.794332 143.655937</vertex>
+			<vertex>119.16495 143.651505</vertex>
+		</polygon>
+		<meo>
+			<vertex>119.229767 141.311983</vertex>
+			<vertex>80.773264 141.292353</vertex>
+			<vertex>80.794332 143.655937</vertex>
+			<vertex>119.16495 143.651505</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\generator_red.png190" obstacle="false" blocked="false">
+		<filename>Misc\generator_red.png</filename>
+		<center>-356.670529 581.883631</center>
+		<angle>-1.565358</angle>
+		<height>0.5</height>
+		<layer>30</layer>
+		<textureRectangle>3 1.5</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>538.49 3.742</vertex>
+			<vertex>538.525 5.276</vertex>
+			<vertex>541.493 5.257</vertex>
+			<vertex>541.488 3.743</vertex>
+		</polygon>
+		<meo>
+			<vertex>538.49 3.742</vertex>
+			<vertex>538.525 5.276</vertex>
+			<vertex>541.493 5.257</vertex>
+			<vertex>541.488 3.743</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\generator_red.png191" obstacle="false" blocked="false">
+		<filename>Misc\generator_red.png</filename>
+		<center>-354.169251 581.927621</center>
+		<angle>-7.849597</angle>
+		<height>0.5</height>
+		<layer>30</layer>
+		<textureRectangle>3 1.5</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>538.49 3.742</vertex>
+			<vertex>538.525 5.276</vertex>
+			<vertex>541.493 5.257</vertex>
+			<vertex>541.488 3.743</vertex>
+		</polygon>
+		<meo>
+			<vertex>538.49 3.742</vertex>
+			<vertex>538.525 5.276</vertex>
+			<vertex>541.493 5.257</vertex>
+			<vertex>541.488 3.743</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\generator_red.png192" obstacle="false" blocked="false">
+		<filename>Misc\generator_red.png</filename>
+		<center>148.66771 51.676206</center>
+		<angle>-3.129977</angle>
+		<height>0.5</height>
+		<layer>30</layer>
+		<textureRectangle>3 1.5</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>538.49 3.742</vertex>
+			<vertex>538.525 5.276</vertex>
+			<vertex>541.493 5.257</vertex>
+			<vertex>541.488 3.743</vertex>
+		</polygon>
+		<meo>
+			<vertex>538.49 3.742</vertex>
+			<vertex>538.525 5.276</vertex>
+			<vertex>541.493 5.257</vertex>
+			<vertex>541.488 3.743</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\generator_yelo.png193" obstacle="false" blocked="false">
+		<filename>Misc\generator_yelo.png</filename>
+		<center>-403.512369 583.225191</center>
+		<angle>-7.838544</angle>
+		<height>0.5</height>
+		<layer>30</layer>
+		<textureRectangle>3 1.5</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>538.49 3.742</vertex>
+			<vertex>538.525 5.276</vertex>
+			<vertex>541.493 5.257</vertex>
+			<vertex>541.488 3.743</vertex>
+		</polygon>
+		<meo>
+			<vertex>538.49 3.742</vertex>
+			<vertex>538.525 5.276</vertex>
+			<vertex>541.493 5.257</vertex>
+			<vertex>541.488 3.743</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\generator_yelo.png194" obstacle="false" blocked="false">
+		<filename>Misc\generator_yelo.png</filename>
+		<center>-393.239486 583.407887</center>
+		<angle>-7.86087</angle>
+		<height>0.5</height>
+		<layer>30</layer>
+		<textureRectangle>3 1.5</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>538.49 3.742</vertex>
+			<vertex>538.525 5.276</vertex>
+			<vertex>541.493 5.257</vertex>
+			<vertex>541.488 3.743</vertex>
+		</polygon>
+		<meo>
+			<vertex>538.49 3.742</vertex>
+			<vertex>538.525 5.276</vertex>
+			<vertex>541.493 5.257</vertex>
+			<vertex>541.488 3.743</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Gas_trailer_paston.png195" obstacle="false" blocked="false">
+		<filename>vehicles\Gas_trailer_paston.png</filename>
+		<center>42.139894 498.643661</center>
+		<angle>-0.009474</angle>
+		<height>0.3</height>
+		<layer>30</layer>
+		<textureRectangle>5 20</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</polygon>
+		<meo>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Gas_trailer_paston.png196" obstacle="false" blocked="false">
+		<filename>vehicles\Gas_trailer_paston.png</filename>
+		<center>50.457956 489.274495</center>
+		<angle>-0.033545</angle>
+		<height>0.3</height>
+		<layer>30</layer>
+		<textureRectangle>5 20</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</polygon>
+		<meo>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\truck_black.png197" obstacle="false" blocked="false">
+		<filename>vehicles\truck_black.png</filename>
+		<center>-388.534778 298.732439</center>
+		<angle>0.202996</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>5 15</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>67.479 127.088</vertex>
+			<vertex>67.334 112.464</vertex>
+			<vertex>72.643 112.486</vertex>
+			<vertex>72.500851 127.232496</vertex>
+		</polygon>
+		<meo>
+			<vertex>67.479 127.088</vertex>
+			<vertex>67.334 112.464</vertex>
+			<vertex>72.643 112.486</vertex>
+			<vertex>72.500851 127.232496</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_3.png198" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_3.png</filename>
+		<center>-265.239059 113.814073</center>
+		<angle>-5.032582</angle>
+		<height>2</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_3.png199" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_3.png</filename>
+		<center>-398.20137 -58.872223</center>
+		<angle>0.75335</angle>
+		<height>2</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_3.png200" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_3.png</filename>
+		<center>-185.010369 -111.025473</center>
+		<angle>-4.935071</angle>
+		<height>2</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_5.png201" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_5.png</filename>
+		<center>-346.921996 -123.869263</center>
+		<angle>-5.53478</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_5.png202" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_5.png</filename>
+		<center>-576.549477 -151.368832</center>
+		<angle>-6.17162</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\trailer_white.png203" obstacle="false" blocked="false">
+		<filename>vehicles\trailer_white.png</filename>
+		<center>-579.74486 -9.731558</center>
+		<angle>-0.011222</angle>
+		<height>0</height>
+		<layer>666</layer>
+		<textureRectangle>5 20</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>242.546 89.987</vertex>
+			<vertex>237.464 89.953</vertex>
+			<vertex>237.475 69.995</vertex>
+			<vertex>242.524 69.931</vertex>
+		</polygon>
+		<meo>
+			<vertex>242.546 89.987</vertex>
+			<vertex>237.464 89.953</vertex>
+			<vertex>237.475 69.995</vertex>
+			<vertex>242.524 69.931</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="buildings\tribune_down.jpg204" obstacle="false" blocked="false">
+		<filename>buildings\tribune_down.jpg</filename>
+		<center>-254.074536 470.083161</center>
+		<angle>-4.708524</angle>
+		<height>2</height>
+		<layer>30</layer>
+		<textureRectangle>40 13</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-59.908523 136.91572</vertex>
+			<vertex>-59.895394 149.196903</vertex>
+			<vertex>19.652674 149.145966</vertex>
+			<vertex>19.73237 136.94001</vertex>
+		</polygon>
+		<meo>
+			<vertex>-59.908523 136.91572</vertex>
+			<vertex>-59.895394 149.196903</vertex>
+			<vertex>19.652674 149.145966</vertex>
+			<vertex>19.73237 136.94001</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="buildings\tribune_up.jpg205" obstacle="false" blocked="false">
+		<filename>buildings\tribune_up.jpg</filename>
+		<center>-253.100657 470.23161</center>
+		<angle>1.573824</angle>
+		<height>3</height>
+		<layer>30</layer>
+		<textureRectangle>40 13</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>18.938469 139.001407</vertex>
+			<vertex>18.933755 139.364316</vertex>
+			<vertex>12.072265 139.345396</vertex>
+			<vertex>12.027208 138.99996</vertex>
+			<vertex>11.531584 139.00747</vertex>
+			<vertex>11.494036 139.337886</vertex>
+			<vertex>8.865723 139.330377</vertex>
+			<vertex>8.850704 138.99996</vertex>
+			<vertex>8.34006 139.014979</vertex>
+			<vertex>8.264966 139.315358</vertex>
+			<vertex>2.047127 139.345396</vertex>
+			<vertex>2.00958 139.00747</vertex>
+			<vertex>1.498936 138.992451</vertex>
+			<vertex>1.476408 139.352905</vertex>
+			<vertex>-1.211981 139.337886</vertex>
+			<vertex>-1.264547 139.014979</vertex>
+			<vertex>-1.760172 139.00747</vertex>
+			<vertex>-1.782701 139.352905</vertex>
+			<vertex>-8.050966 139.33999</vertex>
+			<vertex>-8.125134 138.996965</vertex>
+			<vertex>-8.616494 138.978423</vertex>
+			<vertex>-8.653578 139.349261</vertex>
+			<vertex>-11.203088 139.321448</vertex>
+			<vertex>-11.203088 139.006236</vertex>
+			<vertex>-11.765806 139.004417</vertex>
+			<vertex>-11.750074 139.349261</vertex>
+			<vertex>-18.816869 139.357677</vertex>
+			<vertex>-18.871713 138.989087</vertex>
+			<vertex>-19.410137 139.010624</vertex>
+			<vertex>-19.394267 148.618407</vertex>
+			<vertex>19.512882 148.558992</vertex>
+			<vertex>19.473405 139.02026</vertex>
+		</polygon>
+		<meo>
+			<vertex>18.938469 139.001407</vertex>
+			<vertex>18.933755 139.364316</vertex>
+			<vertex>12.072265 139.345396</vertex>
+			<vertex>12.027208 138.99996</vertex>
+			<vertex>11.531584 139.00747</vertex>
+			<vertex>11.494036 139.337886</vertex>
+			<vertex>8.865723 139.330377</vertex>
+			<vertex>8.850704 138.99996</vertex>
+			<vertex>8.34006 139.014979</vertex>
+			<vertex>8.264966 139.315358</vertex>
+			<vertex>2.047127 139.345396</vertex>
+			<vertex>2.00958 139.00747</vertex>
+			<vertex>1.498936 138.992451</vertex>
+			<vertex>1.476408 139.352905</vertex>
+			<vertex>-1.211981 139.337886</vertex>
+			<vertex>-1.264547 139.014979</vertex>
+			<vertex>-1.760172 139.00747</vertex>
+			<vertex>-1.782701 139.352905</vertex>
+			<vertex>-8.050966 139.33999</vertex>
+			<vertex>-8.125134 138.996965</vertex>
+			<vertex>-8.616494 138.978423</vertex>
+			<vertex>-8.653578 139.349261</vertex>
+			<vertex>-11.203088 139.321448</vertex>
+			<vertex>-11.203088 139.006236</vertex>
+			<vertex>-11.765806 139.004417</vertex>
+			<vertex>-11.750074 139.349261</vertex>
+			<vertex>-18.816869 139.357677</vertex>
+			<vertex>-18.871713 138.989087</vertex>
+			<vertex>-19.410137 139.010624</vertex>
+			<vertex>-19.394267 148.618407</vertex>
+			<vertex>19.512882 148.558992</vertex>
+			<vertex>19.473405 139.02026</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="buildings\tribune_up.jpg206" obstacle="false" blocked="false">
+		<filename>buildings\tribune_up.jpg</filename>
+		<center>-252.932193 429.903385</center>
+		<angle>1.571647</angle>
+		<height>3</height>
+		<layer>30</layer>
+		<textureRectangle>40 13</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>18.938469 139.001407</vertex>
+			<vertex>18.933755 139.364316</vertex>
+			<vertex>12.072265 139.345396</vertex>
+			<vertex>12.027208 138.99996</vertex>
+			<vertex>11.531584 139.00747</vertex>
+			<vertex>11.494036 139.337886</vertex>
+			<vertex>8.865723 139.330377</vertex>
+			<vertex>8.850704 138.99996</vertex>
+			<vertex>8.34006 139.014979</vertex>
+			<vertex>8.264966 139.315358</vertex>
+			<vertex>2.047127 139.345396</vertex>
+			<vertex>2.00958 139.00747</vertex>
+			<vertex>1.498936 138.992451</vertex>
+			<vertex>1.476408 139.352905</vertex>
+			<vertex>-1.211981 139.337886</vertex>
+			<vertex>-1.264547 139.014979</vertex>
+			<vertex>-1.760172 139.00747</vertex>
+			<vertex>-1.782701 139.352905</vertex>
+			<vertex>-8.050966 139.33999</vertex>
+			<vertex>-8.125134 138.996965</vertex>
+			<vertex>-8.616494 138.978423</vertex>
+			<vertex>-8.653578 139.349261</vertex>
+			<vertex>-11.203088 139.321448</vertex>
+			<vertex>-11.203088 139.006236</vertex>
+			<vertex>-11.765806 139.004417</vertex>
+			<vertex>-11.750074 139.349261</vertex>
+			<vertex>-18.816869 139.357677</vertex>
+			<vertex>-18.871713 138.989087</vertex>
+			<vertex>-19.410137 139.010624</vertex>
+			<vertex>-19.394267 148.618407</vertex>
+			<vertex>19.512882 148.558992</vertex>
+			<vertex>19.473405 139.02026</vertex>
+		</polygon>
+		<meo>
+			<vertex>18.938469 139.001407</vertex>
+			<vertex>18.933755 139.364316</vertex>
+			<vertex>12.072265 139.345396</vertex>
+			<vertex>12.027208 138.99996</vertex>
+			<vertex>11.531584 139.00747</vertex>
+			<vertex>11.494036 139.337886</vertex>
+			<vertex>8.865723 139.330377</vertex>
+			<vertex>8.850704 138.99996</vertex>
+			<vertex>8.34006 139.014979</vertex>
+			<vertex>8.264966 139.315358</vertex>
+			<vertex>2.047127 139.345396</vertex>
+			<vertex>2.00958 139.00747</vertex>
+			<vertex>1.498936 138.992451</vertex>
+			<vertex>1.476408 139.352905</vertex>
+			<vertex>-1.211981 139.337886</vertex>
+			<vertex>-1.264547 139.014979</vertex>
+			<vertex>-1.760172 139.00747</vertex>
+			<vertex>-1.782701 139.352905</vertex>
+			<vertex>-8.050966 139.33999</vertex>
+			<vertex>-8.125134 138.996965</vertex>
+			<vertex>-8.616494 138.978423</vertex>
+			<vertex>-8.653578 139.349261</vertex>
+			<vertex>-11.203088 139.321448</vertex>
+			<vertex>-11.203088 139.006236</vertex>
+			<vertex>-11.765806 139.004417</vertex>
+			<vertex>-11.750074 139.349261</vertex>
+			<vertex>-18.816869 139.357677</vertex>
+			<vertex>-18.871713 138.989087</vertex>
+			<vertex>-19.410137 139.010624</vertex>
+			<vertex>-19.394267 148.618407</vertex>
+			<vertex>19.512882 148.558992</vertex>
+			<vertex>19.473405 139.02026</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\bilboard_flat.png207" obstacle="false" blocked="false">
+		<filename>Misc\bilboard_flat.png</filename>
+		<center>-41.067529 16.4902</center>
+		<angle>-6.286057</angle>
+		<height>2</height>
+		<layer>30</layer>
+		<textureRectangle>13 4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-344.435 25.536</vertex>
+			<vertex>-331.534 25.557</vertex>
+			<vertex>-331.465 22.821</vertex>
+			<vertex>-344.581 22.843</vertex>
+		</polygon>
+		<meo>
+			<vertex>-344.435 25.536</vertex>
+			<vertex>-331.534 25.557</vertex>
+			<vertex>-331.465 22.821</vertex>
+			<vertex>-344.581 22.843</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\bilboard_flat.png208" obstacle="false" blocked="false">
+		<filename>Misc\bilboard_flat.png</filename>
+		<center>-23.92758 15.738231</center>
+		<angle>-6.288083</angle>
+		<height>2.5</height>
+		<layer>30</layer>
+		<textureRectangle>13 4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-344.435 25.536</vertex>
+			<vertex>-331.534 25.557</vertex>
+			<vertex>-331.465 22.821</vertex>
+			<vertex>-344.581 22.843</vertex>
+		</polygon>
+		<meo>
+			<vertex>-344.435 25.536</vertex>
+			<vertex>-331.534 25.557</vertex>
+			<vertex>-331.465 22.821</vertex>
+			<vertex>-344.581 22.843</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\leaves_3.png209" obstacle="false" blocked="false">
+		<filename>Trees\leaves_3.png</filename>
+		<center>-830.193828 -474.87968</center>
+		<angle>0.942607</angle>
+		<height>0</height>
+		<layer>15</layer>
+		<textureRectangle>2 3</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>733.618 -9.987</vertex>
+			<vertex>731.58 -9.232</vertex>
+			<vertex>731.134 -7.023</vertex>
+			<vertex>732.828 -5.535</vertex>
+			<vertex>734.923 -6.863</vertex>
+			<vertex>736.376 -8.167</vertex>
+			<vertex>735.071 -9.667</vertex>
+		</polygon>
+		<meo>
+			<vertex>733.618 -9.987</vertex>
+			<vertex>731.58 -9.232</vertex>
+			<vertex>731.134 -7.023</vertex>
+			<vertex>732.828 -5.535</vertex>
+			<vertex>734.923 -6.863</vertex>
+			<vertex>736.376 -8.167</vertex>
+			<vertex>735.071 -9.667</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\buses\red_bus.png210" obstacle="false" blocked="false">
+		<filename>vehicles\buses\red_bus.png</filename>
+		<center>355.500252 299.591182</center>
+		<angle>-9.444545</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>5 14</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>702.415 -105.066</vertex>
+			<vertex>702.942 -91.047</vertex>
+			<vertex>707.124 -91.006</vertex>
+			<vertex>707.528 -105.048</vertex>
+		</polygon>
+		<meo>
+			<vertex>702.415 -105.066</vertex>
+			<vertex>702.942 -91.047</vertex>
+			<vertex>707.124 -91.006</vertex>
+			<vertex>707.528 -105.048</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\generator_red.png211" obstacle="false" blocked="false">
+		<filename>Misc\generator_red.png</filename>
+		<center>-360.832443 968.16954</center>
+		<angle>-1.559899</angle>
+		<height>0.5</height>
+		<layer>30</layer>
+		<textureRectangle>3 1.5</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>538.49 3.742</vertex>
+			<vertex>538.525 5.276</vertex>
+			<vertex>541.493 5.257</vertex>
+			<vertex>541.488 3.743</vertex>
+		</polygon>
+		<meo>
+			<vertex>538.49 3.742</vertex>
+			<vertex>538.525 5.276</vertex>
+			<vertex>541.493 5.257</vertex>
+			<vertex>541.488 3.743</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\generator_yelo.png212" obstacle="false" blocked="false">
+		<filename>Misc\generator_yelo.png</filename>
+		<center>-388.101037 987.078939</center>
+		<angle>-7.86413</angle>
+		<height>0.5</height>
+		<layer>30</layer>
+		<textureRectangle>3 1.5</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>538.49 3.742</vertex>
+			<vertex>538.525 5.276</vertex>
+			<vertex>541.493 5.257</vertex>
+			<vertex>541.488 3.743</vertex>
+		</polygon>
+		<meo>
+			<vertex>538.49 3.742</vertex>
+			<vertex>538.525 5.276</vertex>
+			<vertex>541.493 5.257</vertex>
+			<vertex>541.488 3.743</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\generator_yelo.png213" obstacle="false" blocked="false">
+		<filename>Misc\generator_yelo.png</filename>
+		<center>-347.196947 986.870874</center>
+		<angle>-7.869478</angle>
+		<height>0.5</height>
+		<layer>30</layer>
+		<textureRectangle>3 1.5</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>538.49 3.742</vertex>
+			<vertex>538.525 5.276</vertex>
+			<vertex>541.493 5.257</vertex>
+			<vertex>541.488 3.743</vertex>
+		</polygon>
+		<meo>
+			<vertex>538.49 3.742</vertex>
+			<vertex>538.525 5.276</vertex>
+			<vertex>541.493 5.257</vertex>
+			<vertex>541.488 3.743</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Marks\road_marks_arrows_multiple.png214" obstacle="false" blocked="false">
+		<filename>Marks\road_marks_arrows_multiple.png</filename>
+		<center>-443.562512 330.400925</center>
+		<angle>-6.297926</angle>
+		<height>0</height>
+		<layer>20</layer>
+		<textureRectangle>10 5</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>84.972351 112.454613</vertex>
+			<vertex>80.142465 112.471892</vertex>
+			<vertex>74.934863 112.531891</vertex>
+			<vertex>75.066533 107.876709</vertex>
+			<vertex>77.034425 107.406933</vertex>
+			<vertex>85.029582 107.618268</vertex>
+		</polygon>
+		<meo>
+			<vertex>84.972351 112.454613</vertex>
+			<vertex>80.142465 112.471892</vertex>
+			<vertex>74.934863 112.531891</vertex>
+			<vertex>75.066533 107.876709</vertex>
+			<vertex>77.034425 107.406933</vertex>
+			<vertex>85.029582 107.618268</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Marks\road_marks_arrows_multiple.png215" obstacle="false" blocked="false">
+		<filename>Marks\road_marks_arrows_multiple.png</filename>
+		<center>-460.039156 330.722007</center>
+		<angle>-6.29818</angle>
+		<height>0</height>
+		<layer>20</layer>
+		<textureRectangle>10 5</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>84.972351 112.454613</vertex>
+			<vertex>80.142465 112.471892</vertex>
+			<vertex>74.934863 112.531891</vertex>
+			<vertex>75.066533 107.876709</vertex>
+			<vertex>77.034425 107.406933</vertex>
+			<vertex>85.029582 107.618268</vertex>
+		</polygon>
+		<meo>
+			<vertex>84.972351 112.454613</vertex>
+			<vertex>80.142465 112.471892</vertex>
+			<vertex>74.934863 112.531891</vertex>
+			<vertex>75.066533 107.876709</vertex>
+			<vertex>77.034425 107.406933</vertex>
+			<vertex>85.029582 107.618268</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\buses\seacolor_bus.png216" obstacle="false" blocked="false">
+		<filename>vehicles\buses\seacolor_bus.png</filename>
+		<center>361.51549 283.434406</center>
+		<angle>-3.176348</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>5 14</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>702.415 -105.066</vertex>
+			<vertex>702.942 -91.047</vertex>
+			<vertex>707.124 -91.006</vertex>
+			<vertex>707.528 -105.048</vertex>
+		</polygon>
+		<meo>
+			<vertex>702.415 -105.066</vertex>
+			<vertex>702.942 -91.047</vertex>
+			<vertex>707.124 -91.006</vertex>
+			<vertex>707.528 -105.048</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_2.png217" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_2.png</filename>
+		<center>-457.753327 103.159885</center>
+		<angle>-5.919443</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_6.png218" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_6.png</filename>
+		<center>-276.42342 114.973202</center>
+		<angle>-5.28688</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_2.png219" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_2.png</filename>
+		<center>-487.958823 12.915246</center>
+		<angle>0.436238</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_6.png220" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_6.png</filename>
+		<center>-385.080409 22.112941</center>
+		<angle>0.799</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_2.png221" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_2.png</filename>
+		<center>-541.726473 -5.504528</center>
+		<angle>0</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_6.png222" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_6.png</filename>
+		<center>-389.763688 -143.952901</center>
+		<angle>0.799</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_2.png223" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_2.png</filename>
+		<center>-606.699961 -188.013637</center>
+		<angle>0</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_2.png224" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_2.png</filename>
+		<center>-522.206794 -275.29268</center>
+		<angle>0.300014</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_2.png225" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_2.png</filename>
+		<center>-395.656209 -240.135402</center>
+		<angle>0.544562</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_6.png226" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_6.png</filename>
+		<center>-495.842585 -85.961061</center>
+		<angle>0.455927</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_2.png227" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_2.png</filename>
+		<center>-217.351168 -29.255366</center>
+		<angle>1.441878</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Toon\rcar_2_6.png228" obstacle="false" blocked="false">
+		<filename>vehicles\Toon\rcar_2_6.png</filename>
+		<center>-197.414395 584.460417</center>
+		<angle>-20.745927</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>2.2 4.4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>546.781363 24.318908</vertex>
+			<vertex>546.793191 28.432211</vertex>
+			<vertex>548.771391 28.421157</vertex>
+			<vertex>548.786128 24.377224</vertex>
+		</polygon>
+		<meo>
+			<vertex>546.781363 24.318908</vertex>
+			<vertex>546.793191 28.432211</vertex>
+			<vertex>548.771391 28.421157</vertex>
+			<vertex>548.786128 24.377224</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Toon\rcar_9_5.png229" obstacle="false" blocked="false">
+		<filename>vehicles\Toon\rcar_9_5.png</filename>
+		<center>-179.461777 584.488414</center>
+		<angle>-20.779275</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>2.2 4.4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>546.629917 24.531899</vertex>
+			<vertex>546.702614 28.452006</vertex>
+			<vertex>548.922054 28.442615</vertex>
+			<vertex>548.893688 24.476922</vertex>
+		</polygon>
+		<meo>
+			<vertex>546.629917 24.531899</vertex>
+			<vertex>546.702614 28.452006</vertex>
+			<vertex>548.922054 28.442615</vertex>
+			<vertex>548.893688 24.476922</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Toon\rcar_11_6.png230" obstacle="false" blocked="false">
+		<filename>vehicles\Toon\rcar_11_6.png</filename>
+		<center>-179.393152 589.56212</center>
+		<angle>-8.212369</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>2.2 4.4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>546.629917 24.531899</vertex>
+			<vertex>546.702614 28.452006</vertex>
+			<vertex>548.922054 28.442615</vertex>
+			<vertex>548.893688 24.476922</vertex>
+		</polygon>
+		<meo>
+			<vertex>546.629917 24.531899</vertex>
+			<vertex>546.702614 28.452006</vertex>
+			<vertex>548.922054 28.442615</vertex>
+			<vertex>548.893688 24.476922</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Toon\rcar_7_3.png231" obstacle="false" blocked="false">
+		<filename>vehicles\Toon\rcar_7_3.png</filename>
+		<center>-263.611767 613.269647</center>
+		<angle>-20.625434</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>2.5 4.8</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>546.323937 26.785633</vertex>
+			<vertex>546.437708 30.912755</vertex>
+			<vertex>548.651249 30.784802</vertex>
+			<vertex>548.672146 26.808096</vertex>
+		</polygon>
+		<meo>
+			<vertex>546.323937 26.785633</vertex>
+			<vertex>546.437708 30.912755</vertex>
+			<vertex>548.651249 30.784802</vertex>
+			<vertex>548.672146 26.808096</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Toon\rcar_2_1.png232" obstacle="false" blocked="false">
+		<filename>vehicles\Toon\rcar_2_1.png</filename>
+		<center>-104.042942 -406.823639</center>
+		<angle>-10.489803</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>2.2 4.4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>546.629917 24.531899</vertex>
+			<vertex>546.702614 28.452006</vertex>
+			<vertex>548.922054 28.442615</vertex>
+			<vertex>548.893688 24.476922</vertex>
+		</polygon>
+		<meo>
+			<vertex>546.629917 24.531899</vertex>
+			<vertex>546.702614 28.452006</vertex>
+			<vertex>548.922054 28.442615</vertex>
+			<vertex>548.893688 24.476922</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Toon\rcar_7_8.png233" obstacle="false" blocked="false">
+		<filename>vehicles\Toon\rcar_7_8.png</filename>
+		<center>-75.913674 -393.350591</center>
+		<angle>-16.717131</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>2.5 4.8</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>546.323937 26.785633</vertex>
+			<vertex>546.437708 30.912755</vertex>
+			<vertex>548.651249 30.784802</vertex>
+			<vertex>548.672146 26.808096</vertex>
+		</polygon>
+		<meo>
+			<vertex>546.323937 26.785633</vertex>
+			<vertex>546.437708 30.912755</vertex>
+			<vertex>548.651249 30.784802</vertex>
+			<vertex>548.672146 26.808096</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Toon\rcar_6_3.png234" obstacle="false" blocked="false">
+		<filename>vehicles\Toon\rcar_6_3.png</filename>
+		<center>-134.78422 -419.715476</center>
+		<angle>-16.836894</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>2.2 4.4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>546.781363 24.318908</vertex>
+			<vertex>546.793191 28.432211</vertex>
+			<vertex>548.771391 28.421157</vertex>
+			<vertex>548.786128 24.377224</vertex>
+		</polygon>
+		<meo>
+			<vertex>546.781363 24.318908</vertex>
+			<vertex>546.793191 28.432211</vertex>
+			<vertex>548.771391 28.421157</vertex>
+			<vertex>548.786128 24.377224</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Toon\rcar_9_7.png235" obstacle="false" blocked="false">
+		<filename>vehicles\Toon\rcar_9_7.png</filename>
+		<center>-211.629458 -449.167096</center>
+		<angle>-23.273001</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>2.2 4.4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>546.686129 24.330829</vertex>
+			<vertex>546.867129 28.646829</vertex>
+			<vertex>548.804129 28.619829</vertex>
+			<vertex>549.050129 24.330829</vertex>
+		</polygon>
+		<meo>
+			<vertex>546.686129 24.330829</vertex>
+			<vertex>546.867129 28.646829</vertex>
+			<vertex>548.804129 28.619829</vertex>
+			<vertex>549.050129 24.330829</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="buildings\tribune_down.jpg236" obstacle="false" blocked="false">
+		<filename>buildings\tribune_down.jpg</filename>
+		<center>-487.580857 -27.138636</center>
+		<angle>-7.858566</angle>
+		<height>2</height>
+		<layer>30</layer>
+		<textureRectangle>40 13</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-59.908523 136.91572</vertex>
+			<vertex>-59.895394 149.196903</vertex>
+			<vertex>19.652674 149.145966</vertex>
+			<vertex>19.73237 136.94001</vertex>
+		</polygon>
+		<meo>
+			<vertex>-59.908523 136.91572</vertex>
+			<vertex>-59.895394 149.196903</vertex>
+			<vertex>19.652674 149.145966</vertex>
+			<vertex>19.73237 136.94001</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="buildings\tribune_up.jpg237" obstacle="false" blocked="false">
+		<filename>buildings\tribune_up.jpg</filename>
+		<center>-488.535031 12.742634</center>
+		<angle>-1.574394</angle>
+		<height>3</height>
+		<layer>30</layer>
+		<textureRectangle>40 13</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>18.938469 139.001407</vertex>
+			<vertex>18.933755 139.364316</vertex>
+			<vertex>12.072265 139.345396</vertex>
+			<vertex>12.027208 138.99996</vertex>
+			<vertex>11.531584 139.00747</vertex>
+			<vertex>11.494036 139.337886</vertex>
+			<vertex>8.865723 139.330377</vertex>
+			<vertex>8.850704 138.99996</vertex>
+			<vertex>8.34006 139.014979</vertex>
+			<vertex>8.264966 139.315358</vertex>
+			<vertex>2.047127 139.345396</vertex>
+			<vertex>2.00958 139.00747</vertex>
+			<vertex>1.498936 138.992451</vertex>
+			<vertex>1.476408 139.352905</vertex>
+			<vertex>-1.211981 139.337886</vertex>
+			<vertex>-1.264547 139.014979</vertex>
+			<vertex>-1.760172 139.00747</vertex>
+			<vertex>-1.782701 139.352905</vertex>
+			<vertex>-8.050966 139.33999</vertex>
+			<vertex>-8.125134 138.996965</vertex>
+			<vertex>-8.616494 138.978423</vertex>
+			<vertex>-8.653578 139.349261</vertex>
+			<vertex>-11.203088 139.321448</vertex>
+			<vertex>-11.203088 139.006236</vertex>
+			<vertex>-11.765806 139.004417</vertex>
+			<vertex>-11.750074 139.349261</vertex>
+			<vertex>-18.816869 139.357677</vertex>
+			<vertex>-18.871713 138.989087</vertex>
+			<vertex>-19.410137 139.010624</vertex>
+			<vertex>-19.394267 148.618407</vertex>
+			<vertex>19.512882 148.558992</vertex>
+			<vertex>19.473405 139.02026</vertex>
+		</polygon>
+		<meo>
+			<vertex>18.938469 139.001407</vertex>
+			<vertex>18.933755 139.364316</vertex>
+			<vertex>12.072265 139.345396</vertex>
+			<vertex>12.027208 138.99996</vertex>
+			<vertex>11.531584 139.00747</vertex>
+			<vertex>11.494036 139.337886</vertex>
+			<vertex>8.865723 139.330377</vertex>
+			<vertex>8.850704 138.99996</vertex>
+			<vertex>8.34006 139.014979</vertex>
+			<vertex>8.264966 139.315358</vertex>
+			<vertex>2.047127 139.345396</vertex>
+			<vertex>2.00958 139.00747</vertex>
+			<vertex>1.498936 138.992451</vertex>
+			<vertex>1.476408 139.352905</vertex>
+			<vertex>-1.211981 139.337886</vertex>
+			<vertex>-1.264547 139.014979</vertex>
+			<vertex>-1.760172 139.00747</vertex>
+			<vertex>-1.782701 139.352905</vertex>
+			<vertex>-8.050966 139.33999</vertex>
+			<vertex>-8.125134 138.996965</vertex>
+			<vertex>-8.616494 138.978423</vertex>
+			<vertex>-8.653578 139.349261</vertex>
+			<vertex>-11.203088 139.321448</vertex>
+			<vertex>-11.203088 139.006236</vertex>
+			<vertex>-11.765806 139.004417</vertex>
+			<vertex>-11.750074 139.349261</vertex>
+			<vertex>-18.816869 139.357677</vertex>
+			<vertex>-18.871713 138.989087</vertex>
+			<vertex>-19.410137 139.010624</vertex>
+			<vertex>-19.394267 148.618407</vertex>
+			<vertex>19.512882 148.558992</vertex>
+			<vertex>19.473405 139.02026</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="buildings\tribune_up.jpg238" obstacle="false" blocked="false">
+		<filename>buildings\tribune_up.jpg</filename>
+		<center>-488.734175 -27.017377</center>
+		<angle>4.707464</angle>
+		<height>3</height>
+		<layer>30</layer>
+		<textureRectangle>40 13</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>18.938469 139.001407</vertex>
+			<vertex>18.933755 139.364316</vertex>
+			<vertex>12.072265 139.345396</vertex>
+			<vertex>12.027208 138.99996</vertex>
+			<vertex>11.531584 139.00747</vertex>
+			<vertex>11.494036 139.337886</vertex>
+			<vertex>8.865723 139.330377</vertex>
+			<vertex>8.850704 138.99996</vertex>
+			<vertex>8.34006 139.014979</vertex>
+			<vertex>8.264966 139.315358</vertex>
+			<vertex>2.047127 139.345396</vertex>
+			<vertex>2.00958 139.00747</vertex>
+			<vertex>1.498936 138.992451</vertex>
+			<vertex>1.476408 139.352905</vertex>
+			<vertex>-1.211981 139.337886</vertex>
+			<vertex>-1.264547 139.014979</vertex>
+			<vertex>-1.760172 139.00747</vertex>
+			<vertex>-1.782701 139.352905</vertex>
+			<vertex>-8.050966 139.33999</vertex>
+			<vertex>-8.125134 138.996965</vertex>
+			<vertex>-8.616494 138.978423</vertex>
+			<vertex>-8.653578 139.349261</vertex>
+			<vertex>-11.203088 139.321448</vertex>
+			<vertex>-11.203088 139.006236</vertex>
+			<vertex>-11.765806 139.004417</vertex>
+			<vertex>-11.750074 139.349261</vertex>
+			<vertex>-18.816869 139.357677</vertex>
+			<vertex>-18.871713 138.989087</vertex>
+			<vertex>-19.410137 139.010624</vertex>
+			<vertex>-19.394267 148.618407</vertex>
+			<vertex>19.512882 148.558992</vertex>
+			<vertex>19.473405 139.02026</vertex>
+		</polygon>
+		<meo>
+			<vertex>18.938469 139.001407</vertex>
+			<vertex>18.933755 139.364316</vertex>
+			<vertex>12.072265 139.345396</vertex>
+			<vertex>12.027208 138.99996</vertex>
+			<vertex>11.531584 139.00747</vertex>
+			<vertex>11.494036 139.337886</vertex>
+			<vertex>8.865723 139.330377</vertex>
+			<vertex>8.850704 138.99996</vertex>
+			<vertex>8.34006 139.014979</vertex>
+			<vertex>8.264966 139.315358</vertex>
+			<vertex>2.047127 139.345396</vertex>
+			<vertex>2.00958 139.00747</vertex>
+			<vertex>1.498936 138.992451</vertex>
+			<vertex>1.476408 139.352905</vertex>
+			<vertex>-1.211981 139.337886</vertex>
+			<vertex>-1.264547 139.014979</vertex>
+			<vertex>-1.760172 139.00747</vertex>
+			<vertex>-1.782701 139.352905</vertex>
+			<vertex>-8.050966 139.33999</vertex>
+			<vertex>-8.125134 138.996965</vertex>
+			<vertex>-8.616494 138.978423</vertex>
+			<vertex>-8.653578 139.349261</vertex>
+			<vertex>-11.203088 139.321448</vertex>
+			<vertex>-11.203088 139.006236</vertex>
+			<vertex>-11.765806 139.004417</vertex>
+			<vertex>-11.750074 139.349261</vertex>
+			<vertex>-18.816869 139.357677</vertex>
+			<vertex>-18.871713 138.989087</vertex>
+			<vertex>-19.410137 139.010624</vertex>
+			<vertex>-19.394267 148.618407</vertex>
+			<vertex>19.512882 148.558992</vertex>
+			<vertex>19.473405 139.02026</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Toon\rcar_1_3.png239" obstacle="false" blocked="false">
+		<filename>vehicles\Toon\rcar_1_3.png</filename>
+		<center>-360.596789 582.808272</center>
+		<angle>-14.154465</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>2.2 4.4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>546.629917 24.531899</vertex>
+			<vertex>546.702614 28.452006</vertex>
+			<vertex>548.922054 28.442615</vertex>
+			<vertex>548.893688 24.476922</vertex>
+		</polygon>
+		<meo>
+			<vertex>546.629917 24.531899</vertex>
+			<vertex>546.702614 28.452006</vertex>
+			<vertex>548.922054 28.442615</vertex>
+			<vertex>548.893688 24.476922</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\trash_multiple.png240" obstacle="false" blocked="false">
+		<filename>Misc\trash_multiple.png</filename>
+		<center>-58.554095 -174.766535</center>
+		<angle>5.798442</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>3 3</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-347.391527 37.74889</vertex>
+			<vertex>-349.515324 38.740843</vertex>
+			<vertex>-349.782388 35.459767</vertex>
+			<vertex>-346.018053 34.416945</vertex>
+			<vertex>-346.682257 37.029366</vertex>
+		</polygon>
+		<meo>
+			<vertex>-347.391527 37.74889</vertex>
+			<vertex>-349.515324 38.740843</vertex>
+			<vertex>-349.782388 35.459767</vertex>
+			<vertex>-346.018053 34.416945</vertex>
+			<vertex>-346.682257 37.029366</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\trash_multiple.png241" obstacle="false" blocked="false">
+		<filename>Misc\trash_multiple.png</filename>
+		<center>-652.929824 201.63989</center>
+		<angle>-3.560879</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>3 3</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-347.391527 37.74889</vertex>
+			<vertex>-349.515324 38.740843</vertex>
+			<vertex>-349.782388 35.459767</vertex>
+			<vertex>-346.018053 34.416945</vertex>
+			<vertex>-346.682257 37.029366</vertex>
+		</polygon>
+		<meo>
+			<vertex>-347.391527 37.74889</vertex>
+			<vertex>-349.515324 38.740843</vertex>
+			<vertex>-349.782388 35.459767</vertex>
+			<vertex>-346.018053 34.416945</vertex>
+			<vertex>-346.682257 37.029366</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\trash_multiple.png242" obstacle="false" blocked="false">
+		<filename>Misc\trash_multiple.png</filename>
+		<center>-458.862407 -321.162187</center>
+		<angle>-8.063464</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>3 3</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-347.391527 37.74889</vertex>
+			<vertex>-349.515324 38.740843</vertex>
+			<vertex>-349.782388 35.459767</vertex>
+			<vertex>-346.018053 34.416945</vertex>
+			<vertex>-346.682257 37.029366</vertex>
+		</polygon>
+		<meo>
+			<vertex>-347.391527 37.74889</vertex>
+			<vertex>-349.515324 38.740843</vertex>
+			<vertex>-349.782388 35.459767</vertex>
+			<vertex>-346.018053 34.416945</vertex>
+			<vertex>-346.682257 37.029366</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\trash_multiple.png243" obstacle="false" blocked="false">
+		<filename>Misc\trash_multiple.png</filename>
+		<center>-686.290812 -98.706249</center>
+		<angle>-2.76372</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>3 3</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-347.391527 37.74889</vertex>
+			<vertex>-349.515324 38.740843</vertex>
+			<vertex>-349.782388 35.459767</vertex>
+			<vertex>-346.018053 34.416945</vertex>
+			<vertex>-346.682257 37.029366</vertex>
+		</polygon>
+		<meo>
+			<vertex>-347.391527 37.74889</vertex>
+			<vertex>-349.515324 38.740843</vertex>
+			<vertex>-349.782388 35.459767</vertex>
+			<vertex>-346.018053 34.416945</vertex>
+			<vertex>-346.682257 37.029366</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\trash_multiple.png244" obstacle="false" blocked="false">
+		<filename>Misc\trash_multiple.png</filename>
+		<center>-652.468321 149.062524</center>
+		<angle>-3.571957</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>3 3</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-347.391527 37.74889</vertex>
+			<vertex>-349.515324 38.740843</vertex>
+			<vertex>-349.782388 35.459767</vertex>
+			<vertex>-346.018053 34.416945</vertex>
+			<vertex>-346.682257 37.029366</vertex>
+		</polygon>
+		<meo>
+			<vertex>-347.391527 37.74889</vertex>
+			<vertex>-349.515324 38.740843</vertex>
+			<vertex>-349.782388 35.459767</vertex>
+			<vertex>-346.018053 34.416945</vertex>
+			<vertex>-346.682257 37.029366</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\tires_radius_2.png245" obstacle="false" blocked="false">
+		<filename>Misc\tires_radius_2.png</filename>
+		<center>-926.478853 222.69092</center>
+		<angle>5.993471</angle>
+		<height>0</height>
+		<layer>16</layer>
+		<textureRectangle>3 10</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>595.419 -5.726</vertex>
+			<vertex>595.963 -15.478</vertex>
+			<vertex>598.919 -15.033</vertex>
+			<vertex>598.869 -5.217</vertex>
+		</polygon>
+		<meo>
+			<vertex>595.419 -5.726</vertex>
+			<vertex>595.963 -15.478</vertex>
+			<vertex>598.919 -15.033</vertex>
+			<vertex>598.869 -5.217</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\tires_radius_5.png246" obstacle="false" blocked="false">
+		<filename>Misc\tires_radius_5.png</filename>
+		<center>-739.29649 121.402016</center>
+		<angle>-3.224721</angle>
+		<height>0</height>
+		<layer>16</layer>
+		<textureRectangle>3 10</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-367.213522 45.185697</vertex>
+			<vertex>-368.114657 54.234437</vertex>
+			<vertex>-364.579873 54.484947</vertex>
+			<vertex>-363.503323 45.598976</vertex>
+		</polygon>
+		<meo>
+			<vertex>-367.213522 45.185697</vertex>
+			<vertex>-368.114657 54.234437</vertex>
+			<vertex>-364.579873 54.484947</vertex>
+			<vertex>-363.503323 45.598976</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\tires_radius_5.png247" obstacle="false" blocked="false">
+		<filename>Misc\tires_radius_5.png</filename>
+		<center>-741.801926 117.170235</center>
+		<angle>3.068576</angle>
+		<height>0</height>
+		<layer>16</layer>
+		<textureRectangle>3 10</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-367.213522 45.185697</vertex>
+			<vertex>-368.114657 54.234437</vertex>
+			<vertex>-364.579873 54.484947</vertex>
+			<vertex>-363.503323 45.598976</vertex>
+		</polygon>
+		<meo>
+			<vertex>-367.213522 45.185697</vertex>
+			<vertex>-368.114657 54.234437</vertex>
+			<vertex>-364.579873 54.484947</vertex>
+			<vertex>-363.503323 45.598976</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\tires_straight.png248" obstacle="false" blocked="false">
+		<filename>Misc\tires_straight.png</filename>
+		<center>-726.897362 87.03463</center>
+		<angle>3.12072</angle>
+		<height>0</height>
+		<layer>16</layer>
+		<textureRectangle>1.5 15</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</polygon>
+		<meo>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\tires_straight.png249" obstacle="false" blocked="false">
+		<filename>Misc\tires_straight.png</filename>
+		<center>-743.378087 82.684798</center>
+		<angle>3.135689</angle>
+		<height>0</height>
+		<layer>16</layer>
+		<textureRectangle>1.5 15</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</polygon>
+		<meo>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\tires_straight.png250" obstacle="false" blocked="false">
+		<filename>Misc\tires_straight.png</filename>
+		<center>-742.491794 82.914577</center>
+		<angle>3.135689</angle>
+		<height>0</height>
+		<layer>16</layer>
+		<textureRectangle>1.5 15</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</polygon>
+		<meo>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\tires_straight.png251" obstacle="false" blocked="false">
+		<filename>Misc\tires_straight.png</filename>
+		<center>-741.336329 82.825948</center>
+		<angle>3.135689</angle>
+		<height>0</height>
+		<layer>16</layer>
+		<textureRectangle>1.5 15</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</polygon>
+		<meo>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\tires_straight.png252" obstacle="false" blocked="false">
+		<filename>Misc\tires_straight.png</filename>
+		<center>-729.43094 82.368288</center>
+		<angle>3.135689</angle>
+		<height>0</height>
+		<layer>16</layer>
+		<textureRectangle>1.5 15</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</polygon>
+		<meo>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\tires_straight.png253" obstacle="false" blocked="false">
+		<filename>Misc\tires_straight.png</filename>
+		<center>-725.647313 87.511485</center>
+		<angle>3.13396</angle>
+		<height>0</height>
+		<layer>16</layer>
+		<textureRectangle>1.5 15</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</polygon>
+		<meo>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\tires_straight.png254" obstacle="false" blocked="false">
+		<filename>Misc\tires_straight.png</filename>
+		<center>-728.581539 489.278448</center>
+		<angle>3.135689</angle>
+		<height>0</height>
+		<layer>16</layer>
+		<textureRectangle>1.5 15</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</polygon>
+		<meo>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\tires_straight.png255" obstacle="false" blocked="false">
+		<filename>Misc\tires_straight.png</filename>
+		<center>-744.269781 487.525365</center>
+		<angle>3.135689</angle>
+		<height>0</height>
+		<layer>16</layer>
+		<textureRectangle>1.5 15</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</polygon>
+		<meo>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\tires_straight.png256" obstacle="false" blocked="false">
+		<filename>Misc\tires_straight.png</filename>
+		<center>-743.387135 488.083401</center>
+		<angle>3.135689</angle>
+		<height>0</height>
+		<layer>16</layer>
+		<textureRectangle>1.5 15</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</polygon>
+		<meo>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\tires_straight.png257" obstacle="false" blocked="false">
+		<filename>Misc\tires_straight.png</filename>
+		<center>-745.000457 489.843993</center>
+		<angle>3.135689</angle>
+		<height>0</height>
+		<layer>16</layer>
+		<textureRectangle>1.5 15</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</polygon>
+		<meo>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\tires_straight.png258" obstacle="false" blocked="false">
+		<filename>Misc\tires_straight.png</filename>
+		<center>-727.811892 488.490148</center>
+		<angle>3.135689</angle>
+		<height>0</height>
+		<layer>16</layer>
+		<textureRectangle>1.5 15</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</polygon>
+		<meo>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Toon\rcar_10_8.png259" obstacle="false" blocked="false">
+		<filename>vehicles\Toon\rcar_10_8.png</filename>
+		<center>-335.33312 -138.854184</center>
+		<angle>-10.937045</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>2.2 4.4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>546.781363 24.318908</vertex>
+			<vertex>546.793191 28.432211</vertex>
+			<vertex>548.771391 28.421157</vertex>
+			<vertex>548.786128 24.377224</vertex>
+		</polygon>
+		<meo>
+			<vertex>546.781363 24.318908</vertex>
+			<vertex>546.793191 28.432211</vertex>
+			<vertex>548.771391 28.421157</vertex>
+			<vertex>548.786128 24.377224</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_6.png260" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_6.png</filename>
+		<center>-155.003867 -59.028794</center>
+		<angle>-4.468918</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\flash_light_big.png261" obstacle="false" blocked="false">
+		<filename>Misc\flash_light_big.png</filename>
+		<center>-527.782761 -25.99832</center>
+		<angle>-0.58656</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>10 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>114.999635 147.309523</vertex>
+			<vertex>108.265636 151.074375</vertex>
+			<vertex>105.327649 147.080819</vertex>
+			<vertex>108.155486 142.389677</vertex>
+			<vertex>114.903991 146.257674</vertex>
+		</polygon>
+		<meo>
+			<vertex>114.999635 147.309523</vertex>
+			<vertex>108.265636 151.074375</vertex>
+			<vertex>105.327649 147.080819</vertex>
+			<vertex>108.155486 142.389677</vertex>
+			<vertex>114.903991 146.257674</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\flash_light_big.png262" obstacle="false" blocked="false">
+		<filename>Misc\flash_light_big.png</filename>
+		<center>-375.342087 219.097526</center>
+		<angle>-2.553202</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>10 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>114.999635 147.309523</vertex>
+			<vertex>108.265636 151.074375</vertex>
+			<vertex>105.327649 147.080819</vertex>
+			<vertex>108.155486 142.389677</vertex>
+			<vertex>114.903991 146.257674</vertex>
+		</polygon>
+		<meo>
+			<vertex>114.999635 147.309523</vertex>
+			<vertex>108.265636 151.074375</vertex>
+			<vertex>105.327649 147.080819</vertex>
+			<vertex>108.155486 142.389677</vertex>
+			<vertex>114.903991 146.257674</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\Banners\HELL_SPD.png263" obstacle="false" blocked="false">
+		<filename>Misc\Banners\HELL_SPD.png</filename>
+		<center>-455.471369 -98.330778</center>
+		<angle>-0.006904</angle>
+		<height>2</height>
+		<layer>30</layer>
+		<textureRectangle>12 2.5</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>90.031112 138.804922</vertex>
+			<vertex>89.999167 141.184541</vertex>
+			<vertex>78.043351 141.292044</vertex>
+			<vertex>77.995728 138.827065</vertex>
+		</polygon>
+		<meo>
+			<vertex>90.031112 138.804922</vertex>
+			<vertex>89.999167 141.184541</vertex>
+			<vertex>78.043351 141.292044</vertex>
+			<vertex>77.995728 138.827065</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\Banners\Banner_base_2.png264" obstacle="false" blocked="false">
+		<filename>Misc\Banners\Banner_base_2.png</filename>
+		<center>-271.4007 374.025854</center>
+		<angle>-3.13725</angle>
+		<height>2</height>
+		<layer>20</layer>
+		<textureRectangle>25 3</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>117.81978 141.327825</vertex>
+			<vertex>80.825159 141.317434</vertex>
+			<vertex>80.806539 143.676782</vertex>
+			<vertex>117.839312 143.656592</vertex>
+		</polygon>
+		<meo>
+			<vertex>117.81978 141.327825</vertex>
+			<vertex>80.825159 141.317434</vertex>
+			<vertex>80.806539 143.676782</vertex>
+			<vertex>117.839312 143.656592</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\Banners\FOL_red.jpg265" obstacle="false" blocked="false">
+		<filename>Misc\Banners\FOL_red.jpg</filename>
+		<center>-453.851128 88.295131</center>
+		<angle>-6.279657</angle>
+		<height>2</height>
+		<layer>30</layer>
+		<textureRectangle>12 1.5</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>89.994623 141.757675</vertex>
+			<vertex>89.972058 143.22952</vertex>
+			<vertex>78.030433 143.232125</vertex>
+			<vertex>78.047495 141.76332</vertex>
+		</polygon>
+		<meo>
+			<vertex>89.994623 141.757675</vertex>
+			<vertex>89.972058 143.22952</vertex>
+			<vertex>78.030433 143.232125</vertex>
+			<vertex>78.047495 141.76332</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\flash_light_big.png266" obstacle="false" blocked="false">
+		<filename>Misc\flash_light_big.png</filename>
+		<center>-331.523775 45.63279</center>
+		<angle>7.048752</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>10 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>114.999635 147.309523</vertex>
+			<vertex>108.265636 151.074375</vertex>
+			<vertex>105.327649 147.080819</vertex>
+			<vertex>108.155486 142.389677</vertex>
+			<vertex>114.903991 146.257674</vertex>
+		</polygon>
+		<meo>
+			<vertex>114.999635 147.309523</vertex>
+			<vertex>108.265636 151.074375</vertex>
+			<vertex>105.327649 147.080819</vertex>
+			<vertex>108.155486 142.389677</vertex>
+			<vertex>114.903991 146.257674</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\flash_light_big.png267" obstacle="false" blocked="false">
+		<filename>Misc\flash_light_big.png</filename>
+		<center>-204.066664 240.119491</center>
+		<angle>8.566444</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>10 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>114.999635 147.309523</vertex>
+			<vertex>108.265636 151.074375</vertex>
+			<vertex>105.327649 147.080819</vertex>
+			<vertex>108.155486 142.389677</vertex>
+			<vertex>114.903991 146.257674</vertex>
+		</polygon>
+		<meo>
+			<vertex>114.999635 147.309523</vertex>
+			<vertex>108.265636 151.074375</vertex>
+			<vertex>105.327649 147.080819</vertex>
+			<vertex>108.155486 142.389677</vertex>
+			<vertex>114.903991 146.257674</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\tires_radius_5.png268" obstacle="false" blocked="false">
+		<filename>Misc\tires_radius_5.png</filename>
+		<center>-20.274494 -51.663069</center>
+		<angle>-0.25572</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>3 10</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-367.213522 45.185697</vertex>
+			<vertex>-368.114657 54.234437</vertex>
+			<vertex>-364.579873 54.484947</vertex>
+			<vertex>-363.503323 45.598976</vertex>
+		</polygon>
+		<meo>
+			<vertex>-367.213522 45.185697</vertex>
+			<vertex>-368.114657 54.234437</vertex>
+			<vertex>-364.579873 54.484947</vertex>
+			<vertex>-363.503323 45.598976</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Toon\rcar_11_3.png269" obstacle="false" blocked="false">
+		<filename>vehicles\Toon\rcar_11_3.png</filename>
+		<center>-521.471203 743.429977</center>
+		<angle>-7.577825</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>2.2 4.4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>546.781363 24.318908</vertex>
+			<vertex>546.793191 28.432211</vertex>
+			<vertex>548.771391 28.421157</vertex>
+			<vertex>548.786128 24.377224</vertex>
+		</polygon>
+		<meo>
+			<vertex>546.781363 24.318908</vertex>
+			<vertex>546.793191 28.432211</vertex>
+			<vertex>548.771391 28.421157</vertex>
+			<vertex>548.786128 24.377224</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_5.png270" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_5.png</filename>
+		<center>-591.925951 -22.060898</center>
+		<angle>0</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_5.png271" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_5.png</filename>
+		<center>-374.214053 -165.551612</center>
+		<angle>-5.649903</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\buses\green_bus.png272" obstacle="false" blocked="false">
+		<filename>vehicles\buses\green_bus.png</filename>
+		<center>313.253336 -20.583523</center>
+		<angle>-9.428216</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>5 14</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>702.415 -105.066</vertex>
+			<vertex>702.942 -91.047</vertex>
+			<vertex>707.124 -91.006</vertex>
+			<vertex>707.528 -105.048</vertex>
+		</polygon>
+		<meo>
+			<vertex>702.415 -105.066</vertex>
+			<vertex>702.942 -91.047</vertex>
+			<vertex>707.124 -91.006</vertex>
+			<vertex>707.528 -105.048</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\Borders\RED\big_barier_red_2.png273" obstacle="true" blocked="false">
+		<filename>Misc\Borders\RED\big_barier_red_2.png</filename>
+		<center>-618.747668 -113.655597</center>
+		<angle>-4.711207</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>1 4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>582.499162 -265.982842</vertex>
+			<vertex>582.496 -250.023</vertex>
+			<vertex>581.502 -250.013</vertex>
+			<vertex>581.487336 -265.999091</vertex>
+		</polygon>
+		<meo>
+			<vertex>582.499162 -265.982842</vertex>
+			<vertex>582.496 -250.023</vertex>
+			<vertex>581.502 -250.013</vertex>
+			<vertex>581.487336 -265.999091</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\Borders\RED\big_barier_red_2.png274" obstacle="true" blocked="false">
+		<filename>Misc\Borders\RED\big_barier_red_2.png</filename>
+		<center>-636.087868 -113.520281</center>
+		<angle>-4.711207</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>1 4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>582.499162 -265.982842</vertex>
+			<vertex>582.496 -250.023</vertex>
+			<vertex>581.502 -250.013</vertex>
+			<vertex>581.487336 -265.999091</vertex>
+		</polygon>
+		<meo>
+			<vertex>582.499162 -265.982842</vertex>
+			<vertex>582.496 -250.023</vertex>
+			<vertex>581.502 -250.013</vertex>
+			<vertex>581.487336 -265.999091</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_3.png275" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_3.png</filename>
+		<center>-416.928725 192.711253</center>
+		<angle>0.499274</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_3.png276" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_3.png</filename>
+		<center>-587.942575 290.883017</center>
+		<angle>0</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_3.png277" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_3.png</filename>
+		<center>-536.854932 287.87538</center>
+		<angle>0</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_3.png278" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_3.png</filename>
+		<center>-618.173111 -98.348779</center>
+		<angle>0</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_3.png279" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_3.png</filename>
+		<center>-530.79321 -22.511941</center>
+		<angle>0</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_3.png280" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_3.png</filename>
+		<center>-523.186298 -215.558525</center>
+		<angle>0</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\Borders\RED\big_barier_red_2.png281" obstacle="true" blocked="false">
+		<filename>Misc\Borders\RED\big_barier_red_2.png</filename>
+		<center>-618.776464 -632.918841</center>
+		<angle>-4.711207</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>1 4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>582.499162 -265.982842</vertex>
+			<vertex>582.496 -250.023</vertex>
+			<vertex>581.502 -250.013</vertex>
+			<vertex>581.487336 -265.999091</vertex>
+		</polygon>
+		<meo>
+			<vertex>582.499162 -265.982842</vertex>
+			<vertex>582.496 -250.023</vertex>
+			<vertex>581.502 -250.013</vertex>
+			<vertex>581.487336 -265.999091</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\Borders\RED\big_barier_red_2.png282" obstacle="true" blocked="false">
+		<filename>Misc\Borders\RED\big_barier_red_2.png</filename>
+		<center>-636.137866 -632.949983</center>
+		<angle>-4.711207</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>1 4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>582.499162 -265.982842</vertex>
+			<vertex>582.496 -250.023</vertex>
+			<vertex>581.502 -250.013</vertex>
+			<vertex>581.487336 -265.999091</vertex>
+		</polygon>
+		<meo>
+			<vertex>582.499162 -265.982842</vertex>
+			<vertex>582.496 -250.023</vertex>
+			<vertex>581.502 -250.013</vertex>
+			<vertex>581.487336 -265.999091</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\tires_straight.png283" obstacle="false" blocked="false">
+		<filename>Misc\tires_straight.png</filename>
+		<center>-727.134043 17.666054</center>
+		<angle>3.124824</angle>
+		<height>0</height>
+		<layer>16</layer>
+		<textureRectangle>1.5 15</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</polygon>
+		<meo>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\tires_straight.png284" obstacle="false" blocked="false">
+		<filename>Misc\tires_straight.png</filename>
+		<center>-743.13923 18.853963</center>
+		<angle>-3.161616</angle>
+		<height>0</height>
+		<layer>16</layer>
+		<textureRectangle>1.5 15</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</polygon>
+		<meo>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Toon\rcar_1_9t.png285" obstacle="false" blocked="false">
+		<filename>vehicles\Toon\rcar_1_9t.png</filename>
+		<center>-883.740758 0.102326</center>
+		<angle>-12.578988</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>2.2 4.4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>546.781363 24.318908</vertex>
+			<vertex>546.793191 28.432211</vertex>
+			<vertex>548.771391 28.421157</vertex>
+			<vertex>548.786128 24.377224</vertex>
+		</polygon>
+		<meo>
+			<vertex>546.781363 24.318908</vertex>
+			<vertex>546.793191 28.432211</vertex>
+			<vertex>548.771391 28.421157</vertex>
+			<vertex>548.786128 24.377224</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\truck_mark2_stripes.png286" obstacle="false" blocked="false">
+		<filename>vehicles\truck_mark2_stripes.png</filename>
+		<center>-322.171309 139.992405</center>
+		<angle>-3.151198</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>5 15</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>67.479 127.088</vertex>
+			<vertex>67.334 112.464</vertex>
+			<vertex>72.643 112.486</vertex>
+			<vertex>72.500851 127.232496</vertex>
+		</polygon>
+		<meo>
+			<vertex>67.479 127.088</vertex>
+			<vertex>67.334 112.464</vertex>
+			<vertex>72.643 112.486</vertex>
+			<vertex>72.500851 127.232496</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\truck_black.png287" obstacle="false" blocked="false">
+		<filename>vehicles\truck_black.png</filename>
+		<center>-328.23927 139.93796</center>
+		<angle>-3.154867</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>5 15</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>67.479 127.088</vertex>
+			<vertex>67.334 112.464</vertex>
+			<vertex>72.643 112.486</vertex>
+			<vertex>72.500851 127.232496</vertex>
+		</polygon>
+		<meo>
+			<vertex>67.479 127.088</vertex>
+			<vertex>67.334 112.464</vertex>
+			<vertex>72.643 112.486</vertex>
+			<vertex>72.500851 127.232496</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Gas_trailer_paston.png288" obstacle="false" blocked="false">
+		<filename>vehicles\Gas_trailer_paston.png</filename>
+		<center>-774.136143 -64.72769</center>
+		<angle>-3.14103</angle>
+		<height>0.3</height>
+		<layer>30</layer>
+		<textureRectangle>5 20</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</polygon>
+		<meo>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\truck_mark2_799.png289" obstacle="false" blocked="false">
+		<filename>vehicles\truck_mark2_799.png</filename>
+		<center>-455.643796 120.680679</center>
+		<angle>-1.58927</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>5 15</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>67.479 127.088</vertex>
+			<vertex>67.334 112.464</vertex>
+			<vertex>72.643 112.486</vertex>
+			<vertex>72.500851 127.232496</vertex>
+		</polygon>
+		<meo>
+			<vertex>67.479 127.088</vertex>
+			<vertex>67.334 112.464</vertex>
+			<vertex>72.643 112.486</vertex>
+			<vertex>72.500851 127.232496</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Gas_trailer_OIL.png290" obstacle="false" blocked="false">
+		<filename>vehicles\Gas_trailer_OIL.png</filename>
+		<center>49.718273 122.231341</center>
+		<angle>-6.296059</angle>
+		<height>0.3</height>
+		<layer>30</layer>
+		<textureRectangle>5 20</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</polygon>
+		<meo>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Gas_trailer_OIL.png291" obstacle="false" blocked="false">
+		<filename>vehicles\Gas_trailer_OIL.png</filename>
+		<center>-718.820628 31.493313</center>
+		<angle>-9.426768</angle>
+		<height>0.3</height>
+		<layer>30</layer>
+		<textureRectangle>5 20</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</polygon>
+		<meo>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\truck_black.png292" obstacle="false" blocked="false">
+		<filename>vehicles\truck_black.png</filename>
+		<center>-281.614325 326.085131</center>
+		<angle>1.543535</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>5 15</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>67.479 127.088</vertex>
+			<vertex>67.334 112.464</vertex>
+			<vertex>72.643 112.486</vertex>
+			<vertex>72.500851 127.232496</vertex>
+		</polygon>
+		<meo>
+			<vertex>67.479 127.088</vertex>
+			<vertex>67.334 112.464</vertex>
+			<vertex>72.643 112.486</vertex>
+			<vertex>72.500851 127.232496</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\generator_red.png293" obstacle="false" blocked="false">
+		<filename>Misc\generator_red.png</filename>
+		<center>-361.027345 678.45911</center>
+		<angle>-1.559899</angle>
+		<height>0.5</height>
+		<layer>30</layer>
+		<textureRectangle>3 1.5</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>538.49 3.742</vertex>
+			<vertex>538.525 5.276</vertex>
+			<vertex>541.493 5.257</vertex>
+			<vertex>541.488 3.743</vertex>
+		</polygon>
+		<meo>
+			<vertex>538.49 3.742</vertex>
+			<vertex>538.525 5.276</vertex>
+			<vertex>541.493 5.257</vertex>
+			<vertex>541.488 3.743</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\generator_yelo.png294" obstacle="false" blocked="false">
+		<filename>Misc\generator_yelo.png</filename>
+		<center>-388.439259 726.805414</center>
+		<angle>-7.86413</angle>
+		<height>0.5</height>
+		<layer>30</layer>
+		<textureRectangle>3 1.5</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>538.49 3.742</vertex>
+			<vertex>538.525 5.276</vertex>
+			<vertex>541.493 5.257</vertex>
+			<vertex>541.488 3.743</vertex>
+		</polygon>
+		<meo>
+			<vertex>538.49 3.742</vertex>
+			<vertex>538.525 5.276</vertex>
+			<vertex>541.493 5.257</vertex>
+			<vertex>541.488 3.743</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\buses\red_bus.png295" obstacle="false" blocked="false">
+		<filename>vehicles\buses\red_bus.png</filename>
+		<center>359.75231 207.995384</center>
+		<angle>-9.444545</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>5 14</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>702.415 -105.066</vertex>
+			<vertex>702.942 -91.047</vertex>
+			<vertex>707.124 -91.006</vertex>
+			<vertex>707.528 -105.048</vertex>
+		</polygon>
+		<meo>
+			<vertex>702.415 -105.066</vertex>
+			<vertex>702.942 -91.047</vertex>
+			<vertex>707.124 -91.006</vertex>
+			<vertex>707.528 -105.048</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Gas_trailer_paston.png296" obstacle="false" blocked="false">
+		<filename>vehicles\Gas_trailer_paston.png</filename>
+		<center>-12.068536 387.322267</center>
+		<angle>-0.009474</angle>
+		<height>0.3</height>
+		<layer>30</layer>
+		<textureRectangle>5 20</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</polygon>
+		<meo>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Toon\rcar_14_2t.png297" obstacle="false" blocked="false">
+		<filename>vehicles\Toon\rcar_14_2t.png</filename>
+		<center>-210.222395 606.941493</center>
+		<angle>-14.437597</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>2.2 4.4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>546.781363 24.318908</vertex>
+			<vertex>546.793191 28.432211</vertex>
+			<vertex>548.771391 28.421157</vertex>
+			<vertex>548.786128 24.377224</vertex>
+		</polygon>
+		<meo>
+			<vertex>546.781363 24.318908</vertex>
+			<vertex>546.793191 28.432211</vertex>
+			<vertex>548.771391 28.421157</vertex>
+			<vertex>548.786128 24.377224</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Toon\rcar_17_5t.png298" obstacle="false" blocked="false">
+		<filename>vehicles\Toon\rcar_17_5t.png</filename>
+		<center>-62.322513 865.574132</center>
+		<angle>-14.732717</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>2.2 4.4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>546.781363 24.318908</vertex>
+			<vertex>546.793191 28.432211</vertex>
+			<vertex>548.771391 28.421157</vertex>
+			<vertex>548.786128 24.377224</vertex>
+		</polygon>
+		<meo>
+			<vertex>546.781363 24.318908</vertex>
+			<vertex>546.793191 28.432211</vertex>
+			<vertex>548.771391 28.421157</vertex>
+			<vertex>548.786128 24.377224</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Toon\rcar_14_1t.png299" obstacle="false" blocked="false">
+		<filename>vehicles\Toon\rcar_14_1t.png</filename>
+		<center>-110.254005 887.288515</center>
+		<angle>-8.351149</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>2.2 4.4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>546.781363 24.318908</vertex>
+			<vertex>546.793191 28.432211</vertex>
+			<vertex>548.771391 28.421157</vertex>
+			<vertex>548.786128 24.377224</vertex>
+		</polygon>
+		<meo>
+			<vertex>546.781363 24.318908</vertex>
+			<vertex>546.793191 28.432211</vertex>
+			<vertex>548.771391 28.421157</vertex>
+			<vertex>548.786128 24.377224</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Toon\rcar_5_7t.png300" obstacle="false" blocked="false">
+		<filename>vehicles\Toon\rcar_5_7t.png</filename>
+		<center>-893.34929 427.447516</center>
+		<angle>-12.599047</angle>
+		<height>0.2</height>
+		<layer>30</layer>
+		<textureRectangle>2.2 4.4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>546.781363 24.318908</vertex>
+			<vertex>546.793191 28.432211</vertex>
+			<vertex>548.771391 28.421157</vertex>
+			<vertex>548.786128 24.377224</vertex>
+		</polygon>
+		<meo>
+			<vertex>546.781363 24.318908</vertex>
+			<vertex>546.793191 28.432211</vertex>
+			<vertex>548.771391 28.421157</vertex>
+			<vertex>548.786128 24.377224</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Toon\rcar_10_1.png301" obstacle="false" blocked="false">
+		<filename>vehicles\Toon\rcar_10_1.png</filename>
+		<center>-892.955164 420.136094</center>
+		<angle>-12.568935</angle>
+		<height>0.2</height>
+		<layer>30</layer>
+		<textureRectangle>2.2 4.4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>546.781363 24.318908</vertex>
+			<vertex>546.793191 28.432211</vertex>
+			<vertex>548.771391 28.421157</vertex>
+			<vertex>548.786128 24.377224</vertex>
+		</polygon>
+		<meo>
+			<vertex>546.781363 24.318908</vertex>
+			<vertex>546.793191 28.432211</vertex>
+			<vertex>548.771391 28.421157</vertex>
+			<vertex>548.786128 24.377224</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Gas_trailer_paston.png302" obstacle="false" blocked="false">
+		<filename>vehicles\Gas_trailer_paston.png</filename>
+		<center>-790.891598 390.001913</center>
+		<angle>-3.14103</angle>
+		<height>0.3</height>
+		<layer>30</layer>
+		<textureRectangle>5 20</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</polygon>
+		<meo>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\trailer_white.png303" obstacle="false" blocked="false">
+		<filename>vehicles\trailer_white.png</filename>
+		<center>-386.390279 759.143008</center>
+		<angle>-4.726554</angle>
+		<height>0.3</height>
+		<layer>30</layer>
+		<textureRectangle>5 20</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</polygon>
+		<meo>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\trailer_blue.png304" obstacle="false" blocked="false">
+		<filename>vehicles\trailer_blue.png</filename>
+		<center>-383.239285 750.599228</center>
+		<angle>-4.735263</angle>
+		<height>0.3</height>
+		<layer>30</layer>
+		<textureRectangle>5 20</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</polygon>
+		<meo>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\trailer_green.png305" obstacle="false" blocked="false">
+		<filename>vehicles\trailer_green.png</filename>
+		<center>-381.502014 741.12223</center>
+		<angle>-4.740251</angle>
+		<height>0.3</height>
+		<layer>30</layer>
+		<textureRectangle>5 20</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</polygon>
+		<meo>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\trailer_white.png306" obstacle="false" blocked="false">
+		<filename>vehicles\trailer_white.png</filename>
+		<center>-786.813325 -27.081108</center>
+		<angle>-3.13316</angle>
+		<height>0.3</height>
+		<layer>30</layer>
+		<textureRectangle>5 20</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</polygon>
+		<meo>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\trailer_blue.png307" obstacle="false" blocked="false">
+		<filename>vehicles\trailer_blue.png</filename>
+		<center>-787.562433 -1.676859</center>
+		<angle>-3.14103</angle>
+		<height>0.3</height>
+		<layer>30</layer>
+		<textureRectangle>5 20</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</polygon>
+		<meo>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\trailer_white.png308" obstacle="false" blocked="false">
+		<filename>vehicles\trailer_white.png</filename>
+		<center>-794.739073 -1.843631</center>
+		<angle>-3.14103</angle>
+		<height>0.3</height>
+		<layer>30</layer>
+		<textureRectangle>5 20</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</polygon>
+		<meo>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\Banners\PYS.jpg309" obstacle="false" blocked="false">
+		<filename>Misc\Banners\PYS.jpg</filename>
+		<center>-210.314107 130.151784</center>
+		<angle>1.574805</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>12 2.5</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>90.031112 138.804922</vertex>
+			<vertex>89.999167 141.184541</vertex>
+			<vertex>78.043351 141.292044</vertex>
+			<vertex>77.995728 138.827065</vertex>
+		</polygon>
+		<meo>
+			<vertex>90.031112 138.804922</vertex>
+			<vertex>89.999167 141.184541</vertex>
+			<vertex>78.043351 141.292044</vertex>
+			<vertex>77.995728 138.827065</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\Tires.png310" obstacle="false" blocked="false">
+		<filename>Misc\Tires.png</filename>
+		<center>-853.703165 365.120552</center>
+		<angle>-6.780198</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>1.7 2</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>576.692 8.941</vertex>
+			<vertex>576.033 9.033</vertex>
+			<vertex>575.175 8.541</vertex>
+			<vertex>575.861 7.024</vertex>
+			<vertex>577.152 6.985</vertex>
+			<vertex>577.214 8.036</vertex>
+		</polygon>
+		<meo>
+			<vertex>576.692 8.941</vertex>
+			<vertex>576.033 9.033</vertex>
+			<vertex>575.175 8.541</vertex>
+			<vertex>575.861 7.024</vertex>
+			<vertex>577.152 6.985</vertex>
+			<vertex>577.214 8.036</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\Tires.png311" obstacle="false" blocked="false">
+		<filename>Misc\Tires.png</filename>
+		<center>-567.949103 -431.480336</center>
+		<angle>-11.408643</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>1.7 2</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>576.692 8.941</vertex>
+			<vertex>576.033 9.033</vertex>
+			<vertex>575.175 8.541</vertex>
+			<vertex>575.861 7.024</vertex>
+			<vertex>577.152 6.985</vertex>
+			<vertex>577.214 8.036</vertex>
+		</polygon>
+		<meo>
+			<vertex>576.692 8.941</vertex>
+			<vertex>576.033 9.033</vertex>
+			<vertex>575.175 8.541</vertex>
+			<vertex>575.861 7.024</vertex>
+			<vertex>577.152 6.985</vertex>
+			<vertex>577.214 8.036</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\box_2.png312" obstacle="false" blocked="false">
+		<filename>Misc\box_2.png</filename>
+		<center>-385.658195 -358.517077</center>
+		<angle>-1.621933</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>1 1</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-402.515 25.498</vertex>
+			<vertex>-402.509 26.502</vertex>
+			<vertex>-401.5 26.502</vertex>
+			<vertex>-401.508 25.496</vertex>
+		</polygon>
+		<meo>
+			<vertex>-402.515 25.498</vertex>
+			<vertex>-402.509 26.502</vertex>
+			<vertex>-401.5 26.502</vertex>
+			<vertex>-401.508 25.496</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\box_2.png313" obstacle="false" blocked="false">
+		<filename>Misc\box_2.png</filename>
+		<center>-385.703101 -360.112891</center>
+		<angle>-1.621933</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>1 1</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-402.515 25.498</vertex>
+			<vertex>-402.509 26.502</vertex>
+			<vertex>-401.5 26.502</vertex>
+			<vertex>-401.508 25.496</vertex>
+		</polygon>
+		<meo>
+			<vertex>-402.515 25.498</vertex>
+			<vertex>-402.509 26.502</vertex>
+			<vertex>-401.5 26.502</vertex>
+			<vertex>-401.508 25.496</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Gas_trailer_paston_2.png314" obstacle="false" blocked="false">
+		<filename>vehicles\Gas_trailer_paston_2.png</filename>
+		<center>-712.162703 42.945325</center>
+		<angle>3.108886</angle>
+		<height>0.3</height>
+		<layer>30</layer>
+		<textureRectangle>5 20</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</polygon>
+		<meo>
+			<vertex>-382.469016 -50.046513</vertex>
+			<vertex>-382.538789 -69.849844</vertex>
+			<vertex>-377.514787 -70.054394</vertex>
+			<vertex>-377.554135 -50.042532</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\Banners\IBIS.png315" obstacle="false" blocked="false">
+		<filename>Misc\Banners\IBIS.png</filename>
+		<center>-531.901374 -611.564793</center>
+		<angle>-11.001017</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>21 1</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>724.508 -175.56</vertex>
+			<vertex>745.463 -175.55</vertex>
+			<vertex>745.453 -176.495</vertex>
+			<vertex>724.492 -176.506</vertex>
+		</polygon>
+		<meo>
+			<vertex>724.508 -175.56</vertex>
+			<vertex>745.463 -175.55</vertex>
+			<vertex>745.453 -176.495</vertex>
+			<vertex>724.492 -176.506</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\Banners\GDR.png316" obstacle="false" blocked="false">
+		<filename>Misc\Banners\GDR.png</filename>
+		<center>-205.397069 901.488737</center>
+		<angle>-7.863693</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>21 1</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>724.508 -175.56</vertex>
+			<vertex>745.463 -175.55</vertex>
+			<vertex>745.453 -176.495</vertex>
+			<vertex>724.492 -176.506</vertex>
+		</polygon>
+		<meo>
+			<vertex>724.508 -175.56</vertex>
+			<vertex>745.463 -175.55</vertex>
+			<vertex>745.453 -176.495</vertex>
+			<vertex>724.492 -176.506</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\Banners\PASTON.png317" obstacle="false" blocked="false">
+		<filename>Misc\Banners\PASTON.png</filename>
+		<center>-528.19118 -440.143332</center>
+		<angle>1.570045</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>21 1</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>724.508 -175.56</vertex>
+			<vertex>745.463 -175.55</vertex>
+			<vertex>745.453 -176.495</vertex>
+			<vertex>724.492 -176.506</vertex>
+		</polygon>
+		<meo>
+			<vertex>724.508 -175.56</vertex>
+			<vertex>745.463 -175.55</vertex>
+			<vertex>745.453 -176.495</vertex>
+			<vertex>724.492 -176.506</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\Banners\PASTON.png318" obstacle="false" blocked="false">
+		<filename>Misc\Banners\PASTON.png</filename>
+		<center>-529.935217 -714.402275</center>
+		<angle>1.567895</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>21 1</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>724.508 -175.56</vertex>
+			<vertex>745.463 -175.55</vertex>
+			<vertex>745.453 -176.495</vertex>
+			<vertex>724.492 -176.506</vertex>
+		</polygon>
+		<meo>
+			<vertex>724.508 -175.56</vertex>
+			<vertex>745.463 -175.55</vertex>
+			<vertex>745.453 -176.495</vertex>
+			<vertex>724.492 -176.506</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\Banners\GDR.png319" obstacle="false" blocked="false">
+		<filename>Misc\Banners\GDR.png</filename>
+		<center>-204.752939 736.666207</center>
+		<angle>-7.8647</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>21 1</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>724.508 -175.56</vertex>
+			<vertex>745.463 -175.55</vertex>
+			<vertex>745.453 -176.495</vertex>
+			<vertex>724.492 -176.506</vertex>
+		</polygon>
+		<meo>
+			<vertex>724.508 -175.56</vertex>
+			<vertex>745.463 -175.55</vertex>
+			<vertex>745.453 -176.495</vertex>
+			<vertex>724.492 -176.506</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\cover_2.png320" obstacle="false" blocked="false">
+		<filename>Misc\cover_2.png</filename>
+		<center>-414.2492 -23.038156</center>
+		<angle>-4.938388</angle>
+		<height>0.1</height>
+		<layer>30</layer>
+		<textureRectangle>5 5</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>27.468411 -7.466569</vertex>
+			<vertex>27.497115 -2.528214</vertex>
+			<vertex>42.482472 -2.467198</vertex>
+			<vertex>42.479062 -7.557431</vertex>
+		</polygon>
+		<meo>
+			<vertex>27.468411 -7.466569</vertex>
+			<vertex>27.497115 -2.528214</vertex>
+			<vertex>42.482472 -2.467198</vertex>
+			<vertex>42.479062 -7.557431</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Toon\rcar_11_6.png321" obstacle="false" blocked="false">
+		<filename>vehicles\Toon\rcar_11_6.png</filename>
+		<center>136.031955 -98.919445</center>
+		<angle>-15.964302</angle>
+		<height>0.2</height>
+		<layer>30</layer>
+		<textureRectangle>2.2 4.4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>546.629917 24.531899</vertex>
+			<vertex>546.702614 28.452006</vertex>
+			<vertex>548.922054 28.442615</vertex>
+			<vertex>548.893688 24.476922</vertex>
+		</polygon>
+		<meo>
+			<vertex>546.629917 24.531899</vertex>
+			<vertex>546.702614 28.452006</vertex>
+			<vertex>548.922054 28.442615</vertex>
+			<vertex>548.893688 24.476922</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Toon\rcar_14_1t.png322" obstacle="false" blocked="false">
+		<filename>vehicles\Toon\rcar_14_1t.png</filename>
+		<center>133.870074 -108.547846</center>
+		<angle>-9.68792</angle>
+		<height>0.2</height>
+		<layer>30</layer>
+		<textureRectangle>2.2 4.4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>546.756415 24.416151</vertex>
+			<vertex>546.802198 28.29634</vertex>
+			<vertex>548.849476 28.259429</vertex>
+			<vertex>548.84977 24.437343</vertex>
+		</polygon>
+		<meo>
+			<vertex>546.756415 24.416151</vertex>
+			<vertex>546.802198 28.29634</vertex>
+			<vertex>548.849476 28.259429</vertex>
+			<vertex>548.84977 24.437343</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\cover_2.png323" obstacle="false" blocked="false">
+		<filename>Misc\cover_2.png</filename>
+		<center>-350.253324 405.487917</center>
+		<angle>-4.717535</angle>
+		<height>0.1</height>
+		<layer>30</layer>
+		<textureRectangle>5 5</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>27.468411 -7.466569</vertex>
+			<vertex>27.497115 -2.528214</vertex>
+			<vertex>42.482472 -2.467198</vertex>
+			<vertex>42.479062 -7.557431</vertex>
+		</polygon>
+		<meo>
+			<vertex>27.468411 -7.466569</vertex>
+			<vertex>27.497115 -2.528214</vertex>
+			<vertex>42.482472 -2.467198</vertex>
+			<vertex>42.479062 -7.557431</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Toon\rcar_5_3t.png324" obstacle="false" blocked="false">
+		<filename>vehicles\Toon\rcar_5_3t.png</filename>
+		<center>-891.60455 395.3399</center>
+		<angle>-31.381871</angle>
+		<height>0.2</height>
+		<layer>30</layer>
+		<textureRectangle>2.2 4.4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>546.629917 24.531899</vertex>
+			<vertex>546.702614 28.452006</vertex>
+			<vertex>548.922054 28.442615</vertex>
+			<vertex>548.893688 24.476922</vertex>
+		</polygon>
+		<meo>
+			<vertex>546.629917 24.531899</vertex>
+			<vertex>546.702614 28.452006</vertex>
+			<vertex>548.922054 28.442615</vertex>
+			<vertex>548.893688 24.476922</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\cover_2.png325" obstacle="false" blocked="false">
+		<filename>Misc\cover_2.png</filename>
+		<center>-376.041934 393.579697</center>
+		<angle>-9.451806</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>5 5</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>27.468411 -7.466569</vertex>
+			<vertex>27.497115 -2.528214</vertex>
+			<vertex>42.482472 -2.467198</vertex>
+			<vertex>42.479062 -7.557431</vertex>
+		</polygon>
+		<meo>
+			<vertex>27.468411 -7.466569</vertex>
+			<vertex>27.497115 -2.528214</vertex>
+			<vertex>42.482472 -2.467198</vertex>
+			<vertex>42.479062 -7.557431</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_3.png326" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_3.png</filename>
+		<center>-379.926281 136.430942</center>
+		<angle>-5.402624</angle>
+		<height>2</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.79 200.043</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\cover_2.png327" obstacle="false" blocked="false">
+		<filename>Misc\cover_2.png</filename>
+		<center>-444.629128 392.45899</center>
+		<angle>-6.244509</angle>
+		<height>0.1</height>
+		<layer>30</layer>
+		<textureRectangle>5 5</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>27.468411 -7.466569</vertex>
+			<vertex>27.497115 -2.528214</vertex>
+			<vertex>42.482472 -2.467198</vertex>
+			<vertex>42.479062 -7.557431</vertex>
+		</polygon>
+		<meo>
+			<vertex>27.468411 -7.466569</vertex>
+			<vertex>27.497115 -2.528214</vertex>
+			<vertex>42.482472 -2.467198</vertex>
+			<vertex>42.479062 -7.557431</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\truck_mark2_stripes.png328" obstacle="false" blocked="false">
+		<filename>vehicles\truck_mark2_stripes.png</filename>
+		<center>-298.439337 292.017654</center>
+		<angle>13.901076</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>5 15</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>67.479 127.088</vertex>
+			<vertex>67.334 112.464</vertex>
+			<vertex>72.643 112.486</vertex>
+			<vertex>72.618104 127.055398</vertex>
+		</polygon>
+		<meo>
+			<vertex>67.479 127.088</vertex>
+			<vertex>67.334 112.464</vertex>
+			<vertex>72.643 112.486</vertex>
+			<vertex>72.618104 127.055398</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="vehicles\Toon\rcar_5_6t.png329" obstacle="false" blocked="false">
+		<filename>vehicles\Toon\rcar_5_6t.png</filename>
+		<center>-355.807102 -156.856569</center>
+		<angle>-10.945672</angle>
+		<height>0.2</height>
+		<layer>30</layer>
+		<textureRectangle>2.2 4.4</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>546.756415 24.416151</vertex>
+			<vertex>546.802198 28.29634</vertex>
+			<vertex>548.849476 28.259429</vertex>
+			<vertex>548.84977 24.437343</vertex>
+		</polygon>
+		<meo>
+			<vertex>546.756415 24.416151</vertex>
+			<vertex>546.802198 28.29634</vertex>
+			<vertex>548.849476 28.259429</vertex>
+			<vertex>548.84977 24.437343</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Misc\tires_straight.png330" obstacle="false" blocked="false">
+		<filename>Misc\tires_straight.png</filename>
+		<center>-726.604642 488.049758</center>
+		<angle>3.135689</angle>
+		<height>0</height>
+		<layer>16</layer>
+		<textureRectangle>1.5 15</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</polygon>
+		<meo>
+			<vertex>-366.722205 37.747599</vertex>
+			<vertex>-366.752549 50.025658</vertex>
+			<vertex>-365.264279 50.139365</vertex>
+			<vertex>-365.226141 37.642367</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_6.png331" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_6.png</filename>
+		<center>-128.959321 298.399914</center>
+		<angle>-4.046105</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.635202 199.408806</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.635202 199.408806</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Trees\tree_medium_6.png332" obstacle="false" blocked="false">
+		<filename>Trees\tree_medium_6.png</filename>
+		<center>-157.787868 68.525666</center>
+		<angle>-11.106337</angle>
+		<height>1</height>
+		<layer>30</layer>
+		<textureRectangle>7 7</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>192.635202 199.408806</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</polygon>
+		<meo>
+			<vertex>192.635202 199.408806</vertex>
+			<vertex>193.349 206.318</vertex>
+			<vertex>199.039 206.425</vertex>
+			<vertex>199.358 199.831</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Marks\200m.png333" obstacle="false" blocked="false">
+		<filename>Marks\200m.png</filename>
+		<center>-1.086435 10.911867</center>
+		<angle>-0.019476</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>5 2</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-367.422189 225.006972</vertex>
+			<vertex>-367.519528 227.065677</vertex>
+			<vertex>-362.459521 227.061208</vertex>
+			<vertex>-362.397403 225.047608</vertex>
+		</polygon>
+		<meo>
+			<vertex>-367.422189 225.006972</vertex>
+			<vertex>-367.519528 227.065677</vertex>
+			<vertex>-362.459521 227.061208</vertex>
+			<vertex>-362.397403 225.047608</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Marks\200m.png334" obstacle="false" blocked="false">
+		<filename>Marks\200m.png</filename>
+		<center>-18.096413 10.784957</center>
+		<angle>-0.019476</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>5 2</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-367.422189 225.006972</vertex>
+			<vertex>-367.519528 227.065677</vertex>
+			<vertex>-362.459521 227.061208</vertex>
+			<vertex>-362.397403 225.047608</vertex>
+		</polygon>
+		<meo>
+			<vertex>-367.422189 225.006972</vertex>
+			<vertex>-367.519528 227.065677</vertex>
+			<vertex>-362.459521 227.061208</vertex>
+			<vertex>-362.397403 225.047608</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Marks\402m.png335" obstacle="false" blocked="false">
+		<filename>Marks\402m.png</filename>
+		<center>-0.921027 -187.90119</center>
+		<angle>-0.019476</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>5 2</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-367.422189 225.006972</vertex>
+			<vertex>-367.519528 227.065677</vertex>
+			<vertex>-362.459521 227.061208</vertex>
+			<vertex>-362.397403 225.047608</vertex>
+		</polygon>
+		<meo>
+			<vertex>-367.422189 225.006972</vertex>
+			<vertex>-367.519528 227.065677</vertex>
+			<vertex>-362.459521 227.061208</vertex>
+			<vertex>-362.397403 225.047608</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Marks\402m.png336" obstacle="false" blocked="false">
+		<filename>Marks\402m.png</filename>
+		<center>-17.576628 -187.763243</center>
+		<angle>-0.019476</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>5 2</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-367.422189 225.006972</vertex>
+			<vertex>-367.519528 227.065677</vertex>
+			<vertex>-362.459521 227.061208</vertex>
+			<vertex>-362.397403 225.047608</vertex>
+		</polygon>
+		<meo>
+			<vertex>-367.422189 225.006972</vertex>
+			<vertex>-367.519528 227.065677</vertex>
+			<vertex>-362.459521 227.061208</vertex>
+			<vertex>-362.397403 225.047608</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Marks\100m.png337" obstacle="false" blocked="false">
+		<filename>Marks\100m.png</filename>
+		<center>-1.208247 107.446644</center>
+		<angle>-0.019476</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>5 2</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-367.422189 225.006972</vertex>
+			<vertex>-367.519528 227.065677</vertex>
+			<vertex>-362.459521 227.061208</vertex>
+			<vertex>-362.397403 225.047608</vertex>
+		</polygon>
+		<meo>
+			<vertex>-367.422189 225.006972</vertex>
+			<vertex>-367.519528 227.065677</vertex>
+			<vertex>-362.459521 227.061208</vertex>
+			<vertex>-362.397403 225.047608</vertex>
+		</meo>
+	</item>
+
+	<item type="polygon" name="Marks\100m.png338" obstacle="false" blocked="false">
+		<filename>Marks\100m.png</filename>
+		<center>-18.266733 107.153982</center>
+		<angle>-0.019476</angle>
+		<height>0</height>
+		<layer>30</layer>
+		<textureRectangle>5 2</textureRectangle>
+		<polygon roadWidth='10'>
+			<vertex>-367.422189 225.006972</vertex>
+			<vertex>-367.519528 227.065677</vertex>
+			<vertex>-362.459521 227.061208</vertex>
+			<vertex>-362.397403 225.047608</vertex>
+		</polygon>
+		<meo>
+			<vertex>-367.422189 225.006972</vertex>
+			<vertex>-367.519528 227.065677</vertex>
+			<vertex>-362.459521 227.061208</vertex>
+			<vertex>-362.397403 225.047608</vertex>
+		</meo>
+	</item>
+
+</graphics>
+
+</route>

@@ -1,0 +1,11 @@
+K 13
+svn:mergeinfo
+V 441
+/branches/cars/gdserver/src/db/migrations/migration_18.erl:2458-2606
+/branches/chat/gdserver/src/db/migrations/migration_18.erl:2366-2387
+/branches/items/gdserver/src/db/migration_18.erl:1872-1878
+/branches/otp/gdserver/src/db/migration_18.erl:2228-2310
+/branches/otpApplication/gdserver/src/db/migration_18.erl:1717-1875
+/branches/upgrades/gdserver/src/db/migration_18.erl:1921-1938
+/branches/vapi/gdserver/src/db/migration_18.erl:2205-2311
+END

@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<controls:BaseListRenderer        
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        xmlns:controls="com.turbostool.controls.*"
+        width="467" height="19"
+        verticalScrollPolicy="off"
+        horizontalScrollPolicy="off"
+        themeColor="#44F348"
+        backgroundImage=""
+        borderColor="black"
+        borderThickness="1"
+        borderSides="bottom"
+        borderStyle="solid"
+        >
+
+    <mx:Style source="/styles.css"/>
+
+    <mx:Label x="15" y="1" fontFamily="Arial" fontSize="11" color="#FFFFFF" fontWeight="bold" width="104"
+              text="{data.position}"/>
+    <mx:Label x="70" y="1" fontFamily="Arial" fontSize="11" color="#FFFFFF" fontWeight="bold" width="146"
+              text="{data.displayName}"/>
+    <mx:Label x="220" y="1" fontFamily="Arial" fontSize="11" color="#FFFFFF" fontWeight="bold" width="56"
+              text="{data.rating}" textAlign="right"/>
+
+</controls:BaseListRenderer>

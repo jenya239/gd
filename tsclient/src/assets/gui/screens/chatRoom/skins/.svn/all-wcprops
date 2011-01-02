@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/1221/trunk/tsclient/src/assets/gui/screens/chatRoom/skins
+END
+sendButton_down.png
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1221/trunk/tsclient/src/assets/gui/screens/chatRoom/skins/sendButton_down.png
+END
+sendButton_over.png
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1221/trunk/tsclient/src/assets/gui/screens/chatRoom/skins/sendButton_over.png
+END
+smallTriangle_up.png
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/1221/trunk/tsclient/src/assets/gui/screens/chatRoom/skins/smallTriangle_up.png
+END
+smallTriangle_down.png
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1221/trunk/tsclient/src/assets/gui/screens/chatRoom/skins/smallTriangle_down.png
+END
+sendButton_up.png
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/1221/trunk/tsclient/src/assets/gui/screens/chatRoom/skins/sendButton_up.png
+END
+smallTriangle_over.png
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1221/trunk/tsclient/src/assets/gui/screens/chatRoom/skins/smallTriangle_over.png
+END

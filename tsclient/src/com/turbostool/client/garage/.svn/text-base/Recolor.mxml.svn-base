@@ -1,0 +1,112 @@
+<?xml version="1.0" ?>
+<BaseScreen xmlns:mx="http://www.adobe.com/2006/mxml"
+           xmlns:controls="com.turbostool.controls.*"
+           xmlns:car="com.turbostool.client.screens.car.*"
+           xmlns="com.turbostool.client.screens.*"
+           backgroundColor="#151D12"
+           horizontalScrollPolicy="off"
+           verticalScrollPolicy="off"
+           width="607" height="390"
+        >
+    <mx:Metadata>
+        [Event(name="screenSelected", type="com.turbostool.client.city.ScreenSelectedCommand")]
+    </mx:Metadata>
+    
+    <mx:Script><![CDATA[
+        import com.turbostool.client.Config;
+        import com.turbostool.client.Tracker;
+        import com.turbostool.client.city.ScreenSelectedCommand;
+        import com.turbostool.client.event.EventManager;
+        import com.turbostool.client.game.view.ModalManager;
+        import com.turbostool.client.model.CarInfo;
+        import com.turbostool.client.model.UserInfo;
+        import com.turbostool.client.net.messages.RepaintCarRequest;
+        import com.turbostool.client.net.messages.RepaintCarResponse;
+        import com.turbostool.client.net.messages.ServerResponseEvent;
+        import mx.controls.Alert;
+        import mx.managers.PopUpManager;
+
+        private function screenCommand(screenName:String):void {
+            dispatchEvent(new ScreenSelectedCommand(screenName));
+        }
+
+        [Bindable]
+        public var carInfo:CarInfo;
+        //visible="{!checkLevel(carInfo.minLevel,modelsStorage.userInfo.level)}"
+
+        [Bindable]
+        public var userInfo:UserInfo;
+
+        private function getImageSource(carClass1:Number, colorIndex:Number):String
+        {
+            var res:String = Config.instance.serverUrl + "data/selectCar/car_" + carClass1 + "_" + colorIndex + ".png";
+            return res;
+        }
+
+        private function onRepaintClick():void
+        {
+            typicalSendMessage(RepaintCarRequest.REPAINT_CAR,onRepaintCarResponse,
+                    new RepaintCarRequest(carInfo.id, colors.colorIndex));
+
+            Tracker.instance.trackEvent("carRecolor", "request", carInfo.displayName + ", color: " + colors.colorIndex);
+        }
+
+        private function onRepaintCarResponse(event: ServerResponseEvent):void
+        {
+            EventManager.instance.removeEventListener(RepaintCarRequest.REPAINT_CAR, onRepaintCarResponse);
+            var response: RepaintCarResponse = event.response as RepaintCarResponse;
+            PopUpManager.removePopUp(loadingIndicator);
+            ModalManager.instance.closeAllWindows();
+
+            if (response.isOK)
+            {
+                _modelsStorage.userInfo = response.userInfo;
+                parentDocument.switchView();
+                Alert.show(str("succesfullRecolor"));
+
+                if(response.recolorInfo.realPrice > 0)
+                    Tracker.instance.trackEvent("carRecolorReal", "successful", response.recolorInfo.carDisplayName + ", color: " + response.recolorInfo.color);
+                else
+                    Tracker.instance.trackEvent("carRecolorVirtual", "successful", response.recolorInfo.carDisplayName + ", color: " + response.recolorInfo.color);
+
+                Tracker.instance.trackTrans("" + response.recolorInfo.color, "color", response.recolorInfo.price, response.recolorInfo.realPrice);
+            }
+            else
+            {
+                Alert.show(str("recolorError") + ": " + response.message);
+                Tracker.instance.trackEvent("carRecolor", "failure", response.message);
+            }
+        }
+
+]]></mx:Script>
+    
+    <ScreenHead x="29" y="36" width="548" text="{str('recolorOffice')}"/>
+    <controls:Rectangle x="29" y="36" height="350" width="548" alpha="1" borderColor2="#dc8d0c" backgroundAlpha="0"
+                        cornerRadius="6" backgroundColor2="#ffffff" borderWidth="1"/>
+    <mx:Image width="547" height="317" x="30" y="69" source="@Embed('/assets/gui/screens/carshop/bkg.png')"
+              scaleContent="true"/>
+    <mx:Label id="carNameLabel"
+              text="{carInfo.displayName}"
+              fontWeight="bold" color="#F2FCE3" fontSize="25"
+              fontFamily="Verdana" styleName="screenCaption"
+              horizontalCenter="0" y="74"/>
+    <mx:Image x="119" y="106" source="@Embed(source='/assets/gui/screens/profile/podium.png')"/>
+    <controls:SmartImage
+            source="{getImageSource(carInfo.classID, colors.colorIndex)}"
+            x="165" y="119" width="278" height="169" flip="true"/>
+    <car:ColorChooser id="colors"
+                  colorIndex="1"
+                  colorCount="{carInfo.recolorInfo.length}"
+                  bottom="33" horizontalCenter="0"/>
+    <mx:Image x="35" bottom="108" source="@Embed('/assets/gui/screens/carshop/prise.png')"/>
+    <mx:Label x="37" bottom="110" text="{carInfo.recolorPrice(colors.colorIndex)}"  fontFamily="Arial"
+              fontSize="16" color="#00000F" textDecoration="underline" fontWeight="bold"/>
+    <mx:HRule left="32" right="32" bottom="38" height="1"/>
+
+    <mx:Button y="356" right="35"
+               label="{str('recolorCar')}"
+               visible="{colors.colorIndex != carInfo.color}"
+               click="onRepaintClick()"
+               styleName="redWhite" fontFamily="Arial"
+               color="#FFFFFF" height="26" fontStyle="normal" fontSize="11"/>
+</BaseScreen>

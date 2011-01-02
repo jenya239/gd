@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/3542/trunk/tsclient/src/com/turbostool/client/controllers
+END
+ConnectController.as
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/2668/trunk/tsclient/src/com/turbostool/client/controllers/ConnectController.as
+END
+VkontakteRequest.as
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/3076/trunk/tsclient/src/com/turbostool/client/controllers/VkontakteRequest.as
+END
+BaseStateMachine.as
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/3196/trunk/tsclient/src/com/turbostool/client/controllers/BaseStateMachine.as
+END
+Controller.as
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/2617/trunk/tsclient/src/com/turbostool/client/controllers/Controller.as
+END
+BaseRacingStateMachine.as
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/1664/trunk/tsclient/src/com/turbostool/client/controllers/BaseRacingStateMachine.as
+END
+InitController.as
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/3196/trunk/tsclient/src/com/turbostool/client/controllers/InitController.as
+END
+RacingStateMachine.as
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/2617/trunk/tsclient/src/com/turbostool/client/controllers/RacingStateMachine.as
+END
+LoginController.as
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/3542/trunk/tsclient/src/com/turbostool/client/controllers/LoginController.as
+END

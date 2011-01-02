@@ -1,0 +1,10 @@
+K 13
+svn:mergeinfo
+V 401
+/branches/cars/gdserver/src/web/stats/online_users.yaws:2458-2606
+/branches/chat/gdserver/src/web/stats/online_users.yaws:2366-2387
+/branches/mneser/gdserver/src/web/stats/online_users.yaws:2337-2351
+/branches/otp/gdserver/src/web/stats/online_users.yaws:2228-2310
+/branches/ticket818/gdserver/src/web/stats/online_users.yaws:2345-2368
+/branches/vapi/gdserver/src/web/stats/online_users.yaws:2249-2311
+END

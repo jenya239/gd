@@ -1,0 +1,366 @@
+<?xml version="1.0" ?>
+<BaseScreen xmlns:mx="http://www.adobe.com/2006/mxml"
+            xmlns="com.turbostool.client.screens.*"
+            xmlns:city="com.turbostool.client.city.*"
+            xmlns:lobbies="com.turbostool.client.lobbies.*"
+            xmlns:ratings="com.turbostool.client.ratings.*"
+            xmlns:garage="com.turbostool.client.garage.*"
+            xmlns:gas="com.turbostool.client.gas.*"
+            xmlns:profile="com.turbostool.client.profile.*"
+            xmlns:shop="com.turbostool.client.shop.*"
+            xmlns:carShop="com.turbostool.client.carShop.*"
+            xmlns:screens="com.turbostool.client.screens.*"
+            xmlns:bank="com.turbostool.client.bank.*" xmlns:station="com.turbostool.client.station.*"
+            creationComplete="onCreationComplete()"
+            initialize="onInitialize(event)"
+            width="609"
+            height="390">
+
+    <mx:ViewStack id="main" x="0" y="0" width="607" height="390" selectedIndex="0">
+        <mx:ViewStack id="screens" x="0" y="0" width="607" height="390" selectedIndex="0" change="onChange(event)">
+            <city:MapScreen id="mapScreen" screenSelected="onScreenSelected(event)" modelsStorage="{modelsStorage}"/>
+            <lobbies:LobbiesScreen id="lobbiesScreen" lobbiesController="{lobbiesController}"
+                                   screenSelected="onScreenSelected(event)" modelsStorage="{modelsStorage}"/>
+            <ratings:Ratings id="ratings" label="{str('rating2')}" ratingsController="{ratingsController}"
+                             screenSelected="onScreenSelected(event)"/>
+
+            <garage:GarageScreen id="garage" label="{str('garage')}" screenSelected="onScreenSelected(event)"
+                                 userInfo="{modelsStorage.userInfo}" modelsStorage="{modelsStorage}"/>            
+
+            <shop:ShopScreen id="shop" label="{str('shop')}" screenSelected="onScreenSelected(event)"
+                             userInfo="{modelsStorage.userInfo}" modelsStorage="{modelsStorage}"
+                             shopItems="{modelsStorage.shop}"/>
+            <profile:Profile id="profile" label="{str('profile')}"
+                             userInfo="{modelsStorage.userInfo}" screenSelected="onScreenSelected(event)" modelsStorage="{modelsStorage}"/>
+
+            <bank:BankScreen id="bankScreen" label="{str('bank')}" screenSelected="onScreenSelected(event)"
+                             modelsStorage="{modelsStorage}"/>
+            <HelpScreen id="help" label="{str('howToPlay')}" screenSelected="onScreenSelected(event)"
+                        modelsStorage="{modelsStorage}"/>
+
+            <gas:Gas id="gas" label="{str('gasStation')}" screenSelected="onScreenSelected(event)"
+                     modelsStorage="{modelsStorage}"/>
+            <carShop:CarShop id="carShop" label="{str('carShop')}"
+                             modelsStorage="{modelsStorage}"
+                             screenSelected="onScreenSelected(event)"/>
+            <station:StationScreen id="station" label="{str('station')}"
+                                   modelsStorage="{modelsStorage}"
+                                   screenSelected="onScreenSelected(event)"
+                                   userInfo="{modelsStorage.userInfo}"
+                                   transferController="{transferController}"
+                    />
+        </mx:ViewStack>
+        <profile:Profile id="otherProfile" label="{str('profile')}"
+                         userInfo="{modelsStorage.userInfo}" screenSelected="onScreenSelected(event)" modelsStorage="{modelsStorage}"/>
+    </mx:ViewStack>
+
+    <UserProgress id="userProgress" userInfo="{modelsStorage.userInfo}" y="2" x="31" screenSelected="onScreenSelected(event)" />
+
+    <mx:Button id="profileLable" height="21" styleName="default" label="{str('profile')}" click="onScreenSelected(new ScreenSelectedCommand('profile'))"
+               icon="@Embed(source='/assets/gui/screens/city/profileIcon.png')" x="417" y="11" width="80" />
+    
+    <mx:Script><![CDATA[
+        import com.turbostool.client.Tracker;
+        import com.turbostool.client.event.EventManager;
+        import com.turbostool.client.event.NickClickEvent;
+        import com.turbostool.client.game.view.ModalManager;
+        import com.turbostool.client.levelUp.LevelUpScreen1;
+        import com.turbostool.client.levelUp.LevelUpScreen2;
+        import com.turbostool.client.lobbies.LobbiesController;
+        import com.turbostool.client.model.LevelUpInfo;
+        import com.turbostool.client.model.TriggerInfo;
+        import com.turbostool.client.net.SessionSocket;
+        import com.turbostool.client.net.messages.*;
+        import com.turbostool.client.ratings.RatingsController;
+        import com.turbostool.client.registration.SetMapMessageCommand;
+        import com.turbostool.client.station.TransferController;
+        import com.turbostool.client.utils.Utils;
+
+        import mx.controls.Alert;
+        import mx.events.FlexEvent;
+
+        private function onChange(event:Event):void
+        {
+            garage.visible = screens.selectedChild == garage;
+            if (garage.visible)
+            {
+                trace("onChange true");
+            } else
+            {
+                trace("onChange false");
+            }
+        }
+
+        private function onSetMapMessage(event: SetMapMessageCommand): void
+        {
+            mapMessage = event.message;
+        }
+
+        override public function onInitialize(event: FlexEvent):void {
+            super.onInitialize(event);
+
+            if (transferController.userState.userTransferState != null) {
+                screens.selectedIndex = 10;
+            }
+        }
+
+        public static function showLevelUpIfAvailable(): void {
+            if(Client.instance.modelsStorage.userInfo.hasTrigger(ChangeTriggerMessage.LEVEL_UP)) {
+                var trigger: TriggerInfo = Client.instance.modelsStorage.userInfo.getTrigger(ChangeTriggerMessage.LEVEL_UP);
+
+                var lvlup: LevelUpScreen1 = new LevelUpScreen1();
+                lvlup.modelsStorage = Client.instance.modelsStorage;
+                lvlup.level = trigger.value;
+
+                lvlup.subscribe();
+                SessionSocket.instance.sendMessage(new LevelUpRewardsRequest(trigger.value));
+                ModalManager.instance.addModalWindow(lvlup, "modalClose");
+            }
+        }
+
+        private function onCreationComplete(): void
+        {
+            EventManager.instance.addEventListener(NickClickEvent.NICK_CLICK, onNickClick);
+            EventManager.instance.addEventListener(SetMapMessageCommand.SET_MAP_MESSAGE, onSetMapMessage);
+            EventManager.instance.addEventListener(ScreenSelectedCommand.SCREEN_SELECTED, onScreenSelected);
+            otherProfile.back = backFromOtherProfile;
+
+            if(modelsStorage.userInfo.hasTrigger(ChangeTriggerMessage.INVITES_REWARD)) {
+                Alert.show("Поздравляем! Ваши друзья помогли вам заработать 10 золотых!");
+                SessionSocket.instance.sendMessage(new ChangeTriggerMessage(ChangeTriggerMessage.INVITES_REWARD, -1));
+                Tracker.instance.trackPageview("/friends/reward");
+            }
+
+            showLevelUpIfAvailable();
+        }
+
+        private function onNickClick(event:NickClickEvent):void
+        {
+            main.selectedChild = otherProfile;
+            otherProfile.loadUserInfo(event.userID);
+
+            _lastScreenName = _currentScreenName;
+
+            userProgress.visible = false;
+            profileLable.visible = false;
+
+        }
+
+        private var _lastScreenName: String = "";
+        private var _currentScreenName: String = "";
+
+        private function backFromOtherProfile():void
+        {
+            main.selectedChild = screens;
+            onScreenSelected(new ScreenSelectedCommand(_lastScreenName));
+        }
+
+        [Bindable]
+        public var lobbiesController: LobbiesController;
+
+        [Bindable]
+        public var ratingsController: RatingsController;
+
+        [Bindable]
+        public var transferController: TransferController;
+
+        public var mapMessage: String = "";
+
+        private function onLevelUpInfo(event: ServerResponseEvent): void {
+            EventManager.instance.removeEventListener(LevelUpInfoResponse.LEVEL_UP_INFO, onLevelUpInfo);
+
+            hideLoadingIndicator();
+
+            var response: LevelUpInfoResponse = LevelUpInfoResponse(event.response);
+
+            if(response.isOK) {
+                var lvlup: LevelUpScreen2 = new LevelUpScreen2();
+                lvlup.modelsStorage = modelsStorage;
+
+                lvlup.levelUpInfo = new LevelUpInfo();
+                lvlup.levelUpInfo.newUpgrades = response.newUpgrades;
+                lvlup.levelUpInfo.newRoutes = response.newRoutes;
+                lvlup.levelUpInfo.newCars = response.newCarsCollection;
+                lvlup.levelUpInfo.message = response.message;
+
+                ModalManager.instance.addModalWindow(lvlup, "modalClose");
+            } else {
+                Alert.show(response.message);
+            }
+        }
+
+        private function onScreenSelected(event: ScreenSelectedCommand): void
+        {
+            Client.instance.updateUserInfo();
+
+            userProgress.visible = true;
+            profileLable.visible = true;
+
+            _currentScreenName = event.screenName; 
+
+            switch (event.screenName)
+                    {
+                case "arena":
+                {
+                    if(modelsStorage.userInfo.tutorialStage == 3) {
+                        Alert.show("СНАЧАЛА ЗАЙДИ В МАГАЗИН!");
+                    } else
+                        userProgress.visible = false;
+                        profileLable.visible = false;
+
+                        screens.selectedChild = lobbiesScreen;
+                        Tracker.instance.trackPageview('/city/arena/lobbies');
+
+                        if (modelsStorage.userInfo.tutorialStage == 1) {
+                            lobbiesController.createTutorialLobby();
+                        } else if (modelsStorage.userInfo.tutorialStage == 4) {
+                            Utils.nextTutorialStage();
+                        } else {
+                            lobbiesController.needRefreshLobbies = true;
+                            lobbiesController.onRefreshLobbies(null);
+                        }
+                    
+                    break;
+                }
+                case "garage":
+                {
+                    screens.selectedChild = garage;
+                    Tracker.instance.trackPageview('/city/garage');
+
+                    break;
+                }
+                case "shop":
+                {
+                    Client.instance.updateShopInfo();
+                    shop.onScreenEnter();
+                    screens.selectedChild = shop;
+                    Tracker.instance.trackPageview('/city/shop');
+
+                    break;
+                }
+                case "profile":
+                {
+                    userProgress.visible = false;
+                    profileLable.visible = false;
+
+                    screens.selectedChild = profile;
+                    Tracker.instance.trackPageview('/city/profile');
+
+                    break;
+                }
+                case "ratings":
+                {
+                    screens.selectedChild = ratings;
+                    Tracker.instance.trackPageview('/city/ratings');
+
+                    break;
+                }
+                case "map":
+                {
+                    userProgress.visible = true;
+                    profileLable.visible = true;
+
+                    if(transferController.userState.userTransferState != null) {
+                        screens.selectedIndex = 10;
+                    } else {
+                        if(mapMessage != "") {
+                            Alert.show(mapMessage);
+                            mapMessage = "";
+                        }
+
+                        showLevelUpIfAvailable();
+
+                        screens.selectedChild = mapScreen;
+                        Tracker.instance.trackPageview('/city/map');
+                    }
+
+                    break;
+                }
+                case "bank":
+                {
+                    screens.selectedChild = bankScreen;
+                    if (bankScreen.bankTabs != null && bankScreen.bankTabs.selectedChild != null) {
+                        Tracker.instance.trackPageview('/city/bank/' + bankScreen.bankTabs.selectedChild.id);
+                    } else {
+                        Tracker.instance.trackPageview('/city/bank/exchangeOffice');
+                    }
+
+                    break;
+                }
+                case "gas":
+                {
+                    Client.instance.updateGasInfo();
+                    screens.selectedChild = gas;
+                    Tracker.instance.trackPageview('/city/gas');
+
+                    break;
+                }
+                case "help":
+                {
+                    screens.selectedChild = help;
+                    Tracker.instance.trackPageview('/city/help');
+
+                    break;
+                }
+                case "carShop":
+                {
+                    Client.instance.updateCarShopInfo();
+                    screens.selectedChild = carShop;
+                    Tracker.instance.trackPageview('/city/carShop');
+
+                    break;
+                }
+                case "station":
+                {
+                    if (mapScreen != null)
+                        mapScreen.updateCityScores();
+
+                    screens.selectedChild = station;
+                    Tracker.instance.trackPageview('/city/station');
+                    break;
+                }
+                case "tree":
+                {
+                    onTree();
+                    break;
+                }
+                case "levelUp":
+                {
+                    EventManager.instance.addEventListener(LevelUpInfoResponse.LEVEL_UP_INFO, onLevelUpInfo)
+                    showLoadingIndicator();
+
+                    SessionSocket.instance.sendMessage(new LevelUpInfoRequest(modelsStorage.userInfo.level));
+
+                    break;
+                }
+            }
+        }
+
+        private function onTree():void
+        {
+            if (modelsStorage.userInfo.hasGift) {
+                SessionSocket.instance.sendMessage(new NYGiftRequest());
+                modelsStorage.userInfo.realMoney += 1;
+                modelsStorage.userInfo.hasGift = false;
+                Tracker.instance.trackPageview("/city/tree/gift");
+                var sip: GiftPopup = new GiftPopup();
+                sip.closeFun = getGift;
+                ModalManager.instance.addModalWindow(sip, "modalClose");
+            }
+            else {
+                Tracker.instance.trackPageview("/city/tree/empty");
+                Alert.show("Подарки на Новый Год! Завтра можно будет получить еще один!");
+                modelsStorage.userInfo.hasGift = false;
+            }
+
+        }
+
+        private function getGift():void {
+            modelsStorage.userInfo.hasGift = false;
+            ModalManager.instance.closeAllWindows();
+            Alert.show("Поздравляем! Приходи завтра и получи ещё один золотой.");
+        }
+
+        ]]></mx:Script>
+
+</BaseScreen>

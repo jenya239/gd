@@ -1,0 +1,14 @@
+K 13
+svn:mergeinfo
+V 685
+/branches/cars/gdserver/src/ftest/authorizationTest.erl:2458-2606
+/branches/chat/gdserver/src/ftest/authorizationTest.erl:2366-2387
+/branches/items/gdserver/src/ftest/authorizationTest.erl:1872-1893
+/branches/mneser/gdserver/src/ftest/authorizationTest.erl:2337-2351
+/branches/otp/gdserver/src/ftest/authorizationTest.erl:2229-2310
+/branches/otpApplication/gdserver/src/ftest/authorizationTest.erl:1717-1875
+/branches/ticket818/gdserver/src/ftest/authorizationTest.erl:2345-2368
+/branches/twoCities/gdserver/src/ftest/authorizationTest.erl:1903-2197
+/branches/upgrades/gdserver/src/ftest/authorizationTest.erl:1921-1938
+/branches/vapi/gdserver/src/ftest/authorizationTest.erl:2249-2311
+END

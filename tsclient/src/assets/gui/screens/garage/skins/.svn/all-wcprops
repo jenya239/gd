@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/1221/trunk/tsclient/src/assets/gui/screens/garage/skins
+END
+selectCarButton_over.png
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1221/trunk/tsclient/src/assets/gui/screens/garage/skins/selectCarButton_over.png
+END
+carSelectedCheckbox_no.png
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/1221/trunk/tsclient/src/assets/gui/screens/garage/skins/carSelectedCheckbox_no.png
+END
+carSelectedCheckbox_yes.png
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/1221/trunk/tsclient/src/assets/gui/screens/garage/skins/carSelectedCheckbox_yes.png
+END
+selectCarButton_up.png
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/1221/trunk/tsclient/src/assets/gui/screens/garage/skins/selectCarButton_up.png
+END
+selectCarButton_down.png
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/1221/trunk/tsclient/src/assets/gui/screens/garage/skins/selectCarButton_down.png
+END

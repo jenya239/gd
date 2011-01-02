@@ -1,0 +1,5 @@
+{port, 8999}.
+{host, "localhost"}.
+{period, 1000}.
+{email,"loobnin@gmail.com"}.
+{smtpFrom, "panic@goroddorog.ru"}.

@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<BaseRenderer xmlns:mx="http://www.adobe.com/2006/mxml"
+							xmlns="com.turbostool.client.screens.raceResults.*">
+	<mx:Array id="cells">
+		<Indicator caption="{data.displayName}" value="{data.durability}" max="{data.durabilityMax}" delta="{data.delta}"/>
+	</mx:Array>
+</BaseRenderer>

@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml"
+           xmlns:controls="com.turbostool.controls.*"
+           horizontalScrollPolicy="off"
+           verticalScrollPolicy="off"
+           width="135"
+           height="97">
+
+    <mx:Script><![CDATA[
+        [Bindable]
+        public var cars:Array;
+        [Bindable]
+        public var onClick:Function = function(e:*):void {};
+
+        private function innerClickWrapper(event:*):void
+        {
+            onClick(event);
+            carList.selectedIndex =-1;
+        }
+
+        private function str(name: String, params: * = null): String {
+            return Client.instance.str(name, params);
+        }        
+
+        ]]></mx:Script>
+
+    <controls:Rectangle x="0" y="0"
+                        height="17" width="100%"
+                        backgroundColor2="#D88704" borderColor2="#D88704"
+                        cornerRadius="6" backgroundAlpha="1.0"/>
+    <mx:Label x="0" y="-2" width="100%"
+              text="{str('yourCars')}" fontFamily="Arial"
+              color="#FFFFFF" fontSize="15" textAlign="center" fontWeight="bold"/>
+    <controls:HorizontalListEx x="0" y="18" id="carList"
+                              height="65" width="100%"
+                              backgroundColor="#de8a04" backgroundAlpha="0" borderColor="#de8a04"
+                              itemRenderer="com.turbostool.client.screens.car.CarRenderer"
+                              itemClick="innerClickWrapper(event)"
+                              horizontalScrollPolicy="on"
+                              horizontalScrollBarStyleName="myScrollStyle"
+                              dataProvider="{cars}"
+                              useRollOver="false"
+            />
+    <mx:Label x="0" bottom="1"
+              text="{str('clickIconToSell')}"
+              color="#FFFFFF" fontSize="8"/>
+</mx:Canvas>

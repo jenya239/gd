@@ -1,0 +1,48 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+    <h1>Статистика - активные пользователи</h1>
+    <erl>
+        out(Arg) -> 
+            {NavigationHtml, From, To1} = stats:getMonthlyNavigationHtmlAndDateRange(Arg),
+            To2 = To1 + (To1 - From),
+			% Для подсчета конверсии пользователей из зарегистрированных в активные берем период текущий месяц + следущий,
+			% чтобы учесть пользователей, которые зарегистрировались в конце текущего месяца и играли в течение след.недели.
+
+            ActiveUserIDs1 = stats:getActiveUserIDs(From, To1),
+            ActiveUserIDs2 = stats:getActiveUserIDs(From, To2),
+            RegisteredUserIDs = stats:getRegisteredUserIDs(From, To1),
+			PayingIDs2 = stats:getPayingUserIDs(From, To2),
+            ConversionUserIDs = [X || X <- ActiveUserIDs2, Y <- RegisteredUserIDs, X =:= Y],
+			PayingConversionUserIDs = [X || X <- PayingIDs2, Y <- RegisteredUserIDs, X =:= Y],
+            ActiveUsers = stats:getUserNames(ActiveUserIDs1),
+            
+            RNum = length(RegisteredUserIDs),
+            CNum = length(ConversionUserIDs),
+			PNum = length(PayingConversionUserIDs),
+            CFloat = if RNum > 0 -> 100*CNum/RNum; true -> 0.0 end,
+			PFloat = if RNum > 0 -> 100*PNum/RNum; true -> 0.0 end,
+            CStr = io_lib:format("~.2f%", [CFloat]),
+			PStr = io_lib:format("~.2f%", [PFloat]),
+
+            RegCountHtml = {p, [], "Регистрации: " ++ integer_to_list(RNum)},
+            ConversionCountHtml = {p, [], "Активные из зарегенных: " ++ integer_to_list(CNum)},
+			PayingCountHtml = {p, [], "Платящие из зарегенных: " ++ integer_to_list(PNum)},
+            ActiveCountHtml = {p, [], "Активные всего: " ++ integer_to_list(length(ActiveUserIDs1))},
+            ConversionHtml = {p, [], "Конверсия в активные: " ++ CStr},
+			PayingHtml = {p, [], "Конверсия в платящие: " ++ PStr},
+            TableHtml = constructTable(ActiveUsers),
+            {ehtml, [NavigationHtml, RegCountHtml, ConversionCountHtml, PayingCountHtml, ConversionHtml, PayingHtml, ActiveCountHtml, TableHtml]}.
+
+        constructTable(Users) ->    
+            Rows = lists:foldl(
+                    fun(DisplayName, Rows) ->                        
+                        Row = {tr, [], [{td, [], io_lib:format("~p", [DisplayName])}]},
+                        [Row | Rows]
+                    end, [], Users), 
+            {table, [{border, "1"}], Rows}.
+    </erl>
+</body>
+</html>

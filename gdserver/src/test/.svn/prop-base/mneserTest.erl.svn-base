@@ -1,0 +1,14 @@
+K 13
+svn:mergeinfo
+V 605
+/branches/cars/gdserver/src/test/mneserTest.erl:2458-2606
+/branches/chat/gdserver/src/test/mneserTest.erl:2366-2387
+/branches/items/gdserver/src/test/mneserTest.erl:1872-1893
+/branches/mneser/gdserver/src/test/mneserTest.erl:2337-2351
+/branches/otp/gdserver/src/test/mneserTest.erl:2229-2310
+/branches/otpApplication/gdserver/src/test/mneserTest.erl:1717-1875
+/branches/ticket818/gdserver/src/test/mneserTest.erl:2345-2368
+/branches/twoCities/gdserver/src/test/mneserTest.erl:1903-2197
+/branches/upgrades/gdserver/src/test/mneserTest.erl:1921-1938
+/branches/vapi/gdserver/src/test/mneserTest.erl:2249-2311
+END

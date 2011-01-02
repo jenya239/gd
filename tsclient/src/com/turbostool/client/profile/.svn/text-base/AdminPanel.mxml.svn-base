@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml"
+           width="100" height="250">
+
+    <mx:VBox>
+        <mx:Label text="{str('userID')}" fontWeight="bold" fontFamily="Arial" color="#FFFFFF"
+                  fontStyle="normal" fontSize="12"/>
+        
+        <mx:Text text="{userInfo.id}" color="#000000"
+                 fontWeight="bold" fontFamily="Arial" fontStyle="normal" fontSize="12"
+                 opaqueBackground="#777777"
+                 selectable="true" />
+
+        <mx:Label text="{str('banFor')}" color="#FFFFFF" id="lbl"
+                  fontWeight="bold" fontFamily="Arial"
+                  fontStyle="normal" fontSize="12"/>
+
+        <mx:Button label="15 мин" styleName="default" fontFamily="Arial" fontWeight="bold" fontSize="11"
+                   height="22" textAlign="left" width="80"
+                   textIndent="5" click="silence(_15min)" y="20"/>
+
+        <mx:Button label="1 час" styleName="default" fontFamily="Arial" fontWeight="bold" fontSize="11"
+                   height="22" textAlign="left" width="80"
+                   textIndent="5" click="silence(_1hour)" y="45"/>
+
+        <mx:Button label="{str('day')}" styleName="default" fontFamily="Arial" fontWeight="bold" fontSize="11"
+                   height="22" textAlign="left" width="80"
+                   textIndent="5" click="silence(_1day)" y="70"/>
+
+        <mx:Button label="2 суток" styleName="default" fontFamily="Arial" fontWeight="bold" fontSize="11"
+                   height="22" textAlign="left" width="80"
+                   textIndent="5" click="silence(_2day)" y="95"/>
+
+        <mx:Button label="{str('week')}" styleName="default" fontFamily="Arial" fontWeight="bold" fontSize="11"
+                   height="22" textAlign="left" width="80"
+                   textIndent="5" click="silence(_7days)" y="120"/>
+
+        <mx:Button label="{str('month')}" styleName="default" fontFamily="Arial" fontWeight="bold" fontSize="11"
+                   height="22" textAlign="left" width="80"
+                   textIndent="5" click="silence(_30days)" y="145"/>
+
+    </mx:VBox>
+
+    <mx:Script><![CDATA[
+        import com.turbostool.client.model.UserInfo;
+        import com.turbostool.client.net.SessionSocket;
+        import com.turbostool.client.net.messages.BanRequest;
+
+        private function str(name: String, params: * = null): String {
+            return Client.instance.str(name, params);
+        }
+
+        [Bindable]
+        public var userInfo: UserInfo;
+
+        private const _15min:Number = 15 * 60 * 1000;
+        private const _1hour:Number = 60 * 60 * 1000;
+        private const _1day:Number = 24 * 60 * 60 * 1000;
+        private const _2day:Number = 2 * 24 * 60 * 60 * 1000;
+        private const _7days:Number = 7 * 24 * 60 * 60 * 1000;
+        private const _30days:Number = 30 * 24 * 60 * 60 * 1000;
+
+        private function silence(time:Number):void
+        {
+            SessionSocket.instance.sendMessage(new BanRequest(userInfo.id, time));
+//            EventManager.instance.dispatchEvent(new ScreenSelectedCommand("map"));
+            Profile(parent).back();
+        }
+
+        ]]></mx:Script>
+</mx:Canvas>

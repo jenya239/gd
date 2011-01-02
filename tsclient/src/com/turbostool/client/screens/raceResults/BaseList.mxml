@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<screens:GlowContainer xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:ns1="com.turbostool.controls.*"
+											 xmlns:screens="com.turbostool.client.screens.*"
+											 horizontalScrollPolicy="off" verticalScrollPolicy="off"
+											 creationCompleteEffect="buttonGlowIn"
+>
+	<ns1:Rectangle left="0" top="0" bottom="0" right="0" backgroundColor2="#dd8b01" cornerRadius="6"/>
+	<ns1:Rectangle id="rectInner" left="1" top="1" bottom="1" right="1" backgroundColor2="#2b0907" cornerRadius="6"/>
+	<mx:HBox left="30" top="2" id="hbHeader" enabled="false" />
+	<mx:List id="lst" dataProvider="{dataProvider}" left="3" top="3" bottom="1" right="3" selectable="false"
+					 rowHeight="15"
+					 itemRenderer="{itemRenderer}"
+					 verticalScrollBarStyleName="myScrollStyle"
+					 verticalScrollPolicy="on" horizontalScrollPolicy="off"
+					 backgroundAlpha="0.0"
+					 paddingBottom="1" paddingLeft="0" paddingRight="0" paddingTop="0"
+					 borderThickness="0"
+		/>
+	<mx:Script><![CDATA[
+		import mx.controls.Alert;
+		import mx.controls.Label;
+
+		[Bindable]
+		public var dataProvider: Object;
+		[Bindable]
+		public var itemRenderer: IFactory;
+		[Bindable]
+		public var highlighted: Object = null;
+
+		//headers="{[ ['ник', 110], ['время', 60], ['рейтинг', 60], ['деньги', 60] ]}"
+		public function set headers(value: Array): void{
+			hbHeader.enabled = true;
+			rectInner.setStyle("top", 4);
+			lst.setStyle("top", 17);
+			for each( var pair: Array in value ){
+				var hl: Label = new Label();
+				hl.text = pair[0].toUpperCase();
+				hl.width = pair[1];
+				hl.styleName = "tableHeader";
+				hbHeader.addChild(hl);
+			}
+		}
+		]]></mx:Script>
+</screens:GlowContainer>

@@ -1,0 +1,16 @@
+<html>
+
+<h1>Gorod Dorog Statistic Page </h1>
+<html>
+
+<h1> Count of player on races </h1>
+
+<erl>
+out(Arg) ->
+    {ehtml, helper:getRouteNamesTable() }.
+</erl>
+
+
+</html>
+
+</html>

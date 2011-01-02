@@ -1,0 +1,64 @@
+9
+
+dir
+4746
+http://turbostool.game-host.org/svn/trunk/tsclient/src/data/routes/textures/Misc/Borders
+http://turbostool.game-host.org/svn
+
+
+
+2009-10-21T16:04:55.323311Z
+2623
+vitalij
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+0737e8d9-e265-db11-a13c-0007e92aa9c6
+
+BLU
+dir
+
+BLU_2
+dir
+
+KRESTOVSKY
+dir
+
+D_BLU
+dir
+
+ORNG
+dir
+
+NY
+dir
+
+YELO
+dir
+
+RED
+dir
+
+GREN
+dir
+
+GREN_2
+dir
+
+MILK
+dir
+
+D_RED
+dir
+

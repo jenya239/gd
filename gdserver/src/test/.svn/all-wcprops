@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/3083/trunk/gdserver/src/test
+END
+clientTest.erl
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/2313/trunk/gdserver/src/test/clientTest.erl
+END
+statsTest.erl
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/2616/trunk/gdserver/src/test/statsTest.erl
+END
+globalChatTest.erl
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/2991/trunk/gdserver/src/test/globalChatTest.erl
+END
+utilsTest.erl
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/2616/trunk/gdserver/src/test/utilsTest.erl
+END
+usersTest.erl
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/3083/trunk/gdserver/src/test/usersTest.erl
+END
+lobbyManagerTest.erl
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/2616/trunk/gdserver/src/test/lobbyManagerTest.erl
+END
+smsTest.erl
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/2616/trunk/gdserver/src/test/smsTest.erl
+END
+raceManagerTest.erl
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/2352/trunk/gdserver/src/test/raceManagerTest.erl
+END
+lobbyTest.erl
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/2616/trunk/gdserver/src/test/lobbyTest.erl
+END
+allTest.erl
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/2881/trunk/gdserver/src/test/allTest.erl
+END
+mneserTest.erl
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/2991/trunk/gdserver/src/test/mneserTest.erl
+END

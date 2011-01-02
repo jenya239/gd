@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml"
+           horizontalScrollPolicy="off"
+           verticalScrollPolicy="off"
+           width="301"
+           height="326"
+           creationComplete="refresh()">
+
+    <mx:Script><![CDATA[
+        import com.turbostool.client.model.TipInfo;
+
+        import mx.controls.Alert;
+
+        [Bindable]
+        private var _tipMessage: String;
+
+        [Bindable]
+        public var imageVisible: Boolean = true;
+
+        private function setRandomTip():void
+        {
+            try
+            {
+                var tips: Array = Client.instance.modelsStorage.tips;
+                var ind: Number;
+                var tip:TipInfo;
+                ind = Math.floor(Math.random() * tips.length);
+                tip = tips[ind] as TipInfo;
+                if (tip != null)
+                {
+                    _tipMessage = tip.message;
+                }
+            }
+            catch(e: *)
+            {                
+            }
+        }
+
+        public function refresh():void
+        {
+            if (Client.instance.modelsStorage.userInfo.tutorialStage <= 2)
+                _tipMessage = "Дождись загрузки трассы!";
+            else
+                setRandomTip();
+        }
+
+        private function str(name: String, params: * = null): String {
+            return Client.instance.str(name, params);
+        }
+
+           ]]>
+       </mx:Script>
+
+
+    <mx:Image x="0" y="0"
+              visible="{imageVisible}"
+              source="@Embed(source='/assets/gui/screens/lobby/lobby_decor.png')"/>
+    <mx:Label y="84" horizontalCenter="0"
+              color="#F2FCE3"
+              fontSize="22" fontWeight="bold"
+              text="{str('hints')}"/>
+    <mx:Text width="100%" color="#F2FCE3"
+             fontSize="13" top="{imageVisible ? 130 : 108}" horizontalCenter="0" textAlign="center"
+             selectable="false"
+             text="{_tipMessage}"/>
+</mx:Canvas>

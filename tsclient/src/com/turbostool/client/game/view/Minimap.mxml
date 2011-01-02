@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MinimapMain xmlns="com.turbostool.client.game.view.*" xmlns:mx="http://www.adobe.com/2006/mxml" width="56" height="56">
+    <mx:Image x="0" y="0" source="@Embed('/assets/gui/screens/gameplay/minimap_bkg.png')"/>
+    <mx:Canvas x="1" y="0" width="56" height="56" id="cnvMain" horizontalScrollPolicy="off" verticalScrollPolicy="off"/>
+
+</MinimapMain>

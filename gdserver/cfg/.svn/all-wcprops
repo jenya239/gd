@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/3110/trunk/gdserver/cfg
+END
+status.cfg
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/1293/trunk/gdserver/cfg/status.cfg
+END
+bot.cfg
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/2642/trunk/gdserver/cfg/bot.cfg
+END
+secure.cfg
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/2941/trunk/gdserver/cfg/secure.cfg
+END
+server.cfg
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/3110/trunk/gdserver/cfg/server.cfg
+END

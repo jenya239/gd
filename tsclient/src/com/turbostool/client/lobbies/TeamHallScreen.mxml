@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<screens:BaseScreen xmlns:mx="http://www.adobe.com/2006/mxml"
+                    xmlns:screens="com.turbostool.client.screens.*"
+                    horizontalScrollPolicy="off"
+                    verticalScrollPolicy="off"
+                    width="607" height="390"
+                    backgroundColor="#20291E"
+                    xmlns:lobbies="com.turbostool.client.lobbies.*">
+
+    <mx:Image source="@Embed(source='/assets/gui/screens/lobby/teamLobbyBkg.jpg')" horizontalCenter="0" top="37"/>
+    <mx:Label text="{str('hints')}" fontFamily="Arial" textAlign="center" fontSize="16" color="#FFFFFF" horizontalCenter="2"
+              top="309" fontWeight="bold"/>
+    <mx:Text width="100%" color="#F2FCE3"
+             fontSize="13" horizontalCenter="0" textAlign="center"
+             selectable="false"
+             text="{lobbiesController.getRandomTip()}" top="329"/>
+    <lobbies:LobbyState
+            visible="{lobbiesController.lobbyInfo.timerEnd > 0}"
+            lobbiesController="{lobbiesController}"
+            rectVisible="true"
+            top="130" horizontalCenter="0"/>
+
+    <mx:List width="210" height="198" horizontalCenter="-176" top="126"
+             dataProvider="{lobbiesController.playersByCity(1)}"
+             itemRenderer="com.turbostool.client.lobbies.TeamListRenderer"
+             rowHeight="40"
+             themeColor="#000000"
+             backgroundColor="#290a05"
+             backgroundAlpha="0"
+             borderThickness="0"
+             selectable="false"
+             selectionColor="#290a05"
+             paddingLeft="1"
+             paddingRight="1"
+             paddingTop="0"
+             paddingBottom="2"
+             verticalScrollPolicy="off"
+             horizontalScrollPolicy="off"
+            />
+
+    <mx:List width="210" height="198" horizontalCenter="176" top="126"
+             dataProvider="{lobbiesController.playersByCity(2)}"
+             itemRenderer="com.turbostool.client.lobbies.TeamListRenderer"
+             rowHeight="40"
+             themeColor="#000000"
+             backgroundColor="#290a05"
+             backgroundAlpha="0"
+             borderThickness="0"
+             selectable="false"
+             selectionColor="#290a05"
+             paddingLeft="1"
+             paddingRight="1"
+             paddingTop="0"
+             paddingBottom="2"
+             verticalScrollPolicy="off"
+             horizontalScrollPolicy="off"
+            />
+
+    <mx:Script><![CDATA[
+        import com.turbostool.client.model.TipInfo;
+
+        [Bindable]
+        public var lobbiesController: LobbiesController;
+
+
+        ]]></mx:Script>
+
+    <mx:Label horizontalCenter="0" y="96" color="#DC7816" fontFamily="Arial" fontSize="12"
+              fontStyle="normal"
+              text="{lobbiesController.lobbyInfo.routeInfo.toUpperCase()}"
+            />
+
+</screens:BaseScreen>

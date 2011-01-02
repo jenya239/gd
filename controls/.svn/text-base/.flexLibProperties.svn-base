@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flexLibProperties version="1">
+<includeClasses>
+<classEntry path="com.turbostool.controls.AutoScrollingList"/>
+<classEntry path="com.turbostool.controls.BackgroundedLabel"/>
+<classEntry path="com.turbostool.controls.BaseListControl"/>
+<classEntry path="com.turbostool.controls.BaseListRenderer"/>
+<classEntry path="com.turbostool.controls.ChatMessageRenderer"/>
+<classEntry path="com.turbostool.controls.CustomToolTip"/>
+<classEntry path="com.turbostool.controls.ImageStack"/>
+<classEntry path="com.turbostool.controls.ItemBaseRenderer"/>
+<classEntry path="com.turbostool.controls.ListWithoutSelection"/>
+<classEntry path="com.turbostool.controls.LoadingIndicator"/>
+<classEntry path="com.turbostool.controls.PointingArrowDown"/>
+<classEntry path="com.turbostool.controls.PointingArrowUp"/>
+<classEntry path="com.turbostool.controls.ProgressBarBindable"/>
+<classEntry path="com.turbostool.controls.Rectangle"/>
+<classEntry path="com.turbostool.controls.SmartImage"/>
+<classEntry path="com.turbostool.controls.TileListControl"/>
+<classEntry path="com.turbostool.controls.TileListWithoutSelection"/>
+</includeClasses>
+<includeResources>
+<resourceEntry destPath="assets/bagage_bkg.png" sourcePath="assets/bagage_bkg.png"/>
+<resourceEntry destPath="assets/list_bkg.png" sourcePath="assets/list_bkg.png"/>
+<resourceEntry destPath="assets/roundingCircle.swf" sourcePath="assets/roundingCircle.swf"/>
+</includeResources>
+<namespaceManifests/>
+</flexLibProperties>

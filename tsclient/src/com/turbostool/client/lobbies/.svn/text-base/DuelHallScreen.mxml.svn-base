@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<mx:Canvas
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        xmlns:lobbies="com.turbostool.client.lobbies.*"
+        xmlns:profile="com.turbostool.client.profile.*"
+        xmlns:controls="com.turbostool.controls.*"
+        horizontalScrollPolicy="off"
+        verticalScrollPolicy="off"
+        width="607" height="390"
+        backgroundColor="#20291E">
+    <mx:Script><![CDATA[
+        import com.turbostool.client.utils.Utils;
+
+        [Bindable]
+        public var lobbiesController: LobbiesController;
+
+        public function refresh():void
+        {
+            tip.refresh();
+        }
+
+        private var _opponentCarURL:String;
+
+        [Bindable]
+        private function get opponentCarURL():String
+        {
+            return _opponentCarURL;
+        }
+
+        private function set opponentCarURL(val:String):void
+        {
+            if (_opponentCarURL == null || _opponentCarURL != val)
+                _opponentCarURL = val;
+        }
+
+        private function str(name: String): String {
+            return name;
+        }
+
+        ]]>
+      </mx:Script>
+
+    <mx:Binding source="lobbiesController.clients.getItemAt(1).userInfo.imageURL" destination="opponentCarURL"/>
+    <mx:Image x="0" y="0"
+              source="@Embed(source='/assets/gui/screens/competition/duel_bkg.jpg')"/>
+    <lobbies:Tip id="tip" imageVisible="false"
+                 top="215" horizontalCenter="0"/>
+    <lobbies:LobbyState
+            visible="{lobbiesController.clients.length == 2}"
+            lobbiesController="{lobbiesController}"
+            rectVisible="true"
+            right="10" top="305"/>
+    <mx:Label color="#DE8A04" fontSize="13" fontWeight="bold" width="301" textAlign="center"
+              fontFamily="Arial" text="{str('prizeFund')}" horizontalCenter="0" top="80"/>
+
+    <mx:Label color="#DE8A04" fontSize="26" fontWeight="bold" width="301" textAlign="center"
+              fontFamily="Arial" text="{Utils.formatPrice(lobbiesController.lobbyInfo.stake*2, false)}" horizontalCenter="0" top="93"/>
+    <mx:Label color="#DE8A04" fontSize="13" fontWeight="bold" width="301" textAlign="center"
+              fontFamily="Arial" text="{lobbiesController.lobbyInfo.routeInfo.toUpperCase()}" horizontalCenter="0"
+              top="257"/>
+    <profile:DuelPanel left="12" y="18" userInfo="{Client.instance.modelsStorage.userInfo}"/>
+    <controls:SmartImage source="{Client.instance.modelsStorage.userInfo.imageURL}"
+                         x="46" y="112" width="185" height="120"/>
+
+    <profile:DuelPanel right="12" y="18"
+                       visible="{lobbiesController.clients.length == 2}"
+                       userInfo="{lobbiesController.clients.getItemAt(1).userInfo}"/>
+    <controls:SmartImage
+            source="{opponentCarURL}"
+            x="360" y="112" width="185" height="120"/>
+</mx:Canvas>

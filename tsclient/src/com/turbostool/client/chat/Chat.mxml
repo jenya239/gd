@@ -1,0 +1,121 @@
+<?xml version="1.0" ?>
+<screens:BaseScreen xmlns:mx="http://www.adobe.com/2006/mxml"
+                    xmlns:screens="com.turbostool.client.screens.*"
+                    xmlns:controls="com.turbostool.controls.*"
+                    xmlns:chat="com.turbostool.client.chat.*"
+                    creationComplete="onCreationComplete()"
+
+                    horizontalScrollPolicy="off" verticalScrollPolicy="off"
+                    width="597" height="190">
+    <mx:ViewStack id="chats" left="0" top="0" right="140" bottom="29"
+                  change="onChatChannelChange(event)">
+        <chat:ChatCanvas label="{str('city')}"
+                         data="{ChanneledMessage.CITY_CHANNEL}"
+                         dataProvider="{chatController.chatMessagesCity}"
+                         modelsStorage="{modelsStorage}"
+                />
+
+    </mx:ViewStack>
+    <mx:ToggleButtonBar x="0" y="0" width="306" height="21" dataProvider="{chats}"
+                        buttonStyleName="default" selectedButtonTextStyleName="selected"
+                        horizontalGap="3" visible="false"/>
+
+
+    <mx:Label text="{str('nick')}" bottom="65" x="438" color="#FFFFFF" fontWeight="bold" fontFamily="Arial"
+              fontStyle="normal" fontSize="12" visible="false"/>
+
+
+    <mx:Canvas left="0" right="242" bottom="5">
+        <controls:Rectangle left="0" top="0" bottom="0" right="0" backgroundColor2="#dd8b01" cornerRadius="6"/>
+        <controls:Rectangle left="1" top="1" bottom="1" right="1" backgroundColor2="#2b0907" cornerRadius="6"/>
+        <controls:Rectangle left="3" top="3" bottom="3" right="3" backgroundColor2="#f9f8e3" cornerRadius="6"/>
+        <mx:TextInput
+                id="chatMessageText"
+                keyDown="onChatKeyDown(event)"
+                height="16"
+                paddingLeft="3"
+                left="3" top="2" bottom="4" right="3"
+                borderStyle="none"
+                backgroundAlpha="0.0"
+                fontSize="11"
+                focusThickness="0"
+                maxChars="160"
+                />
+    </mx:Canvas>
+
+    <mx:TextInput id="privateNick" bottom="40" x="438" width="131" visible="false"/>
+    <mx:Button x="438" bottom="10" label="{str('sendPrivateChatMessage')}" styleName="default"
+               click="onSendPrivateChatMessage()" visible="false"/>
+    <mx:Button right="140" bottom="5" label="{str('send')}" styleName="noIcon" click="onSendChatMessage()" height="21" width="100"/>
+
+    <mx:Script><![CDATA[
+        import com.turbostool.client.net.SessionSocket;
+        import com.turbostool.client.net.messages.ChanneledMessage;
+        import com.turbostool.client.net.messages.ChatMessageMessage;
+
+        import com.turbostool.client.utils.Utils;
+
+        import mx.events.IndexChangedEvent;
+        import mx.utils.StringUtil;
+
+        private var _currentChatChannel: String = ChanneledMessage.CITY_CHANNEL;
+        private var _lastChatMessageText: String = "";
+        private var _lastChatMessageTime: Number = 0;
+
+        [Bindable]
+        public var chatController: ChatController;
+
+        private function onCreationComplete():void
+        {
+
+        }
+
+        private function onChatKeyDown(event:KeyboardEvent):void
+        {
+            if (event.keyCode == 13)
+            {
+                onSendChatMessage();
+            }
+        }
+
+        private function onSendPrivateChatMessage(): void
+        {
+            var text: String = StringUtil.trim(chatMessageText.text);
+            var nick: String = StringUtil.trim(privateNick.text);
+            if (text != "" && nick != "")
+            {
+                sendPrivateChatMessage(text, nick);
+                chatMessageText.text = "";
+            }
+        }
+
+        private function onSendChatMessage(): void
+        {
+            var text: String = StringUtil.trim(chatMessageText.text);
+            var now: Number = Utils.now();
+            if(text.length > 0 && text != _lastChatMessageText && now > _lastChatMessageTime + 2000) {
+                sendChatMessage(text);
+                _lastChatMessageTime = now;
+                _lastChatMessageText = text;
+                chatMessageText.text = "";
+            }
+        }
+
+        private function onChatChannelChange(event: IndexChangedEvent): void
+        {
+            _currentChatChannel = String(chats.selectedChild.data);
+        }
+
+        private function sendChatMessage(text: String): void
+        {
+            SessionSocket.instance.sendMessage(new ChatMessageMessage(text, -1, _currentChatChannel));
+        }
+
+        private function sendPrivateChatMessage(text: String, nick: String):void
+        {
+            SessionSocket.instance.sendMessage(new ChatMessageMessage(text, -1, ChanneledMessage.PRIVATE_CHANNEL, nick));
+        }
+
+        ]]></mx:Script>
+
+</screens:BaseScreen>

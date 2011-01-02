@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/1870/trunk/tsclient/src/com/turbostool/client/game/test
+END
+GameControllerTest.as
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1870/trunk/tsclient/src/com/turbostool/client/game/test/GameControllerTest.as
+END
+ReplayPositionInfoTest.as
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/1870/trunk/tsclient/src/com/turbostool/client/game/test/ReplayPositionInfoTest.as
+END
+GameTestSuite.as
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/1870/trunk/tsclient/src/com/turbostool/client/game/test/GameTestSuite.as
+END
+ReplayDataTest.as
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/1870/trunk/tsclient/src/com/turbostool/client/game/test/ReplayDataTest.as
+END
+RaceModelTest.as
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/1870/trunk/tsclient/src/com/turbostool/client/game/test/RaceModelTest.as
+END

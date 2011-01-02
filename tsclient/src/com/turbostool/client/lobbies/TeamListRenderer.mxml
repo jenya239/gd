@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ns1:BaseListRenderer
+        xmlns="com.turbostool.client.lobbies.*"
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        width="205" height="19"
+        verticalScrollPolicy="off"
+        horizontalScrollPolicy="off"
+        backgroundAlpha="0"
+        themeColor="#ffffff"
+        click="linkHandler();"
+        selectedBackgroundColor="#290a05"
+        xmlns:ns1="com.turbostool.controls.*">
+
+            <!--selectedBackgroundColor="{data.homeCity == 1 ? 0x1A8BB5 : 0xb62319}"-->
+
+    <mx:Script><![CDATA[
+        import com.turbostool.client.event.EventManager;
+        import com.turbostool.client.event.NickClickEvent;
+
+        private function linkHandler():void
+        {
+            var userID:Number = data.userID as Number;
+            if (userID == 0)
+                userID = Client.instance.modelsStorage.userInfo.id;
+            EventManager.instance.dispatchEvent(new NickClickEvent("", userID));
+        }
+
+        ]]></mx:Script>
+
+    <mx:Style source="/styles.css"/>
+
+        <ns1:Rectangle x="0" y="0" width="100%" height="100%" backgroundColor2="{data.homeCity == 1 ? 0x1A8BB5 : 0xb62319}" cornerRadius="6" />
+    <mx:Image source="@Embed(source='/assets/gui/screens/lobby/teamListElementBkg.png')" left="-1" top="1"/>
+    <mx:Label x="2" y="9" fontFamily="Arial"
+              fontSize="11" color="#000000" fontWeight="bold" width="104"
+              text="{data.displayName}"/>
+    <mx:Label x="109" y="9" fontFamily="Arial" fontSize="11" color="#000000" fontWeight="bold" width="96"
+              text="{data.loadingProgress}%"/>
+    <ns1:SmartImage x="157" y="3" width="50" height="50" flip="true"
+                    source="{data.garageCarUrl}"
+            >
+    </ns1:SmartImage>
+</ns1:BaseListRenderer>

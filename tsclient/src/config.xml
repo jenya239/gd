@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <host>localhost</host>
+    <host1>localhost</host1>
+    <port>9000</port>
+    <policyPort>8999</policyPort>
+    <serverUrl>localhost</serverUrl>
+    <radio1>http://188.93.17.232:2007/1</radio1>
+    <radio>http://media-ice.musicradio.com/HeartLondonMP3</radio>    	
+    <serverUrlList>
+        <url>http://web.goroddorog.ru/</url>
+        <url>http://web2.goroddorog.ru/</url>
+    </serverUrlList>
+    <defaultRoutePath>data/routes/raceKrestovskyostrov.xml</defaultRoutePath>
+    <defaultCarPath>data/cars/Dodge Viper SRT 10.xml</defaultCarPath>
+    <replayMode>off</replayMode>
+    <loadFromPHPServer>false</loadFromPHPServer>
+    <logLevel>0</logLevel>
+    <drawDebugData>false</drawDebugData>
+    <dynamicEngineQuantLocal>20</dynamicEngineQuantLocal>
+    <dynamicEngineQuantRemote>20</dynamicEngineQuantRemote>
+    <vkontakteAPIUrl>http://localhost:8000/vapi.yaws</vkontakteAPIUrl>
+    <carStatePosError>5</carStatePosError>
+    <carStateAngleError>1</carStateAngleError>
+    <carStateIdleInterval>1000</carStateIdleInterval>
+    <carStateMinInterval>500</carStateMinInterval>
+    <filterCoeff>0.1</filterCoeff>
+</config>

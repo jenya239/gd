@@ -1,0 +1,14 @@
+K 13
+svn:mergeinfo
+V 576
+/branches/cars/gdserver/src/flashSecurity.erl:2458-2606
+/branches/chat/gdserver/src/flashSecurity.erl:2366-2387
+/branches/items/gdserver/src/flashSecurity.erl:1872-1893
+/branches/mneser/gdserver/src/flashSecurity.erl:2337-2351
+/branches/otpApplication/gdserver/src/flashSecurity.erl:1717-1875
+/branches/ticket818/gdserver/src/flashSecurity.erl:2345-2368
+/branches/twoCities/gdserver/src/flashSecurity.erl:1903-2197
+/branches/upgrades/gdserver/src/flashSecurity.erl:1921-1938
+/branches/vapi/gdserver/src/flashSecurity.erl:2205-2311
+/trunk/gdserver/src/flashSecurity.erl:653-785
+END

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<controls:BaseListRenderer
+        xmlns="com.turbostool.client.lobbies.*"
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        xmlns:controls="com.turbostool.controls.*"
+        width="467" height="19"
+        verticalScrollPolicy="off"
+        horizontalScrollPolicy="off"
+        backgroundAlpha="1.0"
+        backgroundColor="{(data.mayJoin) ? 0x20510F : 0xDE8704}"
+	selectedBackgroundColor="{(data.mayJoin) ? 0x20510F : 0xDE8704}">
+
+    <mx:Style source="/styles.css"/>
+    
+    <mx:ViewStack id="renderStack" width="100%" 
+        selectedChild="{ (data.league == 4) ? duel  : common }"
+	horizontalScrollPolicy="off">        
+        <mx:Canvas id="common" horizontalScrollPolicy="off">
+	    <mx:Image x="0" y="0" 
+	         source="@Embed('/assets/gui/screens/competition/competInfo_mask.png')" />
+	    <mx:Label x="0" y="1" styleName="tableCellLobby" width="104" text="{data.creatorName}"/>
+	    
+	    <mx:Label x="109" y="1" styleName="tableCellLobby" width="146" text="{data.routeInfo}"/>
+	    <mx:Label x="260" y="1" styleName="tableCellLobby" width="56"  text="{'' + data.playerCount + '/' + data.playerMax}"/>
+	    <mx:Label x="320" y="1" styleName="tableCellLobby" width="51"  text="{data.statusText}"/>
+	    <mx:Label x="378" y="1" styleName="tableCellLobby" width="29"  text="{data.timerShortText}"/>
+	    <mx:Label x="412" y="1" styleName="tableCellLobby" width="53"  text="{data.carName}"/>
+        </mx:Canvas>
+	
+	<mx:Canvas id="duel">
+           <mx:Image x="0" y="0" 
+	         source="@Embed('/assets/gui/screens/competition/competInfo_mask_duel.png')" />
+	   <mx:HBox horizontalGap="1" x="2">
+		    <mx:Label y="1" styleName="tableCellLobby" width="104" text="{data.creatorName}" />
+		    <mx:Label y="1" styleName="tableCellLobby" width="58"  text="{data.creatorRating}"/>
+		    <mx:Label y="1" styleName="tableCellLobby" width="151" text="{data.routeInfo}"/>
+		    <mx:Label y="1" styleName="tableCellLobby" width="94"  text="{data.creatorCarName}"/>
+		    <mx:Label y="1" styleName="tableCellLobby" width="53"  text="{data.stake}"/>
+	   </mx:HBox>	    
+        </mx:Canvas>
+    </mx:ViewStack>
+
+</controls:BaseListRenderer>

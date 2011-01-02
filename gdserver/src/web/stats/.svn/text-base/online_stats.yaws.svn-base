@@ -1,0 +1,107 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" src="js/json/json2.js"></script>
+<script type="text/javascript" src="js/swfobject.js"></script>
+<script type="text/javascript">
+    //swfobject.embedSWF("open-flash-chart.swf", "traffic_chart", "750", "400", "9.0.0", "expressInstall.swf", {"get-data":"get_data_3"});
+	swfobject.embedSWF("open-flash-chart.swf", "system_chart", "750", "400", "9.0.0", "expressInstall.swf", {"get-data":"get_data_2"});
+	swfobject.embedSWF("open-flash-chart.swf", "online_chart", "750", "400", "9.0.0", "expressInstall.swf", {"get-data":"get_data_1"});
+
+	function get_data_1()
+	{
+	    return JSON.stringify(data1);
+	}
+	
+	function get_data_2()
+	{
+	    return JSON.stringify(data2);
+	}
+/*
+    function get_data_3()
+	{
+	    return JSON.stringify(data3);
+	}
+*/
+	function on_click(chart_id, index) {
+		window.location = "?t=daily&y=" + Y + "&m=" + M + "&d=" + (FirstDay + chart_id);
+	}
+</script>
+
+</head>
+<body>
+    <h1>
+		Статистика - online,
+		<erl>
+			out(Arg) ->
+				{{LocalYear, LocalMonth, LocalDay}, _LocalTime}= calendar:local_time(),
+				T = case yaws_api:getvar(Arg, "t") of {ok, T1} -> list_to_atom(T1); undefined -> daily end,
+				Y = case yaws_api:getvar(Arg, "y") of {ok, Y1} -> list_to_integer(Y1); undefined -> LocalYear end,
+				M = case yaws_api:getvar(Arg, "m") of {ok, M1} -> list_to_integer(M1); undefined -> LocalMonth end,
+				D = case yaws_api:getvar(Arg, "d") of {ok, D1} -> list_to_integer(D1); undefined -> LocalDay end,
+				{Text, Link, LinkText} = case T of 
+					daily ->
+						{"за день / ", io_lib:format("?t=monthly&y=~b&m=~b", [Y, M]), "за месяц"};
+					monthly ->
+						{"за месяц / ", io_lib:format("?t=daily&y=~b&m=~b&d=~b", [Y, M, D]), "за день"}
+				end,
+				
+				{ehtml, [{span, [], Text}, {a, [{href, Link}], LinkText}]}.
+		</erl>
+	</h1>
+    <erl>
+        out(Arg) -> 
+			{{LocalYear, LocalMonth, LocalDay}, _LocalTime}= calendar:local_time(),
+			T = case yaws_api:getvar(Arg, "t") of {ok, T1} -> list_to_atom(T1); undefined -> daily end,
+			Y = case yaws_api:getvar(Arg, "y") of {ok, Y1} -> list_to_integer(Y1); undefined -> LocalYear end,
+			M = case yaws_api:getvar(Arg, "m") of {ok, M1} -> list_to_integer(M1); undefined -> LocalMonth end,
+			D = case yaws_api:getvar(Arg, "d") of {ok, D1} -> list_to_integer(D1); undefined -> LocalDay end,			
+			
+            {NavigationHtml, From, To} = case T of
+ 				daily -> 
+					stats:getDailyNavigationHtmlAndDateRange(Arg);
+				monthly ->
+					stats:getMonthlyNavigationHtmlAndDateRange(Arg)
+			end,
+			
+			StatsList = dbOnlineStats:getOnlineUsersStats(From, To, T),
+			FirstDay = if length(StatsList) > 0 ->
+				dbOnlineStats:getTimeComponent(day, element(2, lists:nth(1, StatsList)));
+			true ->
+				0
+			end,
+
+			JSONData = case T of
+				daily ->
+					SystemStats = dbSystemStats:getForTimeRange(From, To),
+                    %TrafficStats = dbTrafficStat:getForTimeRange(From, To),
+                    %var data3=" ++ dbTrafficStat:createJSONData(TrafficStats) ++ ";",
+					{script, [{type, "text/javascript"}], "var data1=" ++ dbOnlineStats:createJSONData(StatsList, T) ++ "; var data2=" ++ dbSystemStats:createJSONData(SystemStats) ++ ";"};
+				monthly ->
+					{script, [{type, "text/javascript"}], "var data1=" ++ dbOnlineStats:createJSONData(StatsList, T)}
+			end,
+			
+			RequestData = {script, [{type, "text/javascript"}], io_lib:format("var Y=~b; var M=~b; var D=~b; FirstDay=~b;", [Y, M, D, FirstDay])},
+            {ehtml, [NavigationHtml, JSONData, RequestData]}.
+    </erl>
+
+	<a href="online_users.yaws">Список пользователей online</a><br/>
+	
+	<erl>
+		out(Arg) ->
+			T = case yaws_api:getvar(Arg, "t") of {ok, T1} -> list_to_atom(T1); undefined -> daily end,
+			DivHtml1 = {'div', [{id, "online_chart"}], ""},
+			DivHtml2 = {'div', [{id, "system_chart"}], ""},
+            %DivHtml3 = {'div', [{id, "traffic_chart"}], ""},
+			ChartsList = case T of 
+				daily ->
+					[DivHtml1, DivHtml2];
+				monthly ->
+					[DivHtml1]
+			end,
+			
+			{ehtml, ChartsList}.
+	</erl>
+</body>
+</html>

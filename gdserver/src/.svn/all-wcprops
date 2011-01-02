@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/4640/trunk/gdserver/src
+END
+stats.erl
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/2659/trunk/gdserver/src/stats.erl
+END
+utils.erl
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/3073/trunk/gdserver/src/utils.erl
+END
+carUpgrades.erl
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/3179/trunk/gdserver/src/carUpgrades.erl
+END
+globalChat.erl
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/3196/trunk/gdserver/src/globalChat.erl
+END
+users.erl
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/3196/trunk/gdserver/src/users.erl
+END
+protocol.erl
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/3154/trunk/gdserver/src/protocol.erl
+END
+lobbyManager.erl
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/3196/trunk/gdserver/src/lobbyManager.erl
+END
+systemStats.erl
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/2773/trunk/gdserver/src/systemStats.erl
+END
+cityManager.erl
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/3570/trunk/gdserver/src/cityManager.erl
+END
+temp.erl
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/2616/trunk/gdserver/src/temp.erl
+END
+ymnesia.erl
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/2616/trunk/gdserver/src/ymnesia.erl
+END
+server.erl
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/2991/trunk/gdserver/src/server.erl
+END
+vkontakte.erl
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/3196/trunk/gdserver/src/vkontakte.erl
+END
+lobby.erl
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/3196/trunk/gdserver/src/lobby.erl
+END
+statistic.erl
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/2616/trunk/gdserver/src/statistic.erl
+END
+config.hrl
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/3108/trunk/gdserver/src/config.hrl
+END
+citySupervisor.erl
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/2991/trunk/gdserver/src/citySupervisor.erl
+END
+registration.erl
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/3196/trunk/gdserver/src/registration.erl
+END
+data.hrl
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/3110/trunk/gdserver/src/data.hrl
+END
+client.erl
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/3196/trunk/gdserver/src/client.erl
+END
+scheduler.erl
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/3016/trunk/gdserver/src/scheduler.erl
+END
+serverSocket.erl
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/2860/trunk/gdserver/src/serverSocket.erl
+END
+log.erl
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/2616/trunk/gdserver/src/log.erl
+END
+flashSecurity.erl
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/2616/trunk/gdserver/src/flashSecurity.erl
+END
+socket.erl
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/2860/trunk/gdserver/src/socket.erl
+END
+socketSender.erl
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/3196/trunk/gdserver/src/socketSender.erl
+END
+fuel.erl
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/3196/trunk/gdserver/src/fuel.erl
+END
+gdapp.erl
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/2616/trunk/gdserver/src/gdapp.erl
+END

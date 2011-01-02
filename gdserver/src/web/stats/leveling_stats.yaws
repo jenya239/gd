@@ -1,0 +1,41 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" src="js/json/json2.js"></script>
+<script type="text/javascript" src="js/swfobject.js"></script>
+<script type="text/javascript">
+	swfobject.embedSWF("open-flash-chart.swf", "my_chart", "750", "400", "9.0.0");
+
+	function open_flash_chart_data()
+	{
+	    return JSON.stringify(data);
+	}
+	
+	function on_click(chart_id, index) {
+	}
+</script>
+
+</head>
+<body>
+    <h2>
+		Статистика - левелинг пользователей, зарегистрировавшихся за 
+		<erl>
+			out(Arg) -> 
+				{{_LocalYear, LocalMonth, _LocalDay}, _LocalTime}= calendar:local_time(),
+				M = case yaws_api:getvar(Arg, "m") of {ok, M1} -> list_to_integer(M1); undefined -> LocalMonth end,
+				MonthHTML = {span, [], utils:monthToString(M)},
+				{ehtml, [MonthHTML]}.
+		</erl>
+	</h2>
+    <erl>
+        out(Arg) -> 
+	        {NavigationHtml, From, To} = stats:getMonthlyNavigationHtmlAndDateRange(Arg),
+
+			JSONData = {script, [{type, "text/javascript"}], "var data=" ++ dbUserProgress:createLevelingJSON(From, To)},
+            {ehtml, [NavigationHtml, JSONData]}.
+    </erl>
+
+	<div id="my_chart"></div>
+</body>
+</html>

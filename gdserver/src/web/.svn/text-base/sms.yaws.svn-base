@@ -1,0 +1,7 @@
+<Response>
+    <SmsText>
+        <erl>
+        out(A)->{html, sms:allValues(A)}.
+        </erl>
+    </SmsText>
+</Response>

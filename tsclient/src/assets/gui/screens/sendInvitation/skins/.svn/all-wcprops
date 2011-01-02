@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/1225/trunk/tsclient/src/assets/gui/screens/sendInvitation/skins
+END
+invite_up.png
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1225/trunk/tsclient/src/assets/gui/screens/sendInvitation/skins/invite_up.png
+END
+sendinvitation_up.png
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/1225/trunk/tsclient/src/assets/gui/screens/sendInvitation/skins/sendinvitation_up.png
+END
+invite_disabled.png
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/1225/trunk/tsclient/src/assets/gui/screens/sendInvitation/skins/invite_disabled.png
+END
+invite_down.png
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/1225/trunk/tsclient/src/assets/gui/screens/sendInvitation/skins/invite_down.png
+END
+sendinvitation_disabled.png
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/1225/trunk/tsclient/src/assets/gui/screens/sendInvitation/skins/sendinvitation_disabled.png
+END
+sendinvitation_down.png
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1225/trunk/tsclient/src/assets/gui/screens/sendInvitation/skins/sendinvitation_down.png
+END
+invite_over.png
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/1225/trunk/tsclient/src/assets/gui/screens/sendInvitation/skins/invite_over.png
+END
+sendinvitation_over.png
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1225/trunk/tsclient/src/assets/gui/screens/sendInvitation/skins/sendinvitation_over.png
+END

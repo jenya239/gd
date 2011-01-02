@@ -1,0 +1,123 @@
+<?xml version="1.0" ?>
+<mx:Canvas
+        xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:controls="com.turbostool.controls.*" creationComplete="onCreationComplete()">
+    <controls:Rectangle id="maskBorderRect1" borderWidth="{borderWidth}" borderColor2="{borderColor}" backgroundAlpha="0" height="100%" width="100%" cornerRadius="{cornerRadius}" />
+    <controls:Rectangle id="maskBorderRect2" borderWidth="{borderWidth}" borderColor2="{borderColor}" backgroundAlpha="0" height="100%" width="100%" cornerRadius="{cornerRadius}" />
+    <controls:Rectangle borderWidth="0" backgroundColor2="{backgroundColor}" left="{borderWidth}" top="{borderWidth}" bottom="{borderWidth}" right="{borderWidth}" cornerRadius="{cornerRadius > 0 ? cornerRadius - 1 : 0}" mask="{maskBorderRect1}" />
+    <controls:Rectangle id="bar1" borderWidth="0" backgroundColor2="{barColor1}" width="{_barWidth1}" left="{borderWidth}" top="{borderWidth}" bottom="{borderWidth}" mask="{maskBorderRect1}" />
+    <controls:Rectangle id="bar2" borderWidth="0" backgroundColor2="{barColor2}" width="{_barWidth2}" left="{borderWidth}" top="{borderWidth}" bottom="{borderWidth}" mask="{maskBorderRect2}" />
+    <controls:Rectangle borderWidth="{borderWidth}" borderColor2="{borderColor}" backgroundAlpha="0" height="100%" width="100%" cornerRadius="{cornerRadius}" />
+
+    <mx:Script><![CDATA[
+        private function onCreationComplete():void {
+            changeWidth1();
+            changeWidth2();
+        }
+
+        [Bindable]
+        public var borderWidth: Number = 0;
+
+        [Bindable]
+        public var borderColor: uint;
+
+        [Bindable]
+        public var cornerRadius: uint;
+
+        [Bindable]
+        public var barColor1: uint;
+
+        [Bindable]
+        public var barColor2: uint;
+
+        [Bindable]
+        public var backgroundColor: uint;
+
+        private var _minValue: Number;
+        private var _maxValue: Number;
+        private var _progress1: Number;
+
+        private var _progress2: Number;
+
+        public function get minValue():Number {
+            return _minValue;
+        }
+
+        public function set minValue(value:Number):void {
+            _minValue = value;
+
+            changeWidth1();
+            changeWidth2();
+        }
+
+        public function get maxValue():Number {
+            return _maxValue;
+        }
+
+        public function set maxValue(value:Number):void {
+            _maxValue = value;
+
+            changeWidth1();
+            changeWidth2();
+        }
+
+        public function get progress1():Number {
+            return _progress1;
+        }
+
+        public function set progress1(value:Number):void {
+            _progress1 = value;
+
+            changeWidth1();
+        }
+
+        public function get progress2():Number {
+            return _progress2;
+        }
+
+        public function set progress2(value:Number):void {
+            _progress2 = value;
+
+            changeWidth2();
+        }
+
+        [Bindable]
+        private var _barWidth1: Number;
+
+        [Bindable]
+        private var _barWidth2: Number;
+
+        private function changeWidth1(): void {
+            if (isNaN(_maxValue) || isNaN(_minValue) || isNaN(_progress1))
+                return;
+
+            var diff: Number = _maxValue - _minValue;
+            diff = diff > 0 ? diff : 0;
+
+            var progress: Number = _progress1 - _minValue;
+            progress = progress > 0 ? progress : 0;
+
+            var percent: Number = diff > 0 ? progress / diff : 0;
+            percent = percent < 1 ? percent : 1;
+
+            _barWidth1 = (width - borderWidth) * percent;
+        }
+
+        private function changeWidth2(): void {
+            if (isNaN(_maxValue) || isNaN(_minValue) || isNaN(_progress2))
+                return;
+
+            var diff: Number = _maxValue - _minValue;
+            diff = diff > 0 ? diff : 0;
+
+            var progress: Number = _progress2 - _minValue;
+            progress = progress > 0 ? progress : 0;
+
+            var percent: Number = diff > 0 ? progress / diff : 0;
+            percent = percent < 1 ? percent : 1;
+
+            _barWidth2 = (width - borderWidth) * percent;
+        }
+
+
+        ]]></mx:Script>
+</mx:Canvas>

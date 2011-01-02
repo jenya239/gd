@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<screens:BaseScreen
+        xmlns="com.turbostool.client.lobbies.*"
+        xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:screens="com.turbostool.client.screens.*"
+        xmlns:utils="com.turbostool.client.utils.*"
+        width="607" height="390"
+        backgroundColor="#151D12" color="#000000"
+        verticalScrollPolicy="off"
+        horizontalScrollPolicy="off"
+        xmlns:controls="com.turbostool.controls.*"
+        currentState="{getStateIfExists(modelsStorage.userInfo.tutorialStageStr)}">
+
+    <screens:states>
+        <mx:State name="tutorialStage2">
+            <mx:AddChild position="lastChild">
+                <controls:PointingArrowUp currentState="{modelsStorage.userInfo.homeCity == 1 ? '': 'blue'}"
+                                          horizontalCenter="-36" verticalCenter="-115"/>
+            </mx:AddChild>
+            <mx:AddChild position="lastChild">
+                <controls:BackgroundedLabel borderColor2="0xFFFFFF"
+                                            backgroundColor2="{modelsStorage.userInfo.homeCity == 1 ? 0xb52319: 0x198bb5}"
+                                            borderWidth="1" backgroundAlpha2="1.0" horizontalCenter="-32"
+                                            verticalCenter="-60" id="backgroundedlabel1" labelText="{str('tutorialStage2_Message2')" />
+
+            </mx:AddChild>
+            <mx:RemoveChild target="{btnCreateLobby}"/>
+        </mx:State>
+    </screens:states>
+
+    <mx:Metadata>
+        [Event(name="screenSelected", type="com.turbostool.client.city.ScreenSelectedCommand")]
+    </mx:Metadata>
+
+    <mx:Style source="/styles.css"/>
+    <mx:Script>
+        <![CDATA[
+        import com.turbostool.client.event.EventManager;
+        import com.turbostool.client.lobbies.events.JoinLobbyCommand;
+        import com.turbostool.client.lobbies.events.JoinRandomLobbyCommand;
+        import com.turbostool.client.lobbies.events.RefreshLobbiesCommand;
+        import com.turbostool.client.model.LobbyInfo;
+
+        import mx.binding.utils.BindingUtils;
+        import mx.collections.ArrayCollection;
+        import mx.events.FlexEvent;
+        import mx.events.ListEvent;
+
+        [Bindable]
+        public var lobbiesController: LobbiesController;
+
+        private function onJoinRandom():void
+        {
+            EventManager.lobbyRaceChannel.dispatchEvent(new JoinRandomLobbyCommand());
+        }
+
+        private function onQuickStart():void
+        {
+            if (lobbies.dataProvider.length > 0 && lobbies.dataProvider[0].mayJoin)
+            {
+                var lobby : LobbyInfo = lobbies.dataProvider[0] as LobbyInfo;
+                EventManager.lobbyRaceChannel.dispatchEvent(new JoinLobbyCommand(lobby));
+            }
+            else
+            {
+                lobbiesController.createQuickLobby(lobbiesController.league);
+            }
+        }
+
+        private function onJoinLobby():void
+        {
+            if (lobbies.selectedItem != null && lobbies.selectedItem.mayJoin)
+            {
+                EventManager.lobbyRaceChannel.dispatchEvent(new JoinLobbyCommand(LobbyInfo(lobbies.selectedItem)));
+            }
+        }
+
+        private var _lastSelectedItem: LobbyInfo = null;
+
+        private function List_itemClick(evt:ListEvent):void
+        {
+            _lastSelectedItem = LobbyInfo(lobbies.selectedItem);
+        }
+
+        private function onRefreshClick(): void
+        {
+            EventManager.lobbyRaceChannel.dispatchEvent(new RefreshLobbiesCommand());
+        }
+
+        private function setDataProvider(newLobbies: ArrayCollection): void
+        {
+            if (_lastSelectedItem != null)
+            {
+                for (var i: int = 0; i < newLobbies.length; i++)
+                {
+                    if (LobbyInfo(newLobbies[i]).id == _lastSelectedItem.id)
+                    {
+                        lobbies.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+
+            if (_lastVerticalScrollPosition >= 0)
+            {
+                lobbies.verticalScrollPosition = _lastVerticalScrollPosition;
+            }
+        }
+
+        private var _lastVerticalScrollPosition: Number = -1;
+
+        private function onScroll(): void
+        {
+            _lastVerticalScrollPosition = lobbies.verticalScrollPosition;
+        }
+
+        override public function onInitialize(event: FlexEvent): void
+        {
+            BindingUtils.bindSetter(setDataProvider, lobbies, "dataProvider");
+        }
+
+        override protected function onBackClick(): void
+        {
+            super.onBackClick();
+            lobbiesController.needRefreshLobbies = false;
+        }
+
+        private function filterLobbies(lobbies:Array, league:Number):Array
+        {
+            return lobbies.filter(function(lobby: LobbyInfo, index: int, array: Array): Boolean
+            {
+                return (lobby.league == lobbiesController.league) && ( (lobby.league == 4) ? ( (lobby.status == LobbyInfo.STATUS_HALL) && (lobby.playerCount == 1)  ) : true   )
+            });
+        }
+
+        ]]>
+
+    </mx:Script>
+
+    <mx:Image source="@Embed(source='/assets/gui/screens/competition/compet_bkg.png')" horizontalCenter="-2" top="38"/>
+    <LeagueTabs top="45" left="65" lobbiesController="{lobbiesController}"/>
+    <DuelHeader x="90" y="69" visible="{lobbiesController.league == 4}"/>
+    <mx:List
+            id="lobbies"
+            change="List_itemClick(event);"
+            selectedIndex="0"
+            dataProvider="{filterLobbies(lobbiesController.lobbies,lobbiesController.league)}"
+            verticalScrollBarStyleName="myScrollStyle"
+            verticalScrollPolicy="on" horizontalScrollPolicy="off"
+            width="483" height="280"
+            backgroundColor="#7F3E3E" backgroundAlpha="0"
+            themeColor="#100502"
+            borderStyle="none"
+            horizontalCenter="0"
+            useRollOver="false"
+            borderSides=""
+            itemRenderer="com.turbostool.client.lobbies.LobbiesListRenderer"
+            paddingTop="0"
+            paddingBottom="0"
+            paddingLeft="0"
+            rowHeight="19"
+            scroll="onScroll()"
+            itemClick="onJoinLobby()"
+            top="94"
+            />
+
+    <mx:Label text="{str('showAllRaces')}" styleName="white" horizontalCenter="140" top="40"/>
+    <mx:CheckBox id="cbShowAll" styleName="btnCheck" horizontalCenter="236" top="28"
+                 selected="{lobbiesController.showAllLobbies}"
+                 change="lobbiesController.showAllLobbies = cbShowAll.selected"/>
+    <mx:Button label="{str('quickStart')}" id="btnQuickStart" styleName="Registration" click="onQuickStart()" color="#EFEFEF"
+               visible='{!(lobbiesController.league == 4 || modelsStorage.userInfo.currentCity == 3)}'
+               top="9" horizontalCenter="-37"/>
+    <mx:Button label="{str('create')}" id="btnCreateLobby" styleName="default"
+               click="cnvRaceCreationScreen.randomParams(); cnvRaceCreationScreen.visible = true;" top="9"
+               horizontalCenter="-213"/>
+    <mx:Button label="{str('refresh')}" id="btnRefresh" styleName="default" click="onRefreshClick()" top="9"
+               visible="false"
+               horizontalCenter="-213"/>
+    <mx:Button label="{str('toCity')}" styleName="default" fontFamily="Arial" fontWeight="bold" fontSize="11"
+               height="22" icon="@Embed(source='/assets/gui/common/exitIcon.png')" textAlign="left"
+               textIndent="5" click="onBackClick()" y="9" horizontalCenter="218"/>
+    <CreationScreen width="607" height="390" x="0" y="0" id="cnvRaceCreationScreen"
+                    lobbiesController="{lobbiesController}" modelsStorage="{modelsStorage}"/>
+
+</screens:BaseScreen>

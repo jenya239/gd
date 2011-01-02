@@ -1,0 +1,202 @@
+<?xml version="1.0" ?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml"
+           xmlns:controls="com.turbostool.controls.*"
+           width="300" height="300"
+           backgroundAlpha="0.0"
+           creationComplete="onCreationComplete()"
+           horizontalScrollPolicy="off" verticalScrollPolicy="off"
+        >
+
+    <mx:Metadata>
+        [Event(name="smartImageLoaded", type="com.turbostool.controls.SmartImageLoadedEvent")]
+    </mx:Metadata>
+
+
+    <mx:states>
+        <mx:State name="loading">
+            <mx:AddChild position="lastChild">
+                <controls:LoadingIndicator verticalCenter="0" horizontalCenter="0" backgroundAlpha="0" text="Загрузка" height="36" />
+            </mx:AddChild>
+        </mx:State>
+        <mx:State name="error">
+            <mx:AddChild>
+                <mx:Label id="errorLabel" text="Ошибка загрузки" fontSize="16" textAlign="center" color="#FFFFFF"
+                          fontWeight="bold" horizontalCenter="0" verticalCenter="0" fontFamily="Arial"/>
+            </mx:AddChild>
+        </mx:State>
+        <mx:State name="loaded">
+            <mx:AddChild>
+                <mx:Image id="image" left="0" top="0" right="0" bottom="0" updateComplete="onUpdateComplete()"
+                          initialize="onInit()" />
+            </mx:AddChild>
+        </mx:State>
+        <mx:State name="error50" basedOn="error">
+            <mx:SetStyle target="{errorLabel}" name="fontSize" value="11"/>
+            <mx:SetProperty target="{errorLabel}" name="text" value="ошибка"/>
+            <mx:SetProperty target="{errorLabel}" name="width" value="50"/>
+        </mx:State>
+        <mx:State name="error100" basedOn="error">
+            <mx:SetStyle target="{errorLabel}" name="fontSize" value="11"/>
+            <mx:SetProperty target="{errorLabel}" name="width" value="100"/>
+        </mx:State>
+        <mx:State name="error35" basedOn="error">
+            <mx:SetProperty target="{errorLabel}" name="text" value="ошибка"/>
+            <mx:SetStyle target="{errorLabel}" name="fontSize" value="8"/>
+            <mx:SetStyle target="{errorLabel}" name="fontWeight" value="normal"/>
+            <mx:SetProperty target="{errorLabel}" name="width" value="35"/>
+        </mx:State>
+    </mx:states>
+
+    <mx:Script><![CDATA[
+        import mx.core.UIComponentGlobals;
+        import mx.effects.Glow;
+
+        public var glowEffect: Glow;
+
+        [Bindable(event="smartImageLoaded")]
+        public function get isLoaded(): Boolean
+        {
+            return currentState == "loaded";
+        }
+
+        private function onInit():void
+        {
+            glowEffect = new Glow();
+            glowEffect.color = 0xeeeeee;
+            glowEffect.alphaFrom = 0.1;
+            glowEffect.alphaTo = 0.5;
+            glowEffect.duration = 100;
+            glowEffect.blurYFrom = 0;
+            glowEffect.blurXFrom = 0;
+            glowEffect.blurYTo = 10;
+            glowEffect.blurXTo = 10;
+            if (glow)
+            {
+                image.setStyle("creationCompleteEffect", "glowEffect");
+            }
+        }
+
+        private function onUpdateComplete():void
+        {
+            if (flip)
+            {
+                var m: Matrix = new Matrix();
+                m.scale(-1, 1);
+                m.translate(image.width, 0);
+                image.transform.matrix = m;
+            }
+        }
+
+        private var _loader: Loader = new Loader();
+        private var _source: String;
+
+        public function get source(): String
+        {
+            return _source;
+        }
+
+        public var flip: Boolean = false;
+        [Bindable]
+        public var glow: Boolean = false;
+
+        private var _dark: Boolean = false;
+
+        [Bindable]
+        public function get dark():Boolean
+        {
+            return _dark;
+        }
+
+        public function set dark(val:Boolean):void
+        {
+            _dark = val;
+            useDark();
+        }
+
+        private function useDark():void
+        {
+            if (dark)
+            {
+                var resultColorTransform:ColorTransform = new ColorTransform();
+                //resultColorTransform.alphaMultiplier = 0.5;
+                resultColorTransform.greenMultiplier = 0.2;
+                resultColorTransform.redMultiplier = 0.2;
+                resultColorTransform.blueMultiplier = 0.2;
+                image.source.transform.colorTransform = resultColorTransform;
+            }
+        }
+
+        private function compareUrls(source: String, url: String): Boolean
+        {
+            return source == url;
+        }
+
+        public function set source(url: String): void
+        {
+            if (compareUrls(_source, url) && currentState == "loaded")
+                return;
+
+            _source = url;
+            if (url == null || url == "")
+            {
+                currentState = "";
+                return;
+            }
+            if (!UIComponentGlobals.designMode)
+            {
+                if (initialized)
+                {
+                    currentState = "loading";
+                    loadImage(url);
+                }
+            }
+        }
+
+        private function onCreationComplete(): void
+        {
+            if (_source != null)
+            {
+                source = _source;
+            }
+        }
+
+        public function loadImage(imageURL: String): void
+        {
+            _loader.load(new URLRequest(imageURL));
+            _loader.contentLoaderInfo.addEventListener(Event.COMPLETE, ImageLoadedHandler);
+            _loader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, ImageErrorHandler);
+        }
+
+        private function ImageLoadedHandler(e: Event): void
+        {
+            currentState = "loaded";
+            if(source != null && source.length > 0)
+                image.visible = true;
+            else
+                image.visible = false;
+            
+            image.x = 0;
+            image.y = 0;
+            image.width = this.width;
+            image.height = this.height;
+            var bitmap: Bitmap = _loader.content as Bitmap;
+            bitmap.smoothing = true;
+            image.source = bitmap;
+            useDark();
+            dispatchEvent(new SmartImageLoadedEvent());
+        }
+
+        private function ImageErrorHandler(e: Event): void
+        {
+            if (width < 50)
+                currentState = "error35";
+            else if (width < 100)
+                currentState = "error50";
+            else if (width < 150)
+                    currentState = "error100";
+                else
+                    currentState = "error";
+        }
+
+        ]]></mx:Script>
+</mx:Canvas>

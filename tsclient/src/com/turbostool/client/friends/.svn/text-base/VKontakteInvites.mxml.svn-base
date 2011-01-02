@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<screens:BaseScreen xmlns:mx="http://www.adobe.com/2006/mxml"
+                    xmlns:screens="com.turbostool.client.screens.*" xmlns:controls="com.turbostool.controls.*"
+                    backgroundAlpha="0.0" width="432" height="392">
+
+    <mx:Sequence id="moveEffect" repeatCount="0">
+        <mx:Move yBy="-10" duration="500" easingFunction="Sine.easeIn"/>
+        <mx:Move yBy="10" duration="500" easingFunction="Sine.easeOut"/>
+    </mx:Sequence>
+
+    <mx:Canvas left="0" right="0" bottom="0" top="38" borderColor="#A23636" backgroundColor="#A23636">
+        <mx:Button id="close1" label="x" styleName="gray"
+                   click="PopUpManager.removePopUp(this)" right="5" height="19" textAlign="center" width="21"
+                   top="4"/>
+        <mx:HRule left="5" right="5" strokeWidth="1" top="26"/>
+
+        <mx:Label text="{str('inviteFriends')}"
+                  color="#FFFFFF"
+                  fontSize="12" left="4" fontFamily="Arial" fontWeight="bold" y="3"/>
+        <mx:Text
+                text="{str('friendsInvitationMessage')}"
+                color="#FFFFFF"
+                fontSize="12" fontFamily="Arial" fontWeight="bold" y="32" horizontalCenter="0" width="430"
+                textAlign="center"/>
+        <mx:Button bottom="5" label="{str('next')}" textAlign="center" styleName="default"
+                   fontSize="12"
+                   width="76"
+                   fontFamily="Verdana" textIndent="0" right="10" click="PopUpManager.removePopUp(this)"/>
+        <mx:Image id="arrow" source="@Embed('/assets/gui/screens/friends/invite.png')" horizontalCenter="0" top="75"/>
+    </mx:Canvas>
+    <controls:PointingArrowUp x="198" y="10" />
+
+    <mx:Script><![CDATA[
+        import mx.effects.easing.*;
+        import mx.managers.PopUpManager; ]]></mx:Script>
+</screens:BaseScreen>

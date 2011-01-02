@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<mx:Canvas
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        height="28" alpha="1.0"
+        resize="onResize()"
+        horizontalScrollPolicy="off"
+        verticalScrollPolicy="off"
+        >
+    <mx:states>
+        <mx:State name="size100">
+            <mx:SetStyle target="{swfloader1}" name="left"/>
+            <mx:SetStyle target="{message}" name="left"/>
+            <mx:SetStyle target="{message}" name="right"/>
+            <mx:SetStyle target="{message}" name="fontSize" value="15"/>
+            <mx:SetStyle target="{message}" name="fontWeight" value="bold"/>
+            <mx:SetStyle target="{message}" name="fontFamily" value="Arial"/>
+            <mx:SetProperty target="{message}" name="width" value="67"/>
+            <mx:SetProperty target="{message}" name="x" value="31"/>
+            <mx:SetProperty target="{swfloader1}" name="x" value="0"/>
+            <mx:SetProperty name="height" value="30"/>
+        </mx:State>
+        <mx:State name="size50">
+            <mx:SetStyle target="{swfloader1}" name="left"/>
+            <mx:SetStyle target="{swfloader1}" name="horizontalCenter" value="0"/>
+            <mx:SetProperty name="height"/>
+            <mx:SetStyle target="{swfloader1}" name="verticalCenter" value="-5"/>
+            <mx:SetProperty target="{message}" name="x"/>
+            <mx:SetStyle target="{message}" name="verticalCenter" value="14"/>
+            <mx:SetStyle target="{message}" name="fontSize" value="8"/>
+            <mx:SetStyle target="{message}" name="horizontalCenter" value="1"/>
+            <mx:SetStyle target="{message}" name="fontWeight" value="normal"/>
+            <mx:SetStyle target="{message}" name="fontFamily" value="Arial"/>
+            <mx:SetStyle target="{message}" name="letterSpacing" value="1"/>
+        </mx:State>
+    </mx:states>
+    <mx:SWFLoader source="@Embed(source='/assets/roundingCircle.swf')" alpha="1.0" width="30" height="30"
+                  verticalCenter="0" left="10" id="swfloader1"/>
+    <mx:Label id="message" text="Загрузка" fontSize="18" verticalCenter="0" color="#FFFFFF" x="46" fontFamily="Arial"/>
+
+    <mx:Script>
+		<![CDATA[
+        private function onResize(): void
+        {
+            if (width < 100)
+                currentState = "size50";
+            else if (width < 150)
+                currentState = "size100";
+            else
+                currentState = "";
+        }
+
+        [Inspectable]
+        public function get text(): String
+        {
+            return message.text;
+        }
+
+        public function set text(value: String): void
+        {
+            if (message != null)
+            {
+                message.text = value;
+            }
+        }
+
+        
+		]]>
+</mx:Script>
+
+</mx:Canvas>

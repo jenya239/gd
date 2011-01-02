@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<screens:BaseScreen xmlns:mx="http://www.adobe.com/2006/mxml"
+                    xmlns:screens="com.turbostool.client.screens.*" xmlns:station="com.turbostool.client.station.*"
+                    width="607" height="390"
+                    initialize="onInitialize(event)"
+        >
+
+    <mx:Metadata>
+        [Event(name="screenSelected", type="com.turbostool.client.city.ScreenSelectedCommand")]
+    </mx:Metadata>
+    
+    <mx:ViewStack id="stationScreens" top="0" left="0" right="0" bottom="0" selectedIndex="{transferController.userState.userTransferState == null ? 0 : 1}">
+        <station:StationHallScreen id="stationHall" modelsStorage="{modelsStorage}" userInfo="{userInfo}" screenSelected="onScreenSelected(event)" />
+        <station:TransitionScreen id="transition" modelsStorage="{modelsStorage}" transferController="{transferController}" screenSelected="onScreenSelected(event)" />
+    </mx:ViewStack>
+
+    <mx:Script><![CDATA[
+        import com.turbostool.client.city.ScreenSelectedCommand;
+        import com.turbostool.client.model.UserInfo;
+
+        import mx.binding.utils.BindingUtils;
+        import mx.events.FlexEvent;
+
+        override public function onInitialize(event: FlexEvent):void {
+            super.onInitialize(event);
+        }
+
+        private function onScreenSelected(event:ScreenSelectedCommand):void {
+            dispatchEvent(event.clone());
+        }
+
+        [Bindable]
+        public var userInfo: UserInfo;
+
+        private var _stationState: String;
+        private var _transferController: TransferController;
+
+        public function get stationState():String {
+            return _stationState;
+        }
+
+        public function set stationState(value:String):void {
+            _stationState = value;
+
+            switch (value) {
+                case TransferController.TRANSITION:
+                    stationScreens.selectedChild = transition;
+                    break;
+                default:
+                    stationScreens.selectedChild = stationHall;
+                    break;
+            }
+        }
+
+
+        [Bindable]
+        public function get transferController():TransferController {
+            return _transferController;
+        }
+
+        private function setStationState(value:String):void {
+            if (stationScreens != null)
+                stationState = value;
+        }
+
+        public function set transferController(value:TransferController):void {
+            _transferController = value;
+
+            BindingUtils.bindSetter(setStationState, value, "state");
+        }
+]]></mx:Script>
+</screens:BaseScreen>

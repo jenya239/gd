@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<mx:Canvas
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        xmlns:controls="com.turbostool.controls.*"
+        xmlns:raceResults="com.turbostool.client.screens.raceResults.*"
+        label="{str('city')}" height="100%" width="100%"
+        verticalScrollPolicy="off" horizontalScrollPolicy="off"
+        >
+    <controls:Rectangle left="0" top="0" bottom="0" right="0" backgroundColor2="#dd8b01" cornerRadius="6"/>
+    <controls:Rectangle id="rectInner" left="1" top="4" bottom="1" right="1" backgroundColor2="#2b0907"
+                        cornerRadius="6"/>
+    <controls:AutoScrollingList
+            left="3" top="6" bottom="3" width="451"
+            selectable="false"
+            borderThickness="0"
+            backgroundAlpha="1.0" backgroundColor="#f9f8e3"
+            dataProvider="{dataProvider}"
+            variableRowHeight="true"
+            itemRenderer="com.turbostool.controls.ChatMessageRenderer"
+            verticalScrollBarStyleName="myScrollStyle"
+            verticalScrollPolicy="on" horizontalScrollPolicy="off"
+            cornerRadius="6"
+            />
+    <mx:Script><![CDATA[
+        import com.turbostool.client.ModelsStorage;
+        import com.turbostool.client.event.EventManager;
+        import com.turbostool.client.event.NickClickEvent;
+
+        import com.turbostool.client.net.SessionSocket;
+
+        import com.turbostool.client.net.messages.BanRequest;
+
+        import mx.collections.ArrayCollection;
+
+        [Bindable]
+        public var dataProvider: ArrayCollection;
+
+        public var modelsStorage: ModelsStorage;
+
+
+        public function sendBanRequest(userID: int, milliseconds: int): void
+        {
+            SessionSocket.instance.sendMessage(new BanRequest(userID, milliseconds));
+        }
+
+        public function handleNickClick(link:String, userId: Object):void
+        {
+            EventManager.instance.dispatchEvent(new NickClickEvent(link, userId as Number));
+        }
+
+        private function str(name: String, params: * = null): String {
+            return Client.instance.str(name, params);
+        }
+
+        ]]></mx:Script>
+</mx:Canvas>

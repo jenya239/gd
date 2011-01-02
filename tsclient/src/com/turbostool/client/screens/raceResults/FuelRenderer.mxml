@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<raceResults:BaseRenderer xmlns:mx="http://www.adobe.com/2006/mxml"
+                          xmlns:raceResults="com.turbostool.client.screens.raceResults.*">
+    <mx:Array id="cells">
+        <raceResults:Indicator caption="{str('rest')}" value="{data.fuelValue}" max="{data.fuelCapacity}"/>
+    </mx:Array>
+
+    <mx:Script><![CDATA[
+        public function str(name: String, params: * = null, n: int = -1): String
+        {
+            return Client.instance.str(name, params, n);
+        }
+        ]]></mx:Script>
+
+</raceResults:BaseRenderer>

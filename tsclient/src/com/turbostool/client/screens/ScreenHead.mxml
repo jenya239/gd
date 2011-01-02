@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<BaseScreen xmlns:mx="http://www.adobe.com/2006/mxml"
+            xmlns:controls="com.turbostool.controls.*"
+            xmlns="com.turbostool.client.screens.*"
+            width="541" height="32"
+            horizontalScrollPolicy="{ScrollPolicy.OFF}"
+            verticalScrollPolicy="{ScrollPolicy.OFF}">
+    <mx:Script>
+            <![CDATA[
+                import mx.core.ScrollPolicy;
+
+        [Bindable]
+        public var text:String;
+            ]]>
+        </mx:Script>
+
+    <controls:Rectangle width="541" height="32" cornerRadius="6" backgroundColor2="#DE8A04"/>
+    <mx:Image right="0" y="1" source="@Embed('/assets/gui/screens/gas/up_bkg.png')"/>
+    <mx:Image x="3" y="1" source="@Embed('/assets/gui/common/dots.png')"/>
+    <mx:Image x="280" y="1" source="@Embed('/assets/gui/common/dots.png')"/>
+    <mx:Label x="0" verticalCenter="-2" text="{text}" color="#F2FCE3" fontSize="18" fontFamily="Arial" fontWeight="bold"
+              styleName="default"/>
+</BaseScreen>

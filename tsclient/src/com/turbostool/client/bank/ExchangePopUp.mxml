@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+<screens:BaseScreen
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        xmlns:screens="com.turbostool.client.screens.*"
+        backgroundColor="#a23636"
+        width="292"
+        height="100"
+        verticalScrollPolicy="off"
+        horizontalScrollPolicy="off"
+        >
+
+    <mx:Label x="4" y="2" text="{str('exchange')}" color="#FFFFFF" fontSize="14"/>
+    <mx:Button id="close1" y="2" label="x" styleName="gray"
+               click="dispatchEvent(new Event('modalClose'))" right="5" height="19" textAlign="center" width="21"/>
+
+    <mx:HRule y="23" left="5" right="5" strokeWidth="1"/>
+
+    <mx:HBox y="63" height="34" verticalAlign="middle" left="7" right="7" horizontalGap="2" horizontalAlign="center"
+             bottom="30" paddingLeft="2">
+        <mx:NumericStepper id="realMoney" fontSize="16" fontFamily="Arial" fontWeight="bold" minimum="1" value="1"
+                           maximum="{modelsStorage.userInfo.realMoney}" textAlign="right" stepSize="1"/>
+        <mx:Label text=" X" color="#ffffff" fontSize="16" fontFamily="Arial" fontWeight="bold"/>
+        <mx:Label text="{Utils.formatPrice(modelsStorage.globalInfo.exchangeRate)}" color="#ffffff" fontSize="16"
+                  fontFamily="Arial" fontWeight="bold"/>
+        <mx:Label text=" -" fontSize="16" fontFamily="Arial" color="#ffffff" fontWeight="bold"/>
+        <mx:Label text="{Utils.round(modelsStorage.globalInfo.commissionRate*100)}%" color="#ffffff" fontSize="16"
+                  fontFamily="Arial" fontWeight="bold"/>
+        <mx:Label text=" =" fontSize="16" fontFamily="Arial" fontWeight="bold" color="#ffffff"/>
+        <mx:Label
+                text="{Utils.formatPrice(realMoney.value*modelsStorage.globalInfo.exchangeRate*(1-modelsStorage.globalInfo.commissionRate))}"
+                color="#ffffff" fontSize="16" fontFamily="Arial" fontWeight="bold"/>
+    </mx:HBox>
+    <mx:Button label="{str('change')}" styleName="default" bottom="5" right="5" fontSize="12" click="onExchangeMoney()"/>
+    <mx:Script><![CDATA[
+        import com.turbostool.client.Tracker;
+        import com.turbostool.client.event.EventManager;
+        import com.turbostool.client.game.view.ModalManager;
+        import com.turbostool.client.net.SessionSocket;
+        import com.turbostool.client.net.messages.ExchangeMoneyRequest;
+        import com.turbostool.client.net.messages.ExchangeMoneyResponse;
+        import com.turbostool.client.net.messages.ServerResponseEvent;
+        import com.turbostool.client.utils.Utils;
+        import com.turbostool.controls.LoadingIndicator;
+
+        import flash.events.Event;
+
+        import mx.controls.Alert;
+        import mx.managers.PopUpManager;
+
+        private function onExchangeMoneyResponse(event: ServerResponseEvent):void
+        {
+            EventManager.instance.removeEventListener(ExchangeMoneyResponse.EXCHANGE_MONEY, onExchangeMoneyResponse);
+            PopUpManager.removePopUp(loadingIndicator);
+            ModalManager.instance.closeAllWindows();
+            var response: ExchangeMoneyResponse = event.response as ExchangeMoneyResponse;
+            if (response.isOK)
+            {
+                modelsStorage.userInfo = response.userInfo;
+                Alert.show(str("succesfullExchange"));
+
+                Tracker.instance.trackEvent("exchangeMoney", "successful", "exchange", response.realMoney);
+                Tracker.instance.trackTrans("Rubbles", "Currency", 0, response.realMoney);
+            }
+            else
+            {
+                Alert.show(str("exchangeError") + ": " + response.message);
+
+                Tracker.instance.trackEvent("exchangeMoney", "failure", response.message);
+            }
+        }
+
+        private function onExchangeMoney(): void
+        {
+            EventManager.instance.addEventListener(ExchangeMoneyResponse.EXCHANGE_MONEY, onExchangeMoneyResponse);
+            SessionSocket.instance.sendMessage(new ExchangeMoneyRequest(realMoney.value));
+            PopUpManager.addPopUp(loadingIndicator, this, true);
+            PopUpManager.centerPopUp(loadingIndicator);
+            PopUpManager.bringToFront(loadingIndicator);
+
+            Tracker.instance.trackEvent("exchangeMoney", "request", "exchange", realMoney.value);
+        }
+
+        ]]></mx:Script>
+</screens:BaseScreen>

@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<raceResults:BaseRenderer xmlns:mx="http://www.adobe.com/2006/mxml"
+													xmlns:raceResults="com.turbostool.client.screens.raceResults.*">
+	<mx:Array id="cells">
+		<mx:Label text="{data.displayName}" width="122" styleName="tableCell"/>
+		<mx:Label text="{Utils.formatTime(data.time)}" width="45" styleName="tableCell"/>
+		<mx:Label text="{format(data.newRating - data.oldRating) + ' (' + data.newRating + ')'}" width="60"
+							styleName="tableCell"/>
+		<mx:Label text="{format(data.money)}" width="55" styleName="tableCell" />
+		<mx:Label text="{format(data.experience)}" width="55" styleName="tableCell" />
+        <mx:Label text="{format(data.score)}" width="55" styleName="tableCell"/>
+	</mx:Array>
+	<mx:Script><![CDATA[
+		import com.turbostool.client.utils.Utils;
+		private function format(val: Number): String{
+			return Utils.formatSignedValue(val);
+		}
+		]]></mx:Script>
+</raceResults:BaseRenderer>

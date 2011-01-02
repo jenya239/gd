@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/1154/trunk/gdserver/lib/yaws/priv
+END
+soap.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/1154/trunk/gdserver/lib/yaws/priv/soap.xsd
+END
+wsdl.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/1154/trunk/gdserver/lib/yaws/priv/wsdl.xsd
+END
+envelope.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/1154/trunk/gdserver/lib/yaws/priv/envelope.xsd
+END

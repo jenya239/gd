@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml"
+           xmlns:garage="com.turbostool.client.garage.*">
+    <mx:Script><![CDATA[
+        import com.turbostool.client.model.CarInfo;
+        import com.turbostool.client.model.ItemInfo;
+
+        private var _carInfo: CarInfo;
+
+        public var onEquipmentClickFun:Function = function(event:Event,itemRenderer: GarageItemRenderer):void{};
+
+        [Bindable]
+        public function get carInfo():CarInfo {
+            return _carInfo;
+        }
+
+        public function set carInfo(val:CarInfo):void {
+            _carInfo = val;
+            refreshEquipment();
+        }
+
+        private function refreshEquipment():void
+        {
+            wheelSlotImage.data = null;
+            engineSlotImage.data = null;
+            turboSlotImage.data = null;
+            hullSlotImage.data = null;
+            tailPipeSlotImage.data = null;
+            brakesSlotImage.data = null;
+            if (carInfo != null)
+                for each(var eqv: ItemInfo in carInfo.upgrades)
+                {
+                    (this[eqv.slot + "SlotImage"] as GarageItemRenderer).data = eqv;
+                }
+        }
+
+        private function onEquipmentClick(event: Event, itemRenderer: GarageItemRenderer): void
+        {
+            onEquipmentClickFun(event,itemRenderer);
+        }
+
+    ]]></mx:Script>
+    <mx:Image x="37" y="127" source="@Embed('/assets/gui/screens/garage/slots.png')"/>
+    <garage:GarageItemRenderer click="onEquipmentClick(event, wheelSlotImage)" x="37" y="335" width="44" height="44"
+                               id="wheelSlotImage"/>
+    <garage:GarageItemRenderer click="onEquipmentClick(event, engineSlotImage)" x="37" y="164" width="44" height="44"
+                               id="engineSlotImage"/>
+    <garage:GarageItemRenderer click="onEquipmentClick(event, turboSlotImage)" x="83" y="139" width="44" height="44"
+                               id="turboSlotImage"/>
+    <garage:GarageItemRenderer click="onEquipmentClick(event, hullSlotImage)" x="130" y="127" width="44" height="44"
+                               id="hullSlotImage"/>
+    <garage:GarageItemRenderer click="onEquipmentClick(event, tailPipeSlotImage)" x="276" y="129" width="44" height="44"
+                               id="tailPipeSlotImage"/>
+    <garage:GarageItemRenderer click="onEquipmentClick(event, brakesSlotImage)" x="326" y="161" width="44" height="44"
+                               id="brakesSlotImage"/>
+</mx:Canvas>

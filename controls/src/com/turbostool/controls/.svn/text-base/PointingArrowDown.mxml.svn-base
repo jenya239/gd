@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<mx:Image
+        xmlns:mx="http://www.adobe.com/2006/mxml"        
+        x="282" y="10"
+        creationCompleteEffect="{down}"        
+        source="@Embed('/assets/arrowDown.png')"
+        >
+
+    <mx:Sequence repeatCount="0" id="down">
+        <mx:Move yBy="10" duration="500" easingFunction="Sine.easeIn"/>
+        <mx:Move yBy="-10" duration="500" easingFunction="Sine.easeOut"/>
+    </mx:Sequence>
+
+    <mx:Script><![CDATA[
+        import mx.effects.easing.Sine;
+        ]]></mx:Script>
+</mx:Image>

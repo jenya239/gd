@@ -1,0 +1,3 @@
+<erl>
+out(Arg) -> helper:processPeriodActivities(Arg).
+</erl>

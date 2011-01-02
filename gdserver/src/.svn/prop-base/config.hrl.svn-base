@@ -1,0 +1,15 @@
+K 13
+svn:mergeinfo
+V 555
+/branches/cars/gdserver/src/config.hrl:2458-2606
+/branches/chat/gdserver/src/config.hrl:2366-2387
+/branches/duel/gdserver/src/config.hrl:2793-2880
+/branches/items/gdserver/src/config.hrl:1872-1893
+/branches/mneser/gdserver/src/config.hrl:2337-2351
+/branches/otpApplication/gdserver/src/config.hrl:1717-1875
+/branches/ticket818/gdserver/src/config.hrl:2345-2368
+/branches/twoCities/gdserver/src/config.hrl:1903-2197
+/branches/upgrades/gdserver/src/config.hrl:1921-1938
+/branches/vapi/gdserver/src/config.hrl:2205-2311
+/trunk/gdserver/src/config.hrl:653-715
+END

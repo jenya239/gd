@@ -1,0 +1,644 @@
+<?xml version="1.0"?>
+<mx:Application
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        xmlns="com.turbostool.client.*"
+        xmlns:screens="com.turbostool.client.screens.*"
+        xmlns:ratings="com.turbostool.client.ratings.*"
+        xmlns:lobbies="com.turbostool.client.lobbies.*"
+        xmlns:chat="com.turbostool.client.chat.*"
+        xmlns:city="com.turbostool.client.city.*"
+        xmlns:friends="com.turbostool.client.friends.*"
+        width="607" height="590"
+        layout="absolute"
+        currentState="initialization"
+        horizontalScrollPolicy="off" verticalScrollPolicy="off"
+        preloader="com.turbostool.client.loaderScreen.GDPreloader"
+        backgroundColor="#090909"
+        frameRate="60"
+        modalTransparencyColor="#000000"
+        modalTransparency="0.5"
+        modalTransparencyBlur="1"
+        modalTransparencyDuration="300"
+        applicationComplete="onApplicationComplete();"
+        historyManagementEnabled="false"
+        addedToStage="onAddedToStage()"
+        >
+    <mx:Style source="/styles.css"/>
+    <mx:Style>
+        Alert {
+            color: #ffffff;
+            font-family: Arial;
+            font-weight: bold;
+            font-size: 11;
+            header-height: 0;
+            border-thickness: 1;
+            drop-shadow-enabled: false;
+            background-color: #07072b;
+            corner-radius: 3;
+            border-style: solid;
+            header-colors: #90a4d1, #5970a0;
+            footer-colors: #9db6d9, #ffffff;
+            border-color: #de8a04;
+            button-style-name: "alert";
+        }
+    </mx:Style>
+
+    <mx:Glow id="buttonGlowIn" color="0xeeeeee" alphaFrom="0.1" alphaTo="0.5" duration="100" blurYFrom="0" blurXFrom="0"
+             blurYTo="10" blurXTo="10"/>
+    <mx:Glow id="buttonGlowIn2" color="0xeeeeee" alphaFrom="0.1" alphaTo="0.6" duration="100" blurYFrom="0"
+             blurXFrom="0" blurYTo="20" blurXTo="20"/>
+    <mx:Glow id="buttonGlowOut" color="0xeeeeee" alphaFrom="0.5" alphaTo="0.1" duration="800" blurYFrom="10"
+             blurXFrom="10" blurYTo="0" blurXTo="0"/>
+
+    <mx:states>
+
+        <mx:State name="initialization">
+            <mx:AddChild position="lastChild">
+                <screens:Init width="100%" height="100%"/>
+            </mx:AddChild>
+        </mx:State>
+
+        <mx:State name="authorization">
+            <mx:AddChild position="lastChild">
+                <screens:Login id="login" left="0" top="0" width="100%" height="100%"
+                               registrationController="{registrationController}"/>
+            </mx:AddChild>
+        </mx:State>
+
+        <mx:State name="authorized" enterState="Tracker.instance.trackPageview('/city/map')">
+            <mx:AddChild position="lastChild">
+                <city:CityScreen lobbiesController="{lobbiesController}"
+                                 ratingsController="{ratingsController}"
+                                 transferController="{transferController}"
+                                 modelsStorage="{modelsStorage}"/>
+            </mx:AddChild>
+            <mx:AddChild position="lastChild">
+                <chat:Chat x="10" y="400" width="597" height="190" chatController="{chatController}"
+                           modelsStorage="{modelsStorage}"/>
+            </mx:AddChild>
+            <mx:AddChild position="lastChild">
+                <mx:Button label="{str('friends')}" click="onFriendsClick()" styleName="noIcon" x="486" y="564"
+                           width="100"
+                           height="21"/>
+            </mx:AddChild>
+            <mx:AddChild position="lastChild">
+                <friends:InviteFriends
+                        x="472" y="389"
+                        width="128" height="176"
+                        modelsStorage="{modelsStorage}"/>
+            </mx:AddChild>
+        </mx:State>
+        <mx:State name="disconnected" basedOn="authorized"/>
+
+        <mx:State name="connected" basedOn="authorized">
+        </mx:State>
+
+        <mx:State name="socketDisconnected"/>
+
+    </mx:states>
+
+    <mx:Metadata>
+        [ResourceBundle("text")]
+    </mx:Metadata>
+
+    <mx:Script>
+
+      <![CDATA[
+      //
+
+      import com.turbostool.client.ModelsStorage;
+      import com.turbostool.client.Tracker;
+      import com.turbostool.client.chat.ChatController;
+      import com.turbostool.client.controllers.Controller;
+      import com.turbostool.client.controllers.VkontakteRequest;
+      import com.turbostool.client.event.EventManager;
+      import com.turbostool.client.event.LogoutClickedEvent;
+      import com.turbostool.client.event.QuickConnectLoginClicked;
+      import com.turbostool.client.event.StateChangedEvent;
+      import com.turbostool.client.event.VkontakteEvent;
+      import com.turbostool.client.friends.FriendsList;
+      import com.turbostool.client.friends.VKontaktePermissions;
+      import com.turbostool.client.game.GameEngine;
+      import com.turbostool.client.lobbies.LobbiesController;
+      import com.turbostool.client.model.FriendInfo;
+      import com.turbostool.client.model.GasInfo;
+      import com.turbostool.client.model.GlobalInfo;
+      import com.turbostool.client.model.InvitesInfo;
+      import com.turbostool.client.model.UserInfo;
+      import com.turbostool.client.net.SessionSocket;
+      import com.turbostool.client.net.messages.ChangeTriggerResponse;
+      import com.turbostool.client.net.messages.GetFriendInfosRequest;
+      import com.turbostool.client.net.messages.GetPropertyRequest;
+      import com.turbostool.client.net.messages.GetPropertyResponse;
+      import com.turbostool.client.net.messages.ServerResponseEvent;
+      import com.turbostool.client.net.messages.ShowIntroMessage;
+      import com.turbostool.client.ratings.RatingsController;
+      import com.turbostool.client.registration.RegistrationController;
+      import com.turbostool.client.station.TransferController;
+      import com.turbostool.client.utils.Utils;
+      import com.turbostool.controls.LoadingIndicator;
+
+      import flash.events.KeyboardEvent;
+
+        import mx.collections.ArrayCollection;
+        import mx.collections.Sort;
+        import mx.collections.SortField;
+        import mx.controls.Alert;
+        import mx.managers.PopUpManager;
+        import mx.resources.IResourceBundle;
+        import mx.resources.IResourceManager;
+
+        private function onAddedToStage():void
+        {
+            wrapper = Object(parent.parent.parent);
+            if (isAPIWrapper)
+            {
+                updateLanguage();
+            }
+        }
+
+        public var wrapper: Object = null;
+
+        public function str(name: String, params: * = null, n: int = -1): String
+        {
+            if (n > 1) name += "_multiple";
+            return resourceManager.getString("text", name, params);
+            //return name;
+        }
+
+        public function get isAPIWrapper(): Boolean
+        {
+            return wrapper != null && Utils.getClassName(wrapper) == "APIWrapper";
+        }
+
+        public function get flashParameters(): Object
+        {
+            if (isAPIWrapper)
+            {
+                return wrapper.application.parameters;
+            }
+            else
+            {
+                return this.parameters;
+            }
+        }
+
+        private function onFriendsClick():void
+        {
+            var vkRequest:VkontakteRequest = new VkontakteRequest();
+            vkRequest.addEventListener(VkontakteEvent.RESPONSE, onGetAllFriends);
+            vkRequest.addEventListener(VkontakteEvent.ERROR, onGetAllFriendsError);
+            vkRequest.sendGetAppFriends();
+            var idList: String = "";
+            var friendsDict: Dictionary;
+
+            PopUpManager.addPopUp(_loadingIndicator, this, true);
+            PopUpManager.centerPopUp(_loadingIndicator);
+            PopUpManager.bringToFront(_loadingIndicator);
+
+            function removeLoadingIndicator(): void
+            {
+                PopUpManager.removePopUp(_loadingIndicator);
+            }
+
+            function onGetAllFriends(e: VkontakteEvent): void
+            {
+                vkRequest.removeEventListener(VkontakteEvent.RESPONSE, onGetAllFriends);
+                vkRequest.removeEventListener(VkontakteEvent.ERROR, onGetAllFriendsError);
+                idList = flashParameters["viewer_id"];
+                for each(var id: String in e.xml.uid)
+                {
+                    if (idList != "") idList += ",";
+                    idList += id.toString();
+                }
+                vkRequest.addEventListener(VkontakteEvent.RESPONSE, onGetProfiles);
+                vkRequest.addEventListener(VkontakteEvent.ERROR, onGetProfilesError);
+                vkRequest.sendGetProfiles(idList);
+            }
+
+            function onGetAllFriendsError(e: VkontakteEvent): void
+            {
+                vkRequest.removeEventListener(VkontakteEvent.RESPONSE, onGetAllFriends);
+                vkRequest.removeEventListener(VkontakteEvent.ERROR, onGetAllFriendsError);
+                removeLoadingIndicator();
+                if (e.xml.error_code == 7)
+                {
+                    Tracker.instance.trackPageview("/friends/permissions");
+                    if (isAPIWrapper)
+                    {
+                        wrapper.external.showSettingsBox(1 + 2 + 256 + 512);
+                    }
+                    else
+                    {
+                        var vk: VKontaktePermissions = new VKontaktePermissions();
+                        vk.x = 130;
+                        PopUpManager.addPopUp(vk, Client.instance, true);
+                    }
+                }
+            }
+
+            function onGetProfiles(e: VkontakteEvent): void
+            {
+                vkRequest.removeEventListener(VkontakteEvent.RESPONSE, onGetProfiles);
+                vkRequest.removeEventListener(VkontakteEvent.ERROR, onGetProfilesError);
+                var friends: ArrayCollection = new ArrayCollection();
+                friendsDict = new Dictionary();
+                for each(var user: XML in e.xml.user)
+                {
+                    var friendInfo: FriendInfo = FriendInfo.create(user.uid, user.first_name.toString() + " " + user.last_name.toString(), user.photo_medium.toString());
+                    friends.addItem(friendInfo);
+                    friendsDict[friendInfo.vkontakteID] = friendInfo;
+                }
+                modelsStorage.friends = friends;
+                EventManager.instance.addEventListener(GetPropertyResponse.GET_FRIENDINFOS_RESPONSE, onGetFriendInfos);
+                SessionSocket.instance.sendMessage(new GetFriendInfosRequest(idList));
+            }
+
+            function onGetProfilesError(e: VkontakteEvent): void
+            {
+                vkRequest.removeEventListener(VkontakteEvent.RESPONSE, onGetProfiles);
+                vkRequest.removeEventListener(VkontakteEvent.ERROR, onGetProfilesError);
+                trace("onGetProfilesError message: " + e.message);
+                trace("onGetProfilesError xml: " + e.xml);
+                removeLoadingIndicator();
+            }
+
+            function onGetFriendInfos(e: ServerResponseEvent): void
+            {
+                removeLoadingIndicator();
+                EventManager.instance.removeEventListener(GetPropertyResponse.GET_FRIENDINFOS_RESPONSE, onGetFriendInfos);
+                var reponse: GetPropertyResponse = e.response as GetPropertyResponse;
+                modelsStorage.friends.sort = null;
+                for each(var friendInfoFromServer: FriendInfo in reponse.propertyAsArray)
+                {
+                    var friendInfoInList: FriendInfo = friendsDict[friendInfoFromServer.vkontakteID];
+                    friendInfoInList.city = friendInfoFromServer.city;
+                    friendInfoInList.rating = friendInfoFromServer.rating;
+                    friendInfoInList.displayName = friendInfoFromServer.displayName;
+                    friendInfoInList.level = friendInfoFromServer.level;
+                    friendInfoInList.userID = friendInfoFromServer.userID;
+                    friendInfoInList.isWashed = friendInfoFromServer.isWashed;
+                }
+
+                var sort: Sort = new Sort();
+                sort.fields = [new SortField("rating", true, true, true)];
+                modelsStorage.friends.sort = sort;
+                modelsStorage.friends.refresh();
+
+                var fl: FriendsList = new FriendsList();
+                fl.modelsStorage = modelsStorage;
+                fl.x = 230;
+                fl.y = 10;
+
+                Tracker.instance.trackPageview("/friends/list");
+                PopUpManager.addPopUp(fl, Client.instance, true);
+                PopUpManager.centerPopUp(fl);
+                PopUpManager.bringToFront(fl);
+
+            }
+        }
+
+        private var _loadingIndicator: LoadingIndicator = new LoadingIndicator();
+
+        [Bindable]
+        private var _controller: Controller;
+        private var _showIntro: Boolean = false;
+        private var _introType: String;
+
+        [Bindable]
+        public var chatController: ChatController;
+
+        [Bindable]
+        public var gameEngine: GameEngine;
+
+        [Bindable]
+        public var startupInfoMessage: String;
+
+
+        private  var _modelsStorage: ModelsStorage;
+
+        [Bindable]
+        public function get modelsStorage(): ModelsStorage
+        {
+            return _modelsStorage;
+        }
+
+        public function set modelsStorage(val: ModelsStorage):void
+        {
+            _modelsStorage = val;
+        }
+
+        public function get controller(): Controller
+        {
+            return _controller;
+        }
+
+        [Bindable]
+        public var lobbiesController: LobbiesController;
+
+        [Bindable]
+        public var transferController: TransferController;
+
+        [Bindable]
+        public var ratingsController: RatingsController;
+
+        [Bindable]
+        public var registrationController: RegistrationController;
+
+        private var _vkIsAppUser: String = "";
+
+        [Bindable(event="onApplicationAdded")]
+        public function get isAppUser(): String
+        {
+            if (isAPIWrapper)
+            {
+                if (_vkIsAppUser != "")
+                {
+                    return _vkIsAppUser;
+                }
+                else
+                {
+                    return wrapper.application.parameters["is_app_user"];
+                }
+            }
+            else
+            {
+                return this.parameters["is_app_user"];
+            }
+        }
+
+        public function onVKApplicationAdded(e: Object): void
+        {
+            trace("onVKApplicationAdded");
+            _vkIsAppUser = "1";
+            EventManager.instance.dispatchEvent(new Event("onApplicationAdded"));
+            this.dispatchEvent(new Event("onApplicationAdded"));
+            //            if (SessionSocket.instance.connected)
+            //                SessionSocket.instance.sendMessage(new CheatGiftRequest());
+        }
+
+        private function updateLanguage():void
+        {
+            var languageXML: XML = new XML(flashParameters["api_result"]);
+            var bundle: IResourceBundle = this.resourceManager.getResourceBundle("en_US", "text");
+            var slashU: RegExp = new RegExp("\\\\[u]0021", "g");
+
+            for each(var element: XML in languageXML.children())
+            {
+                var key: String = element.name().toString();
+                var value: String = element.toString().replace(slashU, "!");
+//                trace(key + " = " + value);
+                bundle.content[key] = value;
+            }
+        }
+
+        private function onApplicationComplete(): void
+        {
+            //this.parameters["viewer_id"] = 1234;
+            //this.parameters["is_app_user"] = 1;
+            Security.allowDomain("*");
+
+
+            Tracker.create(this);
+            Tracker.instance.trackPageview("/start");
+
+            if (isAPIWrapper)
+            {
+                wrapper.application.quality = StageQuality.MEDIUM;
+                wrapper.addEventListener("onApplicationAdded", onVKApplicationAdded);
+            }
+            else
+            {
+                stage.quality = StageQuality.MEDIUM;
+            }
+            Alert.okLabel = "ДАЛЕЕ";
+
+            rem();
+            EventManager.instance.subscribe();
+
+            EventManager.instance.addEventListener(StateChangedEvent.STATE_CHANGED_EVENT, onContollerStateChanged);
+            EventManager.instance.addEventListener(ShowIntroMessage.SHOW_INTRO, onShowIntroMessage);
+
+            //game = Game.inst;
+            chatController = new ChatController();
+            gameEngine = new GameEngine(this);
+            modelsStorage = new ModelsStorage();
+            _controller = new Controller(gameEngine.raceModel, gameEngine, _modelsStorage);
+
+            registrationController = new RegistrationController(SessionSocket.instance, _modelsStorage);
+            lobbiesController = new LobbiesController(_modelsStorage, gameEngine.raceModel, SessionSocket.instance, gameEngine);
+            ratingsController = new RatingsController(SessionSocket.instance, _modelsStorage);
+            transferController = new TransferController();
+            _controller.loginController.registrationController = registrationController;
+
+            EventManager.instance.addEventListener(KeyboardEvent.KEY_DOWN, gameEngine.onKeyDown);
+            EventManager.instance.addEventListener(KeyboardEvent.KEY_UP, gameEngine.onKeyUp);
+
+            EventManager.globalChannel.addEventListener(GetPropertyResponse.GET_GLOBALINFO_RESPONSE, onGlobalInfoAnswer);
+            EventManager.globalChannel.addEventListener(GetPropertyResponse.GET_CARS_RESPONSE, onCarListAnswer);
+            EventManager.globalChannel.addEventListener(GetPropertyResponse.GET_ROUTES_RESPONSE, onRoutesListAnswer);
+            EventManager.globalChannel.addEventListener(GetPropertyResponse.GET_TIP_RESPONSE, onTipResponse);
+            EventManager.globalChannel.addEventListener(GetPropertyResponse.GET_LEAGUE_RESPONSE, onLeagueResponse);
+            EventManager.globalChannel.addEventListener(ChangeTriggerResponse.CHANGE_TRIGGER, onDecreaseTrigger);
+            EventManager.globalChannel.addEventListener(GetPropertyResponse.GET_INVITESINFO_RESPONSE, onInvitesResponse);
+            EventManager.globalChannel.addEventListener(GetPropertyResponse.GET_CITIES_RESPONSE, onCitiesResponse);
+            EventManager.globalChannel.addEventListener(GetPropertyResponse.GET_TOPUSERDAILYSCORES_RESPONSE, onTopScoresResponse);
+        }
+
+        private function onGlobalInfoAnswer(event: ServerResponseEvent): void
+        {
+            modelsStorage.globalInfo = GetPropertyResponse(event.response).property as GlobalInfo;
+        }
+
+        private function onCarListAnswer(e: ServerResponseEvent): void
+        {
+            modelsStorage.cars = GetPropertyResponse(e.response).propertyAsArray;
+        }
+
+        private function onRoutesListAnswer(e: ServerResponseEvent): void
+        {
+            modelsStorage.routes = GetPropertyResponse(e.response).propertyAsArray;
+        }
+
+        private function onDecreaseTrigger(e: ServerResponseEvent): void
+        {
+            modelsStorage.userInfo = ChangeTriggerResponse(e.response).userInfo;
+        }
+
+        private function onInvitesResponse(event: ServerResponseEvent): void
+        {
+            modelsStorage.invitesInfo = InvitesInfo(GetPropertyResponse(event.response).property);
+        }
+
+        private function onCitiesResponse(event: ServerResponseEvent): void
+        {
+            modelsStorage.cities = GetPropertyResponse(event.response).propertyAsArray;
+        }
+
+        private function onTopScoresResponse(event: ServerResponseEvent): void
+        {
+            modelsStorage.topScores = GetPropertyResponse(event.response).propertyAsArray;
+        }
+
+        private function onConnectionClosed(e: Event): void
+        {
+            //            if (lblConnectionLost != null) lblConnectionLost.visible = true;
+            //if (lblConnectionLost2 != null) lblConnectionLost2.visible = true;
+        }
+
+        private function onShowIntroMessage(event: ServerResponseEvent): void
+        {
+        }
+
+        private function onLoginClick(): void
+        {
+            EventManager.instance.dispatchEvent(new QuickConnectLoginClicked());
+        }
+
+        private function getNextQuality(currentQuality: String): String
+        {
+            switch (currentQuality.toLowerCase())
+                    {
+                case StageQuality.LOW:
+                    return StageQuality.MEDIUM;
+                case StageQuality.MEDIUM:
+                    return StageQuality.HIGH;
+                case StageQuality.HIGH:
+                    return StageQuality.BEST;
+                case StageQuality.BEST:
+                    return StageQuality.LOW;
+                default:
+                    return StageQuality.MEDIUM;
+            }
+        }
+
+        private function onLogoutClick(): void
+        {
+            EventManager.instance.dispatchEvent(new LogoutClickedEvent());
+        }
+
+        private function rem(): void
+        {
+            var toRemove: MovieClip = null;
+            var stage: Stage = Application.application.stage;
+            for (var i: int; i < stage.numChildren; i++)
+            {
+                var comp: DisplayObject = stage.getChildAt(i); //flash.display::MovieClip
+                if (describeType(comp).attribute("name").toString() == "flash.display::MovieClip")
+                {
+                    toRemove = comp as MovieClip;
+                    break;
+                }
+            }
+            if (toRemove != null) stage.removeChild(toRemove);
+        }
+
+        private function onContollerStateChanged(event: StateChangedEvent): void
+        {
+            // мониторим состояние главного контроллера
+            if (event.sm == _controller)
+            {
+                currentState = event.state;
+            }
+        }
+
+        public function set logLevel(level: int): void
+        {
+            _controller.logLevel = level;
+        }
+
+        public static function get instance(): Client
+        {
+            return Client(Application.application);
+        }
+
+        public static function get resourceManager(): IResourceManager
+        {
+            return instance.resourceManager;
+        }
+
+        public function updateUserInfo(): void
+        {
+            EventManager.instance.addEventListener(GetPropertyResponse.GET_USERINFO_RESPONSE, onUserInfoResponse);
+            SessionSocket.instance.sendMessage(new GetPropertyRequest(GetPropertyRequest.USER_INFO));
+        }
+
+        private function onUserInfoResponse(event:ServerResponseEvent):void
+        {
+            EventManager.instance.removeEventListener(GetPropertyResponse.GET_USERINFO_RESPONSE, onUserInfoResponse);
+
+            var response: GetPropertyResponse = event.response as GetPropertyResponse;
+            _modelsStorage.userInfo = response.property as UserInfo;
+        }
+
+        public function updateCarShopInfo(): void
+        {
+            EventManager.instance.addEventListener(GetPropertyResponse.GET_CARSHOPINFO_RESPONSE, onCarShopResponse);
+            SessionSocket.instance.sendMessage(new GetPropertyRequest(GetPropertyRequest.CAR_SHOP_INFO));
+        }
+
+        private function onCarShopResponse(event: ServerResponseEvent): void
+        {
+            EventManager.instance.removeEventListener(GetPropertyResponse.GET_CARSHOPINFO_RESPONSE, onCarShopResponse);
+
+            var response: GetPropertyResponse = event.response as GetPropertyResponse;
+            _modelsStorage.carShop = response.propertyAsArray;
+        }
+
+        public function updateShopInfo(): void
+        {
+            EventManager.instance.addEventListener(GetPropertyResponse.GET_SHOPINFO_RESPONSE, onShopResponse);
+            SessionSocket.instance.sendMessage(new GetPropertyRequest(GetPropertyRequest.SHOP_INFO));
+        }
+
+        private function onShopResponse(event: ServerResponseEvent): void
+        {
+            EventManager.instance.removeEventListener(GetPropertyResponse.GET_SHOPINFO_RESPONSE, onShopResponse);
+
+            var response: GetPropertyResponse = event.response as GetPropertyResponse;
+            _modelsStorage.shop = response.propertyAsArray;
+        }
+
+        private function onTipResponse(event: ServerResponseEvent): void
+        {
+            var response: GetPropertyResponse = event.response as GetPropertyResponse;
+            _modelsStorage.tips = response.propertyAsArray;
+        }
+
+        private function onLeagueResponse(event: ServerResponseEvent): void
+        {
+            var response: GetPropertyResponse = event.response as GetPropertyResponse;
+            _modelsStorage.leagues = response.propertyAsArray;
+        }
+
+        public function updateGasInfo(): void
+        {
+            EventManager.instance.addEventListener(GetPropertyResponse.GET_GAS_RESPONSE, onGasResponse);
+            SessionSocket.instance.sendMessage(new GetPropertyRequest(GetPropertyRequest.GAS_INFO));
+        }
+
+        private function onGasResponse(event:ServerResponseEvent):void
+        {
+            EventManager.instance.removeEventListener(GetPropertyResponse.GET_GAS_RESPONSE, onGasResponse);
+            var response: GetPropertyResponse = event.response as GetPropertyResponse;
+            _modelsStorage.gas = response.property as GasInfo;
+        }
+
+        public function updatePostMessages(): void
+        {
+            EventManager.instance.addEventListener(GetPropertyResponse.GET_INBOX_RESPONSE, onInboxResponse);
+            SessionSocket.instance.sendMessage(new GetPropertyRequest(GetPropertyRequest.INBOX));
+        }
+
+        private function onInboxResponse(event: ServerResponseEvent):void
+        {
+            EventManager.instance.removeEventListener(GetPropertyResponse.GET_INBOX_RESPONSE, onInboxResponse);
+
+            var response: GetPropertyResponse = event.response as GetPropertyResponse;
+            _modelsStorage.inbox = response.propertyAsArray;
+        }
+
+      ]]>
+    </mx:Script>
+
+</mx:Application> 

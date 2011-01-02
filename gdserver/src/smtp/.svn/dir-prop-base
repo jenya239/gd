@@ -1,0 +1,14 @@
+K 13
+svn:mergeinfo
+V 447
+/branches/cars/gdserver/src/smtp:2458-2606
+/branches/chat/gdserver/src/smtp:2366-2387
+/branches/items/gdserver/src/smtp:1872-1893
+/branches/mneser/gdserver/src/smtp:2337-2351
+/branches/otpApplication/gdserver/src/smtp:1717-1875
+/branches/ticket818/gdserver/src/smtp:2345-2368
+/branches/twoCities/gdserver/src/smtp:1903-2197
+/branches/upgrades/gdserver/src/smtp:1921-1938
+/branches/vapi/gdserver/src/smtp:2205-2311
+/trunk/gdserver/src/smtp:653-1084
+END

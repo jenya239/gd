@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VDividedBox xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:ns1="com.turbostool.client.gameplayScreen.*" width="570"
+                height="500">
+    <mx:Script><![CDATA[import mx.core.Application; ]]></mx:Script>
+    <mx:Canvas width="100%" height="100%" alpha="1.0">
+        <mx:Label y="0" text="VERSION_TEMPLATE" x="0" color="#F37608" width="133"/>
+        <mx:TextInput width="140" id="tiReplay" top="0" left="0" editable="true" styleName="" height="24"
+                      visible="false"/>
+
+        <mx:Button id="btReplayStep" label="Step" y="60" x="0" visible="false"/>
+        <mx:Button id="btReplayStep10" label="Step 10" y="60" x="60" visible="false"/>
+        <mx:Button id="btReplayStep100" label="Step 100" y="60" x="137" visible="false"/>
+
+        <mx:Label id="lbReplayIndex" color="0xFFFFFF" fontSize="15" text="" top="0" left="100" visible="false"/>
+
+        <mx:Button x="128" y="10" label="Второй Экран" click="Application.application.currentState='rpg'"/>
+        <mx:Button x="362" y="10" label="carEditor" click="Application.application.currentState='carEditor'"/>
+        <mx:Button x="482" y="10" label="globalMap" click="Application.application.currentState='globalMap'"/>
+
+    </mx:Canvas>
+    <mx:Canvas borderStyle="none" width="100%" height="0">
+        <mx:TextInput width="140" id="tiName" bottom="36" left="475" editable="true" styleName="top500" height="24"/>
+        <mx:Button label="Переподключиться" enabled="true" id="bReload" right="10" bottom="10"/>
+    </mx:Canvas>
+</mx:VDividedBox>

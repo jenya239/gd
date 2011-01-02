@@ -1,0 +1,114 @@
+<?xml version="1.0" ?>
+<screens:BaseScreen
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        xmlns:screens="com.turbostool.client.screens.*"
+        xmlns:controls="com.turbostool.controls.*"
+        xmlns:garage="com.turbostool.client.garage.*"
+        backgroundColor="#a23636"
+        width="300"
+        currentState="{postMessage.firstItemInfo != null ? '' : 'noItem'}"
+>
+    <screens:states>
+        <mx:State name="noItem">
+            <mx:SetProperty target="{label3}" name="y" value="2"/>
+            <mx:SetProperty target="{money}" name="y" value="28"/>
+            <mx:SetProperty target="{comment}" name="y"/>
+            <mx:SetProperty target="{label5}" name="y"/>
+            <mx:SetStyle target="{label5}" name="top" value="53"/>
+            <mx:RemoveChild target="{itemControl}"/>
+            <mx:SetProperty target="{hrule1}" name="y" value="99"/>
+            <mx:RemoveChild target="{hrule2}"/>
+            <mx:SetProperty target="{comment}" name="width"/>
+            <mx:SetStyle target="{comment}" name="top" value="20"/>
+            <mx:SetProperty target="{label3}" name="text" value="{str('money')}"/>
+            <mx:SetProperty target="{money}" name="text" value="{Utils.formatPrice(postMessage.money, false, 0)}"/>
+        </mx:State>
+    </screens:states>
+
+    <mx:Label text="{str('package')}" fontFamily="Arial" fontSize="12" id="label1" color="#FFFFFF" top="2" left="5" fontStyle="normal" fontWeight="bold"/>
+    <mx:Button id="close1" y="3" label="x" styleName="gray"
+               click="dispatchEvent(new Event('modalClose'))" right="5" height="19" textAlign="center" width="21"/>
+    <mx:HRule y="24" left="5" right="5" strokeWidth="1"/>
+    
+    <mx:VBox top="30" right="0" left="0" paddingBottom="5" paddingLeft="5" paddingRight="5" paddingTop="5">    	
+
+	    <garage:ItemDescriptionControl id="itemControl" y="28" left="5" right="5" itemInfo="{postMessage.firstItemInfo}" width="100%" isShop="true"/>
+		<mx:Canvas width="100%">
+	    	<mx:Label text="{str('price')}" fontFamily="Arial" fontSize="12" id="label3" color="#FFFFFF" fontWeight="bold" x="0"/>
+	    	<mx:HRule left="0" right="0" strokeWidth="1" id="hrule1" top="20"/>
+	    	<mx:Label text="{Utils.formatPrice(postMessage.sellPrice, false, 0)}" fontSize="20" fontFamily="Arial" fontWeight="bold" textAlign="left"
+	              id="money" left="0" color="#FFFFFF" top="27"/>
+	    </mx:Canvas>
+		    
+	    <mx:Label y="184" text="{str('sender') + ': ' + postMessage.fromNick}" fontFamily="Arial"
+	              fontWeight="bold" fontSize="12"
+	              id="label5" left="5" color="#DA7F22"/>
+	    
+	    <mx:Canvas width="100%">    
+	    	<mx:Label text="{str('comment')}" fontFamily="Arial"
+	        	      fontWeight="bold" fontSize="12"
+	            	  id="label0" color="#FFFFFF" x="0"/>
+	    	<mx:HRule left="0" right="0" strokeWidth="1" id="hrule2" top="20"/>
+	    	<mx:Text width="100%" text="{postMessage.comment}" id="comment" left="0" color="#FFFFFF" right="0" top="27" fontFamily="Arial" fontSize="10" fontWeight="bold"/>
+	    </mx:Canvas>
+	    
+	    <mx:Canvas width="100%">
+		    <mx:Button label="{str('accept')}" styleName="noIcon" fontSize="12"
+		               click="onProcess('accept')" textAlign="center" y="0" right="0" height="21" visible="{postMessage.senderID != modelsStorage.userInfo.id}"/>
+		    <mx:Button label="{postMessage.senderID != modelsStorage.userInfo.id?str('reject'):str('cancel')}" styleName="noIcon" fontSize="12"
+		               click="onProcess('cancel')" textAlign="center" y="0" height="21" left="0"/>
+       	</mx:Canvas>
+	</mx:VBox>
+
+    <mx:Script><![CDATA[
+        import com.turbostool.client.Tracker;
+        import com.turbostool.client.event.EventManager;
+        import com.turbostool.client.game.view.ModalManager;
+        import com.turbostool.client.model.PostMessageInfo;
+        import com.turbostool.client.net.SessionSocket;
+        import com.turbostool.client.net.messages.ProcessPostMessageRequest;
+        import com.turbostool.client.net.messages.ProcessPostMessageResponse;
+        import com.turbostool.client.net.messages.ServerResponseEvent;
+        import com.turbostool.client.utils.Utils;
+        import com.turbostool.controls.LoadingIndicator;
+
+        import mx.controls.Alert;
+        import mx.managers.PopUpManager;
+
+        private function onProcess(action:String):void
+        {
+            EventManager.instance.addEventListener(ProcessPostMessageResponse.PROCESS_POST_MESSAGE, onProcessResponse);
+            SessionSocket.instance.sendMessage(new ProcessPostMessageRequest(postMessage.id, action));
+            PopUpManager.addPopUp(loadingIndicator, this, true);
+            PopUpManager.centerPopUp(loadingIndicator);
+            PopUpManager.bringToFront(loadingIndicator);
+
+            Tracker.instance.trackEvent("getPost", "getRequest");
+        }
+
+        private function onProcessResponse(event: ServerResponseEvent):void
+        {
+            EventManager.instance.removeEventListener(ProcessPostMessageResponse.PROCESS_POST_MESSAGE, onProcessResponse);
+            PopUpManager.removePopUp(loadingIndicator);
+            ModalManager.instance.closeAllWindows();
+            var response: ProcessPostMessageResponse = event.response as ProcessPostMessageResponse;
+            if (response.isOK)
+            {
+                modelsStorage.inbox = response.inbox;
+                modelsStorage.userInfo = response.userInfo;
+
+                Tracker.instance.trackEvent("getPost", "getResponse", "ok");
+            }
+            else
+            {
+                Alert.show(str("errorProcessingMail") + ": " + response.message);
+
+                Tracker.instance.trackEvent("getPost", "getResponse", "error?message=" + response.message);
+            }
+        }
+
+        [Bindable]
+        public var postMessage: PostMessageInfo;
+
+        ]]></mx:Script>
+</screens:BaseScreen>

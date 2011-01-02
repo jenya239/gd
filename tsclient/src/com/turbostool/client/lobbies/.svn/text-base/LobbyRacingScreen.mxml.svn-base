@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<screens:RacingScreenBase
+        xmlns="com.turbostool.client.lobbies.*"
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        xmlns:screens="com.turbostool.client.screens.*" xmlns:HUD="com.turbostool.client.game.view.*"
+        xmlns:controls="com.turbostool.controls.*"
+        width="607" height="390"
+        creationComplete="onCreationComplete()"
+        raceController="{Client.instance.lobbiesController}"
+        verticalScrollPolicy="off"
+        horizontalScrollPolicy="off"
+        >
+    <mx:Script><![CDATA[
+        import com.turbostool.client.event.EventManager;
+        import com.turbostool.client.event.LocalLapTimeEvent;
+        import com.turbostool.client.lobbies.events.ScreenInitializedEvent;
+        import com.turbostool.client.net.messages.LapTimeMessage;
+        import com.turbostool.client.net.messages.LobbyRaceEventMessage;
+        import com.turbostool.client.net.messages.ServerResponseEvent;
+        import com.turbostool.client.utils.Utils;
+
+        [Bindable]
+        public var lobbiesController: LobbiesController;
+
+        private function onLobbyRaceEvent(event: ServerResponseEvent): void
+        {
+            start3.visible = false;
+            start2.visible = false;
+            start1.visible = false;
+            start0.visible = false;
+
+            var lobbyEvent: LobbyRaceEventMessage = LobbyRaceEventMessage(event.response);
+
+            if (lobbyEvent.type == LobbyRaceEventMessage.GO)
+            {
+                start0.visible = true;
+                setTimeout(onHideStart, 2000);
+                function onHideStart(): void
+                {
+                    start0.visible = false;
+                }
+            }
+            else if (lobbyEvent.type == LobbyRaceEventMessage.COUNTDOWN)
+            {
+                if (int(lobbyEvent.param) == 3)
+                {
+                    start3.visible = true;
+                }
+                else if (int(lobbyEvent.param) == 2)
+                {
+                    start2.visible = true;
+                }
+                else if (int(lobbyEvent.param) == 1)
+                    {
+                        start1.visible = true;
+                    }
+            }
+        }
+
+        private function onLocalLapTime(e: LocalLapTimeEvent):void
+        {
+            if (e.lapTimeMessage.type == LapTimeMessage.FINISH)
+            {
+                finish.visible = true;
+
+                setTimeout(onHideFinish, 3000);
+
+                function onHideFinish(): void
+                {
+                    finish.visible = false;
+                }
+            }
+        }
+
+        public function onCreationComplete(): void
+        {
+            EventManager.lobbyRaceChannel.addEventListener(LobbyRaceEventMessage.LOBBY_RACE_EVENT, onLobbyRaceEvent);
+            EventManager.globalChannel.addEventListener(LocalLapTimeEvent.LOCAL_LAP_TIME, onLocalLapTime);
+            EventManager.lobbyRaceChannel.dispatchEvent(new ScreenInitializedEvent(this.gameView.cnvRender, this));
+        }
+    
+        ]]>
+
+    </mx:Script>
+
+    <HUD:GameplayView
+            id="gameView"
+            x="0" y="1"
+            width="607" height="390"
+            raceController="{lobbiesController}"
+            />
+
+    <mx:Image x="10" y="10" source="@Embed('/assets/gui/screens/gameplay/timer_laps.png')"/>
+
+    <mx:Label x="22" y="8" text="{str('laps')}" fontFamily="Arial" textAlign="center" color="#FFFFFF" fontSize="12"
+              fontWeight="bold" fontStyle="italic"/>
+
+    <mx:Label verticalCenter="-155"
+              left="11"
+              fontSize="25" color="#FFFFFF"
+              width="66" text="{lobbiesController.lapText()}" textAlign="center" fontFamily="Arial" fontStyle="italic"
+              fontWeight="bold" height="32"/>
+
+    <mx:Label verticalCenter="-123"
+              left="10"
+              fontSize="16" color="#DDDDDD"
+              visible="{lobbiesController.raceTime > 0}"
+              text="{Utils.formatTime(lobbiesController.raceTime)}" fontFamily="Arial" fontStyle="italic"
+              fontWeight="bold" width="67"
+              textAlign="center"/>
+
+    <mx:Image x="10" y="91" source="@Embed('/assets/gui/screens/gameplay/time_left.png')"
+              visible="{lobbiesController.finishTimer > 0}" showEffect="finishEffect"/>
+
+    <mx:Label x="10" y="89" text="{str('tillEnd')}" width="67" height="20" textAlign="center" color="#FFFFFF" fontFamily="Arial"
+              fontSize="11" fontWeight="bold" visible="{lobbiesController.finishTimer > 0}" fontStyle="italic"/>
+
+    <mx:Label verticalCenter="-74"
+              left="11"
+              fontSize="18" color="#FFFFFF"
+              text="{int(lobbiesController.finishTimer / 1000)} сек."
+              visible="{lobbiesController.finishTimer > 0}"
+              width="67" textAlign="center" fontFamily="Arial" fontStyle="italic"/>
+
+    <mx:Sequence id="countDownShowEffect">
+        <mx:Parallel>
+            <mx:Zoom duration="400" zoomWidthFrom="0.5" zoomWidthTo="1" zoomHeightFrom="0.5" zoomHeightTo="1"/>
+            <mx:Fade alphaFrom="0" alphaTo="1" duration="400"/>
+        </mx:Parallel>
+        <!--<mx:Zoom duration="200" zoomWidthFrom="1.5" zoomWidthTo="1" zoomHeightFrom="1.5" zoomHeightTo="1"/>-->
+    </mx:Sequence>
+
+    <mx:Sequence id="finishEffect" repeatCount="0">
+        <mx:Fade alphaFrom="1" alphaTo="0" duration="500"/>
+        <mx:Fade alphaFrom="0" alphaTo="1" duration="500"/>
+    </mx:Sequence>
+
+    <mx:Image id="start3" horizontalCenter="0" verticalCenter="0" source="@Embed('/assets/gui/screens/gameplay/3.png')"
+              visible="false" showEffect="countDownShowEffect"/>
+    <mx:Image id="start2" horizontalCenter="0" verticalCenter="0" source="@Embed('/assets/gui/screens/gameplay/2.png')"
+              visible="false" showEffect="countDownShowEffect"/>
+    <mx:Image id="start1" horizontalCenter="0" verticalCenter="0" source="@Embed('/assets/gui/screens/gameplay/1.png')"
+              visible="false" showEffect="countDownShowEffect"/>
+    <mx:Image id="start0" horizontalCenter="0" verticalCenter="0"
+              source="@Embed('/assets/gui/screens/gameplay/start.png')" visible="false"
+              showEffect="countDownShowEffect"/>
+    <mx:Image id="finish" horizontalCenter="0" verticalCenter="0"
+              source="@Embed('/assets/gui/screens/gameplay/finish.png')" visible="false"
+              showEffect="countDownShowEffect"/>
+
+    <mx:Image source="@Embed('/assets/gui/screens/gameplay/howToMakeTheCarGo.png')" top="25" horizontalCenter="0"
+              id="howToMakeCarGo" visible="{lobbiesController.isTipVisible('howToMakeTheCarGo')}"/>
+    <mx:Image source="@Embed('/assets/gui/screens/gameplay/howToDrive.png')" bottom="94" horizontalCenter="227"
+              id="howToDrive" visible="{lobbiesController.isTipVisible('howToDrive')}"/>
+    <mx:Image x="469" y="303" source="@Embed('/assets/gui/screens/gameplay/howToUseNitro.png')" id="howToUseNitro"
+              visible="{lobbiesController.isTipVisible('howToUseNitro')}"/>
+
+</screens:RacingScreenBase>

@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<screens:BaseScreen xmlns:mx="http://www.adobe.com/2006/mxml"
+                    xmlns:screens="com.turbostool.client.screens.*"
+                    xmlns:view="com.turbostool.client.game.view.*"
+                    width="149" height="37"
+                    horizontalScrollPolicy="off"
+                    verticalScrollPolicy="off"
+                    creationComplete="onInit()">
+    <mx:Image x="0" y="0" source="@Embed('/assets/gui/screens/gameplay/n20_bkg.png')"/>
+    <view:Circle x="118" y="6" height="24" width="24" color="0xFFFFFF"></view:Circle>
+    <view:Circle x="118" y="6" height="{getH}" width="24" color="0xFF0000"></view:Circle>
+    <mx:Image x="122" y="7" source="@Embed('/assets/gui/screens/gameplay/n20_flames.png')"/>
+
+    <mx:Label x="39" verticalCenter="0" text="X{Client.instance.modelsStorage.userInfo.nitroCount}"
+              color="#F2FCE3" fontSize="35" fontFamily="Arial" fontWeight="bold"
+              styleName="default"/>
+    <mx:Script>
+            <![CDATA[
+        import com.turbostool.client.game.components.car.CarController;
+
+        import com.turbostool.client.utils.Utils;
+
+        import mx.core.ScrollPolicy;
+
+        [Bindable]
+        public var carController : CarController;
+        private var myTimer:Timer;
+
+        [Bindable]
+        private function get getH():Number
+        {
+            var last:Number = carController.myNitroUseTime;
+            var now:Number = Utils.now();
+            var diff:Number = now - last;
+            var period:Number = (Client.instance.modelsStorage.globalInfo == null)
+                    ? 20000
+                    : Client.instance.modelsStorage.globalInfo.nitroTime;
+            if (diff > period) {
+                return 0.1;
+            } else {
+                return 24 * ( 1 - diff / period);
+            }
+        }
+
+        private function set getH(v:Number):void {
+        }
+
+        private function timerHandler(e:Event):void {
+            getH = 0;
+        }
+
+        private function onInit():void {
+            myTimer = new Timer(300, 0);
+            myTimer.addEventListener(TimerEvent.TIMER, timerHandler);
+            myTimer.start();
+        }
+
+            ]]>
+    </mx:Script>
+</screens:BaseScreen>

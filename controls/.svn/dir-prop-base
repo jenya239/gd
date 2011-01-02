@@ -1,0 +1,13 @@
+K 10
+svn:ignore
+V 14
+controls.iml
+
+
+K 13
+svn:mergeinfo
+V 114
+/branches/ratingSystem/controls:1580-1662
+/branches/twoCities/controls:1909-2199
+/branches/vapi/controls:2205-2311
+END

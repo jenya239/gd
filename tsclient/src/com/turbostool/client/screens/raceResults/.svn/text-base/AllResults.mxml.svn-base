@@ -1,0 +1,82 @@
+<?xml version="1.0" ?>
+<BaseScreen
+        xmlns="com.turbostool.client.screens.*"
+        xmlns:raceResults="com.turbostool.client.screens.raceResults.*"
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        width="460" height="340"
+        verticalScrollPolicy="off"
+        horizontalScrollPolicy="off"
+        >
+    <mx:Script><![CDATA[
+        import com.turbostool.client.model.LobbyRaceResult;
+
+        private var _results:Array;
+        private var _upgrades:Array;
+        private var _fuelValue: Number;
+        private var _fuelCapacity: Number;
+
+        [Bindable]
+        public var userResult: LobbyRaceResult;
+
+        public function get results():Array
+        {
+            return _results;
+        }
+
+        [Bindable]
+        public function set results(val:Array):void
+        {
+            _results = val;
+        }
+
+        public function get upgrades():Array
+        {
+            return _upgrades;
+        }
+
+        [Bindable]
+        public function set upgrades(val:Array):void
+        {
+            _upgrades = val;
+        }
+
+        public function get fuelValue():Number
+        {
+            return _fuelValue;
+        }
+
+        [Bindable]
+        public function set fuelValue(value:Number):void
+        {
+            _fuelValue = value;
+        }
+
+        [Bindable]
+        public function get fuelCapacity():Number
+        {
+            return _fuelCapacity;
+        }
+
+        public function set fuelCapacity(value:Number):void
+        {
+            _fuelCapacity = value;
+        }]]></mx:Script>
+
+    <mx:Style source="/styles.css"/>
+    <mx:Image source="@Embed('/assets/gui/screens/gameResults/raceResultsHeaders.png')" horizontalCenter="0"/>
+
+    <raceResults:BaseList width="450" height="94" horizontalCenter="0" top="80"
+                          dataProvider="{results}"
+                          itemRenderer="com.turbostool.client.screens.raceResults.RaceResultRenderer"
+                          headers="{[ [str('nick').toLowerCase(), 95], [str('time').toLowerCase(), 45], [str('rating').toLowerCase(), 55], [str('money').toLowerCase(), 55], [str('experience').toLowerCase(), 55], [str('points').toLowerCase(), 55] ]}"
+                          highlighted="{userResult}"/>
+
+    <raceResults:BaseList width="450" height="95" horizontalCenter="0" top="200"
+                          dataProvider="{upgrades}"
+                          itemRenderer="com.turbostool.client.screens.raceResults.WearOutRenderer"/>
+
+    <raceResults:BaseList width="450" height="20" horizontalCenter="0" top="316" id="blFuel"
+                          itemRenderer="com.turbostool.client.screens.raceResults.FuelRenderer"
+                          dataProvider="{{fuelValue:fuelValue, fuelCapacity:fuelCapacity}}"/>
+
+</BaseScreen>

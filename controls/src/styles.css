@@ -1,0 +1,32 @@
+/* CSS file */
+
+ScrollBar.items
+{
+    cornerRadius: 16;
+    highlightAlphas: 0, 0;
+    fillColors: #0099ff, #0033ff, #000000, #ffffff;
+    trackColors: #000000, #ffffff;
+    themeColor: #009dff;
+}
+
+TileList.items
+{
+	backgroundAlpha: 0.9;
+	backgroundColor: #07072b;
+	borderStyle: solid;
+	paddingBottom: 0;
+	paddingTop: 0;
+	useRollOver: false;
+	rollOverColor: #AAAAAA;
+	selectionColor: #FFFFFF;
+	fontFamily: Arial;
+	cornerRadius: 6;
+	borderThickness: 1;
+	verticalScrollBarStyleName: items;
+    horizontalScrollPolicy: off;
+    verticalScrollPolicy: off;
+    rowHeight: 43;
+    columnWidth: 43;
+    itemRenderer: "";
+    minHeight: 0;
+}

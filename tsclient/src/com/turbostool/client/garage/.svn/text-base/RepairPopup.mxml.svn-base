@@ -1,0 +1,113 @@
+<?xml version="1.0" ?>
+<screens:BaseScreen xmlns:mx="http://www.adobe.com/2006/mxml"
+                    xmlns:screens="com.turbostool.client.screens.*"
+                    backgroundColor="#a23636"
+                    height="147">
+
+    <mx:Label x="4" y="2" text="{str('repair2')}" color="#FFFFFF" fontSize="14" fontWeight="bold"/>
+    <mx:HRule y="23" left="5" right="5" strokeWidth="1"/>    
+    <mx:Button label="{str('repair2')}" styleName="default" horizontalCenter="-32" bottom="21" fontSize="12" enabled="{canRepair()}" click="onRepairClick()"/>
+    <mx:Button label="{str('cancel')}" styleName="default" horizontalCenter="38" bottom="21" fontWeight="bold" fontSize="12" click="dispatchEvent(new Event('modalClose'))"/>
+    <mx:Label text="{labelText()}" horizontalCenter="0" color="#ffffff" fontFamily="Arial" fontWeight="bold" fontSize="14" left="10" right="10" top="30"/>
+
+    <mx:Script><![CDATA[
+        import com.turbostool.client.ModelsStorage;
+        import com.turbostool.client.Tracker;
+        import com.turbostool.client.event.EventManager;
+        import com.turbostool.client.game.view.ModalManager;
+        import com.turbostool.client.model.CarInfo;
+        import com.turbostool.client.model.ItemInfo;
+        import com.turbostool.client.net.SessionSocket;
+        import com.turbostool.client.net.messages.RepairRequest;
+        import com.turbostool.client.net.messages.RepairResponse;
+        import com.turbostool.client.net.messages.ServerResponseEvent;
+        import com.turbostool.client.utils.Utils;
+        import com.turbostool.controls.LoadingIndicator;
+        import mx.controls.Alert;
+        import mx.managers.PopUpManager;
+
+        public var carInfo:CarInfo;
+
+        private function onRepairResponse(event: ServerResponseEvent): void {
+            EventManager.instance.removeEventListener(RepairResponse.REPAIR, onRepairResponse);
+            PopUpManager.removePopUp(loadingIndicator);
+            ModalManager.instance.closeAllWindows();
+
+            var response: RepairResponse = RepairResponse(event.response);
+            if(!response.isOK) {
+                Alert.show(response.message);
+                Tracker.instance.trackEvent("itemsRepair", "repairResponse", "error?message=" + response.message);
+            } else {
+                modelsStorage.userInfo = response.userInfo;
+                Tracker.instance.trackEvent("itemsRepair", "repairResponse", "ok");
+            }
+        }
+
+        private function onRepairClick(): void {
+            EventManager.instance.addEventListener(RepairResponse.REPAIR, onRepairResponse);
+            SessionSocket.instance.sendMessage(new RepairRequest(-1));
+            
+            PopUpManager.addPopUp(loadingIndicator, this, true);
+            PopUpManager.centerPopUp(loadingIndicator);
+            PopUpManager.bringToFront(loadingIndicator);
+
+            Tracker.instance.trackEvent("itemsRepair", "repairRequest", "all");
+        }
+
+        private function labelText(): String {
+            if(needRepairSomeItems()) {
+                var price: Number = (carInfo == null) ?
+                                    calcPriceForAllItems()
+                                    : carInfo.repairPrice ;
+                
+                if(price <= modelsStorage.userInfo.money) {
+                    return "Отремонтировать все предметы за " + Utils.formatPrice(price, false, 0) + "?";
+                } else {
+                    return "Не хватает денег, нужно " + price;
+                }
+            } else {
+                return "Ваши вещи не нуждаются в ремонте";
+            }
+        }
+
+        private function canRepair(): Boolean {
+            return needRepairSomeItems() && calcPriceForAllItems() <= modelsStorage.userInfo.money;
+        }
+
+        public static function calcItemRepairPrice(item: ItemInfo): Number
+        {
+            return (item.durabilityMax - item.currentDurability) * item.repairPrice;
+        }
+
+        public static function canRepair(itemInfo: ItemInfo, modelsStorage: ModelsStorage): Boolean
+        {
+            return itemInfo.currentDurability < itemInfo.durabilityMax && modelsStorage.userInfo.money >= RepairPopup.calcItemRepairPrice(itemInfo);
+        }
+
+        private function calcPriceForAllItems(): Number
+        {
+            var price: Number = 0;
+            if(modelsStorage != null && modelsStorage.userInfo != null)
+            {
+                for each(var item: ItemInfo in modelsStorage.userInfo.equipment)
+                {
+                    price += calcItemRepairPrice(item);
+                }
+            }
+            return Utils.round(price, 2);
+        }
+
+        private function needRepairSomeItems(): Boolean {
+            if(modelsStorage != null && modelsStorage.userInfo != null) {
+                for each(var item: ItemInfo in modelsStorage.userInfo.equipment) {
+                    if(item.currentDurability < item.durabilityMax)
+                        return true;
+                }
+            }
+
+            return (carInfo != null) && carInfo.repairPrice > 0;
+        }
+
+
+        ]]></mx:Script>
+</screens:BaseScreen>

@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<screens:MultiLineButton xmlns:mx="http://www.adobe.com/2006/mxml"
+                         xmlns:screens="com.turbostool.client.screens.*"
+                         label="{str('skipTutorial')}"
+                         click="onSkipTutorial()"
+                         styleName="default">
+    <mx:Style source="/styles.css"/>
+    <mx:Script><![CDATA[
+        import com.turbostool.client.ModelsStorage;
+        import com.turbostool.client.Tracker;
+        import com.turbostool.client.event.EventManager;
+        import com.turbostool.client.net.SessionSocket;
+        import com.turbostool.client.net.messages.*;
+
+        import mx.controls.Alert;
+        import mx.core.*;
+        import mx.events.CloseEvent;
+
+        [Bindable]
+        public var modelsStorage: ModelsStorage;
+
+        [Bindable]
+        private var uitf:UITextField = createUITF();
+
+        private function str(name: String, params: * = null): String {
+            return Client.instance.str(name, params);
+        }
+
+        private function createUITF():UITextField
+        {
+            var res:UITextField = new UITextField();
+            res.multiline = true;
+            res.wordWrap = true;
+            res.htmlText = "ПРОПУСТИТЬ <br/> УЧЕБНИК"
+            this.addChild(res);
+            return res;
+        }
+
+        private function onSkipTutorial():void
+        {
+            Alert.yesLabel = str("yes");
+            Alert.noLabel = str("no");
+            Alert.show(str("areSureToSkipTutorial"),
+                    "", (Alert.YES | Alert.NO), null, onSkipTutorial2);
+        }
+
+        private function onSkipTutorial2(event:CloseEvent):void {
+            if (event.detail == Alert.YES)
+            {
+                Tracker.instance.trackPageview('/tutorial/skip');
+                SessionSocket.instance.sendMessage(new SkipTutorialRequest());
+                EventManager.instance.addEventListener(SkipTutorialResponse.SKIP_TUTORIAL, onSkipTutorialResponse);
+            }
+        }
+
+        private function onSkipTutorialResponse(e: ServerResponseEvent): void
+        {
+            EventManager.instance.removeEventListener(SkipTutorialResponse.SKIP_TUTORIAL, onSkipTutorialResponse);
+            var reponse: SkipTutorialResponse = e.response as SkipTutorialResponse;
+            modelsStorage.userInfo = reponse.userInfo;
+        }
+
+        ]]></mx:Script>
+
+</screens:MultiLineButton>

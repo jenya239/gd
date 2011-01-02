@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BaseScreen
+        xmlns="com.turbostool.client.screens.*"
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        xmlns:controls="com.turbostool.controls.*"
+        xmlns:profile="com.turbostool.client.profile.*"
+        horizontalScrollPolicy="off" verticalScrollPolicy="off"
+        backgroundColor="#151d12"
+        width="607" height="390"
+        x="129" y="99">
+
+    <mx:Metadata>
+        [Event(name="screenSelected", type="com.turbostool.client.city.ScreenSelectedCommand")]
+    </mx:Metadata>
+
+    <mx:Script><![CDATA[
+        import com.turbostool.client.event.EventManager;
+        import com.turbostool.client.event.NickClickEvent;
+				import com.turbostool.client.model.RatingInfo;
+				import mx.events.ListEvent;
+
+        [Bindable]
+        public var ratingsController: RatingsController;
+
+        private function onRefresh(): void
+        {
+            EventManager.globalChannel.dispatchEvent(new RefreshRatingsCommand());
+        }
+
+        private function onProfileClick(event: ListEvent): void
+        {
+             var lri: RatingInfo = event.currentTarget.selectedItem;
+             EventManager.instance.dispatchEvent(new NickClickEvent("link", lri.userID));
+        }
+
+        ]]></mx:Script>
+
+    <mx:Style source="/styles.css"/>
+    <mx:Canvas id="mainScreen" width="100%" height="100%">
+        <controls:BaseListControl
+                width="504" height="339"
+                x="14" y="26"
+                headerHeight="14"
+                itemClick="onProfileClick"
+                dataProvider="{ratingsController.ratings}"
+                itemRenderer="com.turbostool.client.ratings.RatingsListRenderer"
+               />
+        <mx:Button id="btnRefresh" visible="false" styleName="btnRefresh" right="164" bottom="361" height="31" click="onRefresh()"/>
+        <mx:Label x="50" y="39" text="№" color="#FEFEFE" fontSize="12" fontWeight="bold"/>
+        <mx:Label y="39" text="{str('name')}" color="#FEFEFE" fontSize="12" fontWeight="bold" width="169" textAlign="center"
+                  x="82"/>
+        <mx:Label y="39" text="{str('rating2')}" color="#FEFEFE" fontSize="12" fontWeight="bold" width="84" horizontalCenter="16"
+                  textAlign="center"/>
+        <mx:Label x="14" y="0" text="{str('ratings')}" color="#FFFFFF" fontSize="14" fontWeight="bold" fontStyle="italic"/>
+        <mx:Label x="117" y="3" text="Ваш рейтинг:" color="#FFFFFF" fontSize="12"/>
+        <mx:Label x="219" y="3" text="{ratingsController.modelsStorage.userInfo.rating}" color="#FFFFFF" fontSize="12"/>
+        <mx:Button label="{str('toCity')}" styleName="default" fontFamily="Arial" fontWeight="bold" fontSize="11"
+            height="22" icon="@Embed(source='/assets/gui/common/exitIcon.png')" textAlign="left"
+            textIndent="5" click="onBackClick()" x="446" y="2"/>
+    </mx:Canvas>   
+
+</BaseScreen>
