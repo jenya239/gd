@@ -4,7 +4,7 @@
 <project name="My App Builder" basedir="." default="compile">
     <!--<taskdef resource="flexTasks.tasks" classpath="C:\Program Files\Adobe\Flex Builder 3\sdks\3.3.0\ant\lib\flexTasks.jar"/>
     <taskdef name="protect" classpath=".\obfuscator\secureSWF\secureSWF.jar" classname="secureSWF.ant.ProtectTask"/>-->
-    <property name="FLEX_HOME" value="/home/lant/programs/flex-3.3"/>
+    <property name="FLEX_HOME" value="/home/jenya/programs/flex_sdk_3"/>
     <property name="SECURE_SWF_HOME" value=".\obfuscator\secureSWF"/>
     <property name="SECURE_SWF_HOME2" value=".\obfuscator2\secureSWF"/>
     <property name="src" value="./src"/>
@@ -40,8 +40,8 @@
 			<arg value="./libs/analytics.swc"/>
             <!--<arg value='-target-player="9.0.28"'/>-->
             <!--<arg value='-library-path+="../controls/bin/controls.swc"' />-->
-            <arg value='-metadata.creator="goroddorog.ru"'/>
-            <arg value='-metadata.contributor="goroddorog.ru"'/>
+            <arg value='-metadata.creator="Turbostool"'/>
+            <arg value='-metadata.contributor="Turbostool"'/>
             <arg value="-output"/>
             <arg value="${client.swf}"/>
             <arg value="src/Client.mxml"/>

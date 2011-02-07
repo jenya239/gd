@@ -26,145 +26,6 @@ svn:special svn:externals svn:needs-lock
 
 0737e8d9-e265-db11-a13c-0007e92aa9c6
 
-Preloader.as
-file
-
-
-
-
-2010-01-22T12:11:16.000000Z
-c0dc32863b54e186e9a2a5644f5ab9df
-2009-09-04T10:52:32.058248Z
-2202
-valera
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1225
-
-crossdomain.xml
-file
-
-
-
-
-2010-01-22T12:11:16.000000Z
-887db70d161d195cdf70e38f1f15da0a
-2009-12-12T13:04:45.595999Z
-2991
-snaky
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-90
-
-work
-dir
-
-wrapper.html
-file
-
-
-
-
-2010-01-22T12:11:16.000000Z
-6987ce1c7881255bcd7eee1bc187ec56
-2009-12-25T18:43:44.322757Z
-3095
-valera
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-456
-
-pathesCheck.rb
-file
-
-
-
-
-2010-01-22T12:11:16.000000Z
-32ef8f94ac0116a0429771f0e20ed969
-2009-09-04T10:42:43.264272Z
-2200
-valera
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-448
-
 AllTest.mxml
 file
 
@@ -267,17 +128,17 @@ lant
 
 26820
 
-build.xml
+Preloader.as
 file
 
 
 
 
 2010-01-22T12:11:16.000000Z
-cd1783de6cb437847f0908858bceb3d5
-2009-06-26T14:43:06.284028Z
-1870
-jenya
+c0dc32863b54e186e9a2a5644f5ab9df
+2009-09-04T10:52:32.058248Z
+2202
+valera
 
 
 
@@ -299,44 +160,7 @@ jenya
 
 
 
-689
-
-locale
-dir
-
-carEditorConfig.xml
-file
-
-
-
-
-2010-01-22T12:11:16.000000Z
-0cb73d688afd668b5cdb732eee1fdebb
-2009-06-26T14:43:06.284028Z
-1870
-jenya
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-7005
+1225
 
 SomeTests.mxml
 file
@@ -375,6 +199,77 @@ jenya
 assets
 dir
 
+build.xml
+file
+
+
+
+
+2010-01-22T12:11:16.000000Z
+cd1783de6cb437847f0908858bceb3d5
+2009-06-26T14:43:06.284028Z
+1870
+jenya
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+689
+
+carEditorConfig.xml
+file
+
+
+
+
+2010-01-22T12:11:16.000000Z
+0cb73d688afd668b5cdb732eee1fdebb
+2009-06-26T14:43:06.284028Z
+1870
+jenya
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7005
+
+com
+dir
+
 config.xml
 file
 
@@ -409,17 +304,17 @@ lant
 
 1176
 
-wrapper2.html
+crossdomain.xml
 file
 
 
 
 
 2010-01-22T12:11:16.000000Z
-c0ec8e58d085b8eb30d77534d7224229
-2009-10-29T14:22:16.061863Z
-2684
-lant
+887db70d161d195cdf70e38f1f15da0a
+2009-12-12T13:04:45.595999Z
+2991
+snaky
 
 
 
@@ -441,10 +336,93 @@ lant
 
 
 
-413
+90
 
 data
 dir
+
+locale
+dir
+
+old_old_wrapper.html
+file
+
+
+
+add
+
+6987ce1c7881255bcd7eee1bc187ec56
+
+
+
+
+
+
+
+
+
+
+
+copied
+http://turbostool.game-host.org/svn/trunk/tsclient/src/wrapper.html
+4746
+
+old_wrapper.html
+file
+
+
+
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+copied
+http://turbostool.game-host.org/svn/trunk/tsclient/src/wrapper2.html
+4746
+
+pathesCheck.rb
+file
+
+
+
+
+2010-01-22T12:11:16.000000Z
+32ef8f94ac0116a0429771f0e20ed969
+2009-09-04T10:42:43.264272Z
+2200
+valera
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+448
 
 styles.css
 file
@@ -480,6 +458,74 @@ lant
 
 37616
 
-com
+work
 dir
+
+wrapper.html
+file
+
+
+
+
+2010-01-22T12:11:16.000000Z
+6987ce1c7881255bcd7eee1bc187ec56
+2009-12-25T18:43:44.322757Z
+3095
+valera
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+456
+
+wrapper2.html
+file
+
+
+
+delete
+2010-01-22T12:11:16.000000Z
+c0ec8e58d085b8eb30d77534d7224229
+2009-10-29T14:22:16.061863Z
+2684
+lant
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+413
 

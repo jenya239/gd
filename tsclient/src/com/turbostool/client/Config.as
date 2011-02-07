@@ -280,8 +280,8 @@ public class Config extends EventDispatcher
             loader.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, onFirstError);
             loader.addEventListener(IOErrorEvent.IO_ERROR, onError);
             loader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, onError);
-            Security.loadPolicyFile("http://web.goroddorog.ru/crossdomain.xml");
-            loader.load(new URLRequest("http://web.goroddorog.ru/" + path));
+            Security.loadPolicyFile("http://188.93.17.91/crossdomain.xml");
+            loader.load(new URLRequest("http://188.93.17.91/" + path));
         }
     }
 
