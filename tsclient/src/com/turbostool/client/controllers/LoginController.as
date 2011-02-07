@@ -184,7 +184,7 @@ public class LoginController extends BaseStateMachine
                         var vkontakteRequest: VkontakteRequest = new VkontakteRequest(Client.instance.flashParameters["viewer_id"]);
                         vkontakteRequest.setNameInMenu("Город Дорог");
                         if( Client.instance.isAPIWrapper ){
-			                Client.instance.wrapper.external.showInviteBox();
+			                //Client.instance.wrapper.external.showInviteBox();
                         }
                     }
                     else

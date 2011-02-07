@@ -24,156 +24,129 @@ public class RouteLoader
 
     protected var _routeWorldsLoaded: HashMap = new HashMap();
     private var _routesLoading: ArrayList = new ArrayList();
+    private var _loaders: HashMap = new HashMap();
+
     protected var _loader: EventDispatcher;
 
-    protected function getRouteFileName(routeName: String): String
-    {
+    protected function getRouteFileName(routeName: String): String {
         return routeName + ".xml";
     }
 
-    public static function getRandomParam(): String
-    {
+    public static function getRandomParam(): String {
         return "?" + Math.round(Math.random() * 10000000000);
     }
 
     // возвращает URL с которго загрузить xml трассы
-    private function getRoutePathByName(routeName: String): String
-    {
+    private function getRoutePathByName(routeName: String): String {
         var url: String;
-        if (Config.initialized)
-        {
+        if (Config.initialized) {
             url = _config.loadFromPHPServer
                     ? Utils.stringFormat("{0}main.php?requestType=getRoute&routeName={1}", Config.instance.serverUrl, routeName)
                     : Utils.stringFormat("{0}data/routes/{1}{2}", Config.instance.serverUrl, getRouteFileName(routeName), getRandomParam());
-        }
-        else
-        {
+        } else {
             url = Utils.stringFormat("data/routes/{0}", getRouteFileName(routeName));
         }
+
         return url;
     }
 
-    protected function startLoader(url: String): void
-    {
+    protected function startLoader(routeName: String): URLLoader {
+        var url: String = (routeName != DEFAULT_ROUTE_NAME) ? getRoutePathByName(routeName) : Config.instance.defaultRoutePath;
+
         var request: URLRequest = new URLRequest(url);
         var urlLoader: URLLoader = new URLLoader(request);
         urlLoader.load(request);
+
+        _loaders.setValue(routeName, urlLoader);
+
         _loader = urlLoader;
+
+        return urlLoader;
     }
 
-    protected function getLoaderData(): Object
-    {
-        return new XML(URLLoader(_loader).data);
+    protected function getLoaderData(routeName: String): Object {
+        var loader: URLLoader = _loaders.getValue(routeName) as URLLoader;
+
+        if (loader != null)
+            return new XML(loader.data);
+        else
+            return null;
     }
 
-    public function loadWorldByName(routeName: String): void
-    {
+    public function loadWorldByName(routeName: String): void {
         // если трасса уже загружена, то просто вернуть ее (в виде евента)
-        if (isRouteWorldLoaded(routeName))
-        {
+        if (isRouteWorldLoaded(routeName)) {
             var rle: RouteLoadedEvent = new RouteLoadedEvent(routeName);
             EventManager.instance.dispatchEvent(rle);
-        }
-        else
+        } else
         // если трасса уже в очереди, то не добавлять ее еще раз
-            if (_routesLoading.contains(routeName))
-            {
+            if (_routesLoading.contains(routeName)) {
                 return;
-            }
-            // иначе запустить загрузку
-            else
-            {
+            } else {
+                // иначе запустить загрузку
 
-                var url: String = (routeName != DEFAULT_ROUTE_NAME) ? getRoutePathByName(routeName) : Config.instance.defaultRoutePath;
-
-                startLoader(url);
-                _loader.addEventListener(Event.COMPLETE, onRouteLoaded);
-                _loader.addEventListener(IOErrorEvent.IO_ERROR, onRouteLoadError);
+                var loader: URLLoader = startLoader(routeName);
+                loader.addEventListener(Event.COMPLETE, onRouteLoaded);
+                loader.addEventListener(IOErrorEvent.IO_ERROR, onRouteLoadError);
 
                 // добавить в список загружаемых трасс
                 _routesLoading.addItem(routeName);
 
                 // успешная загрузка
-                function onRouteLoaded(event: Event): void
-                {
+                function onRouteLoaded(event: Event): void {
                     // подписаться и запустить загрузку текстур
                     _factory.addEventListener(WorldCreatedEvent.WORLD_CREATED, onWorldCreated);
-                    _factory.initWorldCreation(getLoaderData(), routeName);
+                    _factory.initWorldCreation(getLoaderData(routeName), routeName);
                 }
 
                 // ошибка загрузки
-                function onRouteLoadError(e: IOErrorEvent): void
-                {
+                function onRouteLoadError(e: IOErrorEvent): void {
                     EventManager.instance.dispatchEvent(new RouteLoadErrorEvent(routeName, new TSError(e.toString())));
                 }
 
                 // успешная загрузка текстур
-                function onWorldCreated(event: WorldCreatedEvent): void
-                {
-                    if (event.world.getName() == routeName)
-                    {
+                function onWorldCreated(event: WorldCreatedEvent): void {
+                    if (event.world.getName() == routeName) {
                         _factory.removeEventListener(Event.COMPLETE, onWorldCreated);
-                        _routeWorldsLoaded.setValue(routeName, event.world);                        
+                        _routeWorldsLoaded.setValue(routeName, event.world);
                         // убрать из списка загружаемых трасс
                         _routesLoading.removeItem(routeName);
                         // отправить евент об окончании загрузки
                         EventManager.instance.dispatchEvent(new RouteLoadedEvent(routeName));
                     }
                 }
-
-                //todo - ошибка загрузки текстур??
             }
     }
 
-    //todo: может лучше просто евент какой-то специфический слушать?
-
-    //    public function addProgressListener2(listener: Function): void
-    //    {
-    //        _factory.addProgressListener2(listener);
-    //    }
-    //
-    //    public function removeProgressListener2(listener: Function): void
-    //    {
-    //        _factory.removeProgressListener2(listener);
-    //    }
-
-    public function addProgressListener(listener: Function): void
-    {
+    public function addProgressListener(listener: Function): void {
         _factory.addProgressListener(listener);
     }
 
-    public function removeProgressListener(listener: Function): void
-    {
+    public function removeProgressListener(listener: Function): void {
         _factory.removeProgressListener(listener);
     }
 
-    public function isRouteWorldLoaded(routeName: String): Boolean
-    {
+    public function isRouteWorldLoaded(routeName: String): Boolean {
         return _routeWorldsLoaded.containsKey(routeName);
     }
 
-    public function getRaceWorld(routeName: String): RaceWorld
-    {
+    public function getRaceWorld(routeName: String): RaceWorld {
         if (!isRouteWorldLoaded(routeName))
             throw new TSError(Utils.stringFormat('трасса {0} не загружена', routeName));
         else
             return RaceWorld(_routeWorldsLoaded.getValue(routeName));
     }
 
-    public function RouteLoader()
-    {
-        //Assert.assertSingleton(_instance);
+    public function RouteLoader() {
         _factory = new RouteFactory();
         _factory.addProgressListener2(onProgress2);
     }
 
-    private function onProgress2(e: ProgressEvent2): void
-    {
+    private function onProgress2(e: ProgressEvent2): void {
         EventManager.instance.dispatchEvent(e);
     }
 
-    public static function get instance(): RouteLoader
-    {
+    public static function get instance(): RouteLoader {
         if (_instance == null)
             _instance = new RouteLoader;
 
