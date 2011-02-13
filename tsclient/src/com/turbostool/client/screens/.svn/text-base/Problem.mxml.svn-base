@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="400" height="300">
-    <mx:Label x="10" y="10" text="{str('problemEncountered')}"/>
-    <mx:TextArea x="10" y="36" width="380" height="254" id="taError" text="{str('noInfo')}"/>
-
-</mx:Canvas>

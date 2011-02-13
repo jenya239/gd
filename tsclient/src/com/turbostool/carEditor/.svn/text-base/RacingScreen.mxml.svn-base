@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RacingBase xmlns="com.turbostool.carEditor.*" xmlns:mx="http://www.adobe.com/2006/mxml">
-    <mx:Canvas id="cnvRender" horizontalScrollPolicy="off" verticalScrollPolicy="off" bottom="0" right="0" top="0"
-               left="0"/>
-    <CarDynamicParamsPanel/>
-    <CarEditorPanel right="0"/>
-</RacingBase>

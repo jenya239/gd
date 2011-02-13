@@ -17,3 +17,129 @@ Yaws process died: {{badmatch,{error,eacces}},
                      {yaws_server,aloop,3},
                      {yaws_server,acceptor0,2},
                      {proc_lib,init_p_do_apply,3}]}
+
+=INFO REPORT==== 12-Feb-2011::22:30:39 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 12-Feb-2011::22:30:39 ===
+    alarm_handler: {set,{{disk_almost_full,"/home"},[]}}
+
+=INFO REPORT==== 12-Feb-2011::22:30:39 ===
+    application: gdserver
+    exited: {shutdown,{gdapp,start,[normal,["./cfg/"]]}}
+    type: temporary
+
+=ERROR REPORT==== 12-Feb-2011::22:34:40 ===
+
+
+ERROR erlang  code  crashed:
+ File: src/web/stats/online_users.yaws:26
+Reason: {noproc,{gen_server,call,[globalChat1,onlineUsers,infinity]}}
+Req: {http_request,'GET',{abs_path,"/stats/online_users.yaws"},{1,1}}
+Stack: [{gen_server,call,3},
+        {helper,createOnlineUsersTable,0},
+        {m1,out,1},
+        {yaws_server,deliver_dyn_part,8},
+        {yaws_server,aloop,3},
+        {yaws_server,acceptor0,2},
+        {proc_lib,init_p_do_apply,3}]
+
+=ERROR REPORT==== 12-Feb-2011::22:34:50 ===
+
+
+ERROR erlang  code  crashed:
+ File: src/web/stats/online_stats.yaws:53
+Reason: {noproc,{gen_server,call,[cityManager,countOnlineUsers]}}
+Req: {http_request,'GET',{abs_path,"/stats/online_stats.yaws"},{1,1}}
+Stack: [{gen_server,call,2},
+        {dbOnlineStats,createJSONData,2},
+        {m3,out,1},
+        {yaws_server,deliver_dyn_part,8},
+        {yaws_server,aloop,3},
+        {yaws_server,acceptor0,2},
+        {proc_lib,init_p_do_apply,3}]
+
+=ERROR REPORT==== 12-Feb-2011::22:35:03 ===
+
+
+ERROR erlang  code  crashed:
+ File: src/web/editor/stat.yaws:13
+Reason: {undef,[{mneser,getResultsByDate,[0]},
+                {statistic,getResultsByDate,1},
+                {statistic,calcUserStat,1},
+                {statistic,'-getStatisticHtml/2-fun-2-',3},
+                {lists,map,2},
+                {statistic,authCount,1},
+                {m6,out,1},
+                {yaws_server,deliver_dyn_part,8}]}
+Req: {http_request,'GET',{abs_path,"/editor/stat.yaws"},{1,1}}
+Stack: [{mneser,getResultsByDate,[0]},
+        {statistic,getResultsByDate,1},
+        {statistic,calcUserStat,1},
+        {statistic,'-getStatisticHtml/2-fun-2-',3},
+        {lists,map,2},
+        {statistic,authCount,1},
+        {m6,out,1},
+        {yaws_server,deliver_dyn_part,8}]
+
+=ERROR REPORT==== 12-Feb-2011::22:35:17 ===
+
+
+ERROR erlang  code  crashed:
+ File: src/web/admin/sendNotifications.yaws:14
+Reason: {noproc,{gen_server,call,[vkontakte,isSendingMessages]}}
+Req: {http_request,'GET',{abs_path,"/admin/sendNotifications.yaws"},{1,1}}
+Stack: [{gen_server,call,2},
+        {m12,out,1},
+        {yaws_server,deliver_dyn_part,8},
+        {yaws_server,aloop,3},
+        {yaws_server,acceptor0,2},
+        {proc_lib,init_p_do_apply,3}]
+
+=INFO REPORT==== 12-Feb-2011::23:05:39 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 12-Feb-2011::23:09:39 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 12-Feb-2011::23:59:39 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 13-Feb-2011::00:12:39 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=ERROR REPORT==== 13-Feb-2011::11:15:08 ===
+** Generic server memsup terminating 
+** Last message in was {'EXIT',<0.366.0>,{port_died,normal}}
+** When Server state == {state,{unix,linux},
+                               true,
+                               {1008578560,1041911808},
+                               {<0.6.0>,98488},
+               
+=INFO REPORT==== 13-Feb-2011::13:43:07 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 13-Feb-2011::13:43:07 ===
+    alarm_handler: {set,{{disk_almost_full,"/home"},[]}}
+
+=INFO REPORT==== 13-Feb-2011::13:43:07 ===
+    application: gdserver
+    exited: {shutdown,{gdapp,start,[normal,["./cfg/"]]}}
+    type: temporary
+
+=INFO REPORT==== 13-Feb-2011::14:06:28 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 13-Feb-2011::14:06:28 ===
+    alarm_handler: {clear,{disk_almost_full,"/home"}}
+
+=INFO REPORT==== 13-Feb-2011::14:06:34 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 13-Feb-2011::14:06:34 ===
+    alarm_handler: {set,{{disk_almost_full,"/home"},[]}}
+
+=INFO REPORT==== 13-Feb-2011::14:06:34 ===
+    application: gdserver
+    exited: {shutdown,{gdapp,start,[normal,["./cfg/"]]}}
+    type: temporary

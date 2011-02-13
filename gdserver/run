@@ -1,1 +1,1 @@
-erl -setcookie VCIDRFLOBQJQQLXCSJMN -pa ebin -mnesia dir '"./db/dev"' -s server start -yaws embedded true
+erl -setcookie VCIDRFLOBQJQQLXCSJMN -pa ebin -pa /usr/lib/yaws/ebin/ -mnesia dir '"./db/dev"' -s server start -yaws embedded true

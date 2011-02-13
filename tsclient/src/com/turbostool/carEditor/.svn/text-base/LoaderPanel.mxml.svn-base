@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LoaderPanelBase xmlns="com.turbostool.carEditor.*" xmlns:mx="http://www.adobe.com/2006/mxml" width="400" height="42"
-                 themeColor="#009DFF" alpha="1.0" backgroundColor="#1E2067">
-    <mx:ComboBox x="10" y="10" id="cbCars"></mx:ComboBox>
-    <mx:ComboBox x="178" y="10" id="cbRoutes"></mx:ComboBox>
-    <mx:Label x="355" y="14" id="lblFocus"/>
-
-</LoaderPanelBase>

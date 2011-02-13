@@ -1,4 +1,0 @@
-<erl>
-	out(Arg) ->
-		rating:addRating(Arg).
-</erl>

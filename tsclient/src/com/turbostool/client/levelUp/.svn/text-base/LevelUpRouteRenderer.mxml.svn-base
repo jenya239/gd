@@ -1,5 +1,0 @@
-<?xml version="1.0" ?>
-<mx:Canvas 
-        xmlns:mx="http://www.adobe.com/2006/mxml" width="100%">
-    <mx:Label text="{data.displayName}" color="#ffffff" width="100%" textAlign="center" fontFamily="Arial" fontWeight="bold" fontSize="14" />
-</mx:Canvas>

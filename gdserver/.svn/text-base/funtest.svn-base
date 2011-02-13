@@ -1,5 +1,0 @@
-erl -noshell -pa ebin -s log start_link "logs/fuel.txt" -s fuelTest start
-erl -noshell -pa ebin -s log start_link "logs/authorizationTest.txt" -s authorizationTest start
-erl -noshell -pa ebin -s log start_link "logs/notConnectedTest.txt" -s notConnectedTest start
-erl -noshell -pa ebin -s log start_link "logs/racingTest.txt" -s racingTest start
-erl -noshell -pa ebin -s log start_link "logs/lobbyTestF.txt" -s lobbyTestF start

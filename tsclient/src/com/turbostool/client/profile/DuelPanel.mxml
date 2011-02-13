@@ -26,7 +26,7 @@
 
         ]]></mx:Script>
     <mx:Label top="6" x="-4" text="[{userInfo.level}] {userInfo.displayName}" color="#FFFFFF" fontSize="24"
-              fontWeight="bold" fontStyle="normal" fontFamily="Arial"/>
+              fontWeight="bold" fontStyle="normal" fontFamily="Arial" selectable="true"/>
     <mx:Image source="@Embed(source='/assets/gui/screens/profile/duels.png')"
               scaleContent="false"
               top="40"

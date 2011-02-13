@@ -1,109 +1,0 @@
-9
-
-dir
-4746
-http://turbostool.game-host.org/svn/trunk/tsclient/src/assets/gui/screens
-http://turbostool.game-host.org/svn
-
-
-
-2010-02-22T20:37:13.870646Z
-3437
-lant
-
-
-svn:special svn:externals svn:needs-lock
-
-
-
-
-
-
-
-
-
-
-
-0737e8d9-e265-db11-a13c-0007e92aa9c6
-
-city_normal
-dir
-
-station
-dir
-
-routes
-dir
-
-rating
-dir
-
-main
-dir
-
-garage
-dir
-
-help
-dir
-
-competition
-dir
-
-friends
-dir
-
-Race_results
-dir
-
-gameResults
-dir
-
-sendInvitation
-dir
-
-scores
-dir
-
-carshop
-dir
-
-gameplay
-dir
-
-profile
-dir
-
-vkontakte
-dir
-
-lobby
-dir
-
-city
-dir
-
-login
-dir
-
-shop
-dir
-
-gas
-dir
-
-registration
-dir
-
-bank
-dir
-
-levelUp
-dir
-
-chatRoom
-dir
-
-create_competition
-dir
-

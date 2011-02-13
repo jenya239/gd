@@ -1,3 +1,0 @@
-<erl>
-out(Arg) -> userAdmin:processGetAllIds().
-</erl>

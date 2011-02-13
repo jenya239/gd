@@ -1,4 +1,0 @@
-{gameHost1, "localhost"}.
-{gameHost, "192.168.1.9"}.
-{gameHost2, "dev.turbostool.ru"}.
-{gamePort, 9000}.

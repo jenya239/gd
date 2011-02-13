@@ -1,7 +1,0 @@
-K 13
-svn:mergeinfo
-V 195
-/branches/cars/gdserver/src/db/migrations/migration_37.erl:2458-2606
-/branches/chat/gdserver/src/db/migrations/migration_37.erl:2366-2387
-/branches/vapi/gdserver/src/db/migration_37.erl:2249-2311
-END
