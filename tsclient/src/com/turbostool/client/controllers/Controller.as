@@ -43,6 +43,8 @@ public class Controller extends BaseStateMachine
     private var _gameEngine: GameEngine;
     private var _modelsStorage: ModelsStorage;
 
+		private var _auth_at: Number;
+
     public function Controller(raceModel: RaceModel, gameEngine: GameEngine, modelsStorage: ModelsStorage)
     {
         _raceModel = raceModel;
@@ -95,6 +97,9 @@ public class Controller extends BaseStateMachine
         if (state == QUICK_CONNECT)
         {
             EventManager.globalChannel.dispatchEvent(new AuthorizationChangedEvent(false, true));
+        }else if (state == AUTH)
+        {
+            _auth_at = (new Date()).time;
         }
     }
 
@@ -143,6 +148,10 @@ public class Controller extends BaseStateMachine
                 break;
         }
     }
+
+	public function get auth_at():Number {
+		return _auth_at;
+	}
 }
 
 }

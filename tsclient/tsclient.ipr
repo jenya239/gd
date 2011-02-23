@@ -267,7 +267,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../controls/controls.iml" filepath="$PROJECT_DIR$/../controls/controls.iml" />
-      <module fileurl="file://C:/dev/turbostool/svn/trunk/controls/controls.iml" filepath="C:/dev/turbostool/svn/trunk/controls/controls.iml" />
       <module fileurl="file://$PROJECT_DIR$/tsclient.iml" filepath="$PROJECT_DIR$/tsclient.iml" />
     </modules>
   </component>

@@ -76,10 +76,13 @@
         import com.turbostool.client.station.TransferController;
         import com.turbostool.client.utils.Utils;
 
-        import mx.controls.Alert;
-        import mx.events.FlexEvent;
+				import flash.utils.Timer;
 
-        private function onChange(event:Event):void
+				import mx.controls.Alert;
+        import mx.events.FlexEvent;
+				import mx.managers.PopUpManager;
+
+				private function onChange(event:Event):void
         {
             garage.visible = screens.selectedChild == garage;
             if (garage.visible)
@@ -224,6 +227,21 @@
                 }
                 case "garage":
                 {
+										//это для обхода чита-бага, когда с фейком перезаходят в игру
+										//и меняют тачку до завершения таймера на окончание гонки
+										//и тем самым бенз и повреждения снимаются не с той машины
+										var delta: Number = (new Date()).time - Client.instance.controller.auth_at;
+										if( delta < 30000 ){
+											PopUpManager.addPopUp(loadingIndicator, this, true);
+											PopUpManager.centerPopUp(loadingIndicator);
+											PopUpManager.bringToFront(loadingIndicator);
+											var timer: Timer = new Timer(30000 - delta);
+											timer.addEventListener(TimerEvent.TIMER, function():void{
+												PopUpManager.removePopUp(loadingIndicator);
+											});
+											timer.start();
+										}
+
                     screens.selectedChild = garage;
                     Tracker.instance.trackPageview('/city/garage');
 
