@@ -9,8 +9,8 @@
 -define(CLIENT_SOCKET_TIMEOUT, (1*60*1000)).
 -define(SOCKET_SEND_TIMEOUT, (10*1000)).
 %-define(RACING_IDLE_TIMEOUT, 5000).
-%-define(MESSAGE_FILTER, [carState, otherCarState, loadingProgress, {get, lobbies}, {get, cars}, {get, routes}, {get, gameTypes}, {get, ratings}, {ping}]).
--define(MESSAGE_FILTER, []).
+-define(MESSAGE_FILTER, [carState, otherCarState, loadingProgress, {get, lobbies}, {get, cars}, {get, routes}, {get, gameTypes}, {get, ratings}, {ping}]).
+%-define(MESSAGE_FILTER, []).
 %-define(XML_FILTER, ["<event name=\"get\" property=\"lobbies\"", "<event name=\"loadingProgress\"", "<event name=\"ping\""]).
 -define(XML_FILTER, []).
 -define(MAX_LOG_SIZE, (1024*1024*1024)).
