@@ -278,12 +278,13 @@ public class MessageReader
             var tag: Array = regExp.exec(value);
             if (tag == null)
                 break;
-            var tagValue: String = tag.input.substr(2, tag.input.length-4);
+            var tagValue: String = tag[1];//tag.input.substr(2, tag.input.length-4);
             var tagParamList: Array = tagValue.split(",");
             var param0: String = tagParamList[0];
             tagParamList = tagParamList.slice(1);
             var replacedValue: String = Client.instance.str(param0, tagParamList);
-            newValue = newValue.substring(0, tag.index) + replacedValue + newValue.substring(tag.index+tag.input.length);
+						newValue = newValue.replace(tag[0], replacedValue);
+            //newValue = newValue.substring(0, tag.index) + replacedValue + newValue.substring(tag.index+tag.input.length);
         }
         return newValue;
     }

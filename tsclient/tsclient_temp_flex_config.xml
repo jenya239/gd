@@ -8,6 +8,7 @@
     <library-path append="true">
       <path-element>/home/jenya/projects/gd/src/tsclient/out/production/controls/controls.swc</path-element>
       <path-element>libs/analytics.swc</path-element>
+      <path-element>libs/AS3MP3StreamPlayer_20081117.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>
