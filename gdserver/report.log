@@ -22,3 +22,29 @@
 
 =INFO REPORT==== 7-Mar-2011::15:11:11 ===
     alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 8-Mar-2011::18:45:25 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 8-Mar-2011::18:52:50 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=ERROR REPORT==== 8-Mar-2011::18:53:45 ===
+** Generic server client2 terminating 
+** Last message in was {ban,14,900000}
+** When Server state == {state,notConnected,#Port<0.3222>,<0.372.0>,2,12,2,
+                               undefined,undefined,
+                               {interval,#Ref<0.0.0.1430>},
+                               1299599620818,
+                               {session,35,12,1299599591304,undefined,0,0},
+                               {0,[]}}
+** Reason for termination == 
+** {badarith,[{client,process,2},
+              {gen_server,handle_msg,5},
+              {proc_lib,init_p_do_apply,3}]}
+
+=INFO REPORT==== 8-Mar-2011::18:55:23 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 8-Mar-2011::18:59:31 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}

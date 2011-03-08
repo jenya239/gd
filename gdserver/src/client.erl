@@ -306,7 +306,7 @@ process({ban, ID, Time}, State) when ?STATES_AUTHORIZED(State) ->
                 true ->
                     mneser:writeRecord(#stopList{id=ID, time = utils:now(), period = Time, admin = State#state.userID}),
                     cityManager:getCityChatByID(CityID) ! {chatMessage, city,
-                              BannedUser#user.name ++ " [[bannedFor]] " ++ utils:formatTime(Time), system};
+                              User#user.name ++ " [[banned]] " ++ BannedUser#user.name ++ " [[on]] " ++ utils:formatTime(Time), system};
                 false ->
                     self() ! {otherChatMessage, city, BannedUser#user.name ++ " [[alreadyBanned]]", system, 0, "[[systemMessage]]", utils:now()}
             end;

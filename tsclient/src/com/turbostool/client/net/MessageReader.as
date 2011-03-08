@@ -272,7 +272,8 @@ public class MessageReader
     private function decodeLocaleTags(value: String): String
     {
         if (value.indexOf("[[") < 0) return value;
-        var regExp: RegExp = new RegExp("\\[\\[(.*)\\]\\]", "g");        
+        //var regExp: RegExp = new RegExp("\\[\\[(.*)\\]\\]", "g");
+        var regExp: RegExp = new RegExp("\\[\\[([^\\]]+)\\]\\]", "g");
         var newValue: String = value;
         while (true) {
             var tag: Array = regExp.exec(value);

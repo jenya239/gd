@@ -20,10 +20,10 @@
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="a0904415-01e0-49d4-a3de-df6f81b4b677" name="Default" comment="" />
     <list id="ca02e384-e624-478c-93c0-06edbb642fe9" name="nocommit" comment="" />
-    <ignored path="tsclient.iws" />
-    <ignored path="$USER_HOME_GRIFFON$/" />
     <ignored path=".idea/workspace.xml" />
+    <ignored path="$USER_HOME_GRIFFON$/" />
     <ignored path="$USER_HOME_GRAILS$/" />
+    <ignored path="tsclient.iws" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,8 +91,8 @@
       <property name="field_breakpoints_groupByClasses" value="true" />
       <property name="method_breakpoints_groupByClasses" value="true" />
       <property name="exception_breakpoints_viewId" value="TABLE" />
-      <property name="field_breakpoints_viewId" value="TABLE" />
       <property name="exception_breakpoints_groupByClasses" value="true" />
+      <property name="field_breakpoints_viewId" value="TABLE" />
       <property name="method_breakpoints_groupByMethods" value="false" />
     </ui_properties>
   </component>
@@ -105,7 +105,7 @@
       <file leaf-file-name="MessageReader.as" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/net/MessageReader.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="271" column="29" selection-start="9756" selection-end="9772" vertical-scroll-proportion="0.21138212">
+            <state line="278" column="0" selection-start="10053" selection-end="10053" vertical-scroll-proportion="0.68421054">
               <folding />
             </state>
           </provider>
@@ -159,7 +159,7 @@
       <file leaf-file-name="text.properties" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/locale/en_US/text.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="266" column="20" selection-start="9077" selection-end="9077" vertical-scroll-proportion="0.0">
+            <state line="267" column="5" selection-start="9080" selection-end="9080" vertical-scroll-proportion="-15.12">
               <folding />
             </state>
           </provider>
@@ -209,8 +209,8 @@
         <option value="$PROJECT_DIR$/src/com/turbostool/client/city/Radio.mxml" />
         <option value="$PROJECT_DIR$/RadioTest.as" />
         <option value="$PROJECT_DIR$/src/wrapper.html" />
-        <option value="$PROJECT_DIR$/src/com/turbostool/client/net/MessageReader.as" />
         <option value="$PROJECT_DIR$/src/locale/en_US/text.properties" />
+        <option value="$PROJECT_DIR$/src/com/turbostool/client/net/MessageReader.as" />
       </list>
     </option>
   </component>
@@ -525,8 +525,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -775,21 +773,23 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Favorites" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth1" value="135" />
-    <property name="project.structure.last.edited" value="Modules" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth0" value="109" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth3" value="31" />
-    <property name="project.structure.proportion" value="0.15" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth2" value="132" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder1" value="1" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder0" value="0" />
-    <property name="RunManagerConfig.showSettingsBeforeRunnig" value="false" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder3" value="3" />
+    <property name="RunManagerConfig.showSettingsBeforeRunnig" value="false" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder2" value="2" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
@@ -812,10 +812,10 @@
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder4" value="4" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder1" value="1" />
-    <property name="project.structure.side.proportion" value="0.2" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder2" value="2" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder0" value="0" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
@@ -837,14 +837,6 @@
       </method>
     </configuration>
     <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" air_descriptor_path="" air_program_params="" air_publisher_id="" air_root_dir_path="" air_run_mode="AppDescriptor" class_name="" html_or_swf_file_path="" main_class_name="" method_name="" module_name="" output_log_level="" package_name="" port="0" run_mode="HtmlOrSwfFile" scope="Class" socket_policy_port="0" url_to_launch="http://">
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
-    </configuration>
-    <configuration default="true" type="FlexRunConfigurationType" factoryName="Flex" html_or_swf_file_path="" main_class_name="" module_name="" run_mode="HtmlOrSwfFile" url_to_launch="">
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -879,6 +871,14 @@
       <envs />
       <properties />
       <listeners />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="FlexRunConfigurationType" factoryName="Flex" html_or_swf_file_path="" main_class_name="" module_name="" run_mode="HtmlOrSwfFile" url_to_launch="">
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -967,7 +967,7 @@
       <ConfigurationWrapper RunnerId="FlexDebugRunner" />
       <method />
     </configuration>
-    <configuration default="false" name="client" type="FlexRunConfigurationType" factoryName="Flex" html_or_swf_file_path="$PROJECT_DIR$/out/production/tsclient/wrapperOrl.html" main_class_name="" module_name="tsclient" run_mode="HtmlOrSwfFile" url_to_launch="http://192.168.1.11/~snaky/tsclient.swf">
+    <configuration default="false" name="client" type="FlexRunConfigurationType" factoryName="Flex" html_or_swf_file_path="$PROJECT_DIR$/out/production/tsclient/wrapperTurboRed.html" main_class_name="" module_name="tsclient" run_mode="HtmlOrSwfFile" url_to_launch="http://192.168.1.11/~snaky/tsclient.swf">
       <RunnerSettings RunnerId="FlexDebugRunner" />
       <RunnerSettings RunnerId="FlexRunner" />
       <ConfigurationWrapper RunnerId="FlexDebugRunner" />
@@ -1820,7 +1820,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25353774" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.06613947" sideWeight="0.65815604" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4473684" sideWeight="0.0" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44561404" sideWeight="0.0" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24393724" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294714" sideWeight="0.66191155" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38089624" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1829,7 +1829,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2486692" sideWeight="0.7" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292595" sideWeight="0.83404255" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28602463" sideWeight="0.6462197" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32927758" sideWeight="0.54035085" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32927758" sideWeight="0.54210526" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Dataflow to this" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -2031,9 +2031,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/wrapper.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="108" selection-start="388" selection-end="388" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="4" column="108" selection-start="388" selection-end="388" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/profile/Profile.mxml">
@@ -2073,14 +2071,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/locale/en_US/text.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="266" column="20" selection-start="9077" selection-end="9077" vertical-scroll-proportion="0.0">
+        <state line="267" column="5" selection-start="9080" selection-end="9080" vertical-scroll-proportion="-15.12">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/net/MessageReader.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="271" column="29" selection-start="9756" selection-end="9772" vertical-scroll-proportion="0.21138212">
+        <state line="278" column="0" selection-start="10053" selection-end="10053" vertical-scroll-proportion="0.68421054">
           <folding />
         </state>
       </provider>
