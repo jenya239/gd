@@ -48,3 +48,9 @@
 
 =INFO REPORT==== 8-Mar-2011::18:59:31 ===
     alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 9-Mar-2011::12:31:17 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 9-Mar-2011::13:19:18 ===
+    alarm_handler: {clear,system_memory_high_watermark}

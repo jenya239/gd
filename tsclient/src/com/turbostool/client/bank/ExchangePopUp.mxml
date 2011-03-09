@@ -3,7 +3,7 @@
         xmlns:mx="http://www.adobe.com/2006/mxml"
         xmlns:screens="com.turbostool.client.screens.*"
         backgroundColor="#a23636"
-        width="292"
+        width="350"
         height="100"
         verticalScrollPolicy="off"
         horizontalScrollPolicy="off"
