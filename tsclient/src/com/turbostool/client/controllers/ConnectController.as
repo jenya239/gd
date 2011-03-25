@@ -134,7 +134,6 @@ public class ConnectController extends BaseStateMachine
         _racingSM.routeIDToLoad = ConnectButtonClickEvent(event).routeID;
         _racingSM.isReverse = ConnectButtonClickEvent(event).direction == "back";
         _racingSM.lapNumber = ConnectButtonClickEvent(event).lapNumber;
-        _racingSM.carIDToLoad = _modelsStorage.userInfo.currentCarID;
         _socket.sendMessage(new ConnectRaceRequest(ConnectButtonClickEvent(event).routeID, ConnectButtonClickEvent(event).direction, ConnectButtonClickEvent(event).lapNumber));
     }
 

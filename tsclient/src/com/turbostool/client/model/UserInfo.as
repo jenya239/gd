@@ -13,7 +13,7 @@ public class UserInfo extends EventDispatcher
     private var _email: String;
     private var _displayName: String;
     private var _image: String;
-    private var _currentCarID: Number;
+    private var _currentCarID: Number;   //carClassID  (see line 234)
     private var _carID: Number;
     private var _carFileName: String;
     private var _level: Number;
@@ -163,6 +163,7 @@ public class UserInfo extends EventDispatcher
         _image = value;
     }
 
+		//carClassID
     public function get currentCarID():int
     {
         return _currentCarID;

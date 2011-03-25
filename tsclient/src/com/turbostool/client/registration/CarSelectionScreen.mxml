@@ -17,31 +17,32 @@
 
 
     <mx:Script><![CDATA[
-        import com.turbostool.client.Config;
-        import com.turbostool.controls.LoadingIndicator;
+			import com.turbostool.client.Config;
+			import com.turbostool.controls.LoadingIndicator;
 
-        import mx.controls.Alert;
-        import mx.controls.Button;
-        import mx.utils.StringUtil;
+			import mx.controls.Alert;
+			import mx.controls.Button;
+			import mx.utils.StringUtil;
 
-        private function onNextClick(): void
-        {
-            if (registrationController.colorIndex < 1)
-                Alert.show("Выберите цвет");
-            else
-            {
-                nick.text = StringUtil.trim(nick.text);
-                registrationController.nickname = nick.text;
-                registrationController.carIndex = cars.carIndex;
-                registrationController.colorIndex = colors.colorIndex;
-                dispatchEvent(new NextScreenCommand(this));
-            }
-        }
+			private function onNextClick():void
+			{
+				if (registrationController.colorIndex < 1)
+					Alert.show("Выберите цвет");
+				else
+				{
+					nick.text = StringUtil.trim(nick.text);
+					registrationController.nickname = nick.text;
+					registrationController.carClassId = cars.currentCar.classID;//  .carIndex;
+					trace('registrationController.carClassId' + registrationController.carClassId);
+					registrationController.colorIndex = colors.colorIndex;
+					dispatchEvent(new NextScreenCommand(this));
+				}
+			}
 
-        [Bindable]
-        public var registrationController: RegistrationController;
+			[Bindable]
+			public var registrationController:RegistrationController;
 
-        ]]></mx:Script>
+			]]></mx:Script>
 
     <controls:Rectangle width="545" height="270" backgroundAlpha="0.0" borderColor2="#222F1E" left="13" top="11"/>
     <controls:Rectangle width="545" height="34" backgroundAlpha="0.0" borderColor2="#222F1E" left="13" top="285"/>
@@ -50,7 +51,7 @@
                       colorIndex="{registrationController.colorIndex}"
                       y="278.5" left="90" right="7.5"/>
     <car:CarSelection y="20" horizontalCenter="0" id="cars" height="260" width="450"
-                      carIndex="{registrationController.carIndex}"
+                      carIndex="1"
                       carList="{registrationController.cars}"
                       colorIndex="{colors.colorIndex}"/>
     <car:CarParams id="carParams" top="10" right="10"

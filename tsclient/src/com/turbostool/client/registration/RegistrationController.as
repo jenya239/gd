@@ -20,7 +20,7 @@ public class RegistrationController extends EventDispatcher
     private var _nickname: String = "";
     private var _defaultNickname: String = "";
     private var _city: Number = -1;
-    private var _carIndex: Number = -1;
+    private var _carClassId: Number = -1;
     private var _colorIndex: Number = -1;
     private var _socket: SessionSocket;
     private var _modelsStorage: ModelsStorage;
@@ -64,14 +64,14 @@ public class RegistrationController extends EventDispatcher
         _city = value;
     }
 
-    public function get carIndex():int
+    public function get carClassId():int
     {
-        return _carIndex;
+        return _carClassId;
     }
 
-    public function set carIndex(value:int):void
+    public function set carClassId(value:int):void
     {
-        _carIndex = value;
+        _carClassId = value;
     }
 
     public function get colorIndex(): int
@@ -96,13 +96,13 @@ public class RegistrationController extends EventDispatcher
 
     public function get currentCarInfo(): CarInfo
     {
-        return _modelsStorage.cars[_carIndex - 1];
+        return _modelsStorage.cars.filter(function(e, i, arr){ return e.classID == _carClassId; })[0];     //[_carClassId - 1];
     }
 
     public function register(): void
     {
         trace("NICK : " + (_nickname != _defaultNickname));
-        _socket.sendMessage(new RegisterRequest(_nickname != _defaultNickname ? _nickname : "", _carIndex, _colorIndex, _city));
+        _socket.sendMessage(new RegisterRequest(_nickname != _defaultNickname ? _nickname : "", _carClassId, _colorIndex, _city));
     }
 
     private function onRegister(event: ServerResponseEvent): void

@@ -30,7 +30,8 @@ public class ModelsStorage extends EventDispatcher
     private var _userInfo: UserInfo;
 
     private var _routes: Array;
-    private var _cars: Array;
+    private var _cars: Array;  //короче, TracingUtils.obj показал, что индексы в этом массиве просто
+															//последовательные
     private var _shop: Array;
     private var _carShop: Array;
     private var _inbox:Array;

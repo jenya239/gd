@@ -133,7 +133,7 @@ public class LoginController extends BaseStateMachine
                 {
                     registrationController.nickname = _modelsStorage.userInfo.displayName;
                     registrationController.defaultNickname = _modelsStorage.userInfo.displayName;
-                    registrationController.carIndex = _modelsStorage.userInfo.currentCarID;
+                    registrationController.carClassId = _modelsStorage.userInfo.currentCarID;
                     registrationController.colorIndex = _modelsStorage.userInfo.color;
                     registrationController.city = _modelsStorage.userInfo.homeCity;
                     changeState(REGISTRATION);

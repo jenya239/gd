@@ -167,7 +167,6 @@ public class RacingStateMachine extends BaseRacingStateMachine
     private function startLoadingCar(): void
     {
         // todo refactor - we should deal directly with carID only
-        //var carFilename: String = Client.instance.modelsStorage.getCarInfoByID(_carIDToLoad).fileNameBase;
         var racingCarName: String = Client.instance.modelsStorage.userInfo.racingCarName;
         var carFileName:String = Client.instance.modelsStorage.userInfo.carFileName;
         _carLoader.loadCar(racingCarName, carFileName, Car.LOCAL_CAR_ID);

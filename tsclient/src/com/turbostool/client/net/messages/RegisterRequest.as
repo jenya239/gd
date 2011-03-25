@@ -5,7 +5,7 @@ public class RegisterRequest extends ServerRequest
     public static const REGISTER: String = "register";
 
     private var _nickname: String;
-    private var _car: Number;
+    private var _car: Number; //вообще-то это carClassId
     private var _color: Number;
     private var _city: Number;
 

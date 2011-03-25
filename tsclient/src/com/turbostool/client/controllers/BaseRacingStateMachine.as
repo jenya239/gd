@@ -8,7 +8,6 @@ public class BaseRacingStateMachine extends BaseStateMachine
     protected var _routeIDToLoad: int;
     protected var _isReverse: Boolean;
     protected var _lapNumber: int;
-    protected var _carIDToLoad: int;
     public var raceWorld: RaceWorld;
 
     public var car: Car;
@@ -43,18 +42,8 @@ public class BaseRacingStateMachine extends BaseStateMachine
         _lapNumber = val;
     }
 
-    public function get carIDToLoad():int
-    {
-        return _carIDToLoad;
-    }
-
     public function BaseRacingStateMachine()
     {
-    }
-
-    public function set carIDToLoad(value:int):void
-    {
-        _carIDToLoad = value;
     }
 }
 }

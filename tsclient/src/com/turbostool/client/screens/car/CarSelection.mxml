@@ -44,7 +44,7 @@
             for (var i:Number = 0; i < carList.length; ++i)
             {
                 var car:CarInfo = carList.getItemAt(i) as CarInfo;
-                //trace("val = " + val + " " + car.id + " " + car);
+                trace("val = " + val + " " + car.id + " " + car);
                 if (car.id == val)
                 {
                     res = i + 1;
