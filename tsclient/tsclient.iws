@@ -21,9 +21,9 @@
     <list default="true" readonly="true" id="a0904415-01e0-49d4-a3de-df6f81b4b677" name="Default" comment="" />
     <list id="ca02e384-e624-478c-93c0-06edbb642fe9" name="nocommit" comment="" />
     <ignored path="tsclient.iws" />
+    <ignored path="$USER_HOME_GRAILS$/" />
     <ignored path="$USER_HOME_GRIFFON$/" />
     <ignored path=".idea/workspace.xml" />
-    <ignored path="$USER_HOME_GRAILS$/" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,8 +91,8 @@
       <property name="field_breakpoints_groupByClasses" value="true" />
       <property name="method_breakpoints_groupByClasses" value="true" />
       <property name="exception_breakpoints_viewId" value="TABLE" />
-      <property name="exception_breakpoints_groupByClasses" value="true" />
       <property name="field_breakpoints_viewId" value="TABLE" />
+      <property name="exception_breakpoints_groupByClasses" value="true" />
       <property name="method_breakpoints_groupByMethods" value="false" />
     </ui_properties>
   </component>
@@ -102,42 +102,6 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Client.mxml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Client.mxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="456" column="22" selection-start="16543" selection-end="16543" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CarSelection.mxml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/screens/car/CarSelection.mxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="16" selection-start="1410" selection-end="1410" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RegistrationController.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/registration/RegistrationController.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="6" selection-start="2319" selection-end="2510" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CarInfo.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/model/CarInfo.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="13" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ModelsStorage.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/ModelsStorage.as">
           <provider selected="true" editor-type-id="text-editor">
@@ -147,10 +111,64 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CarSelectionScreen.mxml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="CarSelectionScreen.mxml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/registration/CarSelectionScreen.mxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="33" selection-start="1892" selection-end="1892" vertical-scroll-proportion="0.27017543">
+            <state line="53" column="33" selection-start="1892" selection-end="1892" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserInfo.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/model/UserInfo.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="23" selection-start="276" selection-end="276" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminPanel.mxml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/profile/AdminPanel.mxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="90" selection-start="166" selection-end="166" vertical-scroll-proportion="0.05905512">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Profile.mxml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/profile/Profile.mxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="218" column="24" selection-start="9537" selection-end="9537" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChatMessageRenderer.mxml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../controls/src/com/turbostool/controls/ChatMessageRenderer.mxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="119" column="65" selection-start="4737" selection-end="4789" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChatCanvas.mxml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/chat/ChatCanvas.mxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="47" column="92" selection-start="1879" selection-end="1959" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CityScreen.mxml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/city/CityScreen.mxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="139" column="25" selection-start="7332" selection-end="7480" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -175,14 +193,12 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/turbostool/client/net/MessageReader.as" />
         <option value="$PROJECT_DIR$/src/com/turbostool/client/bank/ExchangePopUp.mxml" />
         <option value="$PROJECT_DIR$/src/com/turbostool/client/net/messages/RegisterRequest.as" />
         <option value="$PROJECT_DIR$/src/com/turbostool/client/controllers/RacingStateMachine.as" />
         <option value="$PROJECT_DIR$/src/com/turbostool/client/controllers/ConnectController.as" />
         <option value="$PROJECT_DIR$/src/com/turbostool/client/controllers/BaseRacingStateMachine.as" />
         <option value="$PROJECT_DIR$/src/com/turbostool/client/controllers/LoginController.as" />
-        <option value="$PROJECT_DIR$/src/com/turbostool/client/model/UserInfo.as" />
         <option value="$PROJECT_DIR$/src/com/turbostool/client/utils/Tracer.as" />
         <option value="$PROJECT_DIR$/src/com/turbostool/client/utils/t.as" />
         <option value="$PROJECT_DIR$/src/Client.mxml" />
@@ -191,6 +207,8 @@
         <option value="$PROJECT_DIR$/src/com/turbostool/client/registration/RegistrationController.as" />
         <option value="$PROJECT_DIR$/src/com/turbostool/client/registration/CarSelectionScreen.mxml" />
         <option value="$PROJECT_DIR$/src/com/turbostool/client/screens/car/CarSelection.mxml" />
+        <option value="$PROJECT_DIR$/src/com/turbostool/client/model/UserInfo.as" />
+        <option value="$PROJECT_DIR$/src/com/turbostool/client/profile/AdminPanel.mxml" />
       </list>
     </option>
   </component>
@@ -505,8 +523,9 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Favorites" />
       <pane id="Scope" />
+      <pane id="Favorites" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -735,6 +754,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tsclient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tsclient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="turbostool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -835,23 +880,64 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tsclient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tsclient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tsclient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth1" value="135" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth0" value="109" />
     <property name="project.structure.last.edited" value="Modules" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth0" value="109" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth3" value="31" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth2" value="132" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth2" value="132" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder1" value="1" />
+    <property name="options.splitter.main.proportions" value="0.3" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder0" value="0" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder3" value="3" />
     <property name="RunManagerConfig.showSettingsBeforeRunnig" value="false" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder3" value="3" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder2" value="2" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
@@ -874,10 +960,10 @@
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder4" value="4" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder1" value="1" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder2" value="2" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder2" value="2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder0" value="0" />
     <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
@@ -899,6 +985,14 @@
       </method>
     </configuration>
     <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" air_descriptor_path="" air_program_params="" air_publisher_id="" air_root_dir_path="" air_run_mode="AppDescriptor" class_name="" html_or_swf_file_path="" main_class_name="" method_name="" module_name="" output_log_level="" package_name="" port="0" run_mode="HtmlOrSwfFile" scope="Class" socket_policy_port="0" url_to_launch="http://">
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="FlexRunConfigurationType" factoryName="Flex" html_or_swf_file_path="" main_class_name="" module_name="" run_mode="HtmlOrSwfFile" url_to_launch="">
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -933,14 +1027,6 @@
       <envs />
       <properties />
       <listeners />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
-    </configuration>
-    <configuration default="true" type="FlexRunConfigurationType" factoryName="Flex" html_or_swf_file_path="" main_class_name="" module_name="" run_mode="HtmlOrSwfFile" url_to_launch="">
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -1877,12 +1963,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="720" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25353774" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.06613947" sideWeight="0.65815604" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4385965" sideWeight="0.0" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.50526315" sideWeight="0.0" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24393724" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294714" sideWeight="0.66191155" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38089624" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1890,7 +1976,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2486692" sideWeight="0.7" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292595" sideWeight="0.83404255" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28602463" sideWeight="0.6462197" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32927758" sideWeight="0.6631579" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32927758" sideWeight="0.48245615" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Dataflow to this" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -2046,46 +2132,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/shop/ShopScreen.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="294" column="44" selection-start="13732" selection-end="13732" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/net/MessageReader.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="301" column="23" selection-start="11028" selection-end="11028" vertical-scroll-proportion="0.70472443" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../programs/flex_sdk_3/frameworks/projects/framework/src/mx/collections/ArrayCollection.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="39" selection-start="3546" selection-end="3546" vertical-scroll-proportion="0.028680688" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../programs/flex_sdk_3/frameworks/projects/framework/src/mx/collections/ArrayList.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="606" column="16" selection-start="18393" selection-end="18393" vertical-scroll-proportion="0.68451244" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/utils/TracingUtils.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="27" selection-start="227" selection-end="239" vertical-scroll-proportion="0.02952756" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/net/messages/GetPropertyResponse.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="24" selection-start="1979" selection-end="1979" vertical-scroll-proportion="0.55719554" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/net/messages/ReasonedResponse.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="45" selection-start="135" selection-end="135" vertical-scroll-proportion="0.027675277" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/net/messages/ChanneledMessage.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="45" selection-start="90" selection-end="90" vertical-scroll-proportion="0.055350553" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/net/messages/ServerRequest.as">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="13" selection-start="120" selection-end="120" vertical-scroll-proportion="0.027675277" />
@@ -2111,9 +2157,44 @@
         <state line="7" column="13" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/model/VkontakteInfo.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/ModelsStorage.as">
       <provider selected="true" editor-type-id="text-editor">
         <state line="139" column="24" selection-start="3806" selection-end="3806" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/registration/CarSelectionScreen.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="33" selection-start="1892" selection-end="1892" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/model/UserInfo.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="23" selection-start="276" selection-end="276" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/profile/Profile.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="218" column="24" selection-start="9537" selection-end="9537" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../controls/src/com/turbostool/controls/ChatMessageRenderer.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="119" column="65" selection-start="4737" selection-end="4789" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/chat/ChatCanvas.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="92" selection-start="1879" selection-end="1959" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/city/CityScreen.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="139" column="25" selection-start="7332" selection-end="7480" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/controllers/LoginController.as">
@@ -2121,9 +2202,16 @@
         <state line="135" column="43" selection-start="6305" selection-end="6305" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/registration/CarSelectionScreen.mxml">
+    <entry file="file://$PROJECT_DIR$/../../../../programs/flex_sdk_3/frameworks/projects/framework/src/mx/core/Container.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="33" selection-start="1892" selection-end="1892" vertical-scroll-proportion="0.27017543">
+        <state line="1397" column="46" selection-start="43756" selection-end="43778" vertical-scroll-proportion="0.33267716">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/profile/AdminPanel.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="90" selection-start="166" selection-end="166" vertical-scroll-proportion="0.05905512">
           <folding />
         </state>
       </provider>

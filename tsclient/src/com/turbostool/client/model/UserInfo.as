@@ -9,6 +9,7 @@ import mx.controls.Alert;
 public class UserInfo extends EventDispatcher
 {
     private var _id: Number;
+		private var _vkontakteId: Number;
     private var _login: String;
     private var _email: String;
     private var _displayName: String;
@@ -407,5 +408,13 @@ public class UserInfo extends EventDispatcher
     {
         _isWashed = value;
     }
+
+	public function get vkontakteId():Number {
+		return _vkontakteId;
+	}
+
+	public function set vkontakteId(value:Number):void {
+		_vkontakteId = value;
+	}
 }
 }

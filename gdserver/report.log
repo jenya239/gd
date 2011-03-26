@@ -147,3 +147,33 @@
 
 =INFO REPORT==== 25-Mar-2011::14:48:15 ===
     alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 25-Mar-2011::15:11:15 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 25-Mar-2011::17:44:49 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 25-Mar-2011::18:09:34 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 26-Mar-2011::13:35:41 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 26-Mar-2011::13:39:41 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 26-Mar-2011::13:47:41 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 26-Mar-2011::14:13:41 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 26-Mar-2011::14:19:41 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 26-Mar-2011::14:22:41 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 26-Mar-2011::14:29:42 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}

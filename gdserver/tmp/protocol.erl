@@ -550,8 +550,9 @@ userInfo_to_xml(UserInfo) ->
 secure_userInfo_to_xml(UserInfo) ->
     User = UserInfo#userInfo.user,
     Car = UserInfo#userInfo.car,
-    lists:flatten(io_lib:format("<userInfo id='~w' displayName='~s' currentCarID='~w' color='~w' homeCity='~w' level='~w' experience='~w' expPrevLevel='~w' expNextLevel='~w' rating='~w' duelWin='~w' duelCount='~w' carFileName='~s'>~s</userInfo>",
+    lists:flatten(io_lib:format("<userInfo id='~w' vkontakteId='~w' displayName='~s' currentCarID='~w' color='~w' homeCity='~w' level='~w' experience='~w' expPrevLevel='~w' expNextLevel='~w' rating='~w' duelWin='~w' duelCount='~w' carFileName='~s'>~s</userInfo>",
          [  User#user.id,
+            User#user.vkontakteID,
             User#user.name,
             Car#car.carClassID,
             Car#car.color,
