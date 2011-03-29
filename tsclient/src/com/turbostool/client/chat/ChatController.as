@@ -33,25 +33,25 @@ public class ChatController
     private function onChatMessageCity(event: ServerResponseEvent): void
     {
         var chatMessage: ChatMessageMessage = event.response as ChatMessageMessage;
-        chatMessagesCity.addItem(new ChatMessageInfo(chatMessage.timeStampDate, chatMessage.nick, chatMessage.text, chatMessage.userId, chatMessage.homeCity,chatMessage.admin));
+        chatMessagesCity.addItem(new ChatMessageInfo(chatMessage.timeStampDate, chatMessage.nick, chatMessage.text, chatMessage.userId, chatMessage.homeCity,chatMessage.admin,chatMessage.rj));
     }
 
     private function onChatMessageTrade(event: ServerResponseEvent): void
     {
         var chatMessage: ChatMessageMessage = event.response as ChatMessageMessage; 
-        chatMessagesTrade.addItem(new ChatMessageInfo(chatMessage.timeStampDate, chatMessage.nick, chatMessage.text, chatMessage.userId, chatMessage.homeCity,chatMessage.admin));
+        chatMessagesTrade.addItem(new ChatMessageInfo(chatMessage.timeStampDate, chatMessage.nick, chatMessage.text, chatMessage.userId, chatMessage.homeCity,chatMessage.admin,chatMessage.rj));
     }
 
     private function onChatMessageLobby(event: ServerResponseEvent): void
     {
         var chatMessage: ChatMessageMessage = event.response as ChatMessageMessage;
-        chatMessagesLobby.addItem(new ChatMessageInfo(chatMessage.timeStampDate, chatMessage.nick, chatMessage.text, chatMessage.userId, chatMessage.homeCity,chatMessage.admin));
+        chatMessagesLobby.addItem(new ChatMessageInfo(chatMessage.timeStampDate, chatMessage.nick, chatMessage.text, chatMessage.userId, chatMessage.homeCity,chatMessage.admin,chatMessage.rj));
     }
 
     private function onChatMessagePrivate(event: ServerResponseEvent): void
     {
         var chatMessage: ChatMessageMessage = event.response as ChatMessageMessage;
-        chatMessagesPrivate.addItem(new ChatMessageInfo(chatMessage.timeStampDate, chatMessage.nick, chatMessage.text, chatMessage.userId, chatMessage.homeCity,chatMessage.admin));
+        chatMessagesPrivate.addItem(new ChatMessageInfo(chatMessage.timeStampDate, chatMessage.nick, chatMessage.text, chatMessage.userId, chatMessage.homeCity,chatMessage.admin,chatMessage.rj));
     }
 }
 }

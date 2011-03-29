@@ -14,7 +14,10 @@
 
     <mx:htmlText>
         {wrapDate(data.timestamp as Date, "#2e0702") + wrapNick(createNickLink(data), 
-	  (data.admin == "true") ? "#842481" : (data.homeCity == 2 ? "#c12f20" : "#2427c1") ) +
+	  			(data.admin == "true")
+						? "#842481"
+						: (data.rj == "true") ? "#007700"
+							: (data.homeCity == 2 ? "#c12f20" : "#2427c1") ) +
         wrapText(String(data.text),
         "#2e0702")}
     </mx:htmlText>

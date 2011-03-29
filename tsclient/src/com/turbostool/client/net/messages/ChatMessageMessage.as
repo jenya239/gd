@@ -13,6 +13,7 @@ public class ChatMessageMessage extends ChanneledMessage
     private var _userId: Number;
     private var _homeCity: Number
     public var admin:String;
+		public var rj:String;
     
     public function ChatMessageMessage(text_: String = "", clientID: int = -1, channel: String = ChanneledMessage.GLOBAL_CHANNEL, nick: String = "", homeCity: Number =0)
     {

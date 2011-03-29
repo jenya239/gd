@@ -273,16 +273,16 @@ process({chatMessage, trade, Text, ""}, State) when ?STATES_AUTHORIZED(State) ->
     {noreply, State};
 
 process({otherChatMessage, Channel, Text, system, HomeCity, Nick, TimeStamp}, State) when ?STATES_AUTHORIZED(State) ->
-    sendMessage(State, {otherChatMessage, Channel, Text, system, HomeCity, Nick, TimeStamp,false}),
+    sendMessage(State, {otherChatMessage, Channel, Text, system, HomeCity, Nick, TimeStamp,false,false}),
     {noreply, State};
 
 process({otherChatMessage, Channel, Text, -1, HomeCity, Nick, TimeStamp}, State) when ?STATES_AUTHORIZED(State) ->
-    sendMessage(State, {otherChatMessage, Channel, Text, -1, HomeCity, Nick, TimeStamp,false}),
+    sendMessage(State, {otherChatMessage, Channel, Text, -1, HomeCity, Nick, TimeStamp,false,false}),
     {noreply, State};
 
 process({otherChatMessage, Channel, Text, UserID, HomeCity, Nick, TimeStamp}, State) when ?STATES_AUTHORIZED(State) ->
     User = dbUser:getRecord(id, UserID),
-    sendMessage(State, {otherChatMessage, Channel, Text, UserID, HomeCity, Nick, TimeStamp,users:checkRole(User, admin)}),
+    sendMessage(State, {otherChatMessage, Channel, Text, UserID, HomeCity, Nick, TimeStamp, users:checkRole(User, admin), users:checkRole(User, rj)}),
     {noreply, State};
     
 process({chatSystemMessage, Text}, State) when ?STATES_AUTHORIZED(State) ->

@@ -177,3 +177,60 @@
 
 =INFO REPORT==== 26-Mar-2011::14:29:42 ===
     alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 26-Mar-2011::14:58:42 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 26-Mar-2011::15:00:42 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 26-Mar-2011::15:52:42 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 26-Mar-2011::15:53:42 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 26-Mar-2011::15:54:42 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 26-Mar-2011::15:58:42 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 26-Mar-2011::16:04:42 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 26-Mar-2011::16:07:42 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 29-Mar-2011::16:15:40 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 29-Mar-2011::16:16:40 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 29-Mar-2011::16:24:40 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 29-Mar-2011::16:25:40 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 29-Mar-2011::16:31:40 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 29-Mar-2011::16:32:40 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 29-Mar-2011::16:43:40 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 29-Mar-2011::16:44:40 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 29-Mar-2011::16:45:40 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 29-Mar-2011::16:46:40 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 29-Mar-2011::16:51:40 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}

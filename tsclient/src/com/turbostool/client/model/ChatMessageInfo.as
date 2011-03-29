@@ -10,15 +10,17 @@ public class ChatMessageInfo
     private var _userId:Number=0;
     private var _homeCity: Number;
     public var admin:String="false";
+    public var rj:String="false";
 
-    public function ChatMessageInfo(timestamp: Date, nick: String, text: String, userId: Number, homeCity: Number, admin1:String)
+    public function ChatMessageInfo(timestamp: Date, nick: String, text: String, userId: Number, homeCity: Number, admin1:String, rj1:String)
     {
         _timestamp = timestamp;
         _nick = nick;
         _text = text;
         _userId = userId;
         _homeCity = homeCity;
-	admin=admin1;
+				admin=admin1;
+				rj=rj1;
     }
 
     public function get timestamp(): Date

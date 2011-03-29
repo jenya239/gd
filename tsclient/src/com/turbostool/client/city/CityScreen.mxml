@@ -60,7 +60,7 @@
                icon="@Embed(source='/assets/gui/screens/city/profileIcon.png')" x="417" y="11" width="80" />
     
     <mx:Script><![CDATA[
-        import com.turbostool.client.Tracker;
+			import com.turbostool.client.Tracker;
         import com.turbostool.client.event.EventManager;
         import com.turbostool.client.event.NickClickEvent;
         import com.turbostool.client.game.view.ModalManager;
@@ -147,6 +147,11 @@
             userProgress.visible = false;
             profileLable.visible = false;
 
+						//SWFAddress.setValue('' + event.userID);
+						//if( Client.instance.isAPIWrapper ){
+						//	Client.instance.wrapper.setLocation(event.userID);
+						//}
+						//Client.instance.wrapper.setLocation('testtest');
         }
 
         private var _lastScreenName: String = "";
@@ -156,6 +161,7 @@
         {
             main.selectedChild = screens;
             onScreenSelected(new ScreenSelectedCommand(_lastScreenName));
+						//Client.instance.wrapper.setLocation('testw');
         }
 
         [Bindable]
