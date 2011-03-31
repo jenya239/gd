@@ -52,5 +52,9 @@
             return Client.instance.str(name, params);
         }
 
+				public function get isModer(): Boolean{
+					return modelsStorage.userInfo.hasRole('admin');
+				}
+
         ]]></mx:Script>
 </mx:Canvas>

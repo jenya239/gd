@@ -96,7 +96,7 @@ public class RegistrationController extends EventDispatcher
 
     public function get currentCarInfo(): CarInfo
     {
-        return _modelsStorage.cars.filter(function(e, i, arr):Boolean{ return e.classID == _carClassId; })[0];     //[_carClassId - 1];
+        return _modelsStorage.cars.filter(function(e:*, i:int, arr:Array):Boolean{ return e.classID == _carClassId; })[0];     //[_carClassId - 1];
     }
 
     public function register(): void

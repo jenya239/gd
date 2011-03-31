@@ -13,11 +13,13 @@
         >
 
     <mx:htmlText>
-        {wrapDate(data.timestamp as Date, "#2e0702") + wrapNick(createNickLink(data), 
+        {wrapDate(data.timestamp as Date, "#2e0702") +
+				(forModers ? '&lt;small&gt;rj&lt;/small&gt;' : '') +
+				wrapNick(createNickLink(data),
 	  			(data.admin == "true")
 						? "#842481"
-						: (data.rj == "true") ? "#007700"
-							: (data.homeCity == 2 ? "#c12f20" : "#2427c1") ) +
+						: (rjColor ? "#007700"
+							: (data.homeCity == 2 ? "#c12f20" : "#2427c1") ) ) +
         wrapText(String(data.text),
         "#2e0702")}
     </mx:htmlText>
@@ -159,6 +161,14 @@
 
             return "<b><font face='Arial' size='11' color='" + color + "'>[" + dateStr + "]</font></b> ";
         }
+
+				private function get rjColor(): Boolean{
+					return (data.rj == "true") && !parentDocument.isModer;
+				}
+
+				private function get forModers(): Boolean{
+					return (data.rj == "true") && parentDocument.isModer;
+				}
 
         ]]></mx:Script>
 </mx:Text>
