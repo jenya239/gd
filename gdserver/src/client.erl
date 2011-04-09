@@ -315,6 +315,52 @@ process({ban, ID, Time}, State) when ?STATES_AUTHORIZED(State) ->
     end,
     {noreply, State};
 
+process({changeNick, UserId, NewNick, ForFree}, State) when ?STATES_AUTHORIZED(State) ->
+	Moder = dbUser:getRecord(id, State#state.userID),
+	case users:checkRole( Moder, admin ) of
+		true ->
+			NickLength = utils:utf8length( NewNick ),
+			case NickLength < 2 of
+				true ->
+					sendMessage(State, {changeNick, error, {nickIsTooShort, "asdfasd[[nicknameIsTooShort]]"}});
+				false ->
+					case NickLength > ?MAX_NICKNAME_LENGTH of
+						true ->
+							sendMessage(State, {changeNick, error, {nickIsTooLong, "[[nicknameIsTooLong]]"}});
+						false ->
+							mnesia:transaction(fun() ->
+								case ForFree of
+									true ->
+										case is_record( dbUser:getRecord_nt(nicknameIgnoreCase, NewNick), user ) of
+											true -> sendMessage(State, {changeNick, error, {alreadyExists, "[[nicknameIsAreadyTaken]]"}});
+											false ->
+												User = dbUser:getRecord_nt(id, UserId),
+												mnesia:write( User#user{ name = NewNick } ),
+												dbActivity:register_nt(UserId,  {changeNick, User#user.name, NewNick, Moder#user.id, 0}, ok),
+												sendMessage(State, {changeNick, ok})
+										end;
+									false ->
+										User = dbUser:getRecord_nt(id, UserId),
+										case User#user.realMoney >= 10 of % todo вынести константу
+											true ->
+												case is_record( dbUser:getRecord_nt(nicknameIgnoreCase, NewNick), user ) of
+													true -> sendMessage(State, {changeNick, error, {alreadyExists, "[[nicknameIsAreadyTaken]]"}});
+													false ->
+														mnesia:write( User#user{ name = NewNick, realMoney = User#user.realMoney - 10 } ),
+														dbActivity:register_nt(UserId,  {changeNick, User#user.name, NewNick, Moder#user.id, 10}, ok),
+														sendMessage(State, {changeNick, ok})
+												end;
+											false -> sendMessage(State, {changeNick, error, {notEnoughMoney, "[[notEnoughMoney]]"}})
+										end
+								end
+							end)
+					end
+			end;
+		false ->
+				ok
+	end,
+	{noreply, State};
+
 process({finishWork, timerEvent},  #state{name=work} = State ) ->
     UserID = State#state.userID,
     case fuel:finishWork(UserID, State#state.workInfo) of

@@ -38,7 +38,7 @@
         public var modelsStorage: ModelsStorage;
 
 
-        public function sendBanRequest(userID: int, milliseconds: int): void
+        public function sendBanRequest(userID: int, milliseconds: Number): void
         {
             SessionSocket.instance.sendMessage(new BanRequest(userID, milliseconds));
         }

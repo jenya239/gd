@@ -177,7 +177,10 @@ parse([{name, "cleanCar"}, {friendID, FriendID}]) ->
     {cleanCar, list_to_integer(FriendID)};    
 
 parse([{name, "loadingProgress"}, {channel, Channel}, {progress, Progress}]) ->
-    {loadingProgress, list_to_atom2(Channel), list_to_integer(Progress)}.
+    {loadingProgress, list_to_atom2(Channel), list_to_integer(Progress)};
+
+parse([ {name, "changeNick"}, {userId, UserId}, {newNick, NewNick}, {forFree, ForFree} ]) ->
+    {changeNick, list_to_integer(UserId), NewNick, list_to_atom(ForFree)}.
 
 % кодирование бинарных сообщений
 serialize({otherCarState, OtherCarState, _Time, OtherClientID}) ->
@@ -265,6 +268,9 @@ generateXml({disconnect, ok}) ->
 
 generateXml({restartGame, ok}) ->
     "<event name='restartGame' result='ok'/>";
+
+generateXml({changeNick, ok}) ->
+    "<event name='changeNick' result='ok'/>";
     
 generateXml({levelUpInfo, ok, Message, NewUpgrades, NewRoutes, NewCars}) ->
     lists:flatten(io_lib:format("<event name='levelUpInfo' result='ok' message='~s'>~s~s~s</event>", 

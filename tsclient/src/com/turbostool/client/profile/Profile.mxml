@@ -7,6 +7,8 @@
         color="#37A9C1"
         backgroundColor="#151d12"
         xmlns:ns1="com.turbostool.client.popUps.*"
+				horizontalScrollPolicy="off"
+				verticalScrollPolicy="off"
         >
 
     <mx:Style source="/styles.css"/>
@@ -19,7 +21,9 @@
         import com.turbostool.client.model.UserInfo;
         import com.turbostool.client.model.VkontakteInfo;
         import com.turbostool.client.net.SessionSocket;
-        import com.turbostool.client.net.messages.CleanCarRequest;
+				import com.turbostool.client.net.messages.ChangeNickRequest;
+				import com.turbostool.client.net.messages.ChangeNickResponse;
+				import com.turbostool.client.net.messages.CleanCarRequest;
         import com.turbostool.client.net.messages.CleanCarResponse;
         import com.turbostool.client.net.messages.ExchangeVkontakteVotesRequest;
         import com.turbostool.client.net.messages.ExchangeVkontakteVotesResponse;
@@ -242,11 +246,52 @@
             }
         }
 
+				private function changeNick(forFree: Boolean): void {
+					if( tiNick.text != userInfo.displayName ){
+						var onResponse: Function = function(e: ServerResponseEvent):void {
+							EventManager.instance.removeEventListener(ChangeNickResponse.CHANGE_NICK, onResponse);
+							PopUpManager.removePopUp(loadingIndicator);
+							var response: ChangeNickResponse = e.response as ChangeNickResponse;
+							if( response.isOK ){
+								userInfo.displayName = tiNick.text;
+							}else{
+								Alert.show( response.message );
+								tiNick.text = userInfo.displayName; 
+							}
+							btnChangeNick.visible = false;
+							btnChangeNickForFree.visible = false;
+						};
+						EventManager.instance.addEventListener(ChangeNickResponse.CHANGE_NICK, onResponse);
+
+						PopUpManager.addPopUp(loadingIndicator, this, true);
+						PopUpManager.centerPopUp(loadingIndicator);
+						PopUpManager.bringToFront(loadingIndicator);
+
+						SessionSocket.instance.sendMessage( new ChangeNickRequest( userInfo.id, tiNick.text, forFree ) );
+					}
+				}
+
+				private function nickChanging(): void {
+					if( tiNick.text != userInfo.displayName ){
+						btnChangeNick.visible = true;
+						btnChangeNickForFree.visible = true;
+					}
+				}
+
         ]]></mx:Script>
 
     <mx:Metadata>
         [Event(name="screenSelected", type="com.turbostool.client.city.ScreenSelectedCommand")]
     </mx:Metadata>
+    <mx:Label top="31" x="7" text="[{userInfo.level}]" color="#FFFFFF" fontSize="24"
+              fontWeight="bold" fontStyle="normal" fontFamily="Arial" selectable="true"/>
+    <mx:Label top="31" x="36" text="{userInfo.displayName}" color="#FFFFFF" fontSize="24"
+              fontWeight="bold" fontStyle="normal" fontFamily="Arial" selectable="true" visible="{!showAdminPanel}"/>
+		<mx:TextInput id="tiNick" top="38" x="40" text="{userInfo.displayName}" visible="{showAdminPanel}" focusThickness="0"
+						fontWeight="bold" fontSize="13" fontFamily="Arial" width="268" maxChars="35" color="0"
+						paddingTop="1" height="22" backgroundColor="#777777" borderStyle="none" change="nickChanging();"/>
+		<mx:Button id="btnChangeNick" top="38" left="313" label="{str('change')}" styleName="default" click="changeNick(false);" color="#262626" visible="false"/>
+		<mx:Button id="btnChangeNickForFree" top="38" left="391" label="{str('forFree')}" styleName="default" click="changeNick(true);" color="#262626" visible="false"/>
     <profile:DuelPanel userInfo="{userInfo}" top="25" left="11" width="100%"/>
     <mx:Label text="{str('nextLevel')}" color="#DC8D14" fontSize="10" fontWeight="normal" fontStyle="normal"
               fontFamily="Arial" top="333" left="97"/>

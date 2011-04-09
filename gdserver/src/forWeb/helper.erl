@@ -122,6 +122,9 @@ urlFor(Table, Action, Id, SortIndex) ->
 pathTo(itemClass, image, Id) ->
 	io_lib:format("src/web/client/data/items/~b.png", [Id]).
 
+linkFor(user, show, Id) ->
+		{a, [ { href, urlFor(user, show, Id) } ], utils:toString(Id) }.
+
 processAction(Arg) ->
 	case (Arg#arg.req)#http_request.method of
 		'POST' -> ok;
@@ -337,3 +340,19 @@ createSalesTable() ->
 			dbActivity:getAll( helper:getGETValue(Arg, startTime), helper:getGETValue(Arg, endTime) )
 		)}.
 
+createNicksChangesTable() ->
+	Changes = dbActivity:getNicksChanges(),
+	{table, [ {cellpadding, 4} ], [
+		createRow(th, [
+			"Когда", "Кому", "Старое имя", "Новое имя", "Кто сменил", "Цена в золотых"
+		]),
+		lists:map(
+			fun({_, Microsecs, UserId, {_, OldName, NewName, ModerId, Cost }, _}) ->
+				createRow([
+					utils:timestampToHumanString( utils:microsecsToTimestamp( Microsecs ) ),
+					linkFor(user, show, UserId), OldName, NewName, linkFor(user, show, ModerId), Cost
+				])
+			end,
+			Changes
+		)
+	]}.

@@ -6,7 +6,8 @@
 	getAll/1,
 	getAll/2,
 	getSales/0,
-    getAllUserActivities/3
+  getAllUserActivities/3,
+	getNicksChanges/0
 ]).
         
 -include("data.hrl").
@@ -88,3 +89,11 @@ getAllUserActivities(UserId, Offset, Limit) ->
     %   A <- mnesia:table(activity),
     %   A#activity.userid =:= UserId
     % ]), {order ,descending})).
+
+getNicksChanges() ->
+	mneser:do(qlc:keysort(2, qlc:q([
+		A
+		||
+		A <- mnesia:table(activity),
+		element(1, A#activity.action) =:= changeNick
+	]), {order ,descending})).

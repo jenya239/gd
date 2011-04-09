@@ -144,7 +144,7 @@ public class MessageReader
                     message = tryToCreateInstanceByClassName("com.turbostool.client.net.messages", cameCaseName + "Message");
                     if (message == null)
                     {
-                        throw new MessageConvertError("Not found message for xml name '" + name);
+                        throw new MessageConvertError("Not found message for xml name '" + name + "'");
                     }
                 }
             }
