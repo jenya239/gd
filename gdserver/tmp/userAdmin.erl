@@ -94,6 +94,7 @@ createUserTable(Id) ->
 		createRow("Город", Rec#user.homeCity),
 		createInput("Рублей", utils:toString(utils:trunc(Rec#user.money, 2)), Rec#user.id, helper:urlFor(user, addMoney), "точно изменить рубли?"),
 		createInput("Золотых", utils:toString(utils:trunc(Rec#user.realMoney, 2)), Rec#user.id, helper:urlFor(user, addRealMoney), "точно изменить золотые (ЗОЛОТЫЕ!!) ?"),
+		createRow("Зарегистрировался", utils:timestampToHumanString(Rec#user.date)),
 		createRow("Бензина", Car#car.fuel),
 		createRow("Уровень", Rec#user.level),
 		createRow("Рейтинг", Rec#user.rating),

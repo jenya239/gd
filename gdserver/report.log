@@ -456,3 +456,126 @@ Error in process <0.1976.0> with exit value: {function_clause,[{protocol,parse,[
 
 =INFO REPORT==== 9-Apr-2011::19:01:39 ===
     alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 10-Apr-2011::11:40:26 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 10-Apr-2011::11:46:26 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 10-Apr-2011::12:01:26 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 10-Apr-2011::12:03:26 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 10-Apr-2011::12:08:26 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 10-Apr-2011::12:28:26 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 10-Apr-2011::12:30:26 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 10-Apr-2011::13:33:33 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 10-Apr-2011::13:37:33 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 10-Apr-2011::13:38:33 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 10-Apr-2011::13:46:33 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 10-Apr-2011::21:00:34 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 10-Apr-2011::21:39:11 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 10-Apr-2011::21:54:02 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 10-Apr-2011::21:55:02 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 10-Apr-2011::21:56:01 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 10-Apr-2011::22:04:56 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 10-Apr-2011::23:21:10 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 10-Apr-2011::23:22:10 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 10-Apr-2011::23:23:09 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 10-Apr-2011::23:24:09 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 10-Apr-2011::23:29:06 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 11-Apr-2011::00:28:30 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 11-Apr-2011::00:31:29 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 13-Apr-2011::20:21:20 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 14-Apr-2011::13:06:21 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 14-Apr-2011::13:30:07 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 14-Apr-2011::14:15:40 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 14-Apr-2011::20:25:17 ===
+    alarm_handler: {set,{{disk_almost_full,"/media/My"},[]}}
+
+=INFO REPORT==== 14-Apr-2011::20:30:17 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 15-Apr-2011::16:39:51 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 15-Apr-2011::18:18:51 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 17-Apr-2011::13:24:53 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 18-Apr-2011::20:07:14 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 18-Apr-2011::20:08:14 ===
+    alarm_handler: {set,{process_memory_high_watermark,<0.371.0>}}
+
+=INFO REPORT==== 18-Apr-2011::20:26:08 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 18-Apr-2011::23:07:49 ===
+    alarm_handler: {set,{{disk_almost_full,"/media/My"},[]}}
+
+=INFO REPORT==== 19-Apr-2011::10:01:14 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 19-Apr-2011::10:02:13 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 19-Apr-2011::10:39:50 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 19-Apr-2011::10:45:29 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
