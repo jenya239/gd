@@ -58,10 +58,17 @@
     <mx:Label color="#DE8A04" fontSize="13" fontWeight="bold" width="301" textAlign="center"
               fontFamily="Arial" text="{lobbiesController.lobbyInfo.routeInfo.toUpperCase()}" horizontalCenter="0"
               top="257"/>
+		<mx:Label left="12" y="30" text="[{Client.instance.modelsStorage.userInfo.level}] {Client.instance.modelsStorage.userInfo.displayName}"
+							color="#FFFFFF" fontSize="16"
+              fontWeight="bold" fontStyle="normal" fontFamily="Arial" selectable="true"/>
     <profile:DuelPanel left="12" y="18" userInfo="{Client.instance.modelsStorage.userInfo}"/>
     <controls:SmartImage source="{Client.instance.modelsStorage.userInfo.imageURL}"
                          x="46" y="112" width="185" height="120"/>
 
+		<mx:Label right="12" y="30" text="[{lobbiesController.clients.getItemAt(1).userInfo.level}] {lobbiesController.clients.getItemAt(1).userInfo.displayName}"
+							color="#FFFFFF" fontSize="16"
+              fontWeight="bold" fontStyle="normal" fontFamily="Arial" selectable="true"
+							visible="{lobbiesController.clients.length == 2}"/>
     <profile:DuelPanel right="12" y="18"
                        visible="{lobbiesController.clients.length == 2}"
                        userInfo="{lobbiesController.clients.getItemAt(1).userInfo}"/>

@@ -579,3 +579,30 @@ Error in process <0.1976.0> with exit value: {function_clause,[{protocol,parse,[
 
 =INFO REPORT==== 19-Apr-2011::10:45:29 ===
     alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 19-Apr-2011::12:46:30 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 19-Apr-2011::12:50:30 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 19-Apr-2011::12:58:30 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 19-Apr-2011::13:01:30 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 19-Apr-2011::13:02:30 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 19-Apr-2011::13:03:30 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 19-Apr-2011::13:04:30 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 19-Apr-2011::13:05:30 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 19-Apr-2011::13:06:30 ===
+    alarm_handler: {clear,system_memory_high_watermark}
