@@ -138,10 +138,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DuelHallScreen.mxml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/lobbies/DuelHallScreen.mxml">
+      <file leaf-file-name="GarageItemPopup.mxml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/garage/GarageItemPopup.mxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="29" selection-start="2312" selection-end="2312" vertical-scroll-proportion="0.3503937">
+            <state line="136" column="70" selection-start="5973" selection-end="5973" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RemoveCarUpgradeRequest.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/net/messages/RemoveCarUpgradeRequest.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="70" selection-start="160" selection-end="176" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="text.properties" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/locale/en_US/text.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="271" column="0" selection-start="9201" selection-end="9201" vertical-scroll-proportion="0.8228347">
               <folding />
             </state>
           </provider>
@@ -151,15 +169,6 @@
         <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/profile/DuelPanel.mxml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="29" column="47" selection-start="877" selection-end="877" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GarageItemPopup.mxml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/garage/GarageItemPopup.mxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="23" selection-end="23" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -178,15 +187,6 @@
         <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/garage/Equipment.mxml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MessageReader.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/net/MessageReader.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="21" selection-start="1128" selection-end="1128" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -215,9 +215,9 @@
         <option value="$PROJECT_DIR$/src/com/turbostool/client/chat/ChatCanvas.mxml" />
         <option value="$PROJECT_DIR$/src/com/turbostool/client/net/MessageReader.as" />
         <option value="$PROJECT_DIR$/src/com/turbostool/client/net/messages/ChangeNickResponse.as" />
-        <option value="$PROJECT_DIR$/src/locale/en_US/text.properties" />
         <option value="$PROJECT_DIR$/src/com/turbostool/client/profile/Profile.mxml" />
         <option value="$PROJECT_DIR$/src/com/turbostool/client/lobbies/DuelHallScreen.mxml" />
+        <option value="$PROJECT_DIR$/src/locale/en_US/text.properties" />
       </list>
     </option>
   </component>
@@ -714,6 +714,70 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="profile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tsclient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tsclient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="turbostool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="net" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tsclient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tsclient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="turbostool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="net" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="messages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1959,7 +2023,7 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25353774" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24638784" sideWeight="0.7982456" order="3" side_tool="false" content_ui="tabs" x="21" y="149" width="329" height="557" />
+      <window_info id="Find" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25323194" sideWeight="0.7982456" order="3" side_tool="false" content_ui="tabs" x="21" y="149" width="329" height="557" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.06613947" sideWeight="0.65815604" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5050505" sideWeight="0.0" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24393724" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1969,7 +2033,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2486692" sideWeight="0.7" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292595" sideWeight="0.83404255" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28602463" sideWeight="0.6462197" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28060836" sideWeight="0.48245615" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28060836" sideWeight="0.48245615" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Dataflow to this" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -2124,16 +2188,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/locale/en_US/text.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="260" column="35" selection-start="8834" selection-end="8834" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/registration/CitySelectionScreen.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/registration/CarSelectionScreen.mxml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -2180,13 +2234,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/garage/GarageItemPopup.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="23" selection-end="23" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/garage/GarageScreen.mxml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="75" selection-start="1348" selection-end="1348" vertical-scroll-proportion="0.0">
@@ -2201,9 +2248,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/lobbies/DuelHallScreen.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="29" selection-start="2312" selection-end="2312" vertical-scroll-proportion="0.3503937">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/game/view/ModalManager.as">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="47" selection-start="958" selection-end="958" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/garage/GarageItemPopup.mxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="136" column="70" selection-start="5973" selection-end="5973" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -2215,9 +2276,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/lobbies/DuelHallScreen.mxml">
+    <entry file="file://$PROJECT_DIR$/src/com/turbostool/client/net/messages/RemoveCarUpgradeRequest.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="29" selection-start="2312" selection-end="2312" vertical-scroll-proportion="0.3503937">
+        <state line="3" column="70" selection-start="160" selection-end="176" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/locale/en_US/text.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="271" column="0" selection-start="9201" selection-end="9201" vertical-scroll-proportion="0.8228347">
           <folding />
         </state>
       </provider>

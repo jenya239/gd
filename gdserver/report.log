@@ -606,3 +606,16 @@ Error in process <0.1976.0> with exit value: {function_clause,[{protocol,parse,[
 
 =INFO REPORT==== 19-Apr-2011::13:06:30 ===
     alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 19-Apr-2011::14:04:30 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=ERROR REPORT==== 19-Apr-2011::15:04:26 ===
+Module dbItem must be purged before loading
+
+
+=ERROR REPORT==== 19-Apr-2011::15:04:26 ===
+Loading of /home/jenya/projects/gd/src/gdserver/ebin/dbItem.beam failed: not_purged
+
+=INFO REPORT==== 19-Apr-2011::15:05:44 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}

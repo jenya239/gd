@@ -204,10 +204,10 @@ switchCarUpgrade(UserID, UpgID, Action) ->
 	
 switchCarUpgrade_nt(UserID, UpgID, Action) ->
 	User = dbUser:getRecord_nt(id, UserID),
-	Result = qlc:e(qlc:q([X || X <- mnesia:table(userDetails), X#userDetails.id =:= UserID])),
-	Car = mneser:getRecord_nt(car, User#user.currentCarID),
+	Result = qlc:e(qlc:q([X || X <- mnesia:table(userDetails), X#userDetails.id =:= UserID])), %просто получение записи по id
+	Car = mneser:getRecord_nt(car, User#user.currentCarID), %а вот в принципе это может быть машина, на которой нет указанной детали
 	case Result of
-	    [UserDetails] ->
+	    [UserDetails] -> %кто бля это писал? _otherAgain??
 	        List =
 	            case Action of
 	                use ->
@@ -216,8 +216,12 @@ switchCarUpgrade_nt(UserID, UpgID, Action) ->
 	                    Car#car.upgrades
 	            end,
 
+					case utils:inList( UpgID, List ) of
+							true -> ok;
+							false -> mnesia:abort({error, "[[incorrectItemAction]]"})
+					end,
 	        Upg = dbItem:getItem_nt(UpgID),
-	        NewList = lists:delete(UpgID, List),                            
+	        NewList = lists:delete(UpgID, List), %а если в List и не было этого элемента?
 
 	        ItemClass = dbItem:getClass_nt(Upg#item.itemClassID),
 
