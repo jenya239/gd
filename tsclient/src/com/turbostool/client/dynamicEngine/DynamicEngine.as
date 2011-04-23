@@ -98,6 +98,46 @@ public class DynamicEngine
         }
     }
 
+		//sound experiment
+		import flash.media.*;
+		[Embed(source="/assets/sounds/1000rpm.mp3")]
+		[Bindable]
+		private var rpm1000Cls:Class;
+		[Embed(source="/assets/sounds/2000rpm.mp3")]
+		[Bindable]
+		private var rpm2000Cls:Class;
+		[Embed(source="/assets/sounds/3000rpm.mp3")]
+		[Bindable]
+		private var rpm3000Cls:Class;
+		[Embed(source="/assets/sounds/4000rpm.mp3")]
+		[Bindable]
+		private var rpm4000Cls:Class;
+		[Embed(source="/assets/sounds/6000rpm.mp3")]
+		[Bindable]
+		private var rpm6000Cls:Class;
+		private var sounds:Array = new Array(
+			{rpm:1000, snd:new rpm1000Cls()},
+			{rpm:2000, snd:new rpm2000Cls()},
+			{rpm:3000, snd:new rpm3000Cls()},
+			{rpm:4000, snd:new rpm4000Cls()},
+			{rpm:60000, snd:new rpm6000Cls()}
+		);
+		private var sndChannel:SoundChannel = null;
+		private var currentSound: Sound = null;
+	  private function soundExperiment(rpm: Number): void{
+			for( var i:int = 0; i < sounds.length; i++ ){
+				if( rpm < sounds[i].rpm ){
+					if( sounds[i].snd != currentSound ){
+						if( sndChannel != null ) sndChannel.stop();
+						currentSound = sounds[i].snd;
+						sndChannel = sounds[i].snd.play();
+					}
+					break;
+				}
+			}
+		}
+		//end sound experiment
+
     /**
      * Вот этот метод было очень тяжело разработать.
      * Логично считать, что столкновение в среднем занимает один квант времени.
@@ -120,6 +160,7 @@ public class DynamicEngine
                 cde.nullForces();
                 cde.calcForces();
                 cde.calcVelocity(dt);
+								soundExperiment(car.carModel.getRPM());
             } else
             if (!car.isLocal && !localOrRemote)
             {

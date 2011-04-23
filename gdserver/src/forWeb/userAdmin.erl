@@ -9,7 +9,8 @@
         processSearchByName/1, 
         processSearchByVkontakteId/1, 
         processChangeNickname/1,
-        processGiveCar/1]).
+        processGiveCar/1,
+				processUnban/1]).
 
 -include("data.hrl").
 -include_lib("lib/yaws/include/yaws_api.hrl").
@@ -19,7 +20,7 @@
 createRow(Name, Value) ->
 	{tr, [], [
 		{td, [{align, right}], Name ++ ":&nbsp;"},
-		{td, [], utils:toStringForScalars(Value)}
+		{td, [], case is_tuple(Value) of true -> Value; false -> utils:toStringForScalars(Value) end}
 	]}.
 
 showAtomList(LS) ->
@@ -50,7 +51,7 @@ createRowLink(Name, Value, Href) ->
 		{td, [], 
 		    {a, [{href, Href}], utils:toStringForScalars(Value)}}
 	]}.
-	
+
 createInput(Name, Value, Id, Url, Question) ->
 	{tr, [], [
 		{td, [{align, right}], Name ++ ":&nbsp;"},
@@ -85,10 +86,10 @@ createUserTable(Id) ->
 	Car = mneser:getRecord(car, Rec#user.currentCarID),
   {Inventory, Equipment} = dbItem:getUserInventoryAndEquipment(Id),
 	UserProgress = dbUserProgress:getOrCreate(Id),
-    {table, [], [
-        createSearch("Найти по имени", Rec#user.name, helper:urlFor(user, searchByName)),
-        createSearch("Найти по vkontakteId", Rec#user.vkontakteID, helper:urlFor(user, searchByVkontakteId)),
-        createBlankRow(),
+	{table, [], [
+		createSearch("Найти по имени", Rec#user.name, helper:urlFor(user, searchByName)),
+		createSearch("Найти по vkontakteId", Rec#user.vkontakteID, helper:urlFor(user, searchByVkontakteId)),
+		createBlankRow(),
 		createRow("Id", {a, [ {href, helper:urlFor(user, show, Id)}], utils:toStringForScalars(Id)}),
 		createInput("Имя", Rec#user.name, Rec#user.id, helper:urlFor(user, changeNickname), "точно изменить ник?"),
 		createRow("Город", Rec#user.homeCity),
@@ -103,14 +104,38 @@ createUserTable(Id) ->
 		createRow("Время онлайн", UserProgress#userProgress.onlineTime / ?MILLISECONDS_IN_HOUR),
 		createRow("Проехал", UserProgress#userProgress.kilometers),
 		createRow("Работал", UserProgress#userProgress.worksCounter),
-        createRow("Триггеры", showTriggerList(Rec#user.triggers)),
-        createRow("Роли", showAtomList(Rec#user.roles) ),
+		createRow("Триггеры", showTriggerList(Rec#user.triggers)),
+		createRow("Роли", showAtomList(Rec#user.roles) ),
 		createRow("Инвентарь", createItemsTable(Inventory)),
 		createRow("Надето", createItemsTable(Equipment)),
 		createRowLink("Vkontakte", Rec#user.vkontakteID, "http://vkontakte.ru/id" ++ integer_to_list(Rec#user.vkontakteID)),
-        createInputGiveCar("Выдать авто",Rec#user.id,helper:urlFor(user, give), "точно выдать авто?"),
-        createRowLink("Activity", "Activity", "activity.yaws?id=" ++ integer_to_list(Id))
+		createInputGiveCar("Выдать авто",Rec#user.id,helper:urlFor(user, give), "точно выдать авто?"),
+		createRowLink("Activity", "Activity", "activity.yaws?id=" ++ integer_to_list(Id)),
+		createRow("Последний бан", formatLastBan(Id))
 	]}.
+
+formatLastBan(UserId) ->
+		{atomic, Ban} = mnesia:transaction(fun() -> 
+			Bans = mnesia:read({stopList, UserId}),
+			case Bans of
+					[] -> none;
+					_ -> lists:last( Bans )
+			end
+		end),
+		{span, [],
+			case Ban of
+					none -> ["none"];
+					_ -> [
+						utils:timestampToHumanString(utils:microsecsToTimestamp(element(3, Ban) * 1000))
+							++ " на " ++ utils:sec_to_string( round( element(4, Ban) / 1000 ) )
+							++ " by " ++ helper:linkFor(user, show, Ban#stopList.admin),
+						{form, [ {action, helper:urlFor(user, unban)}, {method, post}, {style, "margin: 0px; float: right;"} ], [
+							{input, [{type, hidden}, {name, id}, {value, UserId}], []},
+							{input, [{type, button}, {value, "unban"}, {style, "height: 18px;"}, {onclick, "try_submit(this.parentNode, 'Точно разбанить?'); return false;"}], []}
+						]}
+					]
+			end
+		}.
 
 createInputGiveCar(Name, Id, Url, Question) ->
 	{tr, [], [
@@ -347,3 +372,10 @@ processActivity(Arg) ->
 
 processGetAllIds() ->
 	{html, utils:termToJson( dbUser:getAllIds() )}.
+
+processUnban(Arg) ->
+	Id = helper:getPOSTValue(Arg, id),
+	mnesia:transaction( fun() ->
+		mnesia:delete_object(	lists:last( mnesia:read({stopList, Id}) ) )
+	end ),
+	{redirect, helper:urlFor(user, show, Id)}.

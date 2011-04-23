@@ -142,17 +142,17 @@ processAction(Arg) ->
 		end
 	end,
 	case Table of
-        carClass ->
+    carClass ->
 			case Action of
 				reset -> tableEditorView:processReset(Table,Arg);
 				_Other -> DefaultProcess()
 			end;
-        recolorPrice ->
+    recolorPrice ->
 			case Action of
 				reset -> tableEditorView:processReset(Table,Arg);
 				_Other -> DefaultProcess()
 			end;
-        level ->
+    level ->
 			case Action of
 				reset -> tableEditorView:processReset(Table,Arg);
 				_Other -> DefaultProcess()
@@ -169,13 +169,14 @@ processAction(Arg) ->
 		user ->
 			case Action of
 				addAdminRole -> userAdmin:processAddAdminRole(Arg);
-                removeAdminRole -> userAdmin:processRemoveAdminRole(Arg);
-                addMoney -> userAdmin:processAddMoney(Arg);
-                addRealMoney -> userAdmin:processAddRealMoney(Arg);
-                searchByName -> userAdmin:processSearchByName(Arg);
-                searchByVkontakteId -> userAdmin:processSearchByVkontakteId(Arg);
-                changeNickname -> userAdmin:processChangeNickname(Arg);
-                give -> userAdmin:processGiveCar(Arg) ;
+				removeAdminRole -> userAdmin:processRemoveAdminRole(Arg);
+				addMoney -> userAdmin:processAddMoney(Arg);
+				addRealMoney -> userAdmin:processAddRealMoney(Arg);
+				searchByName -> userAdmin:processSearchByName(Arg);
+				searchByVkontakteId -> userAdmin:processSearchByVkontakteId(Arg);
+				changeNickname -> userAdmin:processChangeNickname(Arg);
+				give -> userAdmin:processGiveCar(Arg);
+				unban -> userAdmin:processUnban(Arg);
 				_Other -> DefaultProcess()
 			end;
 		mainTables ->
