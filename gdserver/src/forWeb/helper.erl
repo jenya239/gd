@@ -177,6 +177,7 @@ processAction(Arg) ->
 				changeNickname -> userAdmin:processChangeNickname(Arg);
 				give -> userAdmin:processGiveCar(Arg);
 				unban -> userAdmin:processUnban(Arg);
+				switchHomeCity -> userAdmin:processSwitchHomeCity(Arg);
 				_Other -> DefaultProcess()
 			end;
 		mainTables ->

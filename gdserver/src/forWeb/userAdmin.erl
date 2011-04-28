@@ -10,7 +10,8 @@
         processSearchByVkontakteId/1, 
         processChangeNickname/1,
         processGiveCar/1,
-				processUnban/1]).
+				processUnban/1,
+			  processSwitchHomeCity/1]).
 
 -include("data.hrl").
 -include_lib("lib/yaws/include/yaws_api.hrl").
@@ -92,7 +93,7 @@ createUserTable(Id) ->
 		createBlankRow(),
 		createRow("Id", {a, [ {href, helper:urlFor(user, show, Id)}], utils:toStringForScalars(Id)}),
 		createInput("Имя", Rec#user.name, Rec#user.id, helper:urlFor(user, changeNickname), "точно изменить ник?"),
-		createRow("Город", Rec#user.homeCity),
+		createRow("Город", formatCity(Rec)),
 		createInput("Рублей", utils:toString(utils:trunc(Rec#user.money, 2)), Rec#user.id, helper:urlFor(user, addMoney), "точно изменить рубли?"),
 		createInput("Золотых", utils:toString(utils:trunc(Rec#user.realMoney, 2)), Rec#user.id, helper:urlFor(user, addRealMoney), "точно изменить золотые (ЗОЛОТЫЕ!!) ?"),
 		createRow("Зарегистрировался", utils:timestampToHumanString(Rec#user.date)),
@@ -113,6 +114,15 @@ createUserTable(Id) ->
 		createRowLink("Activity", "Activity", "activity.yaws?id=" ++ integer_to_list(Id)),
 		createRow("Последний бан", formatLastBan(Id))
 	]}.
+
+formatCity(Rec) ->
+		{span, [], [
+			utils:toStringForScalars(Rec#user.homeCity),
+			{form, [ {action, helper:urlFor(user, switchHomeCity)}, {method, post}, {style, "margin: 0px; float: right;"} ], [
+				{input, [{type, hidden}, {name, id}, {value, Rec#user.id}], []},
+				{input, [{type, button}, {value, "Сменить"}, {style, "height: 18px;"}, {onclick, "try_submit(this.parentNode, 'Точно сменить?'); return false;"}], []}
+			]}
+		]}.
 
 formatLastBan(UserId) ->
 		{atomic, Ban} = mnesia:transaction(fun() -> 
@@ -377,5 +387,17 @@ processUnban(Arg) ->
 	Id = helper:getPOSTValue(Arg, id),
 	mnesia:transaction( fun() ->
 		mnesia:delete_object(	lists:last( mnesia:read({stopList, Id}) ) )
+	end ),
+	{redirect, helper:urlFor(user, show, Id)}.
+
+processSwitchHomeCity(Arg) ->
+	Id = helper:getPOSTValue(Arg, id),
+	mnesia:transaction( fun() ->
+		Rec = dbUser:getRecord_nt(id, Id),
+		NewCity = case Rec#user.homeCity of
+			1 -> 2;
+			2 -> 1
+    end,
+    mnesia:write(Rec#user{homeCity=NewCity, currentCity=NewCity})
 	end ),
 	{redirect, helper:urlFor(user, show, Id)}.

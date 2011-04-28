@@ -7,3 +7,92 @@
 
 =INFO REPORT==== 23-Apr-2011::21:07:09 ===
     alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 28-Apr-2011::14:23:21 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 28-Apr-2011::14:32:37 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 28-Apr-2011::14:34:02 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=ERROR REPORT==== 28-Apr-2011::14:34:09 ===
+
+
+ERROR erlang  code  crashed:
+ File: src/web/admin/actions.yaws:1
+Reason: {undef,
+            [{userAdmin,processSwitchHomeCity,
+                 [{arg,#Port<0.4685>,
+                      {{127,0,0,1},46965},
+                      {headers,"keep-alive",
+                          "application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5",
+                          "localhost:8000",undefined,undefined,undefined,
+                          undefined,undefined,undefined,
+                          "http://localhost:8000/editor/user.yaws?id=22",
+                          "Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.205 Safari/534.16",
+                          undefined,[],undefined,undefined,"5",
+                          "application/x-www-form-urlencoded",undefined,
+                          undefined,undefined,
+                          [{http_header,9,'Accept-Charset',undefined,
+                               "ISO-8859-1,utf-8;q=0.7,*;q=0.3"},
+                           {http_header,11,'Accept-Language',undefined,
+                               "en-US,en;q=0.8"},
+                           {http_header,10,'Accept-Encoding',undefined,
+                               "gzip,deflate,sdch"},
+                           {http_header,0,"Origin",undefined,
+                               "http://localhost:8000"},
+                           {http_header,1,'Cache-Control',undefined,
+                               "max-age=0"}]},
+                      {http_request,'POST',
+                          {abs_path,
+                              "/admin/actions.yaws?table=user&action=switchHomeCity"},
+                          {1,1}},
+                      <<"id=22">>,"/admin/actions.yaws",
+                      "table=user&action=switchHomeCity",undefined,"src/web",
+                      "/","src/web/admin/actions.yaws",undefined,undefined,
+                      <0.319.0>,[],undefined,"/admin/",undefined}]},
+             {yaws_server,deliver_dyn_part,8},
+             {yaws_server,aloop,3},
+             {yaws_server,acceptor0,2},
+             {proc_lib,init_p_do_apply,3}]}
+Req: {http_request,'POST',
+                   {abs_path,"/admin/actions.yaws?table=user&action=switchHomeCity"},
+                   {1,1}}
+Stack: [{userAdmin,processSwitchHomeCity,
+            [{arg,#Port<0.4685>,
+                 {{127,0,0,1},46965},
+                 {headers,"keep-alive",
+                     "application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5",
+                     "localhost:8000",undefined,undefined,undefined,undefined,
+                     undefined,undefined,
+                     "http://localhost:8000/editor/user.yaws?id=22",
+                     "Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.205 Safari/534.16",
+                     undefined,[],undefined,undefined,"5",
+                     "application/x-www-form-urlencoded",undefined,undefined,
+                     undefined,
+                     [{http_header,9,'Accept-Charset',undefined,
+                          "ISO-8859-1,utf-8;q=0.7,*;q=0.3"},
+                      {http_header,11,'Accept-Language',undefined,
+                          "en-US,en;q=0.8"},
+                      {http_header,10,'Accept-Encoding',undefined,
+                          "gzip,deflate,sdch"},
+                      {http_header,0,"Origin",undefined,
+                          "http://localhost:8000"},
+                      {http_header,1,'Cache-Control',undefined,"max-age=0"}]},
+                 {http_request,'POST',
+                     {abs_path,
+                         "/admin/actions.yaws?table=user&action=switchHomeCity"},
+                     {1,1}},
+                 <<"id=22">>,"/admin/actions.yaws",
+                 "table=user&action=switchHomeCity",undefined,"src/web","/",
+                 "src/web/admin/actions.yaws",undefined,undefined,<0.319.0>,
+                 [],undefined,"/admin/",undefined}]},
+        {yaws_server,deliver_dyn_part,8},
+        {yaws_server,aloop,3},
+        {yaws_server,acceptor0,2},
+        {proc_lib,init_p_do_apply,3}]
+
+=INFO REPORT==== 28-Apr-2011::14:34:58 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
