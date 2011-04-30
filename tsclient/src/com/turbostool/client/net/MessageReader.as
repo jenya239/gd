@@ -284,6 +284,7 @@ public class MessageReader
             var param0: String = tagParamList[0];
             tagParamList = tagParamList.slice(1);
             var replacedValue: String = Client.instance.str(param0, tagParamList);
+						if( replacedValue == null ) replacedValue = param0;
 						newValue = newValue.replace(tag[0], replacedValue);
             //newValue = newValue.substring(0, tag.index) + replacedValue + newValue.substring(tag.index+tag.input.length);
         }

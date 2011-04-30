@@ -102,44 +102,53 @@ handle_call(getState, _From, State) ->
 handle_cast({createLobby, LobbyInfo, FirstClientPID, FirstClientInfo, User}, State) ->
     removeFromAllLobbies(FirstClientInfo#clientInfo.clientID, State),
 
-    NewState = case checkLobbyPossibility(LobbyInfo, FirstClientInfo, User) of
-    ok ->
-        NextLobbyID = State#state.nextLobbyID,
-        
-        Type = if State#state.cityID =:= 3 andalso LobbyInfo#lobbyInfo.league =/= 4 ->
-            team;
-        true ->
-            normal
-        end,
-        
-        NewLobbyInfo = LobbyInfo#lobbyInfo{id=NextLobbyID, type = Type},
-        {ok, NewLobbyPID} = lobby:start(NewLobbyInfo, State#state.cityID, self()),
-        erlang:monitor(process, NewLobbyPID),
-        lobby:addClient(FirstClientPID, FirstClientInfo, NewLobbyPID, joinLobby),
-        NewLobbies = dict:store(State#state.nextLobbyID, {NewLobbyPID, NewLobbyInfo}, State#state.lobbies),
-        NewState1 = State#state{nextLobbyID=NextLobbyID+1, lobbies=NewLobbies},
-        NewState1;
-    {error, {Reason, Message}} ->
-        FirstClientPID ! {createLobby, error, {Reason, Message}},
-        State
-    end,
-    
+    NewState = case dbUser:canChat(User#user.id) or (State#state.cityID /= 3) of
+			true ->
+				case checkLobbyPossibility(LobbyInfo, FirstClientInfo, User) of
+					ok ->
+							NextLobbyID = State#state.nextLobbyID,
+
+							Type = if State#state.cityID =:= 3 andalso LobbyInfo#lobbyInfo.league =/= 4 ->
+									team;
+							true ->
+									normal
+							end,
+
+							NewLobbyInfo = LobbyInfo#lobbyInfo{id=NextLobbyID, type = Type},
+							{ok, NewLobbyPID} = lobby:start(NewLobbyInfo, State#state.cityID, self()),
+							erlang:monitor(process, NewLobbyPID),
+							lobby:addClient(FirstClientPID, FirstClientInfo, NewLobbyPID, joinLobby),
+							NewLobbies = dict:store(State#state.nextLobbyID, {NewLobbyPID, NewLobbyInfo}, State#state.lobbies),
+							NewState1 = State#state{nextLobbyID=NextLobbyID+1, lobbies=NewLobbies},
+							NewState1;
+					{error, {Reason, Message}} ->
+							FirstClientPID ! {createLobby, error, {Reason, Message}},
+							State
+				end;
+			false ->
+				FirstClientPID ! {createLobby, error, {youAreBanned, "[[youAreBanned]]"}},
+				State
+		end,
     {noreply, NewState};
     
 handle_cast({joinLobby, LobbyID, ClientPID, ClientInfo, User}, State) -> 
-    removeFromAllLobbies(ClientInfo#clientInfo.clientID, State),    
-    case dict:find(LobbyID, State#state.lobbies) of
-        {ok, {LobbyPID, LobbyInfo}} ->
-            case checkLobbyPossibility(LobbyInfo, ClientInfo, User) of
-                ok ->
-                    lobby:addClient(ClientPID, ClientInfo, LobbyPID, joinLobby);
-                {error, {Reason, Message}} ->
-                    ClientPID ! {joinLobby, error, {Reason, Message}}
-            end;
-        error ->
-            ClientPID ! {joinLobby, error, {cannotJoinLobby, "[[lobbyNotFound]]"}}
-    end,
-    
+    removeFromAllLobbies(ClientInfo#clientInfo.clientID, State),
+		case dbUser:canChat(User#user.id) or (State#state.cityID /= 3) of
+			true ->
+				case dict:find(LobbyID, State#state.lobbies) of
+						{ok, {LobbyPID, LobbyInfo}} ->
+								case checkLobbyPossibility(LobbyInfo, ClientInfo, User) of
+										ok ->
+												lobby:addClient(ClientPID, ClientInfo, LobbyPID, joinLobby);
+										{error, {Reason, Message}} ->
+												ClientPID ! {joinLobby, error, {Reason, Message}}
+								end;
+						error ->
+								ClientPID ! {joinLobby, error, {cannotJoinLobby, "[[lobbyNotFound]]"}}
+				end;
+			false ->
+				ClientPID ! {joinLobby, error, {cannotJoinLobby, "[[youAreBanned]]"}}
+		end,
     {noreply, State};
 
 handle_cast(stop, State) ->

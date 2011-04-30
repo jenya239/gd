@@ -154,7 +154,7 @@
 				wrapper = Object(parent.parent.parent);
 				if (isAPIWrapper)
 				{
-					updateLanguage();
+					//updateLanguage();
 				}
 			}
 

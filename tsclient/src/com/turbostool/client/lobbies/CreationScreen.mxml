@@ -131,7 +131,7 @@
             </mx:Array>
             
             <mx:Array id="teamProvider">
-                <mx:Object label="1 x 1 {str('participant', null, 1)}" data="2"/>
+                <!--<mx:Object label="1 x 1 {str('participant', null, 1)}" data="2"/>-->
                 <mx:Object label="2 x 2 {str('participant', null, 2)}" data="4"/>
                 <mx:Object label="3 x 3 {str('participant', null, 3)}" data="6"/>
                 <mx:Object label="4 x 4 {str('participant', null, 4)}" data="8"/>

@@ -10,6 +10,9 @@ import com.turbostool.client.utils.Utils;
 import com.turbostool.client.utils.Vector2d;
 import com.turbostool.client.utils.collections.*;
 
+import flash.events.TimerEvent;
+import flash.utils.Timer;
+
 public class DynamicEngine
 {
     private var _raceModel: RaceModel = new RaceModel();
@@ -98,9 +101,9 @@ public class DynamicEngine
         }
     }
 
-		//sound experiment
+/*//sound experiment
 		import flash.media.*;
-		[Embed(source="/assets/sounds/1000rpm.mp3")]
+		[Embed(source="/assets/sounds/1000rpm2.mp3")]
 		[Bindable]
 		private var rpm1000Cls:Class;
 		[Embed(source="/assets/sounds/2000rpm.mp3")]
@@ -123,20 +126,52 @@ public class DynamicEngine
 			{rpm:60000, snd:new rpm6000Cls()}
 		);
 		private var sndChannel:SoundChannel = null;
+		private var oldChannel:SoundChannel = null;
 		private var currentSound: Sound = null;
+		private static const SHIFT: int = 200;
+		private var stopTimer: Timer = null;
+		private var loopTimer: Timer = null;
 	  private function soundExperiment(rpm: Number): void{
+	//	так-вот-вот-са.-эксп.-с рпм тогда
+	//  какой должен бы играть
+	//  какой играет
+	//  если не совпадает то
+	//     запускаем таймер на остановку текущего
+	//     начинаем новый звук
+	//     перезапускаем таймер на продолжение
+			if( stopTimer == null ){
+				stopTimer = new Timer(SHIFT, 1);
+				stopTimer.addEventListener(TimerEvent.TIMER, function():void{
+					oldChannel.stop();
+				})
+			}
+			if( loopTimer == null ){
+				loopTimer = new Timer(1000);
+				loopTimer.addEventListener(TimerEvent.TIMER, function():void{
+					oldChannel = sndChannel;
+					sndChannel = currentSound.play();
+				})
+			}
+			var needSound: Sound;
 			for( var i:int = 0; i < sounds.length; i++ ){
 				if( rpm < sounds[i].rpm ){
-					if( sounds[i].snd != currentSound ){
-						if( sndChannel != null ) sndChannel.stop();
-						currentSound = sounds[i].snd;
-						sndChannel = sounds[i].snd.play();
-					}
+					needSound = sounds[i].snd;
 					break;
 				}
 			}
+			if( needSound != currentSound ){
+				if( currentSound != null ){
+					stopTimer.start();
+				}
+				oldChannel = sndChannel;
+				currentSound = needSound;
+				sndChannel = currentSound.play();
+				loopTimer.stop();
+				loopTimer.delay = currentSound.length - SHIFT;
+				loopTimer.start();
+			}
 		}
-		//end sound experiment
+		//end sound experiment */
 
     /**
      * Вот этот метод было очень тяжело разработать.
@@ -160,7 +195,8 @@ public class DynamicEngine
                 cde.nullForces();
                 cde.calcForces();
                 cde.calcVelocity(dt);
-								soundExperiment(car.carModel.getRPM());
+								//soundExperiment(car.carModel.getRPM() / 3);
+								//trace(car.carModel.getRPM());
             } else
             if (!car.isLocal && !localOrRemote)
             {
