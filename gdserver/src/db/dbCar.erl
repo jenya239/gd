@@ -173,7 +173,9 @@ buySlot(UserID) ->
 
         User = dbUser:getRecord_nt(id, UserID),
 
-        SlotPrice = dbGlobal:get_nt(carSlotCost) * (UserDetails#userDetails.carSlots - 2),
+				NSlots = UserDetails#userDetails.carSlots,
+				Mult = if NSlots =< 5 -> NSlots - 2; true -> 3 end,
+        SlotPrice = dbGlobal:get_nt(carSlotCost) * Mult,
         OldUserRealMoney = User#user.realMoney,
         
         NewUserRealMoney = OldUserRealMoney - SlotPrice,
@@ -184,7 +186,7 @@ buySlot(UserID) ->
             ok
         end,
 
-        NewUserDetails = UserDetails#userDetails{carSlots=UserDetails#userDetails.carSlots + 1},
+        NewUserDetails = UserDetails#userDetails{carSlots=NSlots + 1},
         mnesia:write(User#user{realMoney=NewUserRealMoney}),
         mnesia:write(NewUserDetails),
         dbActivity:register_nt(UserID, {buyCarSlot, SlotPrice, OldUserRealMoney, NewUserRealMoney}, ok)

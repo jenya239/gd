@@ -107,7 +107,8 @@
                     return;
                 }
 
-                var slotCost: Number = _modelsStorage.globalInfo.carSlotCost * (_modelsStorage.userInfo.carSlots - 2);
+								var nslots: Number = _modelsStorage.userInfo.carSlots;
+                var slotCost: Number = _modelsStorage.globalInfo.carSlotCost * (nslots <= 5 ? (nslots - 2) : 3);
                 var slotCostStr: String = Utils.formatPrice(slotCost, true);
 
                 Alert.yesLabel = str("yes");
