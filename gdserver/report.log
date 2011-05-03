@@ -31,3 +31,12 @@
 
 =INFO REPORT==== 3-May-2011::03:18:47 ===
     alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 3-May-2011::15:45:22 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 3-May-2011::15:50:22 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 3-May-2011::15:58:22 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}

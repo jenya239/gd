@@ -107,8 +107,7 @@
                     return;
                 }
 
-								var nslots: Number = _modelsStorage.userInfo.carSlots;
-                var slotCost: Number = _modelsStorage.globalInfo.carSlotCost * (nslots <= 5 ? (nslots - 2) : 3);
+                var slotCost: Number = slotCost();
                 var slotCostStr: String = Utils.formatPrice(slotCost, true);
 
                 Alert.yesLabel = str("yes");
@@ -127,6 +126,12 @@
                 continueBuyingCar(totalRealPrice);
             }
         }
+
+				private function slotCost(): Number{
+					var nslots: Number = _modelsStorage.userInfo.carSlots;
+          var slotCost: Number = _modelsStorage.globalInfo.carSlotCost * (nslots <= 5 ? (nslots - 2) : 3);
+					return slotCost;
+				}
 
         private function continueBuyingCar(totalRealPrice: Number): void {
             if(modelsStorage.userInfo.realMoney >= totalRealPrice)
@@ -161,7 +166,7 @@
             {
                 var totalRealPrice: Number = cars.currentCar.realPrice;
                 if(_needSlot) {
-                    totalRealPrice += _modelsStorage.globalInfo.carSlotCost * (_modelsStorage.userInfo.carSlots - 2);                    
+                    totalRealPrice += slotCost();
                 }
 
                 modelsStorage.vkontakteInfo = response.property as VkontakteInfo;
