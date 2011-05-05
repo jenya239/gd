@@ -174,7 +174,7 @@ buySlot(UserID) ->
         User = dbUser:getRecord_nt(id, UserID),
 
 				NSlots = UserDetails#userDetails.carSlots,
-				Mult = if NSlots =< 5 -> NSlots - 2; true -> 4 end,
+				Mult = if NSlots =< 5 -> NSlots - 2; true -> 3 end,
         SlotPrice = dbGlobal:get_nt(carSlotCost) * Mult,
         OldUserRealMoney = User#user.realMoney,
         

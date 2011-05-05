@@ -39,7 +39,7 @@
             <arg value="-keep-as3-metadata+=Serializable"/>
 			<arg value="-compiler.include-libraries"/>
 			<arg value="./libs/analytics.swc"/>
-            <!--<arg value='-target-player="9.0.28"'/>-->
+            <arg value='-target-player=10.2.0'/>
             <!--<arg value='-library-path+="../controls/bin/controls.swc"' />-->
             <arg value='-metadata.creator="Turbostool"'/>
             <arg value='-metadata.contributor="Turbostool"'/>

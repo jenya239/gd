@@ -40,3 +40,24 @@
 
 =INFO REPORT==== 3-May-2011::15:58:22 ===
     alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 3-May-2011::16:01:22 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 5-May-2011::20:59:13 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 5-May-2011::21:01:13 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 5-May-2011::21:06:13 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 5-May-2011::21:07:13 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 5-May-2011::21:10:13 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 5-May-2011::22:12:35 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
