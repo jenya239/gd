@@ -180,7 +180,10 @@ parse([{name, "loadingProgress"}, {channel, Channel}, {progress, Progress}]) ->
     {loadingProgress, list_to_atom2(Channel), list_to_integer(Progress)};
 
 parse([ {name, "changeNick"}, {userId, UserId}, {newNick, NewNick}, {forFree, ForFree} ]) ->
-    {changeNick, list_to_integer(UserId), NewNick, list_to_atom(ForFree)}.
+    {changeNick, list_to_integer(UserId), NewNick, list_to_atom(ForFree)};
+
+parse([{name, "unban"}, {id, Id}]) ->
+    {unban, list_to_integer(Id)}.
 
 % кодирование бинарных сообщений
 serialize({otherCarState, OtherCarState, _Time, OtherClientID}) ->
@@ -489,6 +492,9 @@ generateXml({sellItem, ok, UserInfoWithDetails, ItemClass}) ->
 
 generateXml({cleanCar, ok, Money}) ->
     utils:fmt("<event name='cleanCar' result='ok' money='~w' />", [Money]);
+
+generateXml({unban, ok, Message}) ->
+    "<event name='unban' result='ok' message='"++Message++"'/>";
 
 generateXml({Name, ok, UserInfoWithDetails}) ->
     lists:flatten

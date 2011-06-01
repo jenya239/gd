@@ -302,7 +302,7 @@
     <mx:Label text="{userInfo.experience}/{userInfo.expNextLevel}" color="#DC8D14" fontSize="10" fontWeight="normal"
               fontStyle="normal" fontFamily="Arial" top="333" left="241"/>
 
-    <profile:AdminPanel x="8" y="130" id="adminPanel" userInfo="{userInfo}" visible="{showAdminPanel}"/>
+    <profile:AdminPanel x="8" y="115" id="adminPanel" userInfo="{userInfo}" visible="{showAdminPanel}"/>
     <profile:DevPanel x="8" y="130" id="devPanel" userInfo="{userInfo}" visible="{showDevPanel}"/>
     <mx:Button id="btnBack" label="{str('exit')}" styleName="default"
                icon="@Embed(source='/assets/gui/common/exitIcon.png')"

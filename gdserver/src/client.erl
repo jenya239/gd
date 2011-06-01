@@ -20,6 +20,7 @@
 -include("config.hrl").
 -include("data.hrl").
 -include("lib/eunit/include/eunit.hrl").
+-include_lib("stdlib/include/qlc.hrl").
 
 -define(MAX_MESSAGES_IN_QUEUE, 1000).
         
@@ -315,6 +316,31 @@ process({ban, ID, Time}, State) when ?STATES_AUTHORIZED(State) ->
     end,
     {noreply, State};
 
+process({unban, Id}, State) when ?STATES_AUTHORIZED(State) ->
+	mnesia:transaction( fun() ->
+		Actor = dbUser:getRecord_nt(id, State#state.userID),
+		case users:checkRole(Actor, admin) of
+			true ->
+				ActiveBans = qlc:e(qlc:q(
+						[X || X <- mnesia:table(stopList),
+						 X#stopList.id =:= Id, X#stopList.time + X#stopList.period > utils:now()])),
+				case ActiveBans of
+					[] ->
+						sendMessage(State, {unban, error, {notBanned, "[[notBanned]]"}});
+					_ ->
+						LastBan = lists:last( ActiveBans ),
+						case LastBan#stopList.admin == Actor#user.id of
+							true ->
+								mnesia:delete_object( LastBan ),
+								sendMessage(State, {unban, ok, "[[banDeleted]] " ++ utils:formatTime(LastBan#stopList.period)});
+							false ->
+								sendMessage(State, {unban, error, {noPermission, "[[noPermission]]"}})
+						end
+				end
+		end
+	end ),
+  {noreply, State};  
+
 process({changeNick, UserId, NewNick, ForFree}, State) when ?STATES_AUTHORIZED(State) ->
 	Moder = dbUser:getRecord(id, State#state.userID),
 	case users:checkRole( Moder, admin ) of
@@ -322,7 +348,7 @@ process({changeNick, UserId, NewNick, ForFree}, State) when ?STATES_AUTHORIZED(S
 			NickLength = utils:utf8length( NewNick ),
 			case NickLength < 2 of
 				true ->
-					sendMessage(State, {changeNick, error, {nickIsTooShort, "asdfasd[[nicknameIsTooShort]]"}});
+					sendMessage(State, {changeNick, error, {nickIsTooShort, "[[nicknameIsTooShort]]"}});
 				false ->
 					case NickLength > ?MAX_NICKNAME_LENGTH of
 						true ->
