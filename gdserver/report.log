@@ -61,3 +61,352 @@
 
 =INFO REPORT==== 5-May-2011::22:12:35 ===
     alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 6-May-2011::14:54:38 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 6-May-2011::14:55:38 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 6-May-2011::14:58:38 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 6-May-2011::22:11:22 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 7-May-2011::12:50:34 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 7-May-2011::12:51:33 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 7-May-2011::17:40:52 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 7-May-2011::17:50:46 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 7-May-2011::19:03:02 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 7-May-2011::19:19:52 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 7-May-2011::21:56:20 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 7-May-2011::22:50:48 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 7-May-2011::23:15:34 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 7-May-2011::23:16:33 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 14-May-2011::19:04:45 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=ERROR REPORT==== 14-May-2011::19:51:05 ===
+** Generic server socketSender1 terminating 
+** Last message in was {get,shopInfo,ok,[{item,-1,50,100,100}]}
+** When Server state == {state,#Port<0.6413>}
+** Reason for termination == 
+** {badarg,[{io_lib,format,
+                    ["<itemInfo id='~w' classID='~w' name='~s' category='~s' description='~s' price='~b' usingType='~s' usingCount='~w' slot='~s' durabilityMax='~w'\tpower='~w'\tspeed='~w' braking='~w' controllability='~w' currentDurability='~w' minLevel='~w' maxLevel='~w' realPrice='~w' repairPrice='~w' junkName='~s' newDurabilityMax='~w' />",
+                     [-1,50,"testcontrol",
+                      [209,130,208,190,209,128,208,188,208,190,208,183,208,
+                       176],
+                      "undefined",7.699999999999999,"slot","undefined",
+                      "engine",100,0,0,0,0,100,20,25,0.0,0.9099999999999999,
+                      [208,158,208,177,208,187,208,190,208,188,208,186,208,
+                       184],
+                      100]]},
+            {protocol,item_to_xml,1},
+            {protocol,'-createXmlList/3-fun-0-',3},
+            {lists,foldl,3},
+            {protocol,createXmlList,3},
+            {protocol,generateXml,1},
+            {protocol,serialize,1},
+            {socketSender,sendMessageToSocket,2}]}
+
+=INFO REPORT==== 14-May-2011::20:09:10 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=ERROR REPORT==== 14-May-2011::20:09:26 ===
+** Generic server socketSender1 terminating 
+** Last message in was {get,shopInfo,ok,
+                            [{item,-1,50,100,100},
+                             {item,-1,101,90,90},
+                             {item,-1,102,140,140},
+                             {item,-1,109,100,100},
+                             {item,-1,110,140,140},
+                             {item,-1,111,160,160},
+                             {item,-1,112,180,180},
+                             {item,-1,125,110,110},
+                             {item,-1,126,135,135},
+                             {item,-1,127,140,140},
+                             {item,-1,128,160,160},
+                             {item,-1,133,100,100},
+                             {item,-1,134,100,100}]}
+** When Server state == {state,#Port<0.3081>}
+** Reason for termination == 
+** {badarg,[{io_lib,format,
+                    ["<itemInfo id='~w' classID='~w' name='~s' category='~s' description='~s' price='~b' usingType='~s' usingCount='~w' slot='~s' durabilityMax='~w'\tpower='~w'\tspeed='~w' braking='~w' controllability='~w' currentDurability='~w' minLevel='~w' maxLevel='~w' realPrice='~w' repairPrice='~w' junkName='~s' newDurabilityMax='~w' />",
+                     [-1,50,"testcontrol",
+                      [209,130,208,190,209,128,208,188,208,190,208,183,208,
+                       176],
+                      "undefined",7.699999999999999,"slot","undefined",
+                      "engine",100,0,0,0,0,100,20,25,0.0,0.9099999999999999,
+                      [208,158,208,177,208,187,208,190,208,188,208,186,208,
+                       184],
+                      100]]},
+            {protocol,item_to_xml,1},
+            {protocol,'-createXmlList/3-fun-0-',3},
+            {lists,foldl,3},
+            {protocol,createXmlList,3},
+            {protocol,generateXml,1},
+            {protocol,serialize,1},
+            {socketSender,sendMessageToSocket,2}]}
+
+=INFO REPORT==== 14-May-2011::20:15:33 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=ERROR REPORT==== 14-May-2011::20:16:46 ===
+** Generic server socketSender2 terminating 
+** Last message in was {get,shopInfo,ok,
+                            [{item,-1,101,90,90},
+                             {item,-1,102,140,140},
+                             {item,-1,109,100,100},
+                             {item,-1,110,140,140},
+                             {item,-1,111,160,160},
+                             {item,-1,112,180,180},
+                             {item,-1,125,110,110},
+                             {item,-1,126,135,135},
+                             {item,-1,127,140,140},
+                             {item,-1,128,160,160},
+                             {item,-1,133,100,100},
+                             {item,-1,134,100,100}]}
+** When Server state == {state,#Port<0.3816>}
+** Reason for termination == 
+** {badarg,[{io_lib,format,
+                    ["<itemInfo id='~w' classID='~w' name='~s' category='~s' description='~s' price='~b' usingType='~s' usingCount='~w' slot='~s' durabilityMax='~w'\tpower='~w'\tspeed='~w' braking='~w' controllability='~w' currentDurability='~w' minLevel='~w' maxLevel='~w' realPrice='~w' repairPrice='~w' junkName='~s' newDurabilityMax='~w' />",
+                     [-1,101,
+                      [208,156,208,176,208,187,209,139,208,185,32,208,188,208,
+                       190,209,130,208,190,209,128,32,48,49],
+                      [209,130,208,190,209,128,208,188,208,190,208,183,208,
+                       176],
+                      [208,145,208,176,208,183,208,190,208,178,209,139,208,
+                       185,32,208,189,208,176,208,177,208,190,209,128,32,209,
+                       131,208,187,209,131,209,135,209,136,208,181,208,189,
+                       209,139,209,133,32,208,191,208,190,209,128,209,136,208,
+                       189,208,181,208,185,32,49],
+                      1540.0,"slot","undefined","engine",90,10,5,0,0,90,1,100,
+                      0.0,0.616,
+                      [208,158,208,177,208,187,208,190,208,188,208,186,208,
+                       184],
+                      90]]},
+            {protocol,item_to_xml,1},
+            {protocol,'-createXmlList/3-fun-0-',3},
+            {lists,foldl,3},
+            {protocol,createXmlList,3},
+            {protocol,generateXml,1},
+            {protocol,serialize,1},
+            {socketSender,sendMessageToSocket,2}]}
+
+=INFO REPORT==== 14-May-2011::20:42:57 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=ERROR REPORT==== 14-May-2011::20:43:07 ===
+** Generic server socketSender1 terminating 
+** Last message in was {get,shopInfo,ok,
+                            [{item,-1,101,90,90},
+                             {item,-1,102,140,140},
+                             {item,-1,109,100,100},
+                             {item,-1,110,140,140},
+                             {item,-1,111,160,160},
+                             {item,-1,112,180,180},
+                             {item,-1,125,110,110},
+                             {item,-1,126,135,135},
+                             {item,-1,127,140,140},
+                             {item,-1,128,160,160},
+                             {item,-1,133,100,100},
+                             {item,-1,134,100,100}]}
+** When Server state == {state,#Port<0.3100>}
+** Reason for termination == 
+** {badarg,[{io_lib,format,
+                    ["<itemInfo id='~w' classID='~w' name='~s' category='~s' description='~s' price='~b' usingType='~s' usingCount='~w' slot='~s' durabilityMax='~w'\tpower='~w'\tspeed='~w' braking='~w' controllability='~w' currentDurability='~w' minLevel='~w' maxLevel='~w' realPrice='~w' repairPrice='~w' junkName='~s' newDurabilityMax='~w' />",
+                     [-1,101,
+                      [208,156,208,176,208,187,209,139,208,185,32,208,188,208,
+                       190,209,130,208,190,209,128,32,48,49],
+                      [209,130,208,190,209,128,208,188,208,190,208,183,208,
+                       176],
+                      [208,145,208,176,208,183,208,190,208,178,209,139,208,
+                       185,32,208,189,208,176,208,177,208,190,209,128,32,209,
+                       131,208,187,209,131,209,135,209,136,208,181,208,189,
+                       209,139,209,133,32,208,191,208,190,209,128,209,136,208,
+                       189,208,181,208,185,32,49],
+                      1540.0,"slot","undefined","engine",90,10,5,0,0,90,1,100,
+                      0.0,0.616,
+                      [208,158,208,177,208,187,208,190,208,188,208,186,208,
+                       184],
+                      90]]},
+            {protocol,item_to_xml,1},
+            {protocol,'-createXmlList/3-fun-0-',3},
+            {lists,foldl,3},
+            {protocol,createXmlList,3},
+            {protocol,generateXml,1},
+            {protocol,serialize,1},
+            {socketSender,sendMessageToSocket,2}]}
+
+=ERROR REPORT==== 14-May-2011::20:43:34 ===
+** Generic server socketSender2 terminating 
+** Last message in was {get,shopInfo,ok,
+                            [{item,-1,101,90,90},
+                             {item,-1,102,140,140},
+                             {item,-1,109,100,100},
+                             {item,-1,110,140,140},
+                             {item,-1,111,160,160},
+                             {item,-1,112,180,180},
+                             {item,-1,125,110,110},
+                             {item,-1,126,135,135},
+                             {item,-1,127,140,140},
+                             {item,-1,128,160,160},
+                             {item,-1,133,100,100},
+                             {item,-1,134,100,100}]}
+** When Server state == {state,#Port<0.3289>}
+** Reason for termination == 
+** {badarg,[{io_lib,format,
+                    ["<itemInfo id='~w' classID='~w' name='~s' category='~s' description='~s' price='~b' usingType='~s' usingCount='~w' slot='~s' durabilityMax='~w'\tpower='~w'\tspeed='~w' braking='~w' controllability='~w' currentDurability='~w' minLevel='~w' maxLevel='~w' realPrice='~w' repairPrice='~w' junkName='~s' newDurabilityMax='~w' />",
+                     [-1,101,
+                      [208,156,208,176,208,187,209,139,208,185,32,208,188,208,
+                       190,209,130,208,190,209,128,32,48,49],
+                      [209,130,208,190,209,128,208,188,208,190,208,183,208,
+                       176],
+                      [208,145,208,176,208,183,208,190,208,178,209,139,208,
+                       185,32,208,189,208,176,208,177,208,190,209,128,32,209,
+                       131,208,187,209,131,209,135,209,136,208,181,208,189,
+                       209,139,209,133,32,208,191,208,190,209,128,209,136,208,
+                       189,208,181,208,185,32,49],
+                      1540.0,"slot","undefined","engine",90,10,5,0,0,90,1,100,
+                      0.0,0.616,
+                      [208,158,208,177,208,187,208,190,208,188,208,186,208,
+                       184],
+                      90]]},
+            {protocol,item_to_xml,1},
+            {protocol,'-createXmlList/3-fun-0-',3},
+            {lists,foldl,3},
+            {protocol,createXmlList,3},
+            {protocol,generateXml,1},
+            {protocol,serialize,1},
+            {socketSender,sendMessageToSocket,2}]}
+
+=INFO REPORT==== 14-May-2011::20:46:27 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=ERROR REPORT==== 14-May-2011::20:46:35 ===
+** Generic server socketSender1 terminating 
+** Last message in was {get,shopInfo,ok,
+                            [{item,-1,102,140,140},
+                             {item,-1,109,100,100},
+                             {item,-1,110,140,140},
+                             {item,-1,111,160,160},
+                             {item,-1,112,180,180},
+                             {item,-1,125,110,110},
+                             {item,-1,126,135,135},
+                             {item,-1,127,140,140},
+                             {item,-1,128,160,160},
+                             {item,-1,133,100,100},
+                             {item,-1,134,100,100}]}
+** When Server state == {state,#Port<0.3045>}
+** Reason for termination == 
+** {badarg,[{io_lib,format,
+                    ["<itemInfo id='~w' classID='~w' name='~s' category='~s' description='~s' price='~b' usingType='~s' usingCount='~w' slot='~s' durabilityMax='~w'\tpower='~w'\tspeed='~w' braking='~w' controllability='~w' currentDurability='~w' minLevel='~w' maxLevel='~w' realPrice='~w' repairPrice='~w' junkName='~s' newDurabilityMax='~w' />",
+                     [-1,102,
+                      [208,156,208,176,208,187,209,139,208,185,32,208,156,208,
+                       190,209,130,208,190,209,128,32,48,50],
+                      [209,130,208,190,209,128,208,188,208,190,208,183,208,
+                       176],
+                      [208,145,208,176,208,183,208,190,208,178,209,139,208,
+                       185,32,208,189,208,176,208,177,208,190,209,128,32,209,
+                       131,208,187,209,131,209,135,209,136,208,181,208,189,
+                       209,139,209,133,32,208,191,208,190,209,128,209,136,208,
+                       189,208,181,208,185,32,50],
+                      3360.0,"slot","undefined","engine",140,25,30,0,0,140,10,
+                      100,0.0,0.9099999999999999,
+                      [208,158,208,177,208,187,208,190,208,188,208,186,208,
+                       184],
+                      140]]},
+            {protocol,item_to_xml,1},
+            {protocol,'-createXmlList/3-fun-0-',3},
+            {lists,foldl,3},
+            {protocol,createXmlList,3},
+            {protocol,generateXml,1},
+            {protocol,serialize,1},
+            {socketSender,sendMessageToSocket,2}]}
+
+=INFO REPORT==== 18-May-2011::23:56:08 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 19-May-2011::00:14:08 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 1-Jun-2011::01:28:59 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 1-Jun-2011::01:34:59 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 1-Jun-2011::01:35:59 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 1-Jun-2011::02:06:59 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 1-Jun-2011::02:07:59 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 1-Jun-2011::02:23:45 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 1-Jun-2011::02:32:40 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 1-Jun-2011::02:53:25 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 1-Jun-2011::02:56:25 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 1-Jun-2011::03:00:25 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 1-Jun-2011::03:13:25 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 1-Jun-2011::03:16:25 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 1-Jun-2011::03:39:28 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 1-Jun-2011::03:45:30 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 1-Jun-2011::03:47:29 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 1-Jun-2011::04:01:30 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 1-Jun-2011::04:02:29 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 1-Jun-2011::04:20:30 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 1-Jun-2011::04:21:30 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 1-Jun-2011::09:23:00 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}

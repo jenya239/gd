@@ -23,7 +23,7 @@
       <excludeFolder url="file://$MODULE_DIR$/src/data" />
       <excludeFolder url="file://$MODULE_DIR$/src/work" />
     </content>
-    <orderEntry type="jdk" jdkName="flex_sdk_3 (player 9) (1)" jdkType="Flex SDK Type" />
+    <orderEntry type="jdk" jdkName="flex_sdk_3 (player 9)" jdkType="Flex SDK Type" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="controls" exported="" />
     <orderEntry type="module-library" exported="">

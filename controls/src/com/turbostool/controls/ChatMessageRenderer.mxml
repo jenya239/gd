@@ -13,15 +13,7 @@
         >
 
     <mx:htmlText>
-        {wrapDate(data.timestamp as Date, "#2e0702") +
-				(forModers ? '&lt;small&gt;rj&lt;/small&gt;' : '') +
-				wrapNick(createNickLink(data),
-	  			(data.admin == "true")
-						? "#842481"
-						: (rjColor ? "#007700"
-							: (data.homeCity == 2 ? "#c12f20" : "#2427c1") ) ) +
-        wrapText(String(data.text),
-        "#2e0702")}
+        {createString(data)}
     </mx:htmlText>
 
 
@@ -162,12 +154,35 @@
             return "<b><font face='Arial' size='11' color='" + color + "'>[" + dateStr + "]</font></b> ";
         }
 
-				private function get rjColor(): Boolean{
-					return (data.rj == "true") && !parentDocument.isModer;
+				private function wrapNick2(data: Object): String{
+					var add: String = '';
+					var nickColor: String = ((data.homeCity == 2) ? "#c12f20" : "#2427c1");
+					if( parentDocument.isModer ){
+						if( data.admin == 'true' ){
+							add = 'moder'; 
+						}else if( data.rj == 'true' ){
+							add = 'rj';
+						}else if( data.warcity == 'true' ){
+							add = 'war';
+						}
+					}else{
+						if( data.admin == 'true' ){
+							nickColor = '#842481';
+						}else if( data.rj == 'true' ){
+							nickColor = '#007700';
+						}else if( data.warcity == 'true' ){
+							nickColor = '#8E5600';
+						}
+					}
+					return add + wrapNick(createNickLink(data), nickColor);
 				}
 
-				private function get forModers(): Boolean{
-					return (data.rj == "true") && parentDocument.isModer;
+				private function createString(data: Object): String{
+					var res: String = '';
+					res += wrapDate(data.timestamp as Date, "#2e0702");
+					res += wrapNick2(data);
+					res += wrapText(String(data.text), "#2e0702");
+					return res;
 				}
 
         ]]></mx:Script>

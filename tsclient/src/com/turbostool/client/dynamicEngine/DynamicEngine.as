@@ -176,7 +176,8 @@ public class DynamicEngine
 	private var _mp3pitch: MP3Pitch = null;
 	private function soundExperiment2(rpm: Number): void{
 		if( _mp3pitch == null ) _mp3pitch = new MP3Pitch('');
-		_mp3pitch.rate = rpm / 1000.0;
+		_mp3pitch.rate = 0.6 + rpm / 2500.0;
+		trace(rpm);
 	}
 
     /**
@@ -201,7 +202,7 @@ public class DynamicEngine
                 cde.nullForces();
                 cde.calcForces();
                 cde.calcVelocity(dt);
-								soundExperiment2(car.carModel.getRPM());
+								//soundExperiment2(car.carModel.getRPM());
 								//trace(car.carModel.getRPM());
             } else
             if (!car.isLocal && !localOrRemote)

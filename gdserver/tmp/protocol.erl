@@ -330,9 +330,9 @@ generateXml({set, carName, CarName, _CarID, ClientID}) ->
 generateXml({otherLapTime, Channel, Type, Time, ClientID}) ->
     "<event name='lapTime' channel='" ++ atom_to_list(Channel) ++ "' type='" ++ Type ++ "' time='" ++ integer_to_list(Time) ++ "' clientID='" ++ integer_to_list(ClientID) ++ "' />";
 
-generateXml({otherChatMessage, Channel, Text, UserID, HomeCity, Nick, TimeStamp, Admin, Rj}) ->
-    lists:flatten(io_lib:format("<event name='chatMessage' channel='~w' text='~s' userId='~w' homeCity='~w' nick='~s' timeStamp='~w' admin='~w' rj='~w'></event>",
-                                 [Channel, Text, UserID, HomeCity, Nick, TimeStamp,Admin,Rj]));
+generateXml({otherChatMessage, Channel, Text, UserID, HomeCity, Nick, TimeStamp, Admin, Rj, Warcity}) ->
+    lists:flatten(io_lib:format("<event name='chatMessage' channel='~w' text='~s' userId='~w' homeCity='~w' nick='~s' timeStamp='~w' admin='~w' rj='~w' warcity='~w'></event>",
+                                 [Channel, Text, UserID, HomeCity, Nick, TimeStamp,Admin,Rj,Warcity]));
 
 generateXml({get, cars, ok, Cars}) ->
     "<event name='get' property='cars' result='ok'>" ++ 

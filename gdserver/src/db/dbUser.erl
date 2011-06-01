@@ -17,6 +17,8 @@
 	getInfoWithDetailsAndUpgrades/2,
 	exchangeMoney/2,
 	addNitroCount/2,
+	addRole/2,
+	addRole_nt/2,
 	addAdminRole/1,
 	addDevRole/1,
     removeAdminRole/1,
@@ -271,15 +273,16 @@ addDevRole(Id) ->
 	
 addRole(Id, Role) ->
 	{atomic, ok} = mnesia:transaction(fun() ->
-		CurrentUser = getRecord_nt(id, Id),
-		if erlang:is_record(CurrentUser, user) ->
-    		%ToDo что роль не была установлена ранее
-            UpdatedUser = CurrentUser#user{roles = utils:nub([Role] ++ CurrentUser#user.roles)},
-    		mnesia:write(UpdatedUser);
-		true ->
-		  ok
-	    end
+		addRole_nt(Id, Role)
 	end).
+
+addRole_nt(Id, Role) ->
+	CurrentUser = getRecord_nt(id, Id),
+	if erlang:is_record(CurrentUser, user) ->
+		%ToDo что роль не была установлена ранее
+		UpdatedUser = CurrentUser#user{roles = utils:nub([Role] ++ CurrentUser#user.roles)},
+		mnesia:write(UpdatedUser);
+	true -> ok end.
 
 removeAdminRole(Id) ->
     removeRole(Id, admin).
@@ -312,21 +315,18 @@ switchHomeCity(User) ->
     NewUser.
     
 restartGame(UserID) ->
-    {atomic, Result} = mnesia:transaction(fun() -> 
-        User = getRecord_nt(id, UserID),
-        if erlang:is_record(User, user) ->
+	{atomic, Result} = mnesia:transaction(fun() ->
+		User = getRecord_nt(id, UserID),
+    if erlang:is_record(User, user) ->
 			Price = dbGlobal:get_nt(restartGameCost),
-			OldRealMoney = User#user.realMoney,
-			
+			OldRealMoney = User#user.realMoney,	
 			if OldRealMoney < Price ->
 				mnesia:abort({noMoney, "[[notEnoughMoney]]"});
 			true ->	ok end,
-			
-            resetUser_nt(User#user{realMoney=OldRealMoney-Price});			
-        true -> mnesia:abort({noUser, "User not found"}) end
-    end),
-    
-    Result.
+      resetUser_nt(User#user{realMoney=OldRealMoney-Price});			
+    true -> mnesia:abort({noUser, "User not found"}) end
+  end),
+  Result.
 
 getTopUserDailyScores() ->
     getTopUserDailyScores(1) ++ getTopUserDailyScores(2).
