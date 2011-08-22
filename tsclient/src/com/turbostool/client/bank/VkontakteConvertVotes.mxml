@@ -17,6 +17,7 @@
         import mx.controls.Alert;
         import mx.managers.PopUpManager;
 
+				//по сути вызывается, когда добавлены недостающие голоса (из vkontakte wrapper)
         private function onBalanceChanged(e: Object):void
         {
             Client.instance.wrapper.removeEventListener("onBalanceChanged", onBalanceChanged);

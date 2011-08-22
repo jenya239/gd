@@ -62,3 +62,15 @@
 
 =INFO REPORT==== 2-Jun-2011::02:04:21 ===
     alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 17-Jun-2011::15:52:55 ===
+    alarm_handler: {set,{{disk_almost_full,"/home"},[]}}
+
+=INFO REPORT==== 17-Jun-2011::16:13:55 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
+
+=INFO REPORT==== 17-Jun-2011::20:19:55 ===
+    alarm_handler: {clear,system_memory_high_watermark}
+
+=INFO REPORT==== 17-Jun-2011::20:31:48 ===
+    alarm_handler: {set,{system_memory_high_watermark,[]}}
