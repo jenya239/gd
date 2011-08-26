@@ -1,0 +1,15 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+	<title>Смены ников</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="StyleSheet" href="/admin/styles/main.css" type="text/css"/>
+</head>
+<body>
+<h1>Смены ников</h1>
+<erl>
+out(Arg) -> {ehtml, helper:createNicksChangesTable()}.
+</erl>
+</body>
+</html>

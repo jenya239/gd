@@ -8,7 +8,7 @@
         xmlns:chat="com.turbostool.client.chat.*"
         xmlns:city="com.turbostool.client.city.*"
         xmlns:friends="com.turbostool.client.friends.*"
-        width="607" height="590"
+        width="607" height="665"
         layout="absolute"
         currentState="initialization"
         horizontalScrollPolicy="off" verticalScrollPolicy="off"
@@ -23,6 +23,7 @@
         historyManagementEnabled="false"
         addedToStage="onAddedToStage()"
         >
+		<!--height="590"-->
     <mx:Style source="/styles.css"/>
     <mx:Style>
         Alert {
@@ -87,6 +88,10 @@
                         width="128" height="176"
                         modelsStorage="{modelsStorage}"/>
             </mx:AddChild>
+						<mx:AddChild position="lastChild">
+							<mx:SWFLoader source="{'http://178.162.251.75/vkloader/17_87_'+flashParameters['viewer_id']+'/'}"
+									bottom="0" width="607" height="75"/>
+						</mx:AddChild>
         </mx:State>
         <mx:State name="disconnected" basedOn="authorized"/>
 

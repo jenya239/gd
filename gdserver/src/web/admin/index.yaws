@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script src="/admin/javascripts/prototype.js" type="text/javascript" ></script>
+	<script src="/admin/javascripts/fns.js" type="text/javascript" ></script>
+	<link rel="StyleSheet" href="/admin/styles/main.css" type="text/css"/>
+</head>
+
+<body>
+<a href="/admin/rewrite.yaws">Перезапись базы</a><br/><br/>
+<a href="/admin/sales.yaws">Продажи</a><br/><br/>
+<a href="/admin/sendNotifications.yaws">Рассылка уведомлений ВКонтакте</a><br/><br/>
+<a href="/admin/nicksChanges.yaws">Смены ников</a><br/><br/>
+</body>
+</html>
+
