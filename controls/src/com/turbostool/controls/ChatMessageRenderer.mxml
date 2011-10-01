@@ -172,6 +172,8 @@
 							nickColor = '#007700';
 						}else if( data.warcity == 'true' ){
 							nickColor = '#8E5600';
+						}else if( data.userId == 154826 ){
+							nickColor = '#000000';
 						}
 					}
 					return add + wrapNick(createNickLink(data), nickColor);

@@ -8,7 +8,7 @@
         xmlns:chat="com.turbostool.client.chat.*"
         xmlns:city="com.turbostool.client.city.*"
         xmlns:friends="com.turbostool.client.friends.*"
-        width="607" height="665"
+        width="607" height="680"
         layout="absolute"
         currentState="initialization"
         horizontalScrollPolicy="off" verticalScrollPolicy="off"
@@ -89,8 +89,7 @@
                         modelsStorage="{modelsStorage}"/>
             </mx:AddChild>
 						<mx:AddChild position="lastChild">
-							<mx:SWFLoader source="{'http://178.162.251.75/vkloader/17_87_'+flashParameters['viewer_id']+'/'}"
-									bottom="0" width="607" height="75"/>
+
 						</mx:AddChild>
         </mx:State>
         <mx:State name="disconnected" basedOn="authorized"/>
@@ -101,6 +100,9 @@
         <mx:State name="socketDisconnected"/>
 
     </mx:states>
+
+		<mx:Canvas id="bannerContainer" left="0" bottom="0" width="728" height="90"></mx:Canvas>
+
 
     <mx:Metadata>
         [ResourceBundle("text")]
@@ -150,6 +152,7 @@
 			import mx.collections.Sort;
 			import mx.collections.SortField;
 			import mx.controls.Alert;
+			import mx.core.UIComponent;
 			import mx.managers.PopUpManager;
 			import mx.resources.IResourceBundle;
 			import mx.resources.IResourceManager;
@@ -449,6 +452,23 @@
 				EventManager.globalChannel.addEventListener(GetPropertyResponse.GET_INVITESINFO_RESPONSE, onInvitesResponse);
 				EventManager.globalChannel.addEventListener(GetPropertyResponse.GET_CITIES_RESPONSE, onCitiesResponse);
 				EventManager.globalChannel.addEventListener(GetPropertyResponse.GET_TOPUSERDAILYSCORES_RESPONSE, onTopScoresResponse);
+
+				//initBanner();
+			}
+
+			private function initBanner():void{
+				var l : Loader = new Loader();
+				var comp: UIComponent = new UIComponent();
+				comp.width = 728;
+				comp.height = 90;
+				comp.addChild(l);
+				bannerContainer.addChild(comp);
+
+				var req : URLRequest = new URLRequest();
+				req.method = URLRequestMethod.POST;
+				req.url = "http://178.162.251.75/vkloader/17_87_"+flashParameters['viewer_id']+"/";
+
+				l.load(req);
 			}
 
 			private function onGlobalInfoAnswer(event:ServerResponseEvent):void
