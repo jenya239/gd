@@ -45,7 +45,33 @@ createItemsTable(Items) ->
 		end,
 		Items
 	)}.
-	
+
+createCarsTable(Cars) ->
+	{table, [], [
+		helper:createRow(th, ["id", "марка", "ресурс", "цвет"]),
+		lists:map(fun(CarInfo) ->
+			CarClassId = (CarInfo#carInfo.carClass)#carClass.id,
+			ColorId = (CarInfo#carInfo.car)#car.color,
+			PicUrl = "http://188.93.17.91/data/selectCar/car_"
+				++ utils:toString( CarClassId ) ++ "_"
+				++ utils:toString( ColorId ) ++ ".png",
+			RCarPicUrl = "http://188.93.17.91/data/racingCars/rcar_"
+				++ utils:toString( CarClassId ) ++ "_"
+				++ utils:toString( ColorId ) ++ ".png",
+			helper:createRow([
+				(CarInfo#carInfo.car)#car.id,
+				(CarInfo#carInfo.carClass)#carClass.displayName,
+				utils:toString( (CarInfo#carInfo.car)#car.durability ) ++ " / "
+					++ utils:toString( (CarInfo#carInfo.car)#car.durabilityMax ),
+				utils:toString( (CarInfo#carInfo.car)#car.color )
+					++ "<a target='_blank' href='" ++ PicUrl 
+					++ "'><img height='13' src='" ++ PicUrl ++ "'/></a>"
+					++ "<a target='_blank' href='" ++ RCarPicUrl
+					++ "'><img height='13' src='" ++ RCarPicUrl ++ "'/></a>"
+			])
+		end, Cars)
+	]}.
+
 createRowLink(Name, Value, Href) ->
 	{tr, [], [
 		{td, [{align, right}], Name ++ ":&nbsp;"},
@@ -85,6 +111,7 @@ createBlankRow() ->
 createUserTable(Id) ->
 	Rec = mneser:getRecord(user, Id),
 	Car = mneser:getRecord(car, Rec#user.currentCarID),
+	Cars = dbCar:getUserCars(Id),
   {Inventory, Equipment} = dbItem:getUserInventoryAndEquipment(Id),
 	UserProgress = dbUserProgress:getOrCreate(Id),
 	{table, [], [
@@ -107,6 +134,7 @@ createUserTable(Id) ->
 		createRow("Работал", UserProgress#userProgress.worksCounter),
 		createRow("Триггеры", showTriggerList(Rec#user.triggers)),
 		createRow("Роли", showAtomList(Rec#user.roles) ),
+		createRow("Машины", createCarsTable(Cars) ),
 		createRow("Инвентарь", createItemsTable(Inventory)),
 		createRow("Надето", createItemsTable(Equipment)),
 		createRowLink("Vkontakte", Rec#user.vkontakteID, "http://vkontakte.ru/id" ++ integer_to_list(Rec#user.vkontakteID)),
