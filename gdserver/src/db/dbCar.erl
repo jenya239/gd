@@ -8,28 +8,29 @@
 -include_lib("stdlib/include/qlc.hrl").
 -include("lib/eunit/include/eunit.hrl").
 
--export([getCarNameByID/1,
-		 getCars/1,
-		 getShopInfo/0,
-		 getUserCars/1,
-  		 setCar/2,
-		 buy/3,
-         give_nt/3,
-         give/3,
-  		 sell/2,
-  		 getCurrentUserCarUpgrade/1,
-  		 wearOutCars_nt/2,
-  		 checkCarCondition/1,
-  		 repairCar_nt/1,
-  		 capitalRepairCar/2,
-		 getClass/1,
-		 getCar/1,
-		 getRecolorInfo/2, 
-		 buySlot/1, 
-		 getCarsWithMinimumLevel/1, 
-		 removeBrokenCars/1,
-         giveFuel/0
-      ]).
+-export([
+	getCarNameByID/1,
+	getCars/1,
+	getShopInfo/0,
+	getUserCars/1,
+	setCar/2,
+	buy/3,
+	give_nt/3,
+	give/3,
+	sell/2,
+	getCurrentUserCarUpgrade/1,
+	wearOutCars_nt/2,
+	checkCarCondition/1,
+	repairCar_nt/1,
+	capitalRepairCar/2,
+	getClass/1,
+	getCar/1,
+	getRecolorInfo/2,
+	buySlot/1,
+	getCarsWithMinimumLevel/1,
+	removeBrokenCars/1,
+	giveFuel/0
+]).
 
 getCurrentUserCarUpgrade(UserID) ->
   User = dbUser:getRecord(id,UserID),

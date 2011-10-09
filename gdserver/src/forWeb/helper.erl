@@ -142,6 +142,11 @@ processAction(Arg) ->
 		end
 	end,
 	case Table of
+		car ->
+			case Action of
+				changeColor -> userAdmin:processChangeCarColor( Arg );
+				_Other -> DefaultProcess()
+			end;
     carClass ->
 			case Action of
 				reset -> tableEditorView:processReset(Table,Arg);

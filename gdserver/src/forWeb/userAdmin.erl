@@ -11,7 +11,8 @@
         processChangeNickname/1,
         processGiveCar/1,
 				processUnban/1,
-			  processSwitchHomeCity/1]).
+			  processSwitchHomeCity/1,
+				processChangeCarColor/1]).
 
 -include("data.hrl").
 -include_lib("lib/yaws/include/yaws_api.hrl").
@@ -38,36 +39,31 @@ showTriggerList(LS) ->
     end, LS).
 
 createItemsTable(Items) ->
-	{table, [], lists:map(
-		fun(Item) ->
-            Class = dbItem:getClass(Item#item.itemClassID),
-			createRow(Class#itemClass.name, Item#item.durability)
-		end,
-		Items
-	)}.
+	{table, [], lists:map( fun( Item ) ->
+		Class = dbItem:getClass( Item#item.itemClassID ),
+		createRow( Class#itemClass.name, utils:toString( round( Item#item.durability ) )
+			++ " / " ++ utils:toString( Item#item.durabilityMax ) )
+	end, Items )}.
 
 createCarsTable(Cars) ->
 	{table, [], [
-		helper:createRow(th, ["id", "марка", "ресурс", "цвет"]),
+		helper:createRow(th, ["id", "марка", "ресурс", "цвет", "установлено"]),
 		lists:map(fun(CarInfo) ->
+			CarId = (CarInfo#carInfo.car)#car.id,
 			CarClassId = (CarInfo#carInfo.carClass)#carClass.id,
 			ColorId = (CarInfo#carInfo.car)#car.color,
-			PicUrl = "http://188.93.17.91/data/selectCar/car_"
-				++ utils:toString( CarClassId ) ++ "_"
-				++ utils:toString( ColorId ) ++ ".png",
-			RCarPicUrl = "http://188.93.17.91/data/racingCars/rcar_"
-				++ utils:toString( CarClassId ) ++ "_"
-				++ utils:toString( ColorId ) ++ ".png",
+			ChangingSpanStr = "<span class='color_changing'>"
+				++ utils:toString( CarId ) ++ " "
+				++ utils:toString( CarClassId ) ++ " "
+				++ utils:toString( ColorId ) ++ "</span>",
 			helper:createRow([
 				(CarInfo#carInfo.car)#car.id,
 				(CarInfo#carInfo.carClass)#carClass.displayName,
-				utils:toString( (CarInfo#carInfo.car)#car.durability ) ++ " / "
+				utils:toString( round( (CarInfo#carInfo.car)#car.durability ) ) ++ " / "
 					++ utils:toString( (CarInfo#carInfo.car)#car.durabilityMax ),
-				utils:toString( (CarInfo#carInfo.car)#car.color )
-					++ "<a target='_blank' href='" ++ PicUrl 
-					++ "'><img height='13' src='" ++ PicUrl ++ "'/></a>"
-					++ "<a target='_blank' href='" ++ RCarPicUrl
-					++ "'><img height='13' src='" ++ RCarPicUrl ++ "'/></a>"
+				ChangingSpanStr,
+				lists:foldl( fun( Id, Str ) -> Str ++ utils:toString( Id ) end, [],
+					(CarInfo#carInfo.car)#car.upgrades )
 			])
 		end, Cars)
 	]}.
@@ -383,6 +379,8 @@ processChangeNickname(Arg) ->
 
 process(Arg) ->
   [
+		"<script type='text/javascript'>var car_color_change_url = '"
+			++ helper:urlFor( car, changeColor ) ++ "';</script>",
 		case helper:paramGETExists(Arg, id) of
 			true  -> createSingleUserPage(helper:getGETValue(Arg, id), 0, 10);
 			false -> createUserTables(helper:getGETValue(Arg, vkontakteId))
@@ -429,3 +427,12 @@ processSwitchHomeCity(Arg) ->
     mnesia:write(Rec#user{homeCity=NewCity, currentCity=NewCity})
 	end ),
 	{redirect, helper:urlFor(user, show, Id)}.
+
+processChangeCarColor( Arg ) ->
+	Id = helper:getPOSTValue( Arg, id ),
+	NewColor = helper:getPOSTValue(Arg, newColor),
+	mnesia:transaction( fun() ->
+		Rec = mneser:getRecord_nt( car, Id ),
+		mnesia:write( Rec#car{color=NewColor} )
+	end ),
+	{html, utils:toString( NewColor )}.
