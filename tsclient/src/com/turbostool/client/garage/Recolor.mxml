@@ -19,7 +19,8 @@
         import com.turbostool.client.event.EventManager;
         import com.turbostool.client.game.view.ModalManager;
         import com.turbostool.client.model.CarInfo;
-        import com.turbostool.client.model.UserInfo;
+				import com.turbostool.client.model.RecolorInfo;
+				import com.turbostool.client.model.UserInfo;
         import com.turbostool.client.net.messages.RepaintCarRequest;
         import com.turbostool.client.net.messages.RepaintCarResponse;
         import com.turbostool.client.net.messages.ServerResponseEvent;
@@ -43,12 +44,20 @@
             return res;
         }
 
-        private function onRepaintClick():void
-        {
+        private function onRepaintClick():void{
+						//получить color_id по color_index
+						//отсортировать color_id и взять colorIndex'th по порядку
+						var colorsArr: Array = new Array();
+						for( var i: int = 0; i < carInfo.recolorInfo.length; i++ ){
+							colorsArr[i] = RecolorInfo(carInfo.recolorInfo[i]).color;
+						}
+						colorsArr.sort( Array.NUMERIC );
+						var colorId: int = colorsArr[ colors.colorIndex ];
+						//trace(colorsArr);
+						//trace(colors.colorIndex+' '+colorsArr[colors.colorIndex]);
             typicalSendMessage(RepaintCarRequest.REPAINT_CAR,onRepaintCarResponse,
-                    new RepaintCarRequest(carInfo.id, colors.colorIndex));
-
-            Tracker.instance.trackEvent("carRecolor", "request", carInfo.displayName + ", color: " + colors.colorIndex);
+                    new RepaintCarRequest(carInfo.id, colorId));
+            Tracker.instance.trackEvent("carRecolor", "request", carInfo.displayName + ", color: " + colorId);
         }
 
         private function onRepaintCarResponse(event: ServerResponseEvent):void

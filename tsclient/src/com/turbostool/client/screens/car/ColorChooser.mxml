@@ -55,8 +55,8 @@
 
 	private function onColorItemClick(event:ListEvent):void
 	{
-		trace(event.currentTarget.selectedItem);
-		colorIndex = event.currentTarget.selectedItem as int;  //вот здесь надо не по порядку, а брать color_id
+		//trace(event.currentTarget.selectedItem);
+		colorIndex = event.currentTarget.selectedItem as int;  //это именно colorIndex, а не color_id
 		colorList.selectedIndex = -1;
 	}
 
