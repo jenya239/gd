@@ -3,16 +3,19 @@
            xmlns:controls="com.turbostool.controls.*"
            horizontalScrollPolicy="off"
            verticalScrollPolicy="off"
-           width="55"
+           width="{ WIDTH }"
            height="28"
            >
     <mx:Style source="styles.css"/>
     <mx:Script><![CDATA[
+				public static const WIDTH: int = 45;
 
         private function getColor(ind:*):uint
         {
              switch (ind as Number)
              {
+								case 0:
+                    return 0xFFFFFF;
                 case 1:
                     return 0xD21D0A;
                 case 2:

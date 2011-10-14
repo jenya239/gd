@@ -25,7 +25,7 @@ public class UserInfo extends EventDispatcher
     private var _rating: Number;
     private var _currentCityID: Number;
     private var _homeCityID: Number;
-    private var _color: Number;
+    private var _color: int;
     private var _money: Number;
     private var _realMoney: Number;
     private var _fuel: Number;

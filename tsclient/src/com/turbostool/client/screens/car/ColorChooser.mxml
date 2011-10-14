@@ -1,81 +1,78 @@
 <?xml version="1.0" ?>
-<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml"        
-           xmlns:controls="com.turbostool.controls.*"
-           verticalScrollPolicy="off"
-           horizontalScrollPolicy="off">
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:controls="com.turbostool.controls.*"
+	verticalScrollPolicy="off" horizontalScrollPolicy="off">
+<mx:Script><![CDATA[
+	import mx.controls.Button;
+	import mx.events.ListEvent;
+	import Math;
 
-    <mx:Script><![CDATA[
-        import mx.controls.Button;         
-        import mx.events.ListEvent;
-        import Math;
+	public static const VISIBLE_COLORS_COUNT:int = 9;
 
-        [Bindable]
-        public var colorIndex:Number = 1;
+	[Bindable]
+	public var colorIndex: int = 0;
 
-        private var _colorCount:Number = 8;
+	private var _colorCount: int = VISIBLE_COLORS_COUNT;
+	private var _shift: int = 0;
 
-        private var _shift:Number = 0;
+	private function genArray( shift2: int ):Array {
+		var res:Array = [];
+		for( var i:int = 0; i < VISIBLE_COLORS_COUNT; i++ ) res[i] = i + shift2;
+		return res;
+	}
 
-        [Bindable]
-        public function get shift():Number {
-            return _shift;
-        }
+	//используется только локально
+	[Bindable]
+	public function get shift(): int {
+		return _shift;
+	}
 
-        public function set shift(val:Number):void {
-            _shift = val;
-            dataP = dataP;
-        }
+	public function set shift( value: int ):void{
+		_shift = value;
+	}
 
-        [Bindable]
-        private function get dataP():Array
-        {
-            return [1,2,3,4,5,6,7,8].map(function(i:Number, index:int, array:Array):Number{return i+shift;});
-        }
+	[Bindable]
+	public function get colorCount():int {
+		return _colorCount;
+	}
 
-        private function set dataP(arr:Array):void {}
+	public function set colorCount(val:int):void {
+		_colorCount = val;
+		colorIndex = Math.min( val, colorIndex );
+		_shift = Math.max( 0, colorIndex - VISIBLE_COLORS_COUNT );
+	}
 
-        [Bindable]
-        public function get colorCount():Number {
-            return _colorCount;
-        }
+	private function onLeft():void{
+		if( shift > 0 ){
+			shift--;
+		}
+	}
 
-        public function set colorCount(val:Number):void {
-            _colorCount = val;
-            shift = Math.max(0, _colorCount - 8);
-	    colorIndex = Math.min(val, colorIndex);
-        }
+	private function onRight():void{
+		if( shift + VISIBLE_COLORS_COUNT < colorCount) {
+			shift++;
+		}
+	}
 
-        private function onLeft():void
-        {
-           if (shift>0) shift--;
-        }
+	private function onColorItemClick(event:ListEvent):void
+	{
+		trace(event.currentTarget.selectedItem);
+		colorIndex = event.currentTarget.selectedItem as int;  //вот здесь надо не по порядку, а брать color_id
+		colorList.selectedIndex = -1;
+	}
 
-        private function onRight():void
-        {
-           if (shift+8<colorCount) shift++;
-        }
-
-        private function onColorItemClick(event: ListEvent):void
-        {
-           colorIndex = event.currentTarget.selectedItem as Number;
-           colorList.selectedIndex = -1; 
-        }
-
-        ]]></mx:Script>
-    <mx:HBox id="colors" height="49" horizontalGap="2" verticalAlign="middle"
-             horizontalAlign="center">
-        <mx:Button id="btnPrevCar" styleName="btnPrev" click="onLeft()" visible="{colorCount>8}" alpha="1.0"/>
-        <controls:TileListWithoutSelection id="colorList" dataProvider="{dataP}" height="32" width="453"
-                     borderThickness="0"
-                     backgroundAlpha="0"
-                     focusAlpha="0"
-                     focusBlendMode="BlendMode.LIGHTEN"
-                     useRollOver="false"
-                     itemClick="onColorItemClick(event)"
-                     verticalScrollPolicy="off"
-                     horizontalScrollPolicy="off"
-                     itemRenderer="com.turbostool.client.screens.car.ColorRenderer"/>
-        <mx:Button id="btnNextCar" styleName="btnNext" click="onRight()" visible="{colorCount>8}" alpha="1.0"/>
-
-    </mx:HBox>
+	]]></mx:Script>
+		<mx:HBox id="colors" height="49" horizontalGap="2" verticalAlign="middle" horizontalAlign="center">
+			<mx:Button id="btnPrevCar" styleName="btnPrev" click="onLeft()" visible="{ shift > 0 }" alpha="1.0"/>
+			<mx:TileList id="colorList"
+					dataProvider="{ genArray( shift ) }"
+					height="32" width="{ VISIBLE_COLORS_COUNT * ColorRenderer.WIDTH }"
+					borderThickness="0" backgroundAlpha="0"
+					focusAlpha="0" focusBlendMode="BlendMode.LIGHTEN"
+					useRollOver="false"
+					itemClick="onColorItemClick(event)"
+					verticalScrollPolicy="off" horizontalScrollPolicy="off"
+					itemRenderer="com.turbostool.client.screens.car.ColorRenderer"/>
+			<mx:Button id="btnNextCar" styleName="btnNext" click="onRight()"
+								 visible="{ colorCount > (shift + VISIBLE_COLORS_COUNT) }" alpha="1.0"/>
+		</mx:HBox>
 </mx:Canvas>
