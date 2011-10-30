@@ -218,7 +218,8 @@
                color="#FFFFFF" height="26" fontStyle="normal" fontSize="11"/>
     <mx:Button right="222" y="330" label="{str('repairItems')}" click="onRepairClick()" styleName="redWhite" fontFamily="Arial"
                color="#FFFFFF" height="26" fontStyle="normal" fontSize="11"/>
-    <mx:Button right="222" y="304" label="{str('recolorCar')}" click="onRepaintClick()" styleName="redWhite" fontFamily="Arial"
-               color="#FFFFFF" height="26" fontStyle="normal" fontSize="11"/>
+    <mx:Button right="222" y="304" label="{str('recolorCar')}" click="onRepaintClick()" styleName="redWhite"
+							 fontFamily="Arial" color="#FFFFFF" height="26" fontStyle="normal" fontSize="11"
+								visible="{carInfo.recolorInfo.length > 1}"/>
 
 </BaseScreen>

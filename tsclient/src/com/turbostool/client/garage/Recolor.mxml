@@ -44,15 +44,19 @@
             return res;
         }
 
+				//может в carInfo вынести?
+				private function getColorIdByIndex( carInfo: CarInfo, index: int ): int{
+					//отсортировать color_id и взять colorIndex'th по порядку
+					var colorsArr: Array = new Array();
+					for( var i: int = 0; i < carInfo.recolorInfo.length; i++ ){
+						colorsArr[i] = RecolorInfo(carInfo.recolorInfo[i]).color;
+					}
+					colorsArr.sort( Array.NUMERIC );
+					return colorsArr[ index ];
+				}
+
         private function onRepaintClick():void{
-						//получить color_id по color_index
-						//отсортировать color_id и взять colorIndex'th по порядку
-						var colorsArr: Array = new Array();
-						for( var i: int = 0; i < carInfo.recolorInfo.length; i++ ){
-							colorsArr[i] = RecolorInfo(carInfo.recolorInfo[i]).color;
-						}
-						colorsArr.sort( Array.NUMERIC );
-						var colorId: int = colorsArr[ colors.colorIndex ];
+						var colorId: int = getColorIdByIndex( carInfo, colors.colorIndex );
 						//trace(colorsArr);
 						//trace(colors.colorIndex+' '+colorsArr[colors.colorIndex]);
             typicalSendMessage(RepaintCarRequest.REPAINT_CAR,onRepaintCarResponse,
@@ -101,20 +105,20 @@
               horizontalCenter="0" y="74"/>
     <mx:Image x="119" y="106" source="@Embed(source='/assets/gui/screens/profile/podium.png')"/>
     <controls:SmartImage
-            source="{getImageSource(carInfo.classID, colors.colorIndex)}"
+            source="{getImageSource(carInfo.classID, getColorIdByIndex( carInfo, colors.colorIndex ) )}"
             x="165" y="119" width="278" height="169" flip="true"/>
     <car:ColorChooser id="colors"
                   colorIndex="1"
                   colorCount="{carInfo.recolorInfo.length}"
                   bottom="33" horizontalCenter="0"/>
     <mx:Image x="35" bottom="108" source="@Embed('/assets/gui/screens/carshop/prise.png')"/>
-    <mx:Label x="37" bottom="110" text="{carInfo.recolorPrice(colors.colorIndex)}"  fontFamily="Arial"
-              fontSize="16" color="#00000F" textDecoration="underline" fontWeight="bold"/>
+    <mx:Label x="37" bottom="110" text="{carInfo.recolorPrice( getColorIdByIndex( carInfo, colors.colorIndex ) )}"
+							fontFamily="Arial" fontSize="16" color="#00000F" textDecoration="underline" fontWeight="bold"/>
     <mx:HRule left="32" right="32" bottom="38" height="1"/>
 
     <mx:Button y="356" right="35"
                label="{str('recolorCar')}"
-               visible="{colors.colorIndex != carInfo.color}"
+               visible="{getColorIdByIndex( carInfo, colors.colorIndex ) != carInfo.color}"
                click="onRepaintClick()"
                styleName="redWhite" fontFamily="Arial"
                color="#FFFFFF" height="26" fontStyle="normal" fontSize="11"/>
