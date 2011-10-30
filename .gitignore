@@ -1,3 +1,11 @@
 gdserver/db/
 gdserver/logs/
+gdserver/ebin/
+gdserver/nbproject/
+gdserver/tmp/
+gdserver/goroddorog.access
+gdserver/report.log
+
 tsclient/out/
+tsclient/tsclient.iws
+
