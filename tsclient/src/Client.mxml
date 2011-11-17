@@ -78,6 +78,10 @@
                            modelsStorage="{modelsStorage}" visible="false"/>
             </mx:AddChild>
             <mx:AddChild position="lastChild">
+								<mx:LinkButton label="goroddorog.russchat.com/" color="0x248fb5" textDecoration="underline"
+									click="navigateToURL(new URLRequest('http://goroddorog.russchat.com/'));" x="30" y="400" />
+            </mx:AddChild>
+            <mx:AddChild position="lastChild">
                 <mx:Button label="{str('friends')}" click="onFriendsClick()" styleName="noIcon" x="486" y="564"
                            width="100"
                            height="21"/>
@@ -88,9 +92,6 @@
                         width="128" height="176"
                         modelsStorage="{modelsStorage}"/>
             </mx:AddChild>
-						<mx:AddChild position="lastChild">
-
-						</mx:AddChild>
         </mx:State>
         <mx:State name="disconnected" basedOn="authorized"/>
 
