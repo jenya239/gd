@@ -8,7 +8,7 @@
         xmlns:chat="com.turbostool.client.chat.*"
         xmlns:city="com.turbostool.client.city.*"
         xmlns:friends="com.turbostool.client.friends.*"
-        width="607" height="680"
+        width="607" height="590"
         layout="absolute"
         currentState="initialization"
         horizontalScrollPolicy="off" verticalScrollPolicy="off"
@@ -75,7 +75,7 @@
             </mx:AddChild>
             <mx:AddChild position="lastChild">
                 <chat:Chat x="10" y="400" width="597" height="190" chatController="{chatController}"
-                           modelsStorage="{modelsStorage}"/>
+                           modelsStorage="{modelsStorage}" visible="false"/>
             </mx:AddChild>
             <mx:AddChild position="lastChild">
                 <mx:Button label="{str('friends')}" click="onFriendsClick()" styleName="noIcon" x="486" y="564"
