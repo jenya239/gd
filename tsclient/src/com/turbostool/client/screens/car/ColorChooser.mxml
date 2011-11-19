@@ -6,27 +6,27 @@
 	import mx.events.ListEvent;
 	import Math;
 
-	public static const VISIBLE_COLORS_COUNT:int = 9;
+	public static const MAX_VISIBLE_COLORS_COUNT:int = 9;
 
 	[Bindable]
-	public var colorIndex: int = 0;
+	public var colorIndex:int = 0;
 
-	private var _colorCount: int = VISIBLE_COLORS_COUNT;
-	private var _shift: int = 0;
+	private var _colorCount:int = MAX_VISIBLE_COLORS_COUNT;
+	private var _shift:int = 0;
 
-	private function genArray( shift2: int ):Array {
+	private function genArray(shift2:int):Array {
 		var res:Array = [];
-		for( var i:int = 0; i < VISIBLE_COLORS_COUNT; i++ ) res[i] = i + shift2;
+		for (var i:int = 0; i < MAX_VISIBLE_COLORS_COUNT; i++) res[i] = i + shift2;
 		return res;
 	}
 
 	//используется только локально
 	[Bindable]
-	public function get shift(): int {
+	public function get shift():int {
 		return _shift;
 	}
 
-	public function set shift( value: int ):void{
+	public function set shift(value:int):void {
 		_shift = value;
 	}
 
@@ -37,18 +37,18 @@
 
 	public function set colorCount(val:int):void {
 		_colorCount = val;
-		colorIndex = Math.min( val, colorIndex );
-		_shift = Math.max( 0, colorIndex - VISIBLE_COLORS_COUNT );
+		colorIndex = Math.min(val, colorIndex);
+		_shift = Math.max(0, colorIndex - MAX_VISIBLE_COLORS_COUNT);
 	}
 
-	private function onLeft():void{
-		if( shift > 0 ){
+	private function onLeft():void {
+		if (shift > 0) {
 			shift--;
 		}
 	}
 
-	private function onRight():void{
-		if( shift + VISIBLE_COLORS_COUNT < colorCount) {
+	private function onRight():void {
+		if (shift + MAX_VISIBLE_COLORS_COUNT < colorCount) {
 			shift++;
 		}
 	}
@@ -61,11 +61,12 @@
 	}
 
 	]]></mx:Script>
-		<mx:HBox id="colors" height="49" horizontalGap="2" verticalAlign="middle" horizontalAlign="center">
+		<mx:HBox id="colors" height="49" horizontalGap="2" verticalAlign="middle" horizontalAlign="center"
+						 visible="{ colorCount > 1 }">
 			<mx:Button id="btnPrevCar" styleName="btnPrev" click="onLeft()" visible="{ shift > 0 }" alpha="1.0"/>
 			<mx:TileList id="colorList"
 					dataProvider="{ genArray( shift ) }"
-					height="32" width="{ VISIBLE_COLORS_COUNT * ColorRenderer.WIDTH }"
+					height="32" width="{ Math.min( MAX_VISIBLE_COLORS_COUNT, colorCount ) * ColorRenderer.WIDTH }"
 					borderThickness="0" backgroundAlpha="0"
 					focusAlpha="0" focusBlendMode="BlendMode.LIGHTEN"
 					useRollOver="false"
@@ -73,6 +74,6 @@
 					verticalScrollPolicy="off" horizontalScrollPolicy="off"
 					itemRenderer="com.turbostool.client.screens.car.ColorRenderer"/>
 			<mx:Button id="btnNextCar" styleName="btnNext" click="onRight()"
-								 visible="{ colorCount > (shift + VISIBLE_COLORS_COUNT) }" alpha="1.0"/>
+								 visible="{ colorCount > (shift + MAX_VISIBLE_COLORS_COUNT) }" alpha="1.0"/>
 		</mx:HBox>
 </mx:Canvas>
