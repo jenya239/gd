@@ -164,6 +164,9 @@
 				if (isAPIWrapper)
 				{
 					//updateLanguage();
+					wrapper.addEventListener('onLocationChanged', function( e: Object ):void{
+						trace( '========================'+e.location );
+					});
 				}
 			}
 

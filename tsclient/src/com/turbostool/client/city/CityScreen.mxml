@@ -56,7 +56,7 @@
 
     <UserProgress id="userProgress" userInfo="{modelsStorage.userInfo}" y="2" x="31" screenSelected="onScreenSelected(event)" />
 
-    <mx:Button id="profileLable" height="21" styleName="default" label="{str('profile')}" click="onScreenSelected(new ScreenSelectedCommand('profile'))"
+    <mx:Button id="profileLable" height="21" styleName="default" label="{str('profile')}" click="goToScreen('profile')"
                icon="@Embed(source='/assets/gui/screens/city/profileIcon.png')" x="417" y="11" width="80" />
     
     <mx:Script><![CDATA[
@@ -81,8 +81,9 @@
 				import mx.controls.Alert;
         import mx.events.FlexEvent;
 				import mx.managers.PopUpManager;
+			import mx.utils.StringUtil;
 
-				private function onChange(event:Event):void
+			private function onChange(event:Event):void
         {
             garage.visible = screens.selectedChild == garage;
             if (garage.visible)
@@ -121,6 +122,16 @@
             }
         }
 
+				private function showOtherProfile( userId: int ): void{
+					main.selectedChild = otherProfile;
+					otherProfile.loadUserInfo(userId);
+
+					_lastScreenName = _currentScreenName;
+
+					userProgress.visible = false;
+					profileLable.visible = false;
+				}
+
         private function onCreationComplete(): void
         {
             EventManager.instance.addEventListener(NickClickEvent.NICK_CLICK, onNickClick);
@@ -135,24 +146,34 @@
             }
 
             showLevelUpIfAvailable();
+
+						var urlPart: String = StringUtil.trim( ''+Client.instance.wrapper.external.getLocation() ).toLowerCase();
+						if( urlPart != '' ){
+							if( urlPart == 'arena' ){
+								goToScreen( 'arena' );
+							}else{
+								var id: int = parseInt( urlPart );
+								if( id > 0){
+									showOtherProfile( id );
+								}
+							}
+						}
         }
 
-        private function onNickClick(event:NickClickEvent):void
-        {
-            main.selectedChild = otherProfile;
-            otherProfile.loadUserInfo(event.userID);
+				private function trySetUrlPart( newUrlPart: * ):void{
+					if( Client.instance.isAPIWrapper ){
+						Client.instance.wrapper.external.callMethod('setLocation', ''+newUrlPart);
+					}
+				}
 
-            _lastScreenName = _currentScreenName;
+				private function goToScreen( internalName: String ):void{
+					onScreenSelected( new ScreenSelectedCommand( internalName ) );
+				}
 
-            userProgress.visible = false;
-            profileLable.visible = false;
-
-						//SWFAddress.setValue('' + event.userID);
-						//if( Client.instance.isAPIWrapper ){
-						//	Client.instance.wrapper.setLocation(event.userID);
-						//}
-						//Client.instance.wrapper.setLocation('testtest');
-        }
+				private function onNickClick(event:NickClickEvent):void{
+					showOtherProfile( event.userID );
+					trySetUrlPart( event.userID );
+				}
 
         private var _lastScreenName: String = "";
         private var _currentScreenName: String = "";
@@ -161,7 +182,9 @@
         {
             main.selectedChild = screens;
             onScreenSelected(new ScreenSelectedCommand(_lastScreenName));
-						//Client.instance.wrapper.setLocation('testw');
+						if( Client.instance.isAPIWrapper ){
+							Client.instance.wrapper.external.callMethod('setLocation', '');
+						}
         }
 
         [Bindable]
@@ -228,7 +251,7 @@
                             lobbiesController.needRefreshLobbies = true;
                             lobbiesController.onRefreshLobbies(null);
                         }
-                    
+                    trySetUrlPart( 'arena' );
                     break;
                 }
                 case "garage":
@@ -270,6 +293,10 @@
                     screens.selectedChild = profile;
                     Tracker.instance.trackPageview('/city/profile');
 
+										if( Client.instance.isAPIWrapper ){
+											Client.instance.wrapper.external.callMethod('setLocation', modelsStorage.userInfo.id.toString());
+										}
+
                     break;
                 }
                 case "ratings":
@@ -297,6 +324,11 @@
                         screens.selectedChild = mapScreen;
                         Tracker.instance.trackPageview('/city/map');
                     }
+
+
+										if( Client.instance.isAPIWrapper ){
+											Client.instance.wrapper.external.callMethod('setLocation', '');
+										}
 
                     break;
                 }
