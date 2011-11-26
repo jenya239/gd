@@ -529,7 +529,9 @@ generateXml({get, Property, error, {Reason, Message}} ) ->
 userInfo_to_xml(UserInfo) ->
     User = UserInfo#userInfo.user,
     Car = UserInfo#userInfo.car,
-    lists:flatten(io_lib:format("<userInfo id='~w' displayName='~s' carID='~w' currentCarID='~w' color='~w' homeCity='~w' currentCity='~w' level='~w' experience='~w' expPrevLevel='~w' expNextLevel='~w' rating='~w' duelWin='~w' duelCount='~w' money='~w' realMoney='~w' fuel='~w' nitroCount='~w' hasGift='~w' carFileName='~s' carSlots='~w' isWashed='~w'>~s~s~s~s~s~s</userInfo>",
+		Temp = User#user.date,
+		RegistrationTimeInMilliseconds = ( element(1, Temp) * 1000 * 1000 + element(2, Temp) ) * 1000 + round( element(3, Temp) / 1000),
+    lists:flatten(io_lib:format("<userInfo id='~w' displayName='~s' carID='~w' currentCarID='~w' color='~w' homeCity='~w' currentCity='~w' level='~w' experience='~w' expPrevLevel='~w' expNextLevel='~w' rating='~w' duelWin='~w' duelCount='~w' money='~w' realMoney='~w' fuel='~w' nitroCount='~w' hasGift='~w' carFileName='~s' carSlots='~w' isWashed='~w' registrationTimeInMilliseconds='~w'>~s~s~s~s~s~s</userInfo>",
          [  User#user.id,
             User#user.name,
             Car#car.id,
@@ -552,6 +554,7 @@ userInfo_to_xml(UserInfo) ->
             dbCar:getCarNameByID(Car#car.id),
             UserInfo#userInfo.carSlots,
             UserInfo#userInfo.isWashed,
+						RegistrationTimeInMilliseconds,
             createXmlList("inventory", fun protocol:item_to_xml/1, UserInfo#userInfo.inventory),
             createXmlList("equipment", fun protocol:item_to_xml/1, UserInfo#userInfo.equipment),
             createXmlList("triggers", fun protocol:triggerInfo_to_xml/1, User#user.triggers),
@@ -562,7 +565,9 @@ userInfo_to_xml(UserInfo) ->
 secure_userInfo_to_xml(UserInfo) ->
     User = UserInfo#userInfo.user,
     Car = UserInfo#userInfo.car,
-    lists:flatten(io_lib:format("<userInfo id='~w' vkontakteId='~w' displayName='~s' currentCarID='~w' color='~w' homeCity='~w' level='~w' experience='~w' expPrevLevel='~w' expNextLevel='~w' rating='~w' duelWin='~w' duelCount='~w' carFileName='~s'>~s</userInfo>",
+		Temp = User#user.date,
+		RegistrationTimeInMilliseconds = ( element(1, Temp) * 1000 * 1000 + element(2, Temp) ) * 1000 + round( element(3, Temp) / 1000),
+    lists:flatten(io_lib:format("<userInfo id='~w' vkontakteId='~w' displayName='~s' currentCarID='~w' color='~w' homeCity='~w' level='~w' experience='~w' expPrevLevel='~w' expNextLevel='~w' rating='~w' duelWin='~w' duelCount='~w' carFileName='~s' registrationTimeInMilliseconds='~w'>~s</userInfo>",
          [  User#user.id,
             User#user.vkontakteID,
             User#user.name,
@@ -577,6 +582,7 @@ secure_userInfo_to_xml(UserInfo) ->
             User#user.duelWin,
             User#user.duelCount,
             dbCar:getCarNameByID(Car#car.id),
+						RegistrationTimeInMilliseconds,
             upgradeInfo_to_xml(UserInfo#userInfo.upgradeInfo)])).
         
 invitesInfo_to_xml(ActiveInvites) ->

@@ -278,6 +278,11 @@
 					}
 				}
 
+				private function formatRegistrationTime( millis: Number ): String{
+					var date: Date = new Date( millis );
+					return str('registered') + dfDayForReg.format( date ) + str('in') + dfTimeForReg.format( date );
+				}
+
         ]]></mx:Script>
 
     <mx:Metadata>
@@ -334,6 +339,12 @@
                                   progress2="{userInfo.experience}"
                                   mode="manual" trackColors="[#0, #0]" borderColor="#DC8D14" barColor="#eeeeee"
                                   indeterminate="false"/>
+
+		<mx:DateFormatter id="dfDayForReg" formatString=" YYYY.MM.DD "/>
+		<mx:DateFormatter id="dfTimeForReg" formatString=" HH:NN:SS "/>
+		<mx:Label y="370" x="97" selectable="true"
+			text="{ formatRegistrationTime( userInfo.registrationTimeInMilliseconds ) }"
+			color="#FFFFFF" fontSize="10" fontWeight="normal" fontStyle="normal" fontFamily="Arial" />
 
     <mx:Image id="dirtImage" x="205" y="127" width="230" height="121"
               visible="{!isCarClean &amp;&amp; carImage.isLoaded}" toolTip="Помыть машину"

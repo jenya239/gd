@@ -31,6 +31,7 @@ public class UserInfo extends EventDispatcher
     private var _fuel: Number;
     private var _expLeft: Number;
     private var _isWashed: Boolean;
+		private var _registrationTimeInMilliseconds: Number;
 
     private var _inventory: Array;
     private var _equipment: Array;
@@ -415,6 +416,14 @@ public class UserInfo extends EventDispatcher
 
 	public function set vkontakteId(value:Number):void {
 		_vkontakteId = value;
+	}
+
+	public function get registrationTimeInMilliseconds():Number {
+		return _registrationTimeInMilliseconds;
+	}
+
+	public function set registrationTimeInMilliseconds(value:Number):void {
+		_registrationTimeInMilliseconds = value;
 	}
 }
 }
