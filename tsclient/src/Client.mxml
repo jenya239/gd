@@ -8,7 +8,7 @@
         xmlns:chat="com.turbostool.client.chat.*"
         xmlns:city="com.turbostool.client.city.*"
         xmlns:friends="com.turbostool.client.friends.*"
-        width="607" height="590"
+        width="607" height="620"
         layout="absolute"
         currentState="initialization"
         horizontalScrollPolicy="off" verticalScrollPolicy="off"
@@ -75,11 +75,11 @@
             </mx:AddChild>
             <mx:AddChild position="lastChild">
                 <chat:Chat x="10" y="400" width="597" height="190" chatController="{chatController}"
-                           modelsStorage="{modelsStorage}" visible="false"/>
+                           modelsStorage="{modelsStorage}"/>
             </mx:AddChild>
             <mx:AddChild position="lastChild">
-								<mx:LinkButton label="goroddorog.russchat.com/" color="0x248fb5" textDecoration="underline"
-									click="navigateToURL(new URLRequest('http://goroddorog.russchat.com/'));" x="30" y="400" />
+								<mx:LinkButton label="альтернативный чат goroddorog.russchat.com/" color="0x248fb5" textDecoration="underline"
+									click="navigateToURL(new URLRequest('http://goroddorog.russchat.com/'));" x="30" y="592" />
             </mx:AddChild>
             <mx:AddChild position="lastChild">
                 <mx:Button label="{str('friends')}" click="onFriendsClick()" styleName="noIcon" x="486" y="564"
