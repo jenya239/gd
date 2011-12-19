@@ -8,7 +8,6 @@ public class ChangeTriggerMessage extends ServerRequest
     public static const CLICK_ON_CAR_TIP: String = "showClickOnCarTip";
     public static const HOW_TO_DRIVE_TIP: String = "showHowToDriveTip";
     public static const TUTORIAL_STAGE: String = "tutorialStage";
-    public static const INVITES_REWARD: String = "showInvitesReward";
     public static const LEVEL_UP: String = "levelUp";
 
     private var _trigger: String;

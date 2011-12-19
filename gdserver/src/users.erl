@@ -52,12 +52,7 @@ addExperience_nt(UserID, Experience) ->
                     if erlang:is_record(RefererUser, user) ->
                         RefererProgress = dbUserProgress:getOrCreate_nt(RefererUser#user.id),
                         OldActiveInvites = RefererProgress#userProgress.activeInvites,
-                        mnesia:write(RefererProgress#userProgress{activeInvites=OldActiveInvites+1}),
-                        if OldActiveInvites + 1 =:= 5 ->
-                            dbUser:addRealMoney_nt(RefererUser#user.id, 10),
-                            users:addTrigger_nt(RefererUser#user.id, showInvitesReward),
-                            dbActivity:register_nt(RefererUser#user.id, {invitesReward, 10}, ok);
-                        true -> ok end;
+                        mnesia:write(RefererProgress#userProgress{activeInvites=OldActiveInvites+1});
                     true -> ok end;
                 true -> ok end,
             

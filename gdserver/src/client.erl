@@ -428,10 +428,9 @@ process({get, secureUserInfo, UserID}, State) when ?STATES_AUTHORIZED(State) ->
 process({changeTrigger, Trigger, Delta}, State) when ?STATES_AUTHORIZED(State) ->
     Delta_ = case Trigger of 
         tutorialStage -> 1;
-        showInvitesReward -> -1;
         _Other -> Delta
     end,
-    case lists:member(Trigger, [showClickOnCarTip, showHowToDriveTip, showNitroTip, tutorialStage, showInvitesReward]) of
+    case lists:member(Trigger, [showClickOnCarTip, showHowToDriveTip, showNitroTip, tutorialStage]) of
         true ->
             UserID = State#state.userID,
             NewTriggerValue = users:changeTrigger(UserID, Trigger, Delta_),

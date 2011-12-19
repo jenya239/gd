@@ -7,7 +7,7 @@
 
                     horizontalScrollPolicy="off" verticalScrollPolicy="off"
                     width="597" height="190">
-    <mx:ViewStack id="chats" left="0" top="0" right="140" bottom="29"
+    <mx:ViewStack id="chats" left="0" top="0" right="0" bottom="29"
                   change="onChatChannelChange(event)">
         <chat:ChatCanvas label="{str('city')}"
                          data="{ChanneledMessage.CITY_CHANNEL}"
@@ -25,7 +25,7 @@
               fontStyle="normal" fontSize="12" visible="false"/>
 
 
-    <mx:Canvas left="0" right="242" bottom="5">
+    <mx:Canvas left="0" right="102" bottom="5">
         <controls:Rectangle left="0" top="0" bottom="0" right="0" backgroundColor2="#dd8b01" cornerRadius="6"/>
         <controls:Rectangle left="1" top="1" bottom="1" right="1" backgroundColor2="#2b0907" cornerRadius="6"/>
         <controls:Rectangle left="3" top="3" bottom="3" right="3" backgroundColor2="#f9f8e3" cornerRadius="6"/>
@@ -46,7 +46,7 @@
     <mx:TextInput id="privateNick" bottom="40" x="438" width="131" visible="false"/>
     <mx:Button x="438" bottom="10" label="{str('sendPrivateChatMessage')}" styleName="default"
                click="onSendPrivateChatMessage()" visible="false"/>
-    <mx:Button right="140" bottom="5" label="{str('send')}" styleName="noIcon" click="onSendChatMessage()" height="21" width="100"/>
+    <mx:Button right="0" bottom="5" label="{str('send')}" styleName="noIcon" click="onSendChatMessage()" height="21" width="100"/>
 
     <mx:Script><![CDATA[
         import com.turbostool.client.net.SessionSocket;

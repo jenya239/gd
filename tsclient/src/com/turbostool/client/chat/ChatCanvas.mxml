@@ -10,7 +10,7 @@
     <controls:Rectangle id="rectInner" left="1" top="4" bottom="1" right="1" backgroundColor2="#2b0907"
                         cornerRadius="6"/>
     <controls:AutoScrollingList
-            left="3" top="6" bottom="3" width="451"
+            left="3" top="6" bottom="3" width="581"
             selectable="false"
             borderThickness="0"
             backgroundAlpha="1.0" backgroundColor="#f9f8e3"

@@ -139,14 +139,9 @@
             EventManager.instance.addEventListener(ScreenSelectedCommand.SCREEN_SELECTED, onScreenSelected);
             otherProfile.back = backFromOtherProfile;
 
-            if(modelsStorage.userInfo.hasTrigger(ChangeTriggerMessage.INVITES_REWARD)) {
-                Alert.show("Поздравляем! Ваши друзья помогли вам заработать 10 золотых!");
-                SessionSocket.instance.sendMessage(new ChangeTriggerMessage(ChangeTriggerMessage.INVITES_REWARD, -1));
-                Tracker.instance.trackPageview("/friends/reward");
-            }
-
             showLevelUpIfAvailable();
 
+						//ToDo: проверка, что вообще wrapper есть
 						var urlPart: String = StringUtil.trim( ''+Client.instance.wrapper.external.getLocation() ).toLowerCase();
 						if( urlPart != '' ){
 							if( urlPart == 'arena' ){
