@@ -23,6 +23,7 @@
 	addDevRole/1,
     removeAdminRole/1,
     removeDevRole/1,
+	removeRole/2,
 	getRatings/1,
 	delete/1,
 	getVkontakteId/1,
