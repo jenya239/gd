@@ -8,7 +8,7 @@
         xmlns:chat="com.turbostool.client.chat.*"
         xmlns:city="com.turbostool.client.city.*"
         xmlns:friends="com.turbostool.client.friends.*"
-        width="607" height="640"
+        width="607" height="680"
         layout="absolute"
         currentState="initialization"
         horizontalScrollPolicy="off" verticalScrollPolicy="off"
@@ -78,13 +78,7 @@
                            modelsStorage="{modelsStorage}"/>
             </mx:AddChild>
             <mx:AddChild position="lastChild">
-								<mx:LinkButton label="альтернативный чат goroddorog.russchat.com/" color="0x248fb5" textDecoration="underline"
-									click="navigateToURL(new URLRequest('http://goroddorog.russchat.com/'));" x="30" y="612" />
-            </mx:AddChild>
-            <mx:AddChild position="lastChild">
-                <mx:Button label="{str('friends')}" click="onFriendsClick()" styleName="noIcon" x="486" y="612"
-                           width="100"
-                           height="21"/>
+								<screens:GameInfoPanel x="0" y="605"/>
             </mx:AddChild>
         </mx:State>
         <mx:State name="disconnected" basedOn="authorized"/>
@@ -190,122 +184,8 @@
 				}
 			}
 
-			private function onFriendsClick():void
-			{
-				var vkRequest:VkontakteRequest = new VkontakteRequest();
-				vkRequest.addEventListener(VkontakteEvent.RESPONSE, onGetAllFriends);
-				vkRequest.addEventListener(VkontakteEvent.ERROR, onGetAllFriendsError);
-				vkRequest.sendGetAppFriends();
-				var idList:String = "";
-				var friendsDict:Dictionary;
 
-				PopUpManager.addPopUp(_loadingIndicator, this, true);
-				PopUpManager.centerPopUp(_loadingIndicator);
-				PopUpManager.bringToFront(_loadingIndicator);
 
-				function removeLoadingIndicator():void
-				{
-					PopUpManager.removePopUp(_loadingIndicator);
-				}
-
-				function onGetAllFriends(e:VkontakteEvent):void
-				{
-					vkRequest.removeEventListener(VkontakteEvent.RESPONSE, onGetAllFriends);
-					vkRequest.removeEventListener(VkontakteEvent.ERROR, onGetAllFriendsError);
-					idList = flashParameters["viewer_id"];
-					for each(var id:String in e.xml.uid)
-					{
-						if (idList != "") idList += ",";
-						idList += id.toString();
-					}
-					vkRequest.addEventListener(VkontakteEvent.RESPONSE, onGetProfiles);
-					vkRequest.addEventListener(VkontakteEvent.ERROR, onGetProfilesError);
-					vkRequest.sendGetProfiles(idList);
-				}
-
-				function onGetAllFriendsError(e:VkontakteEvent):void
-				{
-					vkRequest.removeEventListener(VkontakteEvent.RESPONSE, onGetAllFriends);
-					vkRequest.removeEventListener(VkontakteEvent.ERROR, onGetAllFriendsError);
-					removeLoadingIndicator();
-					if (e.xml.error_code == 7)
-					{
-						Tracker.instance.trackPageview("/friends/permissions");
-						if (isAPIWrapper)
-						{
-							wrapper.external.showSettingsBox(1 + 2 + 256 + 512);
-						}
-						else
-						{
-							var vk:VKontaktePermissions = new VKontaktePermissions();
-							vk.x = 130;
-							PopUpManager.addPopUp(vk, Client.instance, true);
-						}
-					}
-				}
-
-				function onGetProfiles(e:VkontakteEvent):void
-				{
-					vkRequest.removeEventListener(VkontakteEvent.RESPONSE, onGetProfiles);
-					vkRequest.removeEventListener(VkontakteEvent.ERROR, onGetProfilesError);
-					var friends:ArrayCollection = new ArrayCollection();
-					friendsDict = new Dictionary();
-					for each(var user:XML in e.xml.user)
-					{
-						var friendInfo:FriendInfo = FriendInfo.create(user.uid, user.first_name.toString() + " " + user.last_name.toString(), user.photo_medium.toString());
-						friends.addItem(friendInfo);
-						friendsDict[friendInfo.vkontakteID] = friendInfo;
-					}
-					modelsStorage.friends = friends;
-					EventManager.instance.addEventListener(GetPropertyResponse.GET_FRIENDINFOS_RESPONSE, onGetFriendInfos);
-					SessionSocket.instance.sendMessage(new GetFriendInfosRequest(idList));
-				}
-
-				function onGetProfilesError(e:VkontakteEvent):void
-				{
-					vkRequest.removeEventListener(VkontakteEvent.RESPONSE, onGetProfiles);
-					vkRequest.removeEventListener(VkontakteEvent.ERROR, onGetProfilesError);
-					trace("onGetProfilesError message: " + e.message);
-					trace("onGetProfilesError xml: " + e.xml);
-					removeLoadingIndicator();
-				}
-
-				function onGetFriendInfos(e:ServerResponseEvent):void
-				{
-					removeLoadingIndicator();
-					EventManager.instance.removeEventListener(GetPropertyResponse.GET_FRIENDINFOS_RESPONSE, onGetFriendInfos);
-					var reponse:GetPropertyResponse = e.response as GetPropertyResponse;
-					modelsStorage.friends.sort = null;
-					for each(var friendInfoFromServer:FriendInfo in reponse.propertyAsArray)
-					{
-						var friendInfoInList:FriendInfo = friendsDict[friendInfoFromServer.vkontakteID];
-						friendInfoInList.city = friendInfoFromServer.city;
-						friendInfoInList.rating = friendInfoFromServer.rating;
-						friendInfoInList.displayName = friendInfoFromServer.displayName;
-						friendInfoInList.level = friendInfoFromServer.level;
-						friendInfoInList.userID = friendInfoFromServer.userID;
-						friendInfoInList.isWashed = friendInfoFromServer.isWashed;
-					}
-
-					var sort:Sort = new Sort();
-					sort.fields = [new SortField("rating", true, true, true)];
-					modelsStorage.friends.sort = sort;
-					modelsStorage.friends.refresh();
-
-					var fl:FriendsList = new FriendsList();
-					fl.modelsStorage = modelsStorage;
-					fl.x = 230;
-					fl.y = 10;
-
-					Tracker.instance.trackPageview("/friends/list");
-					PopUpManager.addPopUp(fl, Client.instance, true);
-					PopUpManager.centerPopUp(fl);
-					PopUpManager.bringToFront(fl);
-
-				}
-			}
-
-			private var _loadingIndicator:LoadingIndicator = new LoadingIndicator();
 
 			[Bindable]
 			private var _controller:Controller;

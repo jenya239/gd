@@ -129,6 +129,17 @@
             <mx:Image id="arena1" source="@Embed(source='/assets/gui/screens/city/arena1.png')"/>
             <mx:Image id="arena2" source="@Embed(source='/assets/gui/screens/city/arena2.png')"/>
         </controls:ImageStack>
+
+        <controls:ImageStack id="imagestack10" horizontalCenter="0" y="75"
+                             selectedIndex="{modelsStorage.userInfo.homeCity-1}"
+                             rollOverEffect="{houseGlowIn}" rollOutEffect="{houseGlowOut}"
+                             click="screenCommand('tree')"
+                             rollOver="showToolTip(event)"
+                             rollOut="hideToolTip(event)"
+                             data="{str('tree')}">
+            <mx:Image id="tree1" source="@Embed(source='/assets/gui/screens/city/tree1.png')"/>
+            <mx:Image id="tree2" source="@Embed(source='/assets/gui/screens/city/tree2.png')"/>
+        </controls:ImageStack>
         
         <controls:ImageStack y="181"
                              selectedIndex="{modelsStorage.userInfo.homeCity-1}"
