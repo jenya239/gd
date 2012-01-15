@@ -616,7 +616,9 @@ process({joinLobby, error, {Reason, Message}}, #state{name=notConnected} = State
     sendMessage(State, {joinLobby, error, {Reason, Message}}),
     {noreply, State};
 
-process({createLobby, RouteID, LapNumber, Direction, PlayerMax, AllowedCarID, TimerLength, League,Stake}, #state{name=notConnected} = State) ->
+process({createLobby, RouteID, LapNumber2, Direction, PlayerMax2, AllowedCarID, TimerLength, League,Stake}, #state{name=notConnected} = State) ->
+		LapNumber = erlang:max( 1, erlang:min( LapNumber2, 5 ) ),
+		PlayerMax = erlang:max( 1, erlang:min( PlayerMax2, 10 ) ),
     User = dbUser:getRecord(id, State#state.userID),
     ClientInfo = getClientInfo(userID, User#user.id, State#state.clientID),
     LobbyManagerPID = cityManager:getLobbyManagerByID(State#state.currentCity),
