@@ -130,7 +130,7 @@
             <mx:Image id="arena2" source="@Embed(source='/assets/gui/screens/city/arena2.png')"/>
         </controls:ImageStack>
 
-        <controls:ImageStack id="imagestack10" horizontalCenter="0" y="75"
+        <controls:ImageStack id="imagestack10" horizontalCenter="0" y="75" visible="false"
                              selectedIndex="{modelsStorage.userInfo.homeCity-1}"
                              rollOverEffect="{houseGlowIn}" rollOutEffect="{houseGlowOut}"
                              click="screenCommand('tree')"
