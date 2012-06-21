@@ -12,7 +12,8 @@
         processGiveCar/1,
 				processUnban/1,
 			  processSwitchHomeCity/1,
-				processChangeCarColor/1]).
+				processChangeCarColor/1,
+			  processAddItem/1]).
 
 -include("data.hrl").
 -include_lib("lib/yaws/include/yaws_api.hrl").
@@ -38,12 +39,27 @@ showTriggerList(LS) ->
         end
     end, LS).
 
-createItemsTable(Items) ->
-	{table, [], lists:map( fun( Item ) ->
+createItemsTable( Items2, DomId ) ->
+	Items = lists:sort( fun( I1, I2 ) -> I1#item.id < I2#item.id end, Items2 ),
+	{table, [{id, DomId}], lists:map( fun( Item ) ->
 		Class = dbItem:getClass( Item#item.itemClassID ),
 		createRow( Class#itemClass.name, utils:toString( round( Item#item.durability ) )
 			++ " / " ++ utils:toString( Item#item.durabilityMax ) )
-	end, Items )}.
+end, Items )}.
+createItemsTable( Items ) ->
+	createItemsTable( Items, "" ).
+
+createAddItemForm( UserId ) ->
+	Classes = lists:sort( 
+		fun( IC1, IC2 ) -> IC1#itemClass.id < IC2#itemClass.id end, mneser:getAllRecords( itemClass ) ),
+	{span, [], [
+		{select, [{id, "slctItemClass"}],
+			lists:map( fun( IC ) -> {option, [{value, IC#itemClass.id}], IC#itemClass.name} end, Classes)
+		},
+		{input, [{type, button}, {value, "Добавить"},
+			{onclick, utils:fmt( "addItem( ~B, '~s' )", [UserId, utils:toString( helper:urlFor( item, add ) )] )}], []}
+	]
+}.
 
 createCarsTable(Cars) ->
 	{table, [], [
@@ -131,7 +147,7 @@ createUserTable(Id) ->
 		createRow("Триггеры", showTriggerList(Rec#user.triggers)),
 		createRow("Роли", showAtomList(Rec#user.roles) ),
 		createRow("Машины", createCarsTable(Cars) ),
-		createRow("Инвентарь", createItemsTable(Inventory)),
+		createRow("Инвентарь", {'div', [], [createItemsTable( Inventory, "tblInventory" ), createAddItemForm( Id )]}),
 		createRow("Надето", createItemsTable(Equipment)),
 		createRowLink("Vkontakte", Rec#user.vkontakteID, "http://vkontakte.ru/id" ++ integer_to_list(Rec#user.vkontakteID)),
 		createInputGiveCar("Выдать авто",Rec#user.id,helper:urlFor(user, give), "точно выдать авто?"),
@@ -436,3 +452,19 @@ processChangeCarColor( Arg ) ->
 		mnesia:write( Rec#car{color=NewColor} )
 	end ),
 	{html, utils:toString( NewColor )}.
+
+processAddItem( Arg ) ->
+	UserId = helper:getPOSTValue( Arg, userId ),
+	ItemClassId = helper:getPOSTValue(Arg, itemClassId),
+	ItemClass = dbItem:getClass( ItemClassId ),
+	mnesia:transaction( fun() ->
+		UserDetails = dbUser:getDetails_nt( UserId ),
+		NewItem = #item{ id=dbUuid:get_nt(item), itemClassID=ItemClassId, durability=ItemClass#itemClass.durabilityMax, durabilityMax=ItemClass#itemClass.durabilityMax },
+    NewUserDetails = UserDetails#userDetails{ inventory=UserDetails#userDetails.inventory ++ [NewItem#item.id] },
+    mnesia:write( NewItem ),
+    mnesia:write( NewUserDetails ),
+    dbActivity:register_nt( UserId, {adminAddItem, ItemClassId, NewItem#item.id}, ok )
+	end ),
+	{content, "application/json; charset=utf8",
+    utils:fmt( "{itemClassName: '~s', durability: ~p, durabilityMax: ~p}", [
+			ItemClass#itemClass.name, ItemClass#itemClass.durabilityMax, ItemClass#itemClass.durabilityMax] )}.

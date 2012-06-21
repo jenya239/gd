@@ -5,6 +5,7 @@ gdserver/nbproject/
 gdserver/tmp/
 gdserver/goroddorog.access
 gdserver/report.log
+gdserver/erl_crash.dump
 
 tsclient/out/
 tsclient/tsclient.iws

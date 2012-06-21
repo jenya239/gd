@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="607" height="75"
 				verticalScrollPolicy="off" horizontalScrollPolicy="off">
-	<mx:LinkButton label="альтернативный чат goroddorog.russchat.com" color="0x248fb5" textDecoration="underline"
-									click="navigateToURL(new URLRequest('http://goroddorog.russchat.com/'));" x="190" y="7" height="21" />
+	<!--<mx:LinkButton label="альтернативный чат goroddorog.russchat.com" color="0x248fb5" textDecoration="underline"
+									click="navigateToURL(new URLRequest('http://goroddorog.russchat.com/'));" x="190" y="7" height="21" />-->
 	<mx:LinkButton label="правила Города Дорог" color="0xffffff" textDecoration="underline" rollOverColor="0x999999"
 									click="navigateToURL(new URLRequest('http://188.93.17.91/rules.jpg'));" x="30" y="7" height="21" />
 	<mx:Button label="{Client.instance.str('friends')}" click="onFriendsClick()" styleName="noIcon" x="486" y="7"

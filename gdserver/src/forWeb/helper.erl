@@ -185,6 +185,11 @@ processAction(Arg) ->
 				switchHomeCity -> userAdmin:processSwitchHomeCity(Arg);
 				_Other -> DefaultProcess()
 			end;
+		item ->
+			case Action of
+				add -> userAdmin:processAddItem( Arg );
+				_Other -> DefaultProcess()
+			end;
 		mainTables ->
 			case Action of
 				reset -> tableEditorView:processMainTablesReset(Arg);

@@ -23,7 +23,6 @@ getTables() ->
         level,
         route,
         workOffer,
-        car,
         carClass,
         recolorPrice,
         league,

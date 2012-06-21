@@ -62,3 +62,16 @@ addEventListener('load', function(){
 		create_color_changing( $( el.parentNode ), args[0], args[1], args[2] );
 	} );
 });
+
+function addItem( userId, requestURL ){
+	new Ajax.Request( requestURL, {
+    method: 'post',
+		parameters: {
+			userId: userId, itemClassId: $( 'slctItemClass' ).value
+		},
+    onSuccess: function( transport ){
+			$( 'tblInventory' ).insert( '<tr><td align="right">'+transport.responseJSON.itemClassName+': </td><td>'+transport.responseJSON.durability+' / '+transport.responseJSON.durabilityMax+'</td></tr>' );
+    },
+    onFailure: function(){ alert('Something went wrong...') }
+  });
+}

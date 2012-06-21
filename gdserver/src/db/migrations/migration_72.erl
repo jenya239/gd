@@ -1,4 +1,4 @@
--module(migration_71).
+-module(migration_72).
 
 -include_lib("stdlib/include/qlc.hrl").
 
