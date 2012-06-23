@@ -6,6 +6,7 @@ gdserver/tmp/
 gdserver/goroddorog.access
 gdserver/report.log
 gdserver/erl_crash.dump
+gdserver/manifest.mf
 
 tsclient/out/
 tsclient/tsclient.iws

@@ -145,6 +145,7 @@ processAction(Arg) ->
 		car ->
 			case Action of
 				changeColor -> userAdmin:processChangeCarColor( Arg );
+				delete -> userAdmin:processCarDelete( Arg );
 				_Other -> DefaultProcess()
 			end;
     carClass ->

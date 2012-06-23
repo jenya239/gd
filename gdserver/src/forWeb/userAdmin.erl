@@ -13,7 +13,8 @@
 				processUnban/1,
 			  processSwitchHomeCity/1,
 				processChangeCarColor/1,
-			  processAddItem/1]).
+			  processAddItem/1,
+			  processCarDelete/1]).
 
 -include("data.hrl").
 -include_lib("lib/yaws/include/yaws_api.hrl").
@@ -61,10 +62,10 @@ createAddItemForm( UserId ) ->
 	]
 }.
 
-createCarsTable(Cars) ->
+createCarsTable( User, Cars ) ->
 	{table, [], [
 		helper:createRow(th, ["id", "марка", "ресурс", "цвет", "установлено"]),
-		lists:map(fun(CarInfo) ->
+		lists:map( fun(CarInfo) ->
 			CarId = (CarInfo#carInfo.car)#car.id,
 			CarClassId = (CarInfo#carInfo.carClass)#carClass.id,
 			ColorId = (CarInfo#carInfo.car)#car.color,
@@ -79,7 +80,16 @@ createCarsTable(Cars) ->
 					++ utils:toString( (CarInfo#carInfo.car)#car.durabilityMax ),
 				ChangingSpanStr,
 				lists:foldl( fun( Id, Str ) -> Str ++ utils:toString( Id ) end, [],
-					(CarInfo#carInfo.car)#car.upgrades )
+					(CarInfo#carInfo.car)#car.upgrades ),
+				if CarId /=	User#user.currentCarID ->
+					{input,
+						[ {type, button}, {value, "Удалить"}, {id, utils:fmt( "btnCarDel~B", [CarId] ) },
+							{onclick,
+								utils:fmt( "deleteCar( ~B, ~B, '~s' );",
+									[ User#user.id, CarId, helper:urlFor( car, delete ) ] ) }
+						], [] };
+					true -> ""
+				end
 			])
 		end, Cars)
 	]}.
@@ -146,7 +156,7 @@ createUserTable(Id) ->
 		createRow("Работал", UserProgress#userProgress.worksCounter),
 		createRow("Триггеры", showTriggerList(Rec#user.triggers)),
 		createRow("Роли", showAtomList(Rec#user.roles) ),
-		createRow("Машины", createCarsTable(Cars) ),
+		createRow("Машины", createCarsTable( Rec, Cars ) ),
 		createRow("Инвентарь", {'div', [], [createItemsTable( Inventory, "tblInventory" ), createAddItemForm( Id )]}),
 		createRow("Надето", createItemsTable(Equipment)),
 		createRowLink("Vkontakte", Rec#user.vkontakteID, "http://vkontakte.ru/id" ++ integer_to_list(Rec#user.vkontakteID)),
@@ -468,3 +478,28 @@ processAddItem( Arg ) ->
 	{content, "application/json; charset=utf8",
     utils:fmt( "{itemClassName: '~s', durability: ~p, durabilityMax: ~p}", [
 			ItemClass#itemClass.name, ItemClass#itemClass.durabilityMax, ItemClass#itemClass.durabilityMax] )}.
+
+processCarDelete( Arg ) ->
+	UserId = helper:getPOSTValue( Arg, userId ),
+	CarId = helper:getPOSTValue(Arg, carId),
+	mnesia:transaction( fun() ->
+		User = mneser:getRecord_nt(user, UserId),
+		UserDetails = mneser:getRecord_nt(userDetails, UserId),
+		Car = mneser:getRecord_nt(car, CarId),
+		Cars = UserDetails#userDetails.cars,
+		NewCars = lists:delete( CarId, Cars ),
+		CurrentCarID =
+				case( CarId =:= User#user.currentCarID ) of
+						true ->
+							 lists:nth( 1, NewCars );
+						false ->
+							 User#user.currentCarID
+				end,
+		NewUser = User#user{currentCarID = CurrentCarID},
+		mnesia:write( NewUser ),
+		mnesia:write( UserDetails#userDetails{ cars = NewCars } ),
+		lists:foreach(fun dbItem:deleteItem_nt/1, Car#car.upgrades),
+		mnesia:delete(car, CarId, write),
+		dbActivity:register_nt( UserId, {adminDeleteCar, CarId, Car#car.carClassID}, ok)
+	end ),
+	{html, "ok"}.

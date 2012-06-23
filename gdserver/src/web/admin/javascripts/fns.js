@@ -75,3 +75,17 @@ function addItem( userId, requestURL ){
     onFailure: function(){ alert('Something went wrong...') }
   });
 }
+
+function deleteCar( userId, carId, requestURL ){
+	if( ! confirm( "Точно удалить авто со всеми деталями?" ) ) return;
+	new Ajax.Request( requestURL, {
+    method: 'post',
+		parameters: {
+			userId: userId, carId: carId
+		},
+    onSuccess: function( transport ){
+			$( 'btnCarDel'+carId ).up(1).remove();
+    },
+    onFailure: function(){ alert('Something went wrong...') }
+  });
+}
