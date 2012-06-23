@@ -2,3 +2,4 @@ th { text-align: left; }
 table { font-size: 10pt; }
 form.route { margin: 0px; width: 400px; text-align: right; }
 div.user { float: left; border: black 1px solid; }
+input.del { border: none; background-image: url('/admin/styles/cross.png'); width: 30px; }

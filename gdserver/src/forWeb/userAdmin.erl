@@ -14,7 +14,8 @@
 			  processSwitchHomeCity/1,
 				processChangeCarColor/1,
 			  processAddItem/1,
-			  processCarDelete/1]).
+			  processCarDelete/1,
+			  processItemDelete/1]).
 
 -include("data.hrl").
 -include_lib("lib/yaws/include/yaws_api.hrl").
@@ -40,15 +41,21 @@ showTriggerList(LS) ->
         end
     end, LS).
 
-createItemsTable( Items2, DomId ) ->
+createItemsTable( User, Items2, DomId ) ->
 	Items = lists:sort( fun( I1, I2 ) -> I1#item.id < I2#item.id end, Items2 ),
 	{table, [{id, DomId}], lists:map( fun( Item ) ->
 		Class = dbItem:getClass( Item#item.itemClassID ),
-		createRow( Class#itemClass.name, utils:toString( round( Item#item.durability ) )
-			++ " / " ++ utils:toString( Item#item.durabilityMax ) )
+		helper:createRow([ Class#itemClass.name, utils:toString( round( Item#item.durability ) )
+			++ " / " ++ utils:toString( Item#item.durabilityMax ),
+		 {input,
+				[ {type, button}, {class, "del"}, {id, utils:fmt( "btnItemDel~B", [Item#item.id] ) },
+					{onclick,
+						utils:fmt( "deleteItem( ~B, ~B, '~s' );",
+							[ User#user.id, Item#item.id, helper:urlFor( item, delete ) ] ) }
+				], [] } ])
 end, Items )}.
-createItemsTable( Items ) ->
-	createItemsTable( Items, "" ).
+createItemsTable( User, Items ) ->
+	createItemsTable( User, Items, "" ).
 
 createAddItemForm( UserId ) ->
 	Classes = lists:sort( 
@@ -83,7 +90,7 @@ createCarsTable( User, Cars ) ->
 					(CarInfo#carInfo.car)#car.upgrades ),
 				if CarId /=	User#user.currentCarID ->
 					{input,
-						[ {type, button}, {value, "Удалить"}, {id, utils:fmt( "btnCarDel~B", [CarId] ) },
+						[ {type, button}, {class, "del"}, {id, utils:fmt( "btnCarDel~B", [CarId] ) },
 							{onclick,
 								utils:fmt( "deleteCar( ~B, ~B, '~s' );",
 									[ User#user.id, CarId, helper:urlFor( car, delete ) ] ) }
@@ -157,8 +164,8 @@ createUserTable(Id) ->
 		createRow("Триггеры", showTriggerList(Rec#user.triggers)),
 		createRow("Роли", showAtomList(Rec#user.roles) ),
 		createRow("Машины", createCarsTable( Rec, Cars ) ),
-		createRow("Инвентарь", {'div', [], [createItemsTable( Inventory, "tblInventory" ), createAddItemForm( Id )]}),
-		createRow("Надето", createItemsTable(Equipment)),
+		createRow("Инвентарь", {'div', [], [createItemsTable( Rec, Inventory, "tblInventory" ), createAddItemForm( Id )]}),
+		createRow("Надето", createItemsTable(Rec, Equipment)),
 		createRowLink("Vkontakte", Rec#user.vkontakteID, "http://vkontakte.ru/id" ++ integer_to_list(Rec#user.vkontakteID)),
 		createInputGiveCar("Выдать авто",Rec#user.id,helper:urlFor(user, give), "точно выдать авто?"),
 		createRowLink("Activity", "Activity", "activity.yaws?id=" ++ integer_to_list(Id)),
@@ -467,17 +474,18 @@ processAddItem( Arg ) ->
 	UserId = helper:getPOSTValue( Arg, userId ),
 	ItemClassId = helper:getPOSTValue(Arg, itemClassId),
 	ItemClass = dbItem:getClass( ItemClassId ),
-	mnesia:transaction( fun() ->
+	{atomic, ItemId} = mnesia:transaction( fun() ->
 		UserDetails = dbUser:getDetails_nt( UserId ),
 		NewItem = #item{ id=dbUuid:get_nt(item), itemClassID=ItemClassId, durability=ItemClass#itemClass.durabilityMax, durabilityMax=ItemClass#itemClass.durabilityMax },
     NewUserDetails = UserDetails#userDetails{ inventory=UserDetails#userDetails.inventory ++ [NewItem#item.id] },
     mnesia:write( NewItem ),
     mnesia:write( NewUserDetails ),
-    dbActivity:register_nt( UserId, {adminAddItem, ItemClassId, NewItem#item.id}, ok )
+    dbActivity:register_nt( UserId, {adminAddItem, ItemClassId, NewItem#item.id}, ok ),
+		NewItem#item.id
 	end ),
 	{content, "application/json; charset=utf8",
-    utils:fmt( "{itemClassName: '~s', durability: ~p, durabilityMax: ~p}", [
-			ItemClass#itemClass.name, ItemClass#itemClass.durabilityMax, ItemClass#itemClass.durabilityMax] )}.
+    utils:fmt( "{itemClassName: '~s', durability: ~p, durabilityMax: ~p, itemId: ~p}", [
+			ItemClass#itemClass.name, ItemClass#itemClass.durabilityMax, ItemClass#itemClass.durabilityMax, ItemId] )}.
 
 processCarDelete( Arg ) ->
 	UserId = helper:getPOSTValue( Arg, userId ),
@@ -501,5 +509,17 @@ processCarDelete( Arg ) ->
 		lists:foreach(fun dbItem:deleteItem_nt/1, Car#car.upgrades),
 		mnesia:delete(car, CarId, write),
 		dbActivity:register_nt( UserId, {adminDeleteCar, CarId, Car#car.carClassID}, ok)
+	end ),
+{html, "ok"}.
+
+processItemDelete( Arg ) ->
+	UserId = helper:getPOSTValue( Arg, userId ),
+	ItemId = helper:getPOSTValue(Arg, itemId),
+	mnesia:transaction( fun() ->
+		UserDetails = mneser:getRecord_nt(userDetails, UserId),
+		NewInventory = lists:delete( ItemId, UserDetails#userDetails.inventory ),
+		mnesia:write( UserDetails#userDetails{ inventory = NewInventory } ),
+		mnesia:delete(item, ItemId, write),
+		dbActivity:register_nt( UserId, {adminDeleteItem, ItemId}, ok)
 	end ),
 	{html, "ok"}.

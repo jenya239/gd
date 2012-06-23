@@ -189,6 +189,7 @@ processAction(Arg) ->
 		item ->
 			case Action of
 				add -> userAdmin:processAddItem( Arg );
+				delete -> userAdmin:processItemDelete( Arg );
 				_Other -> DefaultProcess()
 			end;
 		mainTables ->

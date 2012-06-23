@@ -70,7 +70,11 @@ function addItem( userId, requestURL ){
 			userId: userId, itemClassId: $( 'slctItemClass' ).value
 		},
     onSuccess: function( transport ){
-			$( 'tblInventory' ).insert( '<tr><td align="right">'+transport.responseJSON.itemClassName+': </td><td>'+transport.responseJSON.durability+' / '+transport.responseJSON.durabilityMax+'</td></tr>' );
+			$( 'tblInventory' ).insert( '<tr><td align="right">'+transport.responseJSON.itemClassName+': </td><td>'+transport.responseJSON.durability+' / '
+				+transport.responseJSON.durabilityMax+'</td>'+
+				'<td><input class="del" type="button" id="btnItemDel'+transport.responseJSON.itemId
+				+'" onclick="deleteItem( '+userId+', '+transport.responseJSON.itemId
+				+', \'/admin/actions.yaws?table=item&amp;action=delete\' );"></td></tr>' );
     },
     onFailure: function(){ alert('Something went wrong...') }
   });
@@ -85,6 +89,19 @@ function deleteCar( userId, carId, requestURL ){
 		},
     onSuccess: function( transport ){
 			$( 'btnCarDel'+carId ).up(1).remove();
+    },
+    onFailure: function(){ alert('Something went wrong...') }
+  });
+}
+
+function deleteItem( userId, itemId, requestURL ){
+	new Ajax.Request( requestURL, {
+    method: 'post',
+		parameters: {
+			userId: userId, itemId: itemId
+		},
+    onSuccess: function( transport ){
+			$( 'btnItemDel'+itemId ).up(1).remove();
     },
     onFailure: function(){ alert('Something went wrong...') }
   });
