@@ -41,4 +41,4 @@ migrate() ->
     end,
     
     {atomic, ok} = mnesia:transform_table(level, Fun, record_info(fields, level), level),
-    {migrated, 71}.
+    {migrated, 72}.
