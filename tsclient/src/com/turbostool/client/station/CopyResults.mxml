@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+<screens:BaseScreen xmlns:mx="http://www.adobe.com/2006/mxml"
+                    xmlns:screens="com.turbostool.client.screens.*"
+                    backgroundColor="#A23636"
+										 verticalScrollPolicy="off"
+										 horizontalScrollPolicy="off">
+
+    <mx:Button id="close1" label="x" styleName="gray"
+               click="onClose()" right="5" height="19" textAlign="center" width="21"
+               top="4"/>
+    <mx:HRule left="5" right="5" strokeWidth="1" top="26"/>
+
+    <mx:Label text="Битва"
+              color="#FFFFFF"
+              fontSize="12" left="4" fontFamily="Arial" fontWeight="bold" y="3"/>
+
+		<mx:TextArea styleSheet="{createStyle()}" left="4" top="28" selectable="true" htmlText="{getText()}"
+								 bottom="4" fontFamily="courier new" editable="false" right="4" 
+											verticalScrollPolicy="on"
+										 verticalScrollBarStyleName="myScrollStyle"
+										 horizontalScrollPolicy="off"
+						backgroundAlpha="0" borderThickness="0" focusThickness="0" fontSize="10"  link="onLink(event)"/>
+    <mx:Script><![CDATA[
+        import com.turbostool.client.Tracker;
+
+				import com.turbostool.client.event.EventManager;
+				import com.turbostool.client.event.NickClickEvent;
+				import com.turbostool.client.model.UserDailyScoreInfo;
+
+				import mx.collections.ArrayCollection;
+				import mx.controls.Alert;
+				import mx.managers.PopUpManager;
+
+
+				public function onClose(): void
+        {
+            PopUpManager.removePopUp(this);
+        }
+
+				private function repeat( s: String, count: int ): String{
+					var res: String = '';
+					for( var i: int = 0; i < count; i++ ) res += s;
+					return res;
+				}
+
+				private function getText(): String {
+					var res: String = "Синий город\n";
+					var i: int, score: UserDailyScoreInfo;
+					var s1: ArrayCollection = modelsStorage.getTopScoresByCity( 1 );
+					for( i = 0; i < s1.length; i++ ){
+						score = s1.getItemAt( i ) as UserDailyScoreInfo;
+						res += score.position + "\t"
+							+ '<a href="event:' + score.userID + '">' + score.userID + '</a>'
+							+ "\t" + score.displayName +
+							repeat( ' ', 30 - score.displayName.length) + "\t" + score.score + "\n";
+					}
+					res += "\nКрасный\n";
+					var s2: ArrayCollection = modelsStorage.getTopScoresByCity( 2 );
+					for( i = 0; i < s2.length; i++ ){
+						score = s2.getItemAt( i ) as UserDailyScoreInfo;
+						res += score.position + "\t"
+							+ '<a href="event:' + score.userID + '">' + score.userID + '</a>'
+							+ "\t" + score.displayName +
+							repeat( ' ', 30 - score.displayName.length) + "\t" + score.score + "\n";
+					}
+					return res;
+				}
+
+				private function createStyle(): StyleSheet{
+					var style:StyleSheet = new StyleSheet();
+					var a: Object = new Object();
+					a.textDecoration = 'underline';
+					style.setStyle( 'a', a );
+					return style;
+				}
+
+				private function onLink( event: TextEvent ):void{
+					EventManager.instance.dispatchEvent( new NickClickEvent( 'link', parseInt( event.text ) ) );
+				}
+
+
+			]]></mx:Script>
+
+</screens:BaseScreen>

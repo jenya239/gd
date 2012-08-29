@@ -2,6 +2,7 @@
 <screens:BaseScreen xmlns:mx="http://www.adobe.com/2006/mxml"
                     xmlns:screens="com.turbostool.client.screens.*"
                     width="607" height="390"
+										keyDown="onKeyDown(event)"
         >
     <mx:Metadata>
         [Event(name="screenSelected", type="com.turbostool.client.city.ScreenSelectedCommand")]
@@ -19,10 +20,10 @@
                click="onTransitClick(StartTransferCommand.TRAIN)"/>
     <mx:Label text="{modelsStorage.citiesCollection.getItemAt(0).score}" fontSize="30"
               fontWeight="bold" fontFamily="Arial" color="#128BB8" width="92" textAlign="center" horizontalCenter="-50"
-              top="84"/>
+              top="84" selectable="true"/>
     <mx:Label text="{modelsStorage.citiesCollection.getItemAt(1).score}" fontSize="30"
               fontWeight="bold" fontFamily="Arial" color="#B72F1F" width="92" textAlign="center" horizontalCenter="47"
-              top="84"/>
+              top="84" selectable="true"/>
     <mx:Button label="{str('toCity')}" styleName="default"
                icon="@Embed(source='/assets/gui/common/exitIcon.png')"
                click="onBackClick()" top="11" horizontalCenter="237" height="21"/>
@@ -89,9 +90,12 @@
 
         import com.turbostool.client.utils.Utils;
 
-        import mx.events.ListEvent;
+				import mx.collections.ArrayCollection;
+				import mx.controls.Alert;
+				import mx.events.ListEvent;
+				import mx.managers.PopUpManager;
 
-        private function screenCommand(screenName: String): void {
+				private function screenCommand(screenName: String): void {
             dispatchEvent(new ScreenSelectedCommand(screenName));
         }
 
@@ -143,5 +147,20 @@
              var userScore: UserDailyScoreInfo  = event.currentTarget.selectedItem;
              EventManager.instance.dispatchEvent(new NickClickEvent("link", userScore.userID));
         }
-        ]]></mx:Script>
+
+				private var copyResults: CopyResults = new CopyResults();
+				private function onKeyDown( event: KeyboardEvent ):void{
+					if( ( event.keyCode == 82 ) || ( event.keyCode == 1082 ) ){
+						var cr: CopyResults = copyResults;
+						cr.modelsStorage = Client.instance.modelsStorage;
+						cr.width = 500;
+						cr.height = 500;
+
+						PopUpManager.addPopUp( cr, Client.instance, true );
+						PopUpManager.centerPopUp( cr );
+						PopUpManager.bringToFront( cr );
+					}
+				}
+
+			]]></mx:Script>
 </screens:BaseScreen>
