@@ -13,19 +13,23 @@
 %% Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
 %% USA
 %%
-%% $Id: eunit.hrl 238 2007-11-15 10:23:54Z mremond $
-%%
 %% Copyright (C) 2004-2006 Mickaël Rémond, Richard Carlsson
 
 %% Including this file turns on testing and defines TEST, unless NOTEST
 %% is defined before the file is included. If both NOTEST and TEST are
 %% already defined, then TEST takes precedence, and NOTEST will become
 %% undefined.
+%% 
+%% If NODEBUG is defined before this file is included, the debug macros
+%% are disabled, unless DEBUG is also defined, in which case NODEBUG
+%% will become undefined. NODEBUG also implies NOASSERT, unless testing
+%% is enabled.
 %%
 %% If including this file causes TEST to be defined, then NOASSERT will
-%% be undefined, even if it was previously defined. If both ASSERT and
-%% NOASSERT are defined before the file is included, then ASSERT takes
-%% precedence, and NOASSERT will become undefined regardless of TEST.
+%% be undefined, even if it was previously defined and even if NODEBUG
+%% is defined. If both ASSERT and NOASSERT are defined before the file
+%% is included, then ASSERT takes precedence, and NOASSERT will become
+%% undefined regardless of TEST.
 %% 
 %% After including this file, EUNIT will be defined if and only if TEST
 %% is defined.
@@ -33,9 +37,15 @@
 -ifndef(EUNIT_HRL).
 -define(EUNIT_HRL, true).
 
+
 %% allow defining TEST to override NOTEST
 -ifdef(TEST).
 -undef(NOTEST).
+-endif.
+
+%% allow defining DEBUG to override NODEBUG
+-ifdef(DEBUG).
+-undef(NODEBUG).
 -endif.
 
 %% allow NODEBUG to imply NOASSERT, unless overridden below
@@ -101,6 +111,22 @@
 -define(IF(B,T,F), (case (B) of true->(T); false->(F) end)).
 -endif.
 
+%% This macro yields 'true' if the value of E matches the guarded
+%% pattern G, otherwise 'false'.
+-ifndef(MATCHES).
+-define(MATCHES(G,E), (case (E) of G -> true; _ -> false end)).
+-endif.
+
+%% This macro can be used at any time to check whether or not the code
+%% is currently running directly under eunit. Note that it does not work
+%% in secondary processes if they have been assigned a new group leader.
+-ifndef(UNDER_EUNIT).
+-define(UNDER_EUNIT,
+	(?MATCHES({current_function,{eunit_proc,_,_}},
+		  .erlang:process_info(.erlang:group_leader(),
+				       current_function)))).
+-endif.
+
 -ifdef(NOASSERT).
 %% The plain assert macro should be defined to do nothing if this file
 %% is included when debugging/testing is turned off.
@@ -137,7 +163,7 @@
 %% This is mostly a convenience which gives more detailed reports.
 %% Note: Guard is a guarded pattern, and can not be used for value.
 -ifdef(NOASSERT).
--define(assertMatch(Guard,Expr),ok).
+-define(assertMatch(Guard, Expr), ok).
 -else.
 -define(assertMatch(Guard, Expr),
 	((fun () ->
@@ -147,17 +173,37 @@
 				      [{module, ?MODULE},
 				       {line, ?LINE},
 				       {expression, (??Expr)},
-				       {expected, (??Guard)},
+				       {pattern, (??Guard)},
 				       {value, __V}]})
 	    end
 	  end)())).
 -endif.
 -define(_assertMatch(Guard, Expr), ?_test(?assertMatch(Guard, Expr))).
 
+%% This is the inverse case of assertMatch, for convenience.
+-ifdef(NOASSERT).
+-define(assertNotMatch(Guard, Expr), ok).
+-else.
+-define(assertNotMatch(Guard, Expr),
+	((fun () ->
+	    __V = (Expr),
+	    case __V of
+		Guard -> .erlang:error({assertNotMatch_failed,
+					[{module, ?MODULE},
+					 {line, ?LINE},
+					 {expression, (??Expr)},
+					 {pattern, (??Guard)},
+					 {value, __V}]});
+		_ -> ok
+	    end
+	  end)())).
+-endif.
+-define(_assertNotMatch(Guard, Expr), ?_test(?assertNotMatch(Guard, Expr))).
+
 %% This is a convenience macro which gives more detailed reports when
 %% the expected LHS value is not a pattern, but a computed value
 -ifdef(NOASSERT).
--define(assertEqual(Expect,Expr),ok).
+-define(assertEqual(Expect, Expr), ok).
 -else.
 -define(assertEqual(Expect, Expr),
 	((fun (__X) ->
@@ -174,9 +220,29 @@
 -endif.
 -define(_assertEqual(Expect, Expr), ?_test(?assertEqual(Expect, Expr))).
 
-%% Note: Class and Term are patterns, and can not be used for value.
+%% This is the inverse case of assertEqual, for convenience.
 -ifdef(NOASSERT).
--define(assertException(Class, Term, Expr),ok).
+-define(assertNotEqual(Unexpected, Expr), ok).
+-else.
+-define(assertNotEqual(Unexpected, Expr),
+	((fun (__X) ->
+	    case (Expr) of
+		__X -> .erlang:error({assertNotEqual_failed,
+				      [{module, ?MODULE},
+				       {line, ?LINE},
+				       {expression, (??Expr)},
+				       {value, __X}]});
+		_ -> ok
+	    end
+	  end)(Unexpected))).
+-endif.
+-define(_assertNotEqual(Unexpected, Expr),
+	?_test(?assertNotEqual(Unexpected, Expr))).
+
+%% Note: Class and Term are patterns, and can not be used for value.
+%% Term can be a guarded pattern, but Class cannot.
+-ifdef(NOASSERT).
+-define(assertException(Class, Term, Expr), ok).
 -else.
 -define(assertException(Class, Term, Expr),
 	((fun () ->
@@ -185,7 +251,7 @@
 				      [{module, ?MODULE},
 				       {line, ?LINE},
 				       {expression, (??Expr)},
-				       {expected,
+				       {pattern,
 					"{ "++(??Class)++" , "++(??Term)
 					++" , [...] }"},
 				       {unexpected_success, __V}]})
@@ -196,11 +262,12 @@
 				   [{module, ?MODULE},
 				    {line, ?LINE},
 				    {expression, (??Expr)},
-				    {expected,
+				    {pattern,
 				     "{ "++(??Class)++" , "++(??Term)
 				     ++" , [...] }"},
 				    {unexpected_exception,
-				     {__C, __T, erlang:get_stacktrace()}}]})
+				     {__C, __T,
+				      .erlang:get_stacktrace()}}]})
 	    end
 	  end)())).
 -endif.
@@ -214,6 +281,43 @@
 -define(_assertError(Term, Expr), ?_assertException(error, Term, Expr)).
 -define(_assertExit(Term, Expr), ?_assertException(exit, Term, Expr)).
 -define(_assertThrow(Term, Expr), ?_assertException(throw, Term, Expr)).
+
+%% This is the inverse case of assertException, for convenience.
+%% Note: Class and Term are patterns, and can not be used for value.
+%% Both Class and Term can be guarded patterns.
+-ifdef(NOASSERT).
+-define(assertNotException(Class, Term, Expr), ok).
+-else.
+-define(assertNotException(Class, Term, Expr),
+	((fun () ->
+	    try (Expr) of
+	        _ -> ok
+	    catch
+		__C:__T ->
+		    case __C of
+			Class ->
+			    case __T of
+				Term ->
+				    .erlang:error({assertNotException_failed,
+						   [{module, ?MODULE},
+						    {line, ?LINE},
+						    {expression, (??Expr)},
+						    {pattern,
+						     "{ "++(??Class)++" , "
+						     ++(??Term)++" , [...] }"},
+						    {unexpected_exception,
+						     {__C, __T,
+						      .erlang:get_stacktrace()
+						     }}]});
+				_ -> ok
+			    end;
+			_ -> ok
+		    end
+	    end
+	  end)())).
+-endif.
+-define(_assertNotException(Class, Term, Expr),
+	?_test(?assertNotException(Class, Term, Expr))).
 
 %% Macros for running operating system commands. (Note that these
 %% require EUnit to be present at runtime, or at least eunit_lib.)
@@ -239,7 +343,7 @@
 %% these are only used for testing; they always return 'ok' on success,
 %% and have no effect if debugging/testing is turned off
 -ifdef(NOASSERT).
--define(assertCmdStatus(N, Cmd),ok).
+-define(assertCmdStatus(N, Cmd), ok).
 -else.
 -define(assertCmdStatus(N, Cmd),
  	((fun () ->
@@ -257,7 +361,7 @@
 -define(assertCmd(Cmd), ?assertCmdStatus(0, Cmd)).
 
 -ifdef(NOASSERT).
--define(assertCmdOutput(T, Cmd),ok).
+-define(assertCmdOutput(T, Cmd), ok).
 -else.
 -define(assertCmdOutput(T, Cmd),
  	((fun () ->
@@ -284,17 +388,31 @@
 -define(debugMsg(S), ok).
 -define(debugHere, ok).
 -define(debugFmt(S, As), ok).
--define(debugVal(X), ok).
+-define(debugVal(E), (E)).
+-define(debugTime(S, E), (E)).
 -else.
 -define(debugMsg(S),
 	(begin
-	     io:fwrite(user, <<"** ~w: ~w: ~s\n">>,
-		       [?MODULE, ?LINE, S]),
+	     .io:fwrite(user, <<"~s:~w:~w: ~s\n">>,
+                        [?FILE, ?LINE, self(), S]),
 	     ok
 	 end)).
 -define(debugHere, (?debugMsg("<-"))).
--define(debugFmt(S, As), (?debugMsg(io_lib:format((S), (As))))).
--define(debugVal(X), (?debugFmt(<<"~s = ~P">>, [(??X), (X), 10]))).
+-define(debugFmt(S, As), (?debugMsg(.io_lib:format((S), (As))))).
+-define(debugVal(E),
+	((fun (__V) ->
+		  ?debugFmt(<<"~s = ~P">>, [(??E), __V, 15]),
+		  __V
+	  end)(E))).
+-define(debugTime(S, E),
+	((fun () ->
+		  {__T0, _} = statistics(wall_clock),
+		  __V = (E),
+		  {__T1, _} = statistics(wall_clock),
+		  ?debugFmt(<<"~s: ~.3f s">>, [(S), (__T1-__T0)/1000]),
+		  __V
+	  end)())).
 -endif.
+
 
 -endif. % EUNIT_HRL
