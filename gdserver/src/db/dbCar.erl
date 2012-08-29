@@ -126,6 +126,10 @@ buy(UserID, CarClassID, Color) ->
         User = dbUser:getRecord_nt(id, UserID),
         CarClass = mneser:getRecord_nt(carClass,CarClassID),
 
+        if CarClass#carClass.count < 1 ->
+            mnesia:abort( { error, "[[notEnoughCars]]" } );
+        true -> ok end,
+
         if User#user.level < CarClass#carClass.minLevel ->
             mnesia:abort({error, "[[levelToLow]]"});
         true -> ok end,
@@ -150,6 +154,7 @@ buy(UserID, CarClassID, Color) ->
 
         NewCar = registration:createCar_nt(CarClassID, [], Color, 5),
         NewUserDetails = UserDetails#userDetails{cars=UserDetails#userDetails.cars ++ [NewCar#car.id]},
+        mnesia:write( CarClass#carClass{ count=CarClass#carClass.count-1 } ),
         mnesia:write(NewCar),
         mnesia:write(User#user{money=NewUserMoney, realMoney=NewUserRealMoney, currentCarID=NewCar#car.id }),
         mnesia:write(NewUserDetails),
@@ -175,7 +180,7 @@ buySlot(UserID) ->
         User = dbUser:getRecord_nt(id, UserID),
 
 				NSlots = UserDetails#userDetails.carSlots,
-				Mult = if NSlots =< 5 -> NSlots - 2; true -> 3 end,
+				Mult = if NSlots =< 7 -> NSlots - 2; true -> 5 end,
         SlotPrice = dbGlobal:get_nt(carSlotCost) * Mult,
         OldUserRealMoney = User#user.realMoney,
         
