@@ -25,6 +25,7 @@ public class CarClass
     private var _price:Number;
     private var _realPrice:Number;
     private var _junkName:Number;
+    private var _count: int;
 
 
     public function set displayPrice(a:String):void {
@@ -181,6 +182,14 @@ public class CarClass
 
     public function set fuelConsumption(val:Number):void {
         _fuelConsumption = val;
+    }
+
+    public function get count():int {
+        return _count;
+    }
+
+    public function set count(value:int):void {
+        _count = value;
     }
 }
 

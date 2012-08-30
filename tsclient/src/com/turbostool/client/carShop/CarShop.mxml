@@ -107,7 +107,7 @@
                     return;
                 }
 
-                var slotCost: Number = slotCost();
+                var slotCost: Number = this.slotCost();
                 var slotCostStr: String = Utils.formatPrice(slotCost, true);
 
                 Alert.yesLabel = str("yes");
@@ -129,7 +129,7 @@
 
 				private function slotCost(): Number{
 					var nslots: Number = _modelsStorage.userInfo.carSlots;
-          var slotCost: Number = _modelsStorage.globalInfo.carSlotCost * (nslots <= 5 ? (nslots - 2) : 3);
+          var slotCost: Number = _modelsStorage.globalInfo.carSlotCost * (nslots <= 7 ? (nslots - 2) : 5);
 					return slotCost;
 				}
 
@@ -245,6 +245,8 @@
 
             if(response.isOK)
             {
+                cars.currentCar.count--;
+                var oi: int = cars.carIndex; cars.carIndex = 1; cars.carIndex = oi;
                 _modelsStorage.userInfo = response.userInfo;
                 Alert.show(str("succesfullBuy"));
 
@@ -317,9 +319,15 @@
             }
         }
 
-        private function checkLevel(carLevel:Number, lev :Number):Boolean
+        private function checkLevelAndCount(carLevel:Number, lev :Number, count: int):Boolean
         {
-            return carLevel > lev;
+            return ( lev >= carLevel ) && ( count > 0 );
+        }
+
+        private function left_str( car: CarInfo ): String{
+          return car.count > 0
+              ? str( 'left' ) + ' <b>' + car.count + '</b>'
+              : '<b>' + str( 'sold_out' ) + '</b>'
         }
 
         ]]></mx:Script>
@@ -353,10 +361,13 @@
     <mx:HRule left="32" right="32" bottom="38" height="1"/>
 
     <mx:Button y="356" right="35"
-               label="{str('buy')}" click="onBuyCar()"
-               visible="{!checkLevel(cars.currentCar.minLevel,modelsStorage.userInfo.level)}"
-               styleName="redWhite" fontFamily="Arial"
-               color="#FFFFFF" height="26" fontStyle="normal" fontSize="11"/>
+       label="{str('buy')}" click="onBuyCar()"
+       visible="{ checkLevelAndCount( cars.currentCar.minLevel, modelsStorage.userInfo.level, cars.currentCar.count ) }"
+       styleName="redWhite" fontFamily="Arial"
+       color="#FFFFFF" height="26" fontStyle="normal" fontSize="11"/>
+
+    <mx:Label right="35" bottom="100" fontFamily="Arial" fontSize="12" color="#FFFFFF"
+         htmlText="{ left_str( cars.currentCar ) }" visible="{ 50 > cars.currentCar.count }" />
 
     <mx:Binding source="modelsStorage.carShop" destination="shopCars"/>
 </BaseScreen>

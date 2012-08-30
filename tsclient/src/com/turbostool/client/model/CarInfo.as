@@ -45,6 +45,8 @@ public class CarInfo
     private var _steering: Number = 0;
     private var _accessible: Boolean = true;
 
+    private var _count: int;
+
     public function get capitalRepairPrice():Number {
         return _capitalRepairPrice;
     }
@@ -367,6 +369,14 @@ public class CarInfo
     {
         var res:String = Config.instance.serverUrl + "data/selectCar/car_" + classID + "_" + color + ".png";
         return res;
+    }
+
+    public function get count():int {
+        return _count;
+    }
+
+    public function set count(value:int):void {
+        _count = value;
     }
 }
 

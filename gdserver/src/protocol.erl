@@ -656,7 +656,7 @@ car_to_xml(CarInfo) ->
     CarClass = CarInfo#carInfo.carClass,
     UpgradeInfo = CarInfo#carInfo.carUpgrade,
     lists:flatten(io_lib:format(
-    "<carInfo id='~w' classID='~w' displayName='~s' fileName='~s' description='~s' price='~b' sellPrice='~w' durabilityMax='~w'	power='~w'	speed='~w' breaking='~w' controllability='~w' fuelCapacity='~w' fuelConsumption='~w' fuel='~w' color='~w' nitroCount='~w' currentDurability='~w' minLevel='~w' realPrice='~w' repairPrice='~w' capitalRepairPrice='~w' junkName='~s'>~s~s</carInfo>",
+    "<carInfo id='~w' classID='~w' displayName='~s' fileName='~s' description='~s' price='~b' sellPrice='~w' durabilityMax='~w'	power='~w'	speed='~w' breaking='~w' controllability='~w' fuelCapacity='~w' fuelConsumption='~w' fuel='~w' color='~w' nitroCount='~w' currentDurability='~w' minLevel='~w' realPrice='~w' repairPrice='~w' capitalRepairPrice='~w' junkName='~s' count='~w'>~s~s</carInfo>",
                                 [Car#car.id,
                                  CarClass#carClass.id,
                                  CarClass#carClass.displayName,
@@ -680,13 +680,14 @@ car_to_xml(CarInfo) ->
                                  CarInfo#carInfo.repairPrice,
                                  CarInfo#carInfo.capitalRepairPrice,
                                  CarClass#carClass.junkName,
+                                 CarClass#carClass.count,
                                  createXmlList("upgrades", fun item_to_xml/1, Car#car.upgrades),
                                  createXmlList("recolorInfo", fun recolor_to_xml/1, CarInfo#carInfo.recolor)
                                 ])).
 
 carClass_to_xml(CarClass) ->
     lists:flatten(io_lib:format(
-    "<carClass id='~w' displayName='~s' fileName='~s' description='~s' price='~b' power='~w' speed='~w' breaking='~w' controllability='~w' fuelCapacity='~w' fuelConsumption='~w' minLevel='~w' realPrice='~w' junkName='~s' />",
+    "<carClass id='~w' displayName='~s' fileName='~s' description='~s' price='~b' power='~w' speed='~w' breaking='~w' controllability='~w' fuelCapacity='~w' fuelConsumption='~w' minLevel='~w' realPrice='~w' junkName='~s' count='~w' />",
                                 [CarClass#carClass.id,
                                  CarClass#carClass.displayName,
                                  CarClass#carClass.fileName,
@@ -700,7 +701,8 @@ carClass_to_xml(CarClass) ->
                                  CarClass#carClass.fuelConsumption,
                                  CarClass#carClass.minLevel,
                                  CarClass#carClass.realPrice,
-                                 CarClass#carClass.junkName
+                                 CarClass#carClass.junkName,
+                                 CarClass#carClass.count
                                 ])).
 
 recolorInfo_to_xml(RecolorInfo) ->
