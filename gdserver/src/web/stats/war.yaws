@@ -1,0 +1,27 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body style="font-family: courier new;">
+<pre>
+<erl>
+	out(Arg) -> 
+		Data1 =  dbUser:getTopUserDailyScores( 1 ),
+		Numbers1 = lists:seq( 1, length( Data1 ) ),
+		Data12 = lists:zipwith( fun( T, N ) -> erlang:append_element( T, N ) end, Data1, Numbers1 ),
+		Res1 = lists:map( fun( { _, Id, Name, Score, _, N } ) -> { span, [], io_lib:format( "~-3w ~-12w ~s		~-12B~n", [ N, Id, Name, Score ] ) } end, Data12 ),
+		Data2 =  dbUser:getTopUserDailyScores( 2 ),
+		Numbers2 = lists:seq( 1, length( Data2 ) ),
+		Data22 = lists:zipwith( fun( T, N ) -> erlang:append_element( T, N ) end, Data2, Numbers2 ),
+		Res2 = lists:map( fun( { _, Id, Name, Score, _, N } ) -> { span, [], io_lib:format( "~-3w ~-12w ~s		~-12B~n", [ N, Id, Name, Score ] ) } end, Data22 ),
+		{ ok, Logs } = file:list_dir( "src/web/stats/war" ),
+		Ls = lists:map( fun( El ) -> { a, [ { href, "/stats/war/" ++ El } ], El ++ "\n" } end, Logs ),
+		EndHour = dbGlobal:get( dailyBattleEndHour ),
+		DateTime = calendar:universal_time(),
+		{ _, { Hour, _, _ } } = DateTime,
+		{ { Y, M, D }, _ } = if Hour < EndHour -> utils:subtractDays( DateTime, 1 ); true -> DateTime end,
+		{ ehtml, [ { a, [ { href, "http://188.93.18.91:8000/stats/war.yaws" } ], "war\n"}, { h1, [], io_lib:format( "~4..0B-~2..0B-~2..0B", [Y, M, D] ) } ] ++ [ { h2, [], "Синий город"} ] ++ Res1 ++ [ { h2, [], "Красный город"} ] ++ Res2 ++ "\n\n" ++ Ls }.
+</erl>
+</pre>
+</body>
+</html>
