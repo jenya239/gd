@@ -1,0 +1,15 @@
+<erl>
+  out(Arg) -> 
+    Votes = helper:getPOSTValue( Arg, "item_price" ), %dbUser:setRealMoney(Id, Value)
+    OrderId = helper:getPOSTValue( Arg, "order_id" ),
+    VkontakteId = helper:getPOSTValue( Arg, "receiver_id" ),
+    User = dbUser:getRecord(vkontakteID, VkontakteId),
+    Id = element(2, User),
+    Rate = dbGlobal:get(vkontakteExchangeRate),
+    Gold = Votes * Rate,
+    dbUser:addRealMoney(Id, Gold),
+    AppOrderId = utils:now(),%random:uniform( 9999999 ),
+    LogStr = utils:nowString() ++ " " ++ erlang:integer_to_list( OrderId ) ++ " " ++ erlang:integer_to_list( VkontakteId ) ++ " " ++ erlang:integer_to_list( Votes ) ++ "\n",
+    file:write_file( "src/web/callback/log.txt", LogStr, [append] ), %utils:toString( Arg ) ++ "\n\n"
+    {html, "{\"response\":{\"order_id\":" ++ erlang:integer_to_list( OrderId ) ++ ", \"app_order_id\":" ++ erlang:integer_to_list( AppOrderId ) ++ "}}"}.
+</erl>

@@ -35,14 +35,15 @@
 
         private function onExchangeClick(): void
         {
-            if (int(modelsStorage.vkontakteInfo.userAppBalance) >= votes.value)
+            /*if (int(modelsStorage.vkontakteInfo.userAppBalance) >= votes.value)
             {
                 sendWithdrawRequest(votes.value);
             } else
             {
                 Client.instance.wrapper.addEventListener("onBalanceChanged", onBalanceChanged);
                 Client.instance.wrapper.external.showPaymentBox(votes.value - int(modelsStorage.vkontakteInfo.userAppBalance));
-            }
+            } */
+						Client.instance.wrapper.external.callMethod( 'showOrderBox', {'type': 'votes', votes: votes.value} );
 
             Tracker.instance.trackEvent("exchangeVotes", "request", "exchange", votes.value);
         }
