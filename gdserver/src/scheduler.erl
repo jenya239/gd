@@ -119,8 +119,8 @@ onBattleEnd(Date) ->
     mnesia:dirty_write(#scoreHistory{date=Date, table={CityScores, UserScores}}),
 
     { { Y, M, D }, _} = utils:subtractDays( calendar:local_time(), 1 ),
-    os:cmd( io_lib:format( "wget -qO- --http-user=admin --http-password=mnogoeuro http://188.93.18.91:8000/stats/war.yaws > /opt/gdserver/src/web/stats/war/war-~4..0B-~2..0B-~2..0B.html ", [Y, M, D] ) ),
-    os:cmd( io_lib:format( "wget -qO- --http-user=admin --http-password=mnogoeuro http://188.93.18.91:8000/stats/war.yaws | /home/jenya/sendEmail-v1.56/sendEmail -f a.evgeniy@rambler.ru -u 'gd war ~4..0B-~2..0B-~2B' -t artemmoskvin86@gmail.com -s mail.rambler.ru:587 -xu a.evgeniy -xp evgeniypiter", [Y, M, D] ) ),
+    os:cmd( io_lib:format( "wget -qO- --http-user=admin --http-password=mnogoeuro http://188.93.18.91/stats/war.yaws > /opt/gdserver/src/web/stats/war/war-~4..0B-~2..0B-~2..0B.html ", [Y, M, D] ) ),
+    os:cmd( io_lib:format( "wget -qO- --http-user=admin --http-password=mnogoeuro http://188.93.18.91/stats/war.yaws | /home/jenya/sendEmail-v1.56/sendEmail -f a.evgeniy@rambler.ru -u 'gd war ~4..0B-~2..0B-~2B' -t artemmoskvin86@gmail.com -s mail.rambler.ru:587 -xu a.evgeniy -xp evgeniypiter", [Y, M, D] ) ),
 
     {atomic, ok} = mnesia:transaction(fun() ->
         dbCity:resetScore_nt(1),
