@@ -7,7 +7,18 @@ gdserver/goroddorog.access
 gdserver/report.log
 gdserver/erl_crash.dump
 gdserver/manifest.mf
+gdserver/goroddorog.auth
+gdserver/res.txt
 
 tsclient/out/
 tsclient/tsclient.iws
+controls/controls.iml
+tsclient/287e432714c31e.zip
+tsclient/projectFilesBackup/
+tsclient/projectFilesBackup1/
+tsclient/projectFilesBackup2/
+tsclient/tsclient.iml
+tsclient/tsclient.ipr
+
+
 
