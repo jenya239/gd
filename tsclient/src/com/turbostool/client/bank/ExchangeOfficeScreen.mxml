@@ -45,41 +45,9 @@
 
         private function onDepositClick(): void
         {
-            EventManager.instance.addEventListener(GetPropertyResponse.GET_VKONTAKTEINFO_RESPONSE, onVkontakteInfo);
-            SessionSocket.instance.sendMessage(new GetPropertyRequest(GetPropertyRequest.VKONTAKTE_INFO));
-            PopUpManager.addPopUp(loadingIndicator, this, true);
-            PopUpManager.centerPopUp(loadingIndicator);
-            PopUpManager.bringToFront(loadingIndicator);
-        }
-
-        private function onVkontakteInfo(event: ServerResponseEvent): void
-        {
-            EventManager.instance.removeEventListener(GetPropertyResponse.GET_VKONTAKTEINFO_RESPONSE, onVkontakteInfo);
-            PopUpManager.removePopUp(loadingIndicator);
-            ModalManager.instance.closeAllWindows();
-            var response: GetPropertyResponse = event.response as GetPropertyResponse;
-            if (response.isOK)
-            {
-                modelsStorage.vkontakteInfo = response.property as VkontakteInfo;
-                //trace("onVkontakteInfo");
-                //trace("onVkontakteInfo: userID = " + modelsStorage.userInfo.id + ", votes = " + modelsStorage.vkontakteInfo.userAppBalance);
-                if (!Client.instance.isAPIWrapper)
-                {
-                    var vkontakteInstructions: VkontakteInstructions = new VkontakteInstructions();
-                    vkontakteInstructions.modelsStorage = modelsStorage;
-                    ModalManager.instance.addModalWindow(vkontakteInstructions, "modalClose");
-                }
-                else
-                {
-                    var convert: VkontakteConvertVotes = new VkontakteConvertVotes();
-                    convert.modelsStorage = modelsStorage;
-                    ModalManager.instance.addModalWindow(convert, "modalClose");
-                }
-            }
-            else
-            {
-                Alert.show(str("error") + ": " + response.message);
-            }
+					var convert: VkontakteConvertVotes = new VkontakteConvertVotes();
+					convert.modelsStorage = modelsStorage;
+					ModalManager.instance.addModalWindow(convert, "modalClose");
         }
 
         private function onClick():void
