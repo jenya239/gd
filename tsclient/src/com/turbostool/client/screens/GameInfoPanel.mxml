@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="607" height="75"
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="607" height="105"
 				verticalScrollPolicy="off" horizontalScrollPolicy="off">
 	<!--<mx:LinkButton label="альтернативный чат goroddorog.russchat.com" color="0x248fb5" textDecoration="underline"
 									click="navigateToURL(new URLRequest('http://goroddorog.russchat.com/'));" x="190" y="7" height="21" />-->
@@ -8,9 +8,14 @@
 	<mx:Button label="{Client.instance.str('friends')}" click="onFriendsClick()" styleName="noIcon" x="486" y="7"
 						 width="100"
 						 height="21"/>
-	<mx:Text x="133" y="28" color="white" selectable="true" text="Добавляйтесь в группу,"/>
-	<mx:Text x="98" y="43" color="white" selectable="true" text="подписывайтесь на обновления"/>
-	<mx:Image source="@Embed(source='/assets/gui/common/arrow.png')" y="39" horizontalCenter="0"/>
+	<mx:Text x="37" y="28" color="white" selectable="true">
+		<mx:htmlText>
+			<![CDATA[Рекомендуем <u><a href="http://www.chromium.org/Home" target="_blank">Chromium</a></u> и <u><a href="http://get.adobe.com/flashplayer" target="_blank">Flash</a></u>]]>
+		</mx:htmlText>
+	</mx:Text>
+	<mx:Text x="133" y="58" color="white" selectable="true" text="Добавляйтесь в группу,"/>
+	<mx:Text x="98" y="73" color="white" selectable="true" text="подписывайтесь на обновления"/>
+	<mx:Image source="@Embed(source='/assets/gui/common/arrow.png')" y="69" horizontalCenter="0"/>
 
 	<mx:Script><![CDATA[
 		import com.turbostool.client.ModelsStorage;

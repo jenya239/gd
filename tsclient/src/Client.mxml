@@ -8,7 +8,7 @@
         xmlns:chat="com.turbostool.client.chat.*"
         xmlns:city="com.turbostool.client.city.*"
         xmlns:friends="com.turbostool.client.friends.*"
-        width="607" height="680"
+        width="607" height="710"
         layout="absolute"
         currentState="initialization"
         horizontalScrollPolicy="off" verticalScrollPolicy="off"
