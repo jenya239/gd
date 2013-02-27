@@ -212,13 +212,14 @@ getCar(CarID)->
   Car#car{upgrades = lists:filter( fun (A) -> not ( A =:= notFound ) end,
                                    lists:map(Fun, Car#car.upgrades))}.
 
-calcCarParams(Car2,CarClass) ->
+calcCarParams(Car2,CarClass) -> %видимые!! реальные считаются в carUpgrades.getUpgradeInfo
+    %да, вот бля такая жизнь... кто писал этот код???
   UpgradeInfo2 = lists:foldl(
         fun(Item, UpgradeInfo) ->
           ItemClass = dbItem:getClass(Item#item.itemClassID),
 
           #upgradeInfo{
-            speed = UpgradeInfo#upgradeInfo.speed + ItemClass#itemClass.speed,
+            speed = UpgradeInfo#upgradeInfo.speed + ItemClass#itemClass.speed, %А ЕСЛИ ДЕТАЛЬ СЛОМАНА???? (первоначальный отсев таких деталей не проводится (см getCar (dbItem:getItem вызывается для всех существующих(!)))
             power = UpgradeInfo#upgradeInfo.power + ItemClass#itemClass.power,
             controllability = UpgradeInfo#upgradeInfo.controllability + ItemClass#itemClass.controllability,
             braking = UpgradeInfo#upgradeInfo.braking + ItemClass#itemClass.braking}

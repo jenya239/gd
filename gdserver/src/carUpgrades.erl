@@ -12,7 +12,7 @@ getUpgradeInfo(UserID, ClientID) ->
             lists:foldl(
             fun(Item, UpgradeInfo) ->
               ItemClass = dbItem:getClass(Item#item.itemClassID),
-              D = case (Item#item.durability == 0 orelse Item#item.durabilityMax < dbGlobal:get(durabilityJunkThreshold)) of true -> 0; false -> 1 end,
+              D = case (Item#item.durability == 0 orelse Item#item.durabilityMax < dbGlobal:get(durabilityJunkThreshold)) of true -> 0; false -> 1 end, %то есть для всех неполоманных
               #upgradeInfo{
                 userID = ClientID,                
                 speed = UpgradeInfo#upgradeInfo.speed + ItemClass#itemClass.speed * D,
