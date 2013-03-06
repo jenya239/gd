@@ -20,5 +20,7 @@ tsclient/projectFilesBackup2/
 tsclient/tsclient.iml
 tsclient/tsclient.ipr
 
-
+.gitignore.swp
+gdserver/cfg/server.cfg~
+tsclient/src/assets/gui/screens/city.zip
 
