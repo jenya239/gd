@@ -559,7 +559,14 @@ process({authorizeVkontakte, error, Reason, Message, VkontakteID, AuthKey, First
     {noreply, State};
 
 process({authorizeVkontakte, VkontakteID, AuthKey, FirstLastName, VkontakteOwnerID}, #state{name=notAuthorized} = State) ->
-    vkontakte:authorize(VkontakteID, AuthKey, FirstLastName, VkontakteOwnerID),
+    %check white list
+    WhiteList = vkontakte:getWhiteList(),
+    case lists:member( VkontakteID, WhiteList ) of
+        false -> %not in white list
+            self() ! {authorizeVkontakte, error, notInWhiteList, VkontakteID, VkontakteID, AuthKey, FirstLastName};
+        true ->
+            vkontakte:authorize(VkontakteID, AuthKey, FirstLastName, VkontakteOwnerID)
+    end,
     {noreply, State};
 
 %%%% Registering state %%%%

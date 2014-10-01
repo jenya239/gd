@@ -29,9 +29,11 @@
         buyVkontakteRating/4, 
         sendVkontakteRating/4,
         uploadLanguageFile/1,
-        setVkontakteLanguageValue/2]).
+        setVkontakteLanguageValue/2,
+        updateWhiteList/0,
+        getWhiteList/0]).
         
--record(state, {appID, appSecret, vkAppID, vkAppSecret, checkAuth, messagingPID, lastResult="", messagesCount=0}).
+-record(state, {appID, appSecret, vkAppID, vkAppSecret, checkAuth, messagingPID, lastResult="", messagesCount=0, whiteList}).
 
 start_link(AppID, AppSecret, VkAppID, VkAppSecret, CheckAuth) ->    
     gen_server:start_link({local, ?MODULE}, ?MODULE, [AppID, AppSecret, VkAppID, VkAppSecret, CheckAuth], []).
@@ -78,13 +80,20 @@ sendVkontakteRating(ToVkontakteID, Rating, Message, VkRatingApp) ->
 setVkontakteLanguageValue(Key, Value) ->
     gen_server:call(?MODULE, {setVkontakteLanguageValue, Key, Value}, 60000).
 
+updateWhiteList() ->
+    gen_server:call(?MODULE, updateWhiteList).
+
+getWhiteList() ->
+    gen_server:call(?MODULE, getWhiteList).
+
 %%-----------------------------------------------------------------------------
 %% Interface
 %%-----------------------------------------------------------------------------
 init([AppID, AppSecret, VkAppID, VkAppSecret, CheckAuth]) ->
     log:write(debug, ?MODULE_STRING, "process started ~n", []),
     process_flag(trap_exit, true),
-    {ok, #state{appID=AppID, appSecret=AppSecret, vkAppID=VkAppID, vkAppSecret=VkAppSecret, checkAuth=CheckAuth}}.
+    inets:start(),
+    {ok, #state{appID=AppID, appSecret=AppSecret, vkAppID=VkAppID, vkAppSecret=VkAppSecret, checkAuth=CheckAuth, whiteList=takeWhiteList()}}.
     
 %%-----------------------------------------------------------------------------
 %% Handle calls
@@ -120,11 +129,18 @@ handle_call(isSendingMessages, _From, State) ->
 handle_call(getLastResponse, _From, State) ->
     {reply, State#state.lastResult, State};
 
+
+handle_call(updateWhiteList, _From, State) ->
+    WhiteList = takeWhiteList(),
+    {reply, WhiteList, State#state{whiteList=WhiteList}};
+    
+handle_call(getWhiteList, _From, State) ->
+    {reply, State#state.whiteList, State};
+
 %%for service proposes only
 handle_call({setVkontakteLanguageValue, Key, Value}, _From, State) ->
     Reply = setVkontakteLanguageValueInternal(Key, Value, State),
     {reply, Reply, State};
-
 
 handle_call(_Message, _From, State) ->
     {noreply, State}.
@@ -609,3 +625,21 @@ uploadLanguageFile(Path) ->
                 setVkontakteLanguageValue(Key, Value)
         end
     end, Lines).
+
+takeWhiteList() ->
+    {ok, {_, _, Res}} = httpc:request("http://62.109.8.9/whitelist.txt"),
+    lists:map( 
+        fun( S ) ->  
+            {In, _} = string:to_integer( 
+                re:replace( 
+                    S, 
+                    "\\D+", 
+                    "", 
+                    [global, {return, list}] 
+                ) 
+            ), 
+            In 
+        end, 
+        string:tokens( Res, "\n" ) 
+    ).
+
