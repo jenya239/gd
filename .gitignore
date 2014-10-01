@@ -9,6 +9,9 @@ gdserver/erl_crash.dump
 gdserver/manifest.mf
 gdserver/goroddorog.auth
 gdserver/res.txt
+gdserver/erlang-solutions_1.0_all.deb
+gdserver/from_server/
+gdserver/log.txt
 
 tsclient/out/
 tsclient/tsclient.iws
@@ -19,8 +22,11 @@ tsclient/projectFilesBackup1/
 tsclient/projectFilesBackup2/
 tsclient/tsclient.iml
 tsclient/tsclient.ipr
+tsclient/.idea/
+tsclient/bin/
 
 .gitignore.swp
 gdserver/cfg/server.cfg~
 tsclient/src/assets/gui/screens/city.zip
 
+data/
