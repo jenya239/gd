@@ -136,11 +136,10 @@ utf8_to_unicode(UTF8) ->
     {{xmlElement,a,a,[],
              {xmlNamespace,[],[]},
              [],1,
-             [{xmlAttribute,atr,[],[],[],[],1,[],
-                Unicode,
-                false}],
-             [],[],[],undeclared}, []} = xmerl_scan:string(Xml, [{xmlbase, ""}]),
-         Unicode.    
+             [{xmlAttribute,atr,[],[],[],[{a,1}],1,[],Unicode,false}],
+             [],[],[],undeclared},
+    []} = xmerl_scan:string(Xml, [{xmlbase, ""}]),
+    Unicode.
 
 loop(Fun, Count, Acc) ->
     loop(Fun, Count, Acc, 0).
