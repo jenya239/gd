@@ -1,0 +1,22 @@
+<erl>
+-record( session_info, {username}).
+
+out( Arg ) ->
+    Headers = Arg#arg.headers,
+    Coo = Headers#headers.cookie,
+    case yaws_api:find_cookie_val( "sid", Coo ) of
+        [] ->
+          Data = case (Arg#arg.req)#http_request.method of
+            'POST' -> 
+              Login = helper:getPOSTValue( Arg, login ),
+              Password = helper:getPOSTValue( Arg, password ),
+              {ehtml, {html, [], [Login, "+=+", Password]}};
+              %{ehtml, {script, [{type, "text/javascript"}], "alert(3313);"}};
+              %{ehtml, {'div', [], utils:toString( Arg )}};
+            Other -> {ehtml, {script, [{type, "text/javascript"}], "alert(333);"}}
+          end,
+          Data;
+        _ ->
+            ok
+    end.
+</erl>
