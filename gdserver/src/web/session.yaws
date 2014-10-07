@@ -1,22 +1,45 @@
 <erl>
--record( session_info, {username}).
+-record( session_info, {username, last_msg}).
 
 out( Arg ) ->
-    Headers = Arg#arg.headers,
-    Coo = Headers#headers.cookie,
-    case yaws_api:find_cookie_val( "sid", Coo ) of
-        [] ->
-          Data = case (Arg#arg.req)#http_request.method of
-            'POST' -> 
-              Login = helper:getPOSTValue( Arg, login ),
-              Password = helper:getPOSTValue( Arg, password ),
-              {ehtml, {html, [], [Login, "+=+", Password]}};
-              %{ehtml, {script, [{type, "text/javascript"}], "alert(3313);"}};
-              %{ehtml, {'div', [], utils:toString( Arg )}};
-            Other -> {ehtml, {script, [{type, "text/javascript"}], "alert(333);"}}
-          end,
-          Data;
-        _ ->
-            ok
-    end.
+	case (Arg#arg.req)#http_request.method of
+		'POST' -> 
+			Cookies = (Arg#arg.headers)#headers.cookie,
+			NewSession = case ( ( helper:getPOSTValue( Arg, login ) =:= "admin" ) and ( helper:getPOSTValue( Arg, password ) =:= "mnogoeuro" ) ) of
+				false -> #session_info{ username = guest, last_msg = {error, {incorrect_login_or_password, "incorrect login or password"} } };
+				true -> #session_info{ username = admin, last_msg = {ok, {login_success, "login successfully"} } }
+			end,
+			{SessionStatus, Session} = case yaws_api:find_cookie_val( "sid", Cookies ) of
+				[] -> {created, NewSession};
+				Cook ->
+					case yaws_api:cookieval_to_opaque( Cook ) of
+						{error, _} -> {created, NewSession};
+						{ok, Sess} -> 
+							case Sess#session_info.username of
+								guest -> {found, NewSession};
+								admin -> {found, #session_info{ username = admin, last_msg = {error, {already_signed_in, "already signed in"} } } }
+							end
+					end
+			end,
+			Cookie = case SessionStatus of
+				created -> yaws_api:new_cookie_session( Session );
+				found -> yaws_api:find_cookie_val( "sid", Cookies )
+			end,
+			case SessionStatus of 
+				found -> yaws_api:replace_cookie_session( Cookie, Session );
+			_ -> ok end,
+			case Session#session_info.username of
+				guest -> 
+					case SessionStatus of
+						created -> [ {redirect_local, "/"}, yaws_api:setcookie( "sid", Cookie ) ];
+						found -> {redirect_local, "/"}
+					end;
+				admin -> 
+					case SessionStatus of
+						created -> [ {redirect_local, "/admin/"}, yaws_api:setcookie( "sid", Cookie ) ];
+						found -> {redirect_local, "/admin/"}
+					end
+			end;
+		_ -> {ehtml, {script, [{type, "text/javascript"}], "alert(333);"}}
+	end.
 </erl>

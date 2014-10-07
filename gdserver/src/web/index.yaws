@@ -31,16 +31,25 @@
 			</div>
 		</div>
 <erl>
+	-record( session_info, {username, last_msg}).
+
+	create_session() ->
+		Session = #session_info{ username = guest, last_msg = {ok, {first_enter, "Welcome"} } },
+		Cookie = yaws_api:new_cookie_session( Session ),
+		yaws_api:setcookie( "sid", Cookie ).
+
 	out(Arg) -> 
-		case (Arg#arg.req)#http_request.method of
-			'POST' -> 
-				Login = helper:getPOSTValue( Arg, login ),
-				Password = helper:getPOSTValue( Arg, password ),
-				{ehtml, {'div', [], [{span, [], Login}, {span, [], " +=+ "}, {span, [], Password}]}};
-				%{ehtml, {script, [{type, "text/javascript"}], "alert(3313);"}};
-				%{ehtml, {'div', [], utils:toString( Arg )}};
-			Other -> {ehtml, {script, [{type, "text/javascript"}], "alert(333);"}}
-		end.
+		Headers = Arg#arg.headers,
+		Coo = Headers#headers.cookie,
+		AuthOutputElement = case yaws_api:find_cookie_val( "sid", Coo ) of
+			[] -> create_session();
+			Cookie ->
+				case yaws_api:cookieval_to_opaque( Cookie ) of
+					{error, _} -> create_session();
+					{ok, Session} -> {html, f( "<pre>~p</pre>", [ Session ] ) }
+				end
+		end,
+		[{ehtml, {script, [{type, "text/javascript"}], "/*alert(333);*/"}}, AuthOutputElement].
 </erl>
 
 

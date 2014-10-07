@@ -24,6 +24,7 @@ tsclient/tsclient.iml
 tsclient/tsclient.ipr
 tsclient/.idea/
 tsclient/bin/
+tsclient/src/assets/gui/screens/city/
 
 .gitignore.swp
 gdserver/cfg/server.cfg~
