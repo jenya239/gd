@@ -118,6 +118,8 @@ start_web_server(Config)->
                         [{servername, get(Config, webServerName)},
                          {port, get(Config, webPort)},
                          {listen, get(Config, webIP)}, {authdirs, AuthDirs},
-                         {appmods, [{"showdb", ymnesia},{"editdb",tableEditorView}]}],
+                         {appmods, [{"showdb", ymnesia},{"editdb",tableEditorView}]},
+                         {arg_rewrite_mod, helper},
+                         {incude_dir, "src/forWeb"}],
                         [{auth_log, false},
                          {copy_errlog, false}]).

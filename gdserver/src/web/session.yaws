@@ -1,45 +1,17 @@
 <erl>
--record( session_info, {username, last_msg}).
-
+-include( "src/forWeb/forWeb.hrl" ).
 out( Arg ) ->
+	SessionCookie = yaws_api:find_cookie_val( "sid", (Arg#arg.headers)#headers.cookie ),
 	case (Arg#arg.req)#http_request.method of
-		'POST' -> 
-			Cookies = (Arg#arg.headers)#headers.cookie,
-			NewSession = case ( ( helper:getPOSTValue( Arg, login ) =:= "admin" ) and ( helper:getPOSTValue( Arg, password ) =:= "mnogoeuro" ) ) of
-				false -> #session_info{ username = guest, last_msg = {error, {incorrect_login_or_password, "incorrect login or password"} } };
-				true -> #session_info{ username = admin, last_msg = {ok, {login_success, "login successfully"} } }
-			end,
-			{SessionStatus, Session} = case yaws_api:find_cookie_val( "sid", Cookies ) of
-				[] -> {created, NewSession};
-				Cook ->
-					case yaws_api:cookieval_to_opaque( Cook ) of
-						{error, _} -> {created, NewSession};
-						{ok, Sess} -> 
-							case Sess#session_info.username of
-								guest -> {found, NewSession};
-								admin -> {found, #session_info{ username = admin, last_msg = {error, {already_signed_in, "already signed in"} } } }
-							end
-					end
-			end,
-			Cookie = case SessionStatus of
-				created -> yaws_api:new_cookie_session( Session );
-				found -> yaws_api:find_cookie_val( "sid", Cookies )
-			end,
-			case SessionStatus of 
-				found -> yaws_api:replace_cookie_session( Cookie, Session );
-			_ -> ok end,
-			case Session#session_info.username of
-				guest -> 
-					case SessionStatus of
-						created -> [ {redirect_local, "/"}, yaws_api:setcookie( "sid", Cookie ) ];
-						found -> {redirect_local, "/"}
-					end;
-				admin -> 
-					case SessionStatus of
-						created -> [ {redirect_local, "/admin/"}, yaws_api:setcookie( "sid", Cookie ) ];
-						found -> {redirect_local, "/admin/"}
-					end
+		'POST' -> case list_to_atom( helper:getGETValue( Arg, action ) ) of
+				login ->
+					{RedirectPath, AuthCookie} = helper:checkAuth( SessionCookie, 
+						helper:getPOSTValue( Arg, login ), helper:getPOSTValue( Arg, password ) ),
+					[ { redirect_local, RedirectPath }, AuthCookie ];
+				logout ->
+					{RedirectPath, AuthCookie} = helper:logout( SessionCookie ),
+					[ { redirect_local, RedirectPath }, AuthCookie ]
 			end;
-		_ -> {ehtml, {script, [{type, "text/javascript"}], "alert(333);"}}
+		Other -> {html, f( "bla~p", [Other] )}
 	end.
 </erl>

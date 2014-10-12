@@ -3,6 +3,7 @@
 -compile(export_all).
 
 -include("data.hrl").
+-include("forWeb.hrl").
 -include_lib("lib/yaws/include/yaws_api.hrl").
 
 paramGETExists(Arg, Key) ->
@@ -349,10 +350,10 @@ createSalesTable() ->
 		)
 	]}.
 
-	processPeriodActivities(Arg) ->
-		{html, utils:termToJson(
-			dbActivity:getAll( helper:getGETValue(Arg, startTime), helper:getGETValue(Arg, endTime) )
-		)}.
+processPeriodActivities(Arg) ->
+	{html, utils:termToJson(
+		dbActivity:getAll( helper:getGETValue(Arg, startTime), helper:getGETValue(Arg, endTime) )
+	)}.
 
 createNicksChangesTable() ->
 	Changes = dbActivity:getNicksChanges(),
@@ -370,3 +371,133 @@ createNicksChangesTable() ->
 			Changes
 		)
 	]}.
+
+checkAuth( SessionCookie, Login, Password ) ->
+	NewSession = case ( ( Login =:= "admin" ) and ( Password =:= "mnogoeuro" ) ) of
+		false -> #session_info{ username = guest, last_msg = {error, {incorrect_login_or_password, "incorrect login or password"} } };
+		true -> #session_info{ username = admin, last_msg = {ok, {login_success, "login successfully"} } }
+	end,
+	{SessionStatus, Session} = case SessionCookie of
+		[] -> {created, NewSession};
+		_ ->
+			case yaws_api:cookieval_to_opaque( SessionCookie ) of
+				{error, _} -> {created, NewSession};
+				{ok, Sess} -> 
+					case Sess#session_info.username of
+						guest -> {found, NewSession};
+						admin -> {found, #session_info{ username = admin, last_msg = {error, {already_signed_in, "already signed in"} } } }
+					end
+			end
+	end,
+	Cookie = case SessionStatus of
+		created -> yaws_api:new_cookie_session( Session );
+		found -> SessionCookie
+	end,
+	case SessionStatus of 
+		found -> yaws_api:replace_cookie_session( Cookie, Session );
+	_ -> ok end,
+	RedirectPath = case Session#session_info.username of
+		guest -> "/";
+		admin -> "/admin/"
+	end,
+	AuthCookie = case SessionStatus of
+		created -> yaws_api:setcookie( "sid", Cookie );
+		found -> []
+	end,
+	{RedirectPath, AuthCookie}.
+
+logout( SessionCookie ) ->
+	NewSession = #session_info{ username = guest, last_msg = {warning, {not_signed_in, "you not signed in"} } },
+	{SessionStatus, Session} = case SessionCookie of
+		[] -> {created, NewSession};
+		_ ->
+			case yaws_api:cookieval_to_opaque( SessionCookie ) of
+				{error, _} -> {created, NewSession};
+				{ok, Sess} -> 
+					case Sess#session_info.username of
+						guest -> {found, NewSession};
+						admin -> {found, #session_info{ username = guest, last_msg = {ok, {logout_success, "logout successfully"} } } }
+					end
+			end
+	end,
+	Cookie = case SessionStatus of
+		created -> yaws_api:new_cookie_session( Session );
+		found -> SessionCookie
+	end,
+	case SessionStatus of 
+		found -> yaws_api:replace_cookie_session( Cookie, Session );
+	_ -> ok end,
+	RedirectPath = "/",
+	AuthCookie = case SessionStatus of
+		created -> yaws_api:setcookie( "sid", Cookie );
+		found -> []
+	end,
+	{RedirectPath, AuthCookie}.
+
+stripDuplicatesSid( WasSid, Source ) -> 
+	[H|T] = Source, 
+	IsSid = lists:nth( 1, string:tokens( H, "=" ) ) =:= "sid", 
+	Current = case IsSid of 
+		true -> case WasSid of 
+				true -> ""; 
+				false -> H 
+			end; 
+		false -> H 
+	end,
+	Sep = case Current of 
+		"" -> ""; 
+		_ -> "; " 
+	end,
+	Next = case T of 
+		[] -> ""; 
+		_ -> Sep ++ stripDuplicatesSid( WasSid orelse IsSid, T ) 
+	end,
+	Current ++ Next.
+
+arg_rewrite( ArgOriginal ) ->
+	file:write_file( "arg_oorig.txt", io_lib:format( "~p", [ArgOriginal] ) ),
+	NewCookies = case element( 14, ArgOriginal#arg.headers ) of
+		[] -> [];
+		_ -> [stripDuplicatesSid( false, string:tokens( lists:nth( 1, element( 14, ArgOriginal#arg.headers ) ), "; " ) )]
+	end,
+	Arg = ArgOriginal#arg{ headers = setelement( 14, ArgOriginal#arg.headers, NewCookies ) },
+
+	GuestPaths = [
+		"/",
+		"/admin/styles/bootstrap.min.css",
+		"/admin/javascripts/bootstrap.min.js",
+		"/callback/GLOBxVB4OW7RuQn6r6WuG8dK4mW97I.yaws"
+	],
+	ProcessArgForGuest = fun( A ) ->
+		Req = A#arg.req,
+		{abs_path, Path} = Req#http_request.path,
+		case (A#arg.req)#http_request.method of
+			'GET' -> case lists:member( Path, GuestPaths ) of
+					true -> A;
+					false ->
+						A#arg{ req = Req#http_request{ path = { abs_path, "/" } }, state = { abs_path, Path } }
+				end;
+			'POST' -> case lists:member( Path, ["/session.yaws?action=login"] ) of
+					true -> A;
+					false ->
+						A#arg{ req = Req#http_request{ path = { abs_path, "/" } }, state = { abs_path, Path } }
+				end;
+			_ -> A#arg{ req = Req#http_request{ path = { abs_path, "/" } }, state = { abs_path, Path } }
+		end
+	end,
+	SessionCookie = yaws_api:find_cookie_val( "sid", element( 14, Arg#arg.headers ) ),
+	file:write_file( "cook.txt", io_lib:format( "~p~n~p~n~p~n~p~n~p", [NewCookies, element( 14, Arg#arg.headers ), Arg, SessionCookie, yaws_api:cookieval_to_opaque( SessionCookie )] ) ),
+	case SessionCookie of
+		[] -> ProcessArgForGuest( Arg );
+		_ ->
+			case yaws_api:cookieval_to_opaque( SessionCookie ) of
+				{error, _} -> ProcessArgForGuest( Arg );
+				{ok, Sess} -> 
+					case Sess#session_info.username of
+						guest -> ProcessArgForGuest( Arg );
+						admin -> Arg
+					end
+			end
+	end
+	.
+
