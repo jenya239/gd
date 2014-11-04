@@ -9,8 +9,8 @@
 </head>
 
 <body>
-	user by id: /editor/user.yaws?id=/gd_id/<br/><br/>
-	user by vkontakteId: /editor/user.yaws?vkontakteId=/vk_id/<br/><br/>
+	user by id: /admin/user.yaws?id=/gd_id/<br/><br/>
+	user by vkontakteId: /admin/user.yaws?vkontakteId=/vk_id/<br/><br/>
 <a href="/editor/index.yaws">Editor</a><br/><br/>
 <a href="/stats/index.yaws">Stats</a><br/><br/>
 <a href="/admin/rewrite.yaws">Перезапись базы</a><br/><br/>

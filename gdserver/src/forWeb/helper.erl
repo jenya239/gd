@@ -85,9 +85,9 @@ createSelectOptions(Values, Selected) ->
 urlFor(itemClass, edit, Id) ->
 	io_lib:format("/editor/items.yaws?editId=~w", [Id]);
 urlFor(user, show, Id) ->
-	io_lib:format("/editor/user.yaws?id=~w", [Id]);
+	io_lib:format("/admin/user.yaws?id=~w", [Id]);
 urlFor(user, admin, Id) ->
-	io_lib:format("/editor/user.yaws?id=~w&admin", [Id]);
+	io_lib:format("/admin/user.yaws?id=~w&admin", [Id]);
 urlFor(itemClass, imageUpload, Id) ->
 	urlFor(itemClass, imageUpload) ++ "&id=" ++ integer_to_list(Id);
 urlFor(itemClass, image, Id) ->
@@ -109,7 +109,7 @@ urlFor(Table, Action) ->
 	io_lib:format("/admin/actions.yaws?table=~w&action=~w", [Table, Action]).
 	
 urlFor(user, show, mults, VkontakteId) ->
-	io_lib:format("/editor/user.yaws?vkontakteId=~w", [VkontakteId]);	
+	io_lib:format("/admin/user.yaws?vkontakteId=~w", [VkontakteId]);	
 urlFor(itemClass, edit, Id, SortIndex) ->
     io_lib:format("/editor/items.yaws?editId=~w&sort=~w", [Id, SortIndex]);
 urlFor(itemClass, imageUpload, Id, SortIndex) ->
