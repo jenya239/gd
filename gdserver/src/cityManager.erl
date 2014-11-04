@@ -39,10 +39,15 @@ countOnlineUsers() ->
     gen_server:call(?MODULE, countOnlineUsers).
     
 getLobbyManagerByID(CityID) ->
-    list_to_atom("lobbyManager" ++ integer_to_list(CityID)).
+    LBID = case CityID of
+        1 -> 1;
+        2 -> 1;
+        3 -> 3
+    end,
+    list_to_atom( "lobbyManager" ++ integer_to_list( LBID ) ).
 
 getCityChatByID(CityID) ->
-    list_to_atom("globalChat" ++ integer_to_list(CityID)).
+    list_to_atom( "globalChat" ++ integer_to_list( 1 ) ).   %integer_to_list(CityID)).
     
 moveClient(ClientInfo, ClientPID, CitySrcID, CityDstID) ->
     gen_server:cast(?MODULE, {moveClient, ClientInfo, ClientPID, CitySrcID, CityDstID}).
