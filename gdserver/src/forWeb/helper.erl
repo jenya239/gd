@@ -462,22 +462,25 @@ arg_rewrite( ArgOriginal ) ->
 	end,
 	Arg = ArgOriginal#arg{ headers = setelement( 14, ArgOriginal#arg.headers, NewCookies ) },
 
-	GuestPaths = [
+	GuestGetPaths = [
 		"/",
 		"/admin/styles/bootstrap.min.css",
-		"/admin/javascripts/bootstrap.min.js",
+		"/admin/javascripts/bootstrap.min.js"
+	],
+	GuestPostPaths = [
+		"/session.yaws?action=login",
 		"/callback/GLOBxVB4OW7RuQn6r6WuG8dK4mW97I.yaws"
 	],
 	ProcessArgForGuest = fun( A ) ->
 		Req = A#arg.req,
 		{abs_path, Path} = Req#http_request.path,
 		case (A#arg.req)#http_request.method of
-			'GET' -> case lists:member( Path, GuestPaths ) of
+			'GET' -> case lists:member( Path, GuestGetPaths ) of
 					true -> A;
 					false ->
 						A#arg{ req = Req#http_request{ path = { abs_path, "/" } }, state = { abs_path, Path } }
 				end;
-			'POST' -> case lists:member( Path, ["/session.yaws?action=login"] ) of
+			'POST' -> case lists:member( Path, GuestPostPaths ) of
 					true -> A;
 					false ->
 						A#arg{ req = Req#http_request{ path = { abs_path, "/" } }, state = { abs_path, Path } }
