@@ -24,7 +24,23 @@ tsclient/tsclient.iml
 tsclient/tsclient.ipr
 tsclient/.idea/
 tsclient/bin/
-tsclient/src/assets/gui/screens/city/*
+tsclient/src/assets/gui/screens/city/
+tsclient/src/assets/gui/screens/city/arena1.png
+tsclient/src/assets/gui/screens/city/arena2.png
+tsclient/src/assets/gui/screens/city/bank1.png
+tsclient/src/assets/gui/screens/city/bank2.png
+tsclient/src/assets/gui/screens/city/carshop1.png
+tsclient/src/assets/gui/screens/city/carshop2.png
+tsclient/src/assets/gui/screens/city/gas1.png
+tsclient/src/assets/gui/screens/city/gas2.png
+tsclient/src/assets/gui/screens/city/house1.png
+tsclient/src/assets/gui/screens/city/house2.png
+tsclient/src/assets/gui/screens/city/map1_bkg.jpg
+tsclient/src/assets/gui/screens/city/map2_bkg.jpg
+tsclient/src/assets/gui/screens/city/shop1.png
+tsclient/src/assets/gui/screens/city/shop2.png
+tsclient/src/assets/gui/screens/city/station1.png
+tsclient/src/assets/gui/screens/city/station2.png
 
 .gitignore.swp
 gdserver/cfg/server.cfg~
