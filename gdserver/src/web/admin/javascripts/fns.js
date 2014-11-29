@@ -46,11 +46,11 @@ function create_color_changing( container, car_id, car_class_id, color_id ){
 			create_color_changing( container, car_id, car_class_id, new_color );
 		}
 	});
-	var pic_url = 'http://188.93.17.91/data/selectCar/car_'+car_class_id+'_'+color_id+'.png';
+	var pic_url = 'http://62.109.8.9/data/selectCar/car_'+car_class_id+'_'+color_id+'.png';
 	var thumb = new Element( 'img', {src: pic_url, height: 13} );
 	new Tooltip( thumb, '<img src="' + pic_url + '"/>' );
 	container.insert( thumb );
-	var rcar_pic_url = 'http://188.93.17.91/data/racingCars/rcar_'+car_class_id+'_'+color_id+'.png';
+	var rcar_pic_url = 'http://62.109.8.9/data/racingCars/rcar_'+car_class_id+'_'+color_id+'.png';
 	var rcar_thumb = new Element( 'img', {src: rcar_pic_url, height: 13} );
 	new Tooltip( rcar_thumb, '<img src="' + rcar_pic_url + '"/>' );
 	container.insert( rcar_thumb );
