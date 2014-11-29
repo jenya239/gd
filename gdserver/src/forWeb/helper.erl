@@ -372,6 +372,21 @@ createNicksChangesTable() ->
 		)
 	]}.
 
+log( Place, Data ) ->
+	% FormatSymbol = fun( Type ) ->
+	% 	case Type of
+	% 		string -> "~s";
+	% 		erlang -> "~p";
+	% 		_ -> "~w"
+	% 	end
+	% end,
+	% {FormatPart, DataValues} = lists:foldl( fun( {Type, Val}, {F, V} ) -> {F ++ "\t" ++ FormatSymbol(Type), V ++ [Val]} end, {"", []}, Data ),
+	% {{Year, Month, Day}, {Hour, Min, Sec}} = calendar:now_to_local_time(erlang:now()),
+	% TimeStr = lists:flatten(io_lib:fwrite("~4..0B.~2B.~2B ~2B:~2.10.0B:~2.10.0B", [Year, Month, Day, Hour, Min, Sec])),
+	% LogStr = io_lib:format( "~s\t~s" ++ FormatPart ++ "\n", [TimeStr, Place] ++ DataValues ),
+	% file:write_file( "logs/log.txt", LogStr, [append] ).
+	ok.
+
 checkAuth( SessionCookie, Login, Password ) ->
 	NewSession = case ( ( Login =:= "admin" ) and ( Password =:= "mnogoeuro" ) ) of
 		false -> #session_info{ username = guest, last_msg = {error, {incorrect_login_or_password, "incorrect login or password"} } };
@@ -456,11 +471,20 @@ stripDuplicatesSid( WasSid, Source ) ->
 
 arg_rewrite( ArgOriginal ) ->
 	file:write_file( "arg_oorig.txt", io_lib:format( "~p", [ArgOriginal] ) ),
+	file:write_file( "logs/log.txt", "\n", [append] ),
+	log( "arg_rewrite:begin ip", [{erlang, ArgOriginal#arg.client_ip_port}] ),
+	log( "arg_rewrite:begin path", [{string, element( 2, (ArgOriginal#arg.req)#http_request.path )}] ),
+	log( "arg_rewrite:begin cookie", [{string, element( 14, ArgOriginal#arg.headers )}] ),
+	SessionForLog = yaws_api:cookieval_to_opaque( yaws_api:find_cookie_val( "sid", element( 14, ArgOriginal#arg.headers ) ) ),
+	log( "arg_rewrite:begin session", [{terms, SessionForLog}] ),
+
 	NewCookies = case element( 14, ArgOriginal#arg.headers ) of
 		[] -> [];
-		_ -> [stripDuplicatesSid( false, string:tokens( lists:nth( 1, element( 14, ArgOriginal#arg.headers ) ), "; " ) )]
+		_ -> [stripDuplicatesSid( false, lists:reverse( string:tokens( lists:nth( 1, element( 14, ArgOriginal#arg.headers ) ), "; " ) ) )]
 	end,
+	log( "arg_rewrite new cookie", [{string, NewCookies}] ),
 	Arg = ArgOriginal#arg{ headers = setelement( 14, ArgOriginal#arg.headers, NewCookies ) },
+	log( "arg_rewrite new cookie check", [{string, element( 14, Arg#arg.headers )}] ),
 
 	GuestGetPaths = [
 		"/",
@@ -489,11 +513,14 @@ arg_rewrite( ArgOriginal ) ->
 		end
 	end,
 	SessionCookie = yaws_api:find_cookie_val( "sid", element( 14, Arg#arg.headers ) ),
+	log( "arg_rewrite session cookie", [{string, SessionCookie}] ),
 	file:write_file( "cook.txt", io_lib:format( "~p~n~p~n~p~n~p~n~p", [NewCookies, element( 14, Arg#arg.headers ), Arg, SessionCookie, yaws_api:cookieval_to_opaque( SessionCookie )] ) ),
 	case SessionCookie of
 		[] -> ProcessArgForGuest( Arg );
 		_ ->
-			case yaws_api:cookieval_to_opaque( SessionCookie ) of
+			CTO = yaws_api:cookieval_to_opaque( SessionCookie ),
+			log( "arg_rewrite cookieval_to_opaque", [{terms, CTO}] ),
+			case CTO of
 				{error, _} -> ProcessArgForGuest( Arg );
 				{ok, Sess} -> 
 					case Sess#session_info.username of
