@@ -236,28 +236,42 @@ getUserCars(UserID) ->
   FunFilter =
       fun(CarID) ->
           Car = mneser:getRecord(car, CarID),
-          CarClass = mneser:getRecord(carClass, Car#car.carClassID),
-          CarClass#carClass.minLevel =:= 1
+          case mnesia:transaction(fun() -> mneser:getRecord_nt(carClass, Car#car.carClassID) end) of
+            {atomic, CarClass} -> CarClass#carClass.minLevel =:= 1;
+            {aborted, _} -> false
+          end
       end,
   FirstLevelCars = lists:filter(FunFilter, Cars),
   FirstLevelCarsCount = length(FirstLevelCars),
   Fun = fun(CarID) ->
-          Car = getCar(CarID),
-          CarClass = mneser:getRecord(carClass, Car#car.carClassID),
-          SellPrice2 = 
-              case (FirstLevelCarsCount =:= 1 andalso CarClass#carClass.minLevel =:= 1) of
-                           true -> -1;
-                           _Other -> calcSellPrice(Car,CarClass)
-              end,
-          #carInfo{car=Car,
-                   carClass=CarClass,
-                   sellPrice=SellPrice2,
-                   repairPrice = calcFullRepairPrice(CarClass,Car),
-                   capitalRepairPrice = calcCapitalRepairPrice(CarClass,Car),
-                   carUpgrade = calcCarParams(Car,CarClass),
-                   recolor=getRecolor(CarClass#carClass.id)}
-        end,
-  lists:map(Fun, Cars).
+    Car = getCar(CarID),
+    case mnesia:transaction(fun() -> mneser:getRecord_nt(carClass, Car#car.carClassID) end) of
+      {atomic, CarClass} -> 
+        SellPrice2 = 
+          case (FirstLevelCarsCount =:= 1 andalso CarClass#carClass.minLevel =:= 1) of
+            true -> -1;
+            _Other -> calcSellPrice(Car,CarClass)
+          end,
+        Info = #carInfo{
+          car=Car,
+          carClass=CarClass,
+          sellPrice=SellPrice2,
+          repairPrice = calcFullRepairPrice(CarClass,Car),
+          capitalRepairPrice = calcCapitalRepairPrice(CarClass,Car),
+          carUpgrade = calcCarParams(Car,CarClass),
+          recolor=getRecolor(CarClass#carClass.id)
+        },
+        {true, Info};
+      {aborted, _} -> false
+    end
+  end,
+  lists:foldr( fun(Elem, Acc) -> %filtermap
+    case Fun(Elem) of
+      false -> Acc;
+      true -> [Elem|Acc];
+      {true,Value} -> [Value|Acc]
+    end
+  end, [], Cars ).
 
 getRecolor(CarClassID) ->
     {atomic, Result} = mnesia:transaction(fun() ->
