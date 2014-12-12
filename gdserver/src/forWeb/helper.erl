@@ -489,7 +489,8 @@ arg_rewrite( ArgOriginal ) ->
 	GuestGetPaths = [
 		"/",
 		"/admin/styles/bootstrap.min.css",
-		"/admin/javascripts/bootstrap.min.js"
+		"/admin/javascripts/bootstrap.min.js",
+		"/stats/war.yaws"
 	],
 	GuestPostPaths = [
 		"/session.yaws?action=login",
