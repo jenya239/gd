@@ -560,12 +560,19 @@ process({authorizeVkontakte, error, Reason, Message, VkontakteID, AuthKey, First
 
 process({authorizeVkontakte, VkontakteID, AuthKey, FirstLastName, VkontakteOwnerID}, #state{name=notAuthorized} = State) ->
     %check white list
-    WhiteList = vkontakte:getWhiteList(),
-    case lists:member( VkontakteID, WhiteList ) of
-        false -> %not in white list
-            self() ! {authorizeVkontakte, error, notInWhiteList, VkontakteID, VkontakteID, AuthKey, FirstLastName};
+    % WhiteList = vkontakte:getWhiteList(),
+    % case lists:member( VkontakteID, WhiteList ) of
+    %     false -> %not in white list
+    %         self() ! {authorizeVkontakte, error, notInWhiteList, VkontakteID, VkontakteID, AuthKey, FirstLastName};
+    %     true ->
+    %         vkontakte:authorize(VkontakteID, AuthKey, FirstLastName, VkontakteOwnerID)
+    % end,
+    BlackList = vkontakte:getBlackList(),
+    case lists:member( VkontakteID, BlackList ) of
+        false -> %not in black list
+            vkontakte:authorize(VkontakteID, AuthKey, FirstLastName, VkontakteOwnerID);
         true ->
-            vkontakte:authorize(VkontakteID, AuthKey, FirstLastName, VkontakteOwnerID)
+            self() ! {authorizeVkontakte, error, inBlackList, VkontakteID, VkontakteID, AuthKey, FirstLastName}
     end,
     {noreply, State};
 

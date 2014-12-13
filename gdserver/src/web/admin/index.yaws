@@ -17,6 +17,11 @@
 <a href="/admin/sales.yaws">Продажи</a><br/><br/>
 <a href="/admin/sendNotifications.yaws">Рассылка уведомлений ВКонтакте</a><br/><br/>
 <a href="/admin/nicksChanges.yaws">Смены ников</a><br/><br/>
+
+<h2>Чёрный список</h2>
+<erl>
+out(Arg) -> helper:blackListBlock().
+</erl>
 </body>
 </html>
 

@@ -101,6 +101,8 @@ urlFor(itemClass, index) ->
 	io_lib:format("/editor/items.yaws", []);
 urlFor(editor, index) ->
 	io_lib:format("/editor/index.yaws", []);
+urlFor(admin, index) ->
+	io_lib:format("/admin/index.yaws", []);
 urlFor(mainTables, resetView) ->
 	io_lib:format("/admin/rewrite.yaws", []);
 urlFor(Table, index) ->
@@ -118,6 +120,9 @@ urlFor(Table, edit, Id, SortIndex) ->
   io_lib:format("/editor/editdb.yaws?table=~w&editId=~w&sort=~w", [Table, Id, SortIndex]);	
 urlFor(Table, Action, Id, SortIndex) ->
   io_lib:format("/editor/editdb.yaws?table=~w&action=~w&id=~w&sort=~w", [Table, Action, Id, SortIndex]).
+
+urlFor(updateBlackList) ->
+	"/admin/actions.yaws?table=none&action=updateBlackList".
 	
 
 pathTo(itemClass, image, Id) ->
@@ -212,8 +217,12 @@ processAction(Arg) ->
                 _Other -> Msg
             end,
             {redirect, "sendNotifications.yaws"};
-            
-        _Other -> DefaultProcess()
+    none ->
+      case Action of
+				updateBlackList -> vkontakte:updateBlackList(), {redirect, helper:urlFor( admin, index )};
+				_Other -> Msg
+			end;      
+    _Other -> DefaultProcess()
 	end.
 
 %разное. Вообще это лучше, наверное, убрать из этого модуля
@@ -531,4 +540,10 @@ arg_rewrite( ArgOriginal ) ->
 			end
 	end
 	.
+
+blackListBlock() ->
+	Form = {form, [ {action, helper:urlFor(updateBlackList)}, {method, post} ], [
+			{input, [{type, submit}, {value, "Обновить"}], []}
+		]},
+	{ehtml, [Form, {pre, [], lists:foldl(fun(Id, Res) -> Res ++ "\n" ++ integer_to_list(Id) end, "", vkontakte:getBlackList())}]}.
 
