@@ -190,6 +190,7 @@ processAction(Arg) ->
 				give -> userAdmin:processGiveCar(Arg);
 				unban -> userAdmin:processUnban(Arg);
 				switchHomeCity -> userAdmin:processSwitchHomeCity(Arg);
+				changeLevel -> userAdmin:processChangeLevel(Arg);
 				_Other -> DefaultProcess()
 			end;
 		item ->

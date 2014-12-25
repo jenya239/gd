@@ -15,7 +15,8 @@
 				processChangeCarColor/1,
 			  processAddItem/1,
 			  processCarDelete/1,
-			  processItemDelete/1]).
+			  processItemDelete/1,
+			  processChangeLevel/1]).
 
 -include("data.hrl").
 -include_lib("lib/yaws/include/yaws_api.hrl").
@@ -154,7 +155,7 @@ createUserTable(Id) ->
 		createInput("Золотых", utils:toString(utils:trunc(Rec#user.realMoney, 2)), Rec#user.id, helper:urlFor(user, addRealMoney), "точно изменить золотые (ЗОЛОТЫЕ!!) ?"),
 		createRow("Зарегистрировался", utils:timestampToHumanString(Rec#user.date)),
 		createRow("Бензина", Car#car.fuel),
-		createRow("Уровень", Rec#user.level),
+		createInput("Уровень", utils:toString(Rec#user.level), Rec#user.id, helper:urlFor(user, changeLevel), "точно изменить уровень?"),
 		createRow("Рейтинг", Rec#user.rating),
 		createRow("Опыт", Rec#user.experience),
 		createRow("Нитро", Car#car.nitroCount),
@@ -523,3 +524,12 @@ processItemDelete( Arg ) ->
 		dbActivity:register_nt( UserId, {adminDeleteItem, ItemId}, ok)
 	end ),
 	{html, "ok"}.
+	
+processChangeLevel(Arg) ->
+	Id = helper:getPOSTValue(Arg, id),
+	Value = helper:getPOSTValue(Arg, value),
+	mnesia:transaction( fun() -> 
+		User = dbUser:getRecord_nt(id, Id),
+		mnesia:write( User#user{level=Value} )
+	end ),
+	{redirect, helper:urlFor( user, show, Id )}.
