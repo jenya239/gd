@@ -218,6 +218,9 @@
 
         private function onScreenSelected(event: ScreenSelectedCommand): void
         {
+            if( _currentScreenName == event.screenName ){
+                return;
+            }
             Client.instance.updateUserInfo();
 
             userProgress.visible = true;
