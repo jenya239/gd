@@ -169,7 +169,7 @@ createUserTable(Id) ->
 		createRow("Надето", createItemsTable(Rec, Equipment)),
 		createRowLink("Vkontakte", Rec#user.vkontakteID, "http://vkontakte.ru/id" ++ integer_to_list(Rec#user.vkontakteID)),
 		createInputGiveCar("Выдать авто",Rec#user.id,helper:urlFor(user, give), "точно выдать авто?"),
-		createRowLink("Activity", "Activity", "activity.yaws?id=" ++ integer_to_list(Id)),
+		createRowLink("Activity", "Activity", "/editor/activity.yaws?id=" ++ integer_to_list(Id)),
 		createRow("Последний бан", formatLastBan(Id))
 	]}.
 
